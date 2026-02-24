@@ -1,7 +1,7 @@
 const mediaMentions = [
   {
     label: "DVTV",
-    desc: "Video rozhovor o intimitě",
+    desc: "Rozhovor o (ne)monogamii",
     href: "https://www.youtube.com/watch?v=YxkNTfiySR4",
   },
   {
