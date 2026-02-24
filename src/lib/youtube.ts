@@ -21,9 +21,13 @@ export async function getLatestVideos(count = 5): Promise<YouTubeVideo[]> {
       const titleMatch = entry.match(/<title>([^<]+)/);
 
       if (idMatch && titleMatch) {
+        const title = titleMatch[1];
+        // Only include full episodes (title contains "díl" or "Díl"), skip Shorts/Stories
+        if (!/d[íi]l/i.test(title)) continue;
+
         videos.push({
           id: idMatch[1],
-          title: titleMatch[1],
+          title,
         });
       }
     }
