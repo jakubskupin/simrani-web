@@ -55,7 +55,7 @@ export function Hero() {
               href="https://www.forendors.cz/simrani.cz"
               className="inline-flex items-center justify-center px-9 py-3.5 border border-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
             >
-              Předplať si
+              Předplať si na Forendors
             </a>
             <a
               href="#podcast"

@@ -1,9 +1,9 @@
 const links = [
-  { label: "Instagram", href: "#" },
-  { label: "Spotify", href: "#" },
-  { label: "Apple", href: "#" },
-  { label: "YouTube", href: "#" },
-  { label: "Merch", href: "https://shop.simrani.cz" },
+  { label: "Instagram", href: "https://www.instagram.com/simrani.podcast/" },
+  { label: "Spotify", href: "https://open.spotify.com/show/4YtZKf6TsvMbCiuEu2zoUc" },
+  { label: "Apple Podcasts", href: "https://podcasts.apple.com/cz/podcast/%C5%A1imr%C3%A1n%C3%AD/id1579002710" },
+  { label: "YouTube", href: "https://www.youtube.com/@ŠimráníPodcast" },
+  { label: "Forendors", href: "https://www.forendors.cz/simrani.cz" },
 ];
 
 export function Footer() {

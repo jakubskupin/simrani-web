@@ -1,4 +1,7 @@
-const mediaLogos = ["DVTV", "HEROINE"];
+const mediaLogos = [
+  { label: "DVTV", href: "https://www.youtube.com/watch?v=YxkNTfiySR4" },
+  { label: "HEROINE", href: "https://www.heroine.cz/vztahy-a-sex/12085-utajene-pribehy-me-fascinuji-rika-autorka-noveho-podcastu-rozkos-tabu-v-erotice-se-neboji" },
+];
 
 export function About() {
   return (
@@ -51,14 +54,26 @@ export function About() {
           odehrávají ty nejkrásnější rozhovory.&ldquo;
         </div>
         <div className="flex gap-6 items-center flex-wrap">
-          {mediaLogos.map((logo) => (
-            <span
-              key={logo}
-              className="px-4 py-2 border border-[rgba(197,155,104,0.12)] rounded-lg text-[12px] tracking-[1px] uppercase text-[var(--cream-35)]"
-            >
-              {logo}
-            </span>
-          ))}
+          {mediaLogos.map((m) =>
+            m.href ? (
+              <a
+                key={m.label}
+                href={m.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 border border-[rgba(197,155,104,0.12)] rounded-lg text-[12px] tracking-[1px] uppercase text-[var(--cream-35)] hover:text-[var(--gold)] hover:border-[var(--gold)] transition-colors"
+              >
+                {m.label}
+              </a>
+            ) : (
+              <span
+                key={m.label}
+                className="px-4 py-2 border border-[rgba(197,155,104,0.12)] rounded-lg text-[12px] tracking-[1px] uppercase text-[var(--cream-35)]"
+              >
+                {m.label}
+              </span>
+            )
+          )}
         </div>
       </div>
     </section>
