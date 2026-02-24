@@ -7,12 +7,13 @@ const heroStats = [
 export function Hero() {
   return (
     <section className="relative h-[780px] md:h-[939px] overflow-hidden">
-      {/* Background photo — mobile: bg-cover with position matching Pencil V2 framing */}
-      <div
-        className="absolute inset-0 z-0 bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] bg-cover bg-[position:60%_15%] md:bg-center"
-        style={{
-          backgroundImage: "url('/marketa-simrani.png')",
-        }}
+      {/* Fallback gradient while image loads */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[var(--wine)] to-[var(--deep)]" />
+      {/* Photo — mobile: Pencil V2 framing (508×824 in 390×780 at -84,-86); desktop: cover centered */}
+      <img
+        src="/marketa-simrani.png"
+        alt=""
+        className="absolute z-0 object-cover w-[130.3%] h-[105.6%] left-[-21.5%] top-[-11%] md:w-full md:h-full md:left-0 md:top-0 md:object-center"
       />
       {/* Gradient overlay — from TOP (dark) fading down to transparent (desktop) */}
       <div
