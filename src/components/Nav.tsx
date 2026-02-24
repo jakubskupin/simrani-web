@@ -8,12 +8,20 @@ export function Nav() {
       >
         Šimrání
       </a>
-      <ul className="hidden md:flex gap-8 list-none text-[13px] font-normal tracking-[1px]">
-        <li><a href="#podcast" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Podcast</a></li>
-        <li><a href="#start" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Začni tady</a></li>
-        <li><a href="#komunita" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Komunita</a></li>
-        <li><a href="#marketa" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">O mně</a></li>
-      </ul>
+      <div className="hidden md:flex items-center gap-8">
+        <ul className="flex gap-8 list-none text-[13px] font-normal tracking-[1px]">
+          <li><a href="#podcast" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Podcast</a></li>
+          <li><a href="#start" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Začni tady</a></li>
+          <li><a href="#komunita" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Komunita</a></li>
+          <li><a href="#marketa" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">O mně</a></li>
+        </ul>
+        <a
+          href="#forendors"
+          className="ml-2 px-5 py-2 rounded-full border border-[var(--gold)] text-[var(--gold)] text-[13px] font-medium tracking-[1px] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all duration-300"
+        >
+          Forendors
+        </a>
+      </div>
     </nav>
   );
 }
