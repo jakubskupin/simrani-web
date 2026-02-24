@@ -7,9 +7,9 @@ const heroStats = [
 export function Hero() {
   return (
     <section className="relative h-[780px] md:h-[939px] overflow-hidden">
-      {/* Background photo — mobile: zoomed in & offset per Pencil V2 (508×824 in 390×780, x:-84 y:-86) */}
+      {/* Background photo — mobile: bg-cover with position matching Pencil V2 framing */}
       <div
-        className="absolute inset-0 z-0 bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] bg-[length:130%_auto] md:bg-cover bg-[position:71%_10%] md:bg-center"
+        className="absolute inset-0 z-0 bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] bg-cover bg-[position:60%_15%] md:bg-center"
         style={{
           backgroundImage: "url('/marketa-simrani.png')",
         }}
