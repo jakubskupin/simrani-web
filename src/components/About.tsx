@@ -5,9 +5,9 @@ const mediaLogos = [
 
 export function About() {
   return (
-    <section id="marketa" className="flex items-center gap-16 py-[100px] px-12">
+    <section id="marketa" className="flex flex-col md:flex-row items-center gap-8 md:gap-16 py-16 md:py-[100px] px-5 md:px-12">
       {/* Photo with dark overlay tints */}
-      <div className="relative w-full aspect-square rounded-[20px] overflow-hidden shrink-0 max-w-[50%]">
+      <div className="relative w-full h-[350px] md:h-auto md:aspect-square rounded-2xl md:rounded-[20px] overflow-hidden shrink-0 md:max-w-[50%]">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -33,47 +33,38 @@ export function About() {
       </div>
 
       {/* Text */}
-      <div className="flex flex-col gap-4">
-        <div className="text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
+      <div className="flex flex-col gap-3.5 md:gap-4">
+        <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
           O mně
         </div>
-        <h2 className="font-headline font-normal text-[52px] leading-[1.1] text-[var(--cream)]">
+        <h2 className="font-headline font-normal text-[36px] md:text-[52px] leading-[1.1] text-[var(--cream)]">
           Markéta
         </h2>
-        <p className="text-[16px] leading-[1.8] text-[var(--cream-60)] font-light">
+        <p className="text-[14px] md:text-[16px] leading-[1.8] text-[var(--cream-60)] font-light">
           Jsem žena, matka, manželka. A taky člověk, kterého intimita
           fascinuje natolik, že o ní natočil přes 200 epizod podcastu.
         </p>
-        <p className="text-[16px] leading-[1.8] text-[var(--cream-60)] font-light">
+        <p className="text-[14px] md:text-[16px] leading-[1.8] text-[var(--cream-60)] font-light">
           Šimrání vzniklo ze zvědavosti — a z frustrace, že v Česku chyběl
           prostor, kde se o sexualitě mluví normálně. Nejsem terapeutka. Jsem
           průvodkyně, která jde první a říká: pojď, nic se nestane.
         </p>
-        <div className="font-headline italic font-normal text-[22px] leading-[1.4] text-[var(--cream)]">
+        <div className="font-headline italic font-normal text-[18px] md:text-[22px] leading-[1.4] text-[var(--cream)]">
           &bdquo;Intimita začíná tam, kde končí komfortní zóna. A právě tam se
           odehrávají ty nejkrásnější rozhovory.&ldquo;
         </div>
-        <div className="flex gap-6 items-center flex-wrap">
-          {mediaLogos.map((m) =>
-            m.href ? (
-              <a
-                key={m.label}
-                href={m.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 border border-[rgba(197,155,104,0.12)] rounded-lg text-[12px] tracking-[1px] uppercase text-[var(--cream-35)] hover:text-[var(--gold)] hover:border-[var(--gold)] transition-colors"
-              >
-                {m.label}
-              </a>
-            ) : (
-              <span
-                key={m.label}
-                className="px-4 py-2 border border-[rgba(197,155,104,0.12)] rounded-lg text-[12px] tracking-[1px] uppercase text-[var(--cream-35)]"
-              >
-                {m.label}
-              </span>
-            )
-          )}
+        <div className="flex gap-4 md:gap-6 items-center flex-wrap">
+          {mediaLogos.map((m) => (
+            <a
+              key={m.label}
+              href={m.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 md:px-4 py-1.5 md:py-2 border border-[rgba(197,155,104,0.12)] rounded-md md:rounded-lg text-[10px] md:text-[12px] tracking-[1px] uppercase text-[var(--cream-35)] hover:text-[var(--gold)] hover:border-[var(--gold)] transition-colors"
+            >
+              {m.label}
+            </a>
+          ))}
         </div>
       </div>
     </section>

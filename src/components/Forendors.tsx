@@ -1,42 +1,45 @@
 const benefits = [
-  { icon: "mic", label: "Celý archiv\n200+ epizod" },
+  { icon: "mic", label: "200+\nepizod" },
   { icon: "message-circle", label: "Discord\nkomunita" },
-  { icon: "video", label: "ŠOL — měsíční\nonline live" },
+  { icon: "video", label: "Měsíční\nlive" },
   { icon: "users", label: "Offline\nsetkání" },
 ];
 
 export function Forendors() {
   return (
-    <section id="komunita" className="flex flex-col items-center py-[100px] px-12">
-      <div className="flex flex-col items-center gap-4 max-w-[900px] w-full bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] rounded-3xl p-16 text-center">
-        <div className="text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
+    <section id="komunita" className="flex flex-col items-center py-16 md:py-[100px] px-5 md:px-12">
+      <div className="flex flex-col items-center gap-4 max-w-[900px] w-full bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] rounded-2xl md:rounded-3xl p-10 md:p-16 text-center">
+        <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
           Chceš víc?
         </div>
-        <h2 className="font-headline font-normal text-[52px] leading-[1.1] text-[var(--cream)]">
+        <h2 className="font-headline font-normal text-[28px] md:text-[52px] leading-[1.1] text-[var(--cream)]">
           Odemkni celý svět Šimrání
         </h2>
-        <p className="text-[16px] leading-[1.7] text-[var(--cream-60)] max-w-[560px] font-light">
+        <p className="text-[14px] md:text-[16px] leading-[1.7] text-[var(--cream-60)] max-w-[560px] font-light">
           Přístup k archivu 200+ epizod, bonusovým dílům, měsíčním online
           setkáním a komunitě lidí, kteří se nestydí mluvit.
         </p>
 
-        <div className="flex justify-center gap-8 py-6 flex-wrap">
-          {benefits.map((b) => (
-            <div key={b.icon} className="flex flex-col items-center gap-2 w-[140px]">
+        <div className="flex justify-center gap-3 md:gap-8 py-4 md:py-6 flex-wrap">
+          {benefits.map((b, i) => (
+            <div
+              key={b.icon}
+              className={`flex flex-col items-center gap-1.5 md:gap-2 w-[80px] md:w-[140px] ${i === 3 ? "hidden md:flex" : ""}`}
+            >
               <BenefitIcon name={b.icon} />
-              <div className="text-[13px] text-[var(--cream-60)] whitespace-pre-line text-center">
+              <div className="text-[10px] md:text-[13px] text-[var(--cream-60)] whitespace-pre-line text-center">
                 {b.label}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="font-headline text-[24px] text-[var(--gold)]">
+        <div className="font-headline text-[20px] md:text-[24px] text-[var(--gold)]">
           248 Kč / měsíc
         </div>
         <a
           href="https://www.forendors.cz/simrani.cz"
-          className="inline-flex items-center justify-center px-9 py-3.5 border border-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
+          className="inline-flex items-center justify-center px-9 py-3.5 border border-[var(--gold)] rounded-full text-[13px] md:text-[14px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
         >
           Předplať si na Forendors
         </a>
@@ -46,7 +49,7 @@ export function Forendors() {
 }
 
 function BenefitIcon({ name }: { name: string }) {
-  const cls = "w-7 h-7 text-[var(--gold)]";
+  const cls = "w-[22px] h-[22px] md:w-7 md:h-7 text-[var(--gold)]";
   switch (name) {
     case "mic":
       return (

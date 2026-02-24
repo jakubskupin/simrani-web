@@ -4,10 +4,10 @@ function MarqueeBlock() {
     <div className="flex items-center shrink-0">
       {items.map((text, i) => (
         <span key={i} className="flex items-center">
-          <span className="font-headline font-normal text-[80px] text-[var(--cream)]">
+          <span className="font-headline font-normal text-[36px] md:text-[80px] text-[var(--cream)]">
             {text}
           </span>
-          <span className="font-headline font-normal italic text-[80px] text-[var(--gold)] mx-2">
+          <span className="font-headline font-normal italic text-[36px] md:text-[80px] text-[var(--gold)] mx-1 md:mx-2">
             ·
           </span>
         </span>
@@ -18,7 +18,7 @@ function MarqueeBlock() {
 
 export function CTAMarquee() {
   return (
-    <section className="flex flex-col items-center gap-10 py-20 overflow-hidden">
+    <section className="flex flex-col items-center gap-7 md:gap-10 py-12 md:py-20 overflow-hidden">
       {/* Marquee strip — two identical copies for seamless loop */}
       <div className="flex items-center whitespace-nowrap animate-marquee">
         <MarqueeBlock />
@@ -29,7 +29,7 @@ export function CTAMarquee() {
       <div className="flex justify-center">
         <a
           href="https://www.forendors.cz/simrani.cz"
-          className="inline-flex items-center gap-2 px-8 py-3.5 border border-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--cream)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
+          className="inline-flex items-center gap-2 px-7 md:px-8 py-3 md:py-3.5 border border-[var(--gold)] rounded-full text-[13px] md:text-[14px] font-medium text-[var(--cream)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
         >
           Na Forendors
           <svg

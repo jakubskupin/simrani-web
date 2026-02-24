@@ -13,16 +13,16 @@ export function StartHere() {
   return (
     <section
       id="start"
-      className="flex flex-col items-center py-[100px] px-12 gap-6"
+      className="flex flex-col items-center py-16 md:py-[100px] px-5 md:px-12 gap-5 md:gap-6"
     >
-      <div className="text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
+      <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
         Markétina volba
       </div>
-      <h2 className="font-headline font-normal text-[42px] leading-[1.1] text-[var(--cream)]">
+      <h2 className="font-headline font-normal text-[28px] md:text-[42px] leading-[1.1] text-[var(--cream)] text-center">
         8 dílů pro nováčky
       </h2>
-      <p className="text-[17px] leading-[1.7] text-[var(--cream-60)] font-light text-center max-w-[640px]">
-        Tady začněte. Tyhle epizody jsem pro vás vybrala, protože v nich
+      <p className="text-[14px] md:text-[17px] leading-[1.7] text-[var(--cream-60)] font-light text-center max-w-[640px]">
+        Tyhle epizody jsem pro vás vybrala, protože v nich
         najdete přesně to, kvůli čemu Šimrání vzniklo — otevřenost, respekt
         a odvahu mluvit o intimitě bez studu.
       </p>
@@ -55,11 +55,11 @@ function EpisodeCard({
   isLast: boolean;
 }) {
   return (
-    <div className="flex items-center gap-5 py-4 cursor-pointer group">
+    <div className="flex items-center gap-4 md:gap-5 py-3 md:py-4 cursor-pointer group">
       {/* Number circle + connecting line */}
-      <div className="flex flex-col items-center w-10 shrink-0 self-stretch">
-        <div className="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center shrink-0">
-          <span className="font-headline text-[16px] font-normal text-[var(--gold)]">
+      <div className="flex flex-col items-center w-8 md:w-10 shrink-0 self-stretch">
+        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-[var(--gold)] flex items-center justify-center shrink-0">
+          <span className="font-headline text-[13px] md:text-[16px] font-normal text-[var(--gold)]">
             {num}
           </span>
         </div>
@@ -69,11 +69,11 @@ function EpisodeCard({
       </div>
 
       {/* Title + tag */}
-      <div className="flex flex-col gap-1 flex-1">
-        <div className="text-[15px] font-medium text-[var(--cream)]">
+      <div className="flex flex-col gap-0.5 md:gap-1 flex-1">
+        <div className="text-[13px] md:text-[15px] font-medium text-[var(--cream)]">
           {title}
         </div>
-        <div className="text-[11px] tracking-[1px] uppercase text-[var(--gold)] font-normal">
+        <div className="text-[9px] md:text-[11px] tracking-[1px] uppercase text-[var(--gold)] font-normal">
           {tag}
         </div>
       </div>
@@ -81,7 +81,7 @@ function EpisodeCard({
       {/* Chevron */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-5 h-5 text-[var(--gold)] opacity-35 group-hover:opacity-70 transition-opacity shrink-0"
+        className="w-4 h-4 md:w-5 md:h-5 text-[var(--gold)] opacity-35 group-hover:opacity-70 transition-opacity shrink-0"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

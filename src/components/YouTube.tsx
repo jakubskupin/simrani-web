@@ -13,30 +13,30 @@ export async function YouTube() {
   return (
     <section
       id="podcast"
-      className="flex flex-col items-center py-[100px] px-12 gap-8 bg-gradient-to-b from-[var(--deep)] via-[#120810] to-[var(--deep)]"
+      className="flex flex-col items-center py-16 md:py-[100px] px-5 md:px-12 gap-6 md:gap-8 bg-gradient-to-b from-[var(--deep)] via-[#120810] to-[var(--deep)]"
     >
-      <h2 className="font-headline font-normal text-[42px] leading-[1.1] text-[var(--cream)]">
+      <h2 className="font-headline font-normal text-[28px] md:text-[42px] leading-[1.1] text-[var(--cream)]">
         Nejnovější epizody
       </h2>
 
       <YouTubePlayer episodes={episodes} />
 
       {/* Platformy strip */}
-      <div className="flex flex-col items-center gap-4 w-full pt-6 border-t border-[var(--gold-06)]">
-        <span className="text-[11px] tracking-[2px] uppercase font-medium text-[var(--cream-35)]">
+      <div className="flex flex-col items-center gap-3 md:gap-4 w-full pt-5 md:pt-6 border-t border-[var(--gold-06)]">
+        <span className="text-[10px] md:text-[11px] tracking-[2px] uppercase font-medium text-[var(--cream-35)]">
           Poslouchej také na
         </span>
-        <div className="flex gap-3">
+        <div className="flex gap-2 md:gap-3 flex-wrap justify-center">
           {platforms.map((p) => (
             <a
               key={p.label}
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 px-6 py-2.5 border border-[var(--gold-10)] rounded-full hover:border-[var(--gold-25)] transition-colors"
+              className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 border border-[var(--gold-10)] rounded-full hover:border-[var(--gold-25)] transition-colors"
             >
               <PlatformIcon name={p.icon} />
-              <span className="text-[13px] font-medium text-[var(--cream-60)]">
+              <span className="text-[11px] md:text-[13px] font-medium text-[var(--cream-60)]">
                 {p.label}
               </span>
             </a>
