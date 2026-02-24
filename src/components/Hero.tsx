@@ -13,7 +13,7 @@ export function Hero() {
       <img
         src="/marketa-simrani.png"
         alt=""
-        className="absolute z-0 object-cover w-[130.3%] h-[105.6%] left-[-21.5%] top-[-11%] md:w-full md:h-full md:left-0 md:top-0 md:object-center"
+        className="absolute z-0 object-cover max-w-none w-[130.3%] h-[105.6%] left-[-21.5%] top-[-11%] md:w-full md:h-full md:left-0 md:top-0 md:object-center"
       />
       {/* Gradient overlay — from TOP (dark) fading down to transparent (desktop) */}
       <div
