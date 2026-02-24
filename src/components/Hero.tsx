@@ -1,43 +1,75 @@
+const heroStats = [
+  { num: "200+", label: "Epizod" },
+  { num: "4.6★", label: "Apple Podcasts" },
+  { num: "2×", label: "Měsíčně" },
+];
+
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden px-12 pb-20">
-      {/* Background — replace gradient with real photo via CSS background-image */}
+    <section className="relative h-[939px] overflow-hidden">
+      {/* Background photo — replace src with real Markéta photo */}
       <div
-        className="absolute inset-0 z-0 bg-gradient-to-br from-[var(--wine)] to-[var(--deep)]"
+        className="absolute inset-0 z-0 bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] bg-cover bg-center"
         style={{
-          /* backgroundImage: "url('/marketa-hero.jpg')", */
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: "url('/marketa-simrani.png')",
         }}
       />
-      {/* Gradient overlay for text readability */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[var(--deep)] via-[var(--deep)]/55 to-[var(--deep)]/20" />
+      {/* Gradient overlay — from TOP (dark) fading down to transparent */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background:
+            "linear-gradient(to bottom, #1A0A14CC 0%, #1A0A1480 15%, #1A0A1430 25%, transparent 35%)",
+        }}
+      />
 
-      {/* Content */}
-      <div className="relative z-[2] max-w-[640px]">
-        <h1 className="font-headline font-normal text-[clamp(56px,7vw,96px)] leading-[0.95] text-[var(--cream)] mb-4">
+      {/* Content — positioned top-left */}
+      <div className="absolute z-[2] left-16 top-[200px] w-[640px] flex flex-col gap-4">
+        <div className="text-[12px] tracking-[3px] uppercase font-medium text-[var(--gold)]">
+          Podcast o intimitě
+        </div>
+        <h1 className="font-headline font-normal text-[96px] leading-[0.95] text-[var(--cream)]">
           Šimrání
         </h1>
-        <div className="text-[14px] tracking-[2px] uppercase text-[var(--gold)] mb-6 font-normal">
-          Podcast o intimitě, sexualitě &amp; BDSM
-        </div>
-        <p className="text-[17px] leading-[1.7] text-[var(--cream-60)] max-w-[440px] mb-9 font-light">
-          Otevřené rozhovory o tom, o čem se běžně nemluví. S&nbsp;lehkostí,
-          respektem a zvědavostí. Protože intimita si zaslouží vlastní hlas.
-        </p>
-        <div className="flex items-center gap-6 flex-wrap">
-          <a
-            href="https://www.forendors.cz/simrani.cz"
-            className="inline-block px-9 py-3.5 border border-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
-          >
-            Předplať si
-          </a>
-          <a
-            href="#podcast"
-            className="text-[14px] text-[var(--cream-60)] border-b border-[var(--cream)]/20 pb-0.5 hover:text-[var(--gold)] hover:border-[var(--gold)] transition-colors"
-          >
-            nebo začni poslouchat zdarma →
-          </a>
+
+        <div className="flex flex-col gap-6 w-[600px] mt-2">
+          <div className="font-headline italic font-normal text-[22px] leading-[1.3] text-[var(--gold)]">
+            Kde ostatní končí,{"\n"}tam já začínám.
+          </div>
+          <p className="text-[16px] leading-[1.6] text-[var(--cream-60)] font-light max-w-[440px]">
+            Otevřené rozhovory o intimitě, vztazích a sexualitě.{" "}
+            S&nbsp;lehkostí, respektem a zvědavostí.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex items-center gap-5">
+            <a
+              href="https://www.forendors.cz/simrani.cz"
+              className="inline-flex items-center justify-center px-9 py-3.5 border border-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
+            >
+              Předplať si
+            </a>
+            <a
+              href="#podcast"
+              className="text-[14px] text-[var(--cream-60)] font-light hover:text-[var(--gold)] transition-colors"
+            >
+              nebo začni poslouchat zdarma →
+            </a>
+          </div>
+
+          {/* Mini stats row */}
+          <div className="flex items-center gap-8 mt-2">
+            {heroStats.map((s) => (
+              <div key={s.label} className="flex flex-col gap-0.5">
+                <span className="font-headline text-[28px] font-normal text-[var(--gold)]">
+                  {s.num}
+                </span>
+                <span className="text-[11px] font-normal text-[var(--cream-35)]">
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -5,21 +5,24 @@ const episodes = [
   "Epizoda 212",
 ];
 
+const platforms = [
+  { icon: "youtube", label: "YouTube" },
+  { icon: "headphones", label: "Spotify" },
+  { icon: "podcast", label: "Apple Podcasts" },
+];
+
 export function YouTube() {
   return (
     <section
       id="podcast"
-      className="flex flex-col items-center py-[100px] px-12 bg-gradient-to-b from-[var(--deep)] via-[#120810] to-[var(--deep)]"
+      className="flex flex-col items-center py-[100px] px-12 gap-8 bg-gradient-to-b from-[var(--deep)] via-[#120810] to-[var(--deep)]"
     >
-      <div className="text-[11px] tracking-[3px] uppercase text-[var(--gold)] mb-5 font-normal">
-        Nejnovější
-      </div>
-      <h2 className="font-headline font-normal text-[clamp(32px,4vw,52px)] leading-[1.1] text-[var(--cream)] mb-8">
-        Poslouchej
+      <h2 className="font-headline font-normal text-[42px] leading-[1.1] text-[var(--cream)]">
+        Nejnovější epizody
       </h2>
 
       {/* Main video */}
-      <div className="w-full max-w-[1000px] aspect-video rounded-2xl overflow-hidden bg-black mb-10">
+      <div className="w-full max-w-[1000px] aspect-video rounded-2xl overflow-hidden bg-black">
         <iframe
           src="https://www.youtube.com/embed?listType=user_uploads&list=Šimránípodcast"
           allowFullScreen
@@ -39,6 +42,47 @@ export function YouTube() {
           </div>
         ))}
       </div>
+
+      {/* Platformy strip */}
+      <div className="flex flex-col items-center gap-4 w-full pt-6 border-t border-[var(--gold-06)]">
+        <span className="text-[11px] tracking-[2px] uppercase font-medium text-[var(--cream-35)]">
+          Poslouchej také na
+        </span>
+        <div className="flex gap-3">
+          {platforms.map((p) => (
+            <a
+              key={p.label}
+              href="#"
+              className="flex items-center gap-2.5 px-6 py-2.5 border border-[var(--gold-10)] rounded-full hover:border-[var(--gold-25)] transition-colors"
+            >
+              <PlatformIcon name={p.icon} />
+              <span className="text-[13px] font-medium text-[var(--cream-60)]">
+                {p.label}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
     </section>
   );
+}
+
+function PlatformIcon({ name }: { name: string }) {
+  const iconClass = "w-5 h-5 text-[var(--gold)]";
+  switch (name) {
+    case "youtube":
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={iconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+      );
+    case "headphones":
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={iconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>
+      );
+    case "podcast":
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={iconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16.85 18.58a9 9 0 1 0-9.7 0"/><path d="M8 14a5 5 0 1 1 8 0"/><circle cx="12" cy="11" r="1"/><path d="M13 17a1 1 0 1 0-2 0l.5 4.5a.5.5 0 1 0 1 0Z"/></svg>
+      );
+    default:
+      return null;
+  }
 }
