@@ -58,26 +58,24 @@ export function Forendors() {
           {/* Discord Preview */}
           <div className="flex flex-col gap-3.5 flex-1 bg-[#2B1A27] rounded-xl p-5 overflow-hidden">
             <div className="flex items-center gap-1.5 text-[var(--cream-35)]">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>
+              <span className="text-[14px] font-bold leading-none">#</span>
               <span className="text-[12px] font-medium">sol-live-chat</span>
             </div>
             {discordMessages.map((msg) => (
               <div key={msg.name} className="flex items-start gap-2.5">
                 <div
-                  className="w-7 h-7 rounded-full shrink-0"
+                  className="w-7 h-7 rounded-full shrink-0 mt-0.5"
                   style={{ backgroundColor: msg.avatarColor }}
                 />
-                <div className="flex flex-col gap-0.5">
+                <p className="text-[12px] leading-[1.5] text-[var(--cream-60)] font-light text-left">
                   <span
-                    className="text-[11px] font-semibold"
+                    className="font-semibold"
                     style={{ color: msg.nameColor }}
                   >
                     {msg.name}
-                  </span>
-                  <span className="text-[12px] leading-[1.5] text-[var(--cream-60)] font-light text-left">
-                    {msg.text}
-                  </span>
-                </div>
+                  </span>{" "}
+                  {msg.text}
+                </p>
               </div>
             ))}
           </div>
