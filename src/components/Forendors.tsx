@@ -94,8 +94,11 @@ export function Forendors() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-11 py-4 bg-[var(--gold)] rounded-full text-[14px] md:text-[15px] font-semibold text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
           >
-            Předplať si na Forendors
+            Zkus to na měsíc
           </a>
+          <span className="text-[11px] text-[var(--cream-35)] font-light">
+            přes platformu Forendors
+          </span>
         </div>
       </div>
     </section>
