@@ -29,12 +29,12 @@ export function CTAMarquee() {
       <div className="flex justify-center">
         <a
           href="https://www.forendors.cz/simrani.cz"
-          className="inline-flex items-center gap-2 px-7 md:px-8 py-3 md:py-3.5 border border-[var(--gold)] rounded-full text-[13px] md:text-[14px] font-medium text-[var(--cream)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
+          className="inline-flex items-center gap-2 px-7 md:px-8 py-3 md:py-3.5 bg-[var(--gold)] rounded-full text-[13px] md:text-[14px] font-medium text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
         >
           Na Forendors
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-4 h-4 text-[var(--gold)]"
+            className="w-4 h-4 text-[var(--deep)]"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
