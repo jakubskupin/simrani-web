@@ -1,9 +1,16 @@
+const heroTestimonial = {
+  label: "Odvaha zkoušet nové věci",
+  quote:
+    "Šimrání mě neskutečně posunulo a dodalo mi odvahu zkoušet nové věci. \nDřív jsem jen snil o tom, jaké by asi bylo navštívit profesionální dominu, nechat se svázat, realizovat své představy o perverzním vyšetření doktorkou v latexu a podobně. Bál jsem se – říkal jsem si, že jestli se to někdo dozví, budu za úchyláka. Díky poslechu Šimrání jsem zjistil, že jsem vlastně normální. Nic špatného na tom není a nejsou to jen moje představy, takových lidí je víc.",
+  source: "Pravý Šimrač",
+};
+
 const quotes = [
   { title: "Změna v chápání intimity", quote: "Díky Markétě a jejím hostům jsem prošla dost výraznou změnou v chápání vlastní intimity.", source: "Apple Podcasts" },
   { title: "Součást základního vzdělání", quote: "Naprosto boží podcast, který by měl být součástí základního vzdělání.", source: "Spotify" },
   { title: "Markéta začíná tam, kde jiní končí", quote: "Kde jiní v otázkách sexu se zarděním končí, Markéta začíná.", source: "Apple Podcasts" },
   { title: "Odvaha zkoušet nové věci", quote: "Šimrání mi dodalo odvahu zkoušet nové věci. Uvědomila jsem si, že jsem normální.", source: "Spotify" },
-  { title: "Pozitivní vliv", quote: "Podcast pozitivně ovlivnil celou mou existenci a sexualitu.", source: "Apple Podcasts" },
+  { title: "Pozitivní vliv na celou existenci", quote: "Podcast pozitivně ovlivnil celou mou existenci a sexualitu.", source: "Apple Podcasts" },
   { title: "Mění životy", quote: "Šimrání mění životy a vřele doporučuji každému.", source: "Spotify" },
 ];
 
@@ -16,11 +23,27 @@ export function Testimonials() {
       <h2 className="font-headline font-normal text-[32px] md:text-[48px] leading-[1.1] text-[var(--cream)] text-center">
         Šimrání mění životy
       </h2>
+
+      {/* Hero testimonial — featured large quote */}
+      <div className="flex flex-col items-center gap-4 md:gap-5 w-full px-6 py-10 md:px-40 md:py-12 border border-[var(--gold)] rounded-2xl md:rounded-[20px] text-center">
+        <div className="text-[12px] md:text-[13px] font-semibold tracking-[2px] uppercase text-[var(--gold)]">
+          {heroTestimonial.label}
+        </div>
+        <div className="font-headline italic font-light text-[20px] md:text-[30px] leading-[1.5] md:leading-[1.6] text-[var(--cream)] whitespace-pre-line">
+          {heroTestimonial.quote}
+        </div>
+        <div className="text-[11px] md:text-[12px] font-normal text-[var(--cream-35)]">
+          — {heroTestimonial.source}
+        </div>
+      </div>
+
+      {/* Grid row 1 */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full">
         {quotes.slice(0, 3).map((q, i) => (
           <TestimonialCard key={i} {...q} />
         ))}
       </div>
+      {/* Grid row 2 */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full">
         {quotes.slice(3).map((q, i) => (
           <TestimonialCard key={i + 3} {...q} />
