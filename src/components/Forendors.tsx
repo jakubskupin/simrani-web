@@ -1,55 +1,109 @@
 const benefits = [
-  { icon: "mic", label: "200+\nepizod" },
-  { icon: "message-circle", label: "Discord\nkomunita" },
-  { icon: "video", label: "Měsíční\nlive" },
-  { icon: "users", label: "Offline\nsetkání" },
+  { icon: "mic", label: "Celý archiv 200+ epizod" },
+  { icon: "message-circle", label: "Discord — komunita bez filtrů" },
+  { icon: "video", label: "ŠOL — měsíční live s Markétou" },
+  { icon: "users", label: "Offline setkání s komunitou" },
+];
+
+const discordMessages = [
+  {
+    name: "Katka",
+    nameColor: "#C59B68",
+    avatarColor: "#6B5A4E",
+    text: "Ten dnešní live byl nejlepší za poslední půlrok. Díky všem za otevřenost.",
+  },
+  {
+    name: "Markéta",
+    nameColor: "#E8B4D8",
+    avatarColor: "#5C6B4E",
+    text: "Děkuju vám. Tenhle prostor existuje díky vám všem.",
+  },
+  {
+    name: "Jana",
+    nameColor: "#C59B68",
+    avatarColor: "#8B4E6B",
+    text: "Poprvé v životě cítím, že nejsem divná. Tohle je můj safe space.",
+  },
 ];
 
 export function Forendors() {
   return (
     <section id="komunita" className="flex flex-col items-center py-16 md:py-[100px] px-5 md:px-12">
-      <div className="flex flex-col items-center gap-4 max-w-[900px] w-full bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] rounded-2xl md:rounded-3xl p-10 md:p-16 text-center">
+      <div className="flex flex-col items-center gap-6 md:gap-8 max-w-[960px] w-full bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] rounded-2xl md:rounded-3xl p-8 md:p-14 text-center">
         <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
-          Chceš víc?
+          Forendors komunita
         </div>
-        <h2 className="font-headline font-normal text-[28px] md:text-[52px] leading-[1.1] text-[var(--cream)]">
-          Odemkni celý svět Šimrání
+        <h2 className="font-headline font-normal text-[24px] md:text-[44px] leading-[1.15] text-[var(--cream)] max-w-[700px]">
+          Přidej se ke komunitě, která se nestydí mluvit
         </h2>
-        <p className="text-[14px] md:text-[16px] leading-[1.7] text-[var(--cream-60)] max-w-[560px] font-light">
-          Přístup k archivu 200+ epizod, bonusovým dílům, měsíčním online
-          setkáním a komunitě lidí, kteří se nestydí mluvit.
+        <p className="text-[13px] md:text-[15px] leading-[1.7] text-[var(--cream-60)] max-w-[580px] font-light">
+          200+ epizod v archivu, měsíční live setkání s Markétou a Discord plný
+          lidí, se kterými můžeš řešit to, co jinde nemůžeš.
         </p>
 
-        <div className="flex justify-center gap-3 md:gap-8 py-4 md:py-6 flex-wrap">
-          {benefits.map((b, i) => (
-            <div
-              key={b.icon}
-              className={`flex flex-col items-center gap-1.5 md:gap-2 w-[80px] md:w-[140px] ${i === 3 ? "hidden md:flex" : ""}`}
-            >
-              <BenefitIcon name={b.icon} />
-              <div className="text-[10px] md:text-[13px] text-[var(--cream-60)] whitespace-pre-line text-center">
-                {b.label}
+        {/* Benefits + Discord Preview */}
+        <div className="flex flex-col md:flex-row gap-4 w-full">
+          {/* Benefits Panel */}
+          <div className="flex flex-col justify-center gap-5 md:gap-5 flex-1 py-4 md:py-6 md:px-4">
+            {benefits.map((b) => (
+              <div key={b.icon} className="flex items-center gap-3">
+                <BenefitIcon name={b.icon} />
+                <span className="text-[13px] md:text-[14px] text-[var(--cream-60)] font-light text-left">
+                  {b.label}
+                </span>
               </div>
+            ))}
+          </div>
+
+          {/* Discord Preview */}
+          <div className="flex flex-col gap-3.5 flex-1 bg-[#2B1A27] rounded-xl p-5 overflow-hidden">
+            <div className="flex items-center gap-1.5 text-[var(--cream-35)]">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>
+              <span className="text-[12px] font-medium">sol-live-chat</span>
             </div>
-          ))}
+            {discordMessages.map((msg) => (
+              <div key={msg.name} className="flex items-start gap-2.5">
+                <div
+                  className="w-7 h-7 rounded-full shrink-0"
+                  style={{ backgroundColor: msg.avatarColor }}
+                />
+                <div className="flex flex-col gap-0.5">
+                  <span
+                    className="text-[11px] font-semibold"
+                    style={{ color: msg.nameColor }}
+                  >
+                    {msg.name}
+                  </span>
+                  <span className="text-[12px] leading-[1.5] text-[var(--cream-60)] font-light text-left">
+                    {msg.text}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="font-headline text-[20px] md:text-[24px] text-[var(--gold)]">
-          248 Kč / měsíc
+        {/* Price + CTA */}
+        <div className="flex flex-col items-center gap-4 mt-2">
+          <div className="font-headline text-[20px] md:text-[24px] text-[var(--gold)]">
+            248 Kč / měsíc
+          </div>
+          <a
+            href="https://www.forendors.cz/simrani.cz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-11 py-4 bg-[var(--gold)] rounded-full text-[14px] md:text-[15px] font-semibold text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
+          >
+            Předplať si na Forendors
+          </a>
         </div>
-        <a
-          href="https://www.forendors.cz/simrani.cz"
-          className="inline-flex items-center justify-center px-9 py-3.5 bg-[var(--gold)] rounded-full text-[13px] md:text-[14px] font-medium text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
-        >
-          Předplať si na Forendors
-        </a>
       </div>
     </section>
   );
 }
 
 function BenefitIcon({ name }: { name: string }) {
-  const cls = "w-[22px] h-[22px] md:w-7 md:h-7 text-[var(--gold)]";
+  const cls = "w-[22px] h-[22px] text-[var(--gold)] shrink-0";
   switch (name) {
     case "mic":
       return (
