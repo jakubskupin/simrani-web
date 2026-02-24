@@ -27,7 +27,7 @@ const episodes = [
 
 const platforms = [
   { icon: "youtube", label: "YouTube", href: "https://www.youtube.com/@%C5%A0imr%C3%A1n%C3%ADpodcast" },
-  { icon: "headphones", label: "Spotify", href: "https://open.spotify.com/show/0DIaEPDBFwSaBTTpZ4bnfj" },
+  { icon: "headphones", label: "Spotify", href: "https://open.spotify.com/show/4YtZKf6TsvMbCiuEu2zoUc" },
   { icon: "podcast", label: "Apple Podcasts", href: "https://podcasts.apple.com/cz/podcast/%C5%A1imr%C3%A1n%C3%AD/id1552335085" },
 ];
 
