@@ -1,46 +1,70 @@
 const benefits = [
-  { icon: "🎙", label: "Celý archiv\n200+ epizod" },
-  { icon: "💬", label: "Discord\nkomunita" },
-  { icon: "📹", label: "ŠOL — měsíční\nonline live" },
-  { icon: "🤝", label: "Offline\nsetkání" },
+  { icon: "mic", label: "Celý archiv\n200+ epizod" },
+  { icon: "message-circle", label: "Discord\nkomunita" },
+  { icon: "video", label: "ŠOL — měsíční\nonline live" },
+  { icon: "users", label: "Offline\nsetkání" },
 ];
 
 export function Forendors() {
   return (
-    <section id="komunita" className="py-[100px] px-12">
-      <div className="max-w-[900px] mx-auto bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] rounded-3xl p-16 text-center">
-        <div className="text-[11px] tracking-[3px] uppercase text-[var(--gold)] mb-5 font-normal">
+    <section id="komunita" className="flex flex-col items-center py-[100px] px-12">
+      <div className="flex flex-col items-center gap-4 max-w-[900px] w-full bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] rounded-3xl p-16 text-center">
+        <div className="text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
           Chceš víc?
         </div>
-        <h2 className="font-headline font-normal text-[clamp(32px,4vw,52px)] leading-[1.1] text-[var(--cream)] mb-4">
+        <h2 className="font-headline font-normal text-[52px] leading-[1.1] text-[var(--cream)]">
           Odemkni celý svět Šimrání
         </h2>
-        <p className="text-[16px] leading-[1.7] text-[var(--cream-60)] max-w-[560px] mx-auto mb-8 font-light">
+        <p className="text-[16px] leading-[1.7] text-[var(--cream-60)] max-w-[560px] font-light">
           Přístup k archivu 200+ epizod, bonusovým dílům, měsíčním online
           setkáním a komunitě lidí, kteří se nestydí mluvit.
         </p>
 
-        <div className="flex justify-center gap-8 mb-10 flex-wrap">
+        <div className="flex justify-center gap-8 py-6 flex-wrap">
           {benefits.map((b) => (
-            <div key={b.icon} className="text-center w-[140px]">
-              <div className="text-[28px] mb-2">{b.icon}</div>
-              <div className="text-[13px] text-[var(--cream-60)] whitespace-pre-line">
+            <div key={b.icon} className="flex flex-col items-center gap-2 w-[140px]">
+              <BenefitIcon name={b.icon} />
+              <div className="text-[13px] text-[var(--cream-60)] whitespace-pre-line text-center">
                 {b.label}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="font-headline text-[24px] text-[var(--gold)] mb-6">
+        <div className="font-headline text-[24px] text-[var(--gold)]">
           248 Kč / měsíc
         </div>
         <a
           href="https://www.forendors.cz/simrani.cz"
-          className="inline-block px-9 py-3.5 border border-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
+          className="inline-flex items-center justify-center px-9 py-3.5 border border-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
         >
           Předplať si na Forendors
         </a>
       </div>
     </section>
   );
+}
+
+function BenefitIcon({ name }: { name: string }) {
+  const cls = "w-7 h-7 text-[var(--gold)]";
+  switch (name) {
+    case "mic":
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+      );
+    case "message-circle":
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+      );
+    case "video":
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+      );
+    case "users":
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+      );
+    default:
+      return null;
+  }
 }
