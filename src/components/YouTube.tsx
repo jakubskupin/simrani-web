@@ -1,29 +1,5 @@
-"use client";
-
-import { useState } from "react";
-
-const episodes = [
-  {
-    id: "xcJTeDtoDcI",
-    title: "217. díl Šimrání",
-  },
-  {
-    id: "eZMz180AkKo",
-    title: "216. díl — Ženský cyklus, plodnost a antikoncepce",
-  },
-  {
-    id: "V8oHbpuzsTU",
-    title: "215. díl — Tělo, vztahy, nahota a popularita",
-  },
-  {
-    id: "xsWSRHv1Chc",
-    title: "214. díl — Porod z pohledu muže, Heated Rivalry i ocet",
-  },
-  {
-    id: "MwMIw6tgjX4",
-    title: "213. díl — Manželství a pás cudnosti",
-  },
-];
+import { getLatestVideos } from "@/lib/youtube";
+import { YouTubePlayer } from "./YouTubePlayer";
 
 const platforms = [
   { icon: "youtube", label: "YouTube", href: "https://www.youtube.com/@%C5%A0imr%C3%A1n%C3%ADpodcast" },
@@ -31,8 +7,8 @@ const platforms = [
   { icon: "podcast", label: "Apple Podcasts", href: "https://podcasts.apple.com/cz/podcast/%C5%A1imr%C3%A1n%C3%AD/id1579002710" },
 ];
 
-export function YouTube() {
-  const [activeVideo, setActiveVideo] = useState(episodes[0].id);
+export async function YouTube() {
+  const episodes = await getLatestVideos(5);
 
   return (
     <section
@@ -43,40 +19,7 @@ export function YouTube() {
         Nejnovější epizody
       </h2>
 
-      {/* Main video */}
-      <div className="w-full max-w-[1000px] aspect-video rounded-2xl overflow-hidden bg-black">
-        <iframe
-          key={activeVideo}
-          src={`https://www.youtube.com/embed/${activeVideo}`}
-          allowFullScreen
-          loading="lazy"
-          className="w-full h-full border-0"
-        />
-      </div>
-
-      {/* Thumbnails — show the 4 episodes that aren't active */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 w-full max-w-[1000px]">
-        {episodes.filter((ep) => ep.id !== activeVideo).map((ep) => (
-          <button
-            key={ep.id}
-            onClick={() => setActiveVideo(ep.id)}
-            className="relative aspect-video rounded-[10px] overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group"
-          >
-            {/* YouTube thumbnail */}
-            <img
-              src={`https://img.youtube.com/vi/${ep.id}/mqdefault.jpg`}
-              alt={ep.title}
-              className="w-full h-full object-cover"
-            />
-            {/* Dark overlay + title */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3">
-              <span className="text-[13px] font-normal leading-snug text-[var(--cream-60)] text-left">
-                {ep.title}
-              </span>
-            </div>
-          </button>
-        ))}
-      </div>
+      <YouTubePlayer episodes={episodes} />
 
       {/* Platformy strip */}
       <div className="flex flex-col items-center gap-4 w-full pt-6 border-t border-[var(--gold-06)]">
