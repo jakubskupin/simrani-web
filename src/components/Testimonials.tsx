@@ -2,7 +2,7 @@ const heroTestimonial = {
   label: "Odvaha zkoušet nové věci",
   quote:
     "Šimrání mě neskutečně posunulo a dodalo mi odvahu zkoušet nové věci. \nDřív jsem jen snil o tom, jaké by asi bylo navštívit profesionální dominu, nechat se svázat, realizovat své představy o perverzním vyšetření doktorkou v latexu a podobně. Bál jsem se – říkal jsem si, že jestli se to někdo dozví, budu za úchyláka. Díky poslechu Šimrání jsem zjistil, že jsem vlastně normální. Nic špatného na tom není a nejsou to jen moje představy, takových lidí je víc.",
-  source: "Pravý Šimrač",
+  source: "Šimrač",
 };
 
 const quotes = [
