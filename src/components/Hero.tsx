@@ -1,7 +1,7 @@
 const heroStats = [
   { num: "200+", label: "Epizod" },
   { num: "4.6★", label: "Apple Podcasts" },
-  { num: "2×", label: "Měsíčně" },
+  { num: "4×", label: "Měsíčně" },
 ];
 
 export function Hero() {
