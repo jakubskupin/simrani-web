@@ -22,9 +22,8 @@ export function StartHere() {
         Pomůžu ti najít jazyk pro tvé touhy, hranice a potřeby
       </h2>
       <p className="text-[14px] md:text-[17px] leading-[1.7] text-[var(--cream-60)] font-light text-center max-w-[640px]">
-        Tyhle epizody jsem pro vás vybrala, protože v nich
-        najdete přesně to, kvůli čemu Šimrání vzniklo — otevřenost, respekt
-        a odvahu mluvit o intimitě bez studu.
+        Vybrala jsem pro tebe 8 epizod, které tě provedou od prvních
+        kroků k hlubšímu porozumění vlastní intimitě. Bez tlaku, bez souzení.
       </p>
 
       {/* Timeline list */}
