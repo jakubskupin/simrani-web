@@ -1,6 +1,14 @@
-const mediaLogos = [
-  { label: "DVTV", href: "https://www.youtube.com/watch?v=YxkNTfiySR4" },
-  { label: "HEROINE", href: "https://www.heroine.cz/vztahy-a-sex/12085-utajene-pribehy-me-fascinuji-rika-autorka-noveho-podcastu-rozkos-tabu-v-erotice-se-neboji" },
+const mediaMentions = [
+  {
+    label: "DVTV",
+    desc: "Video rozhovor o intimitě",
+    href: "https://www.youtube.com/watch?v=YxkNTfiySR4",
+  },
+  {
+    label: "HEROINE",
+    desc: "Feature o odvaze mluvit nahlas",
+    href: "https://www.heroine.cz/vztahy-a-sex/12085-utajene-pribehy-me-fascinuji-rika-autorka-noveho-podcastu-rozkos-tabu-v-erotice-se-neboji",
+  },
 ];
 
 export function About() {
@@ -53,18 +61,34 @@ export function About() {
           &bdquo;Intimita začíná tam, kde končí komfortní zóna. A právě tam se
           odehrávají ty nejkrásnější rozhovory.&ldquo;
         </div>
-        <div className="flex gap-4 md:gap-6 items-center flex-wrap">
-          {mediaLogos.map((m) => (
-            <a
-              key={m.label}
-              href={m.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 md:px-4 py-1.5 md:py-2 border border-[rgba(197,155,104,0.12)] rounded-md md:rounded-lg text-[10px] md:text-[12px] tracking-[1px] uppercase text-[var(--cream-35)] hover:text-[var(--gold)] hover:border-[var(--gold)] transition-colors"
-            >
-              {m.label}
-            </a>
-          ))}
+        {/* Media mentions */}
+        <div className="flex flex-col gap-2.5 mt-3 md:mt-4">
+          <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--cream-35)] font-normal">
+            Znáte mě z
+          </div>
+          <div className="flex gap-3 md:gap-4 items-stretch">
+            {mediaMentions.map((m) => (
+              <a
+                key={m.label}
+                href={m.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-1 px-4 md:px-5 py-2.5 md:py-3 bg-[rgba(197,155,104,0.05)] border border-[rgba(197,155,104,0.10)] rounded-xl hover:bg-[rgba(197,155,104,0.12)] hover:border-[rgba(197,155,104,0.35)] transition-all"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="text-[13px] md:text-[15px] font-medium tracking-[1.5px] uppercase text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors">
+                    {m.label}
+                  </span>
+                  <span className="text-[var(--cream-35)] group-hover:text-[var(--gold)] group-hover:translate-x-0.5 transition-all text-[11px]">
+                    ↗
+                  </span>
+                </span>
+                <span className="text-[11px] md:text-[12px] text-[var(--cream-35)] group-hover:text-[var(--cream-60)] font-light transition-colors">
+                  {m.desc}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
