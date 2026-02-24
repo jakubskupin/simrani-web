@@ -22,6 +22,14 @@ export function Hero() {
             "linear-gradient(to bottom, #1A0A14CC 0%, #1A0A1480 15%, #1A0A1430 25%, transparent 35%)",
         }}
       />
+      {/* Bottom fade — smooth transition to page background */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 60%, #1A0A1480 75%, #1A0A14CC 85%, #1A0A14 95%)",
+        }}
+      />
 
       {/* Content — positioned top-left */}
       <div className="absolute z-[2] left-16 top-[200px] w-[640px] flex flex-col gap-4">
