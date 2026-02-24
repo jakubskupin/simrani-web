@@ -55,11 +55,11 @@ function EpisodeCard({
   isLast: boolean;
 }) {
   return (
-    <div className="flex items-center gap-4 md:gap-5 py-3 md:py-4 cursor-pointer group">
+    <div className="flex items-center gap-4 md:gap-5 py-3 md:py-4 px-3 -mx-3 rounded-xl cursor-pointer group hover:bg-[rgba(197,155,104,0.06)] transition-all">
       {/* Number circle + connecting line */}
       <div className="flex flex-col items-center w-8 md:w-10 shrink-0 self-stretch">
-        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-[var(--gold)] flex items-center justify-center shrink-0">
-          <span className="font-headline text-[13px] md:text-[16px] font-normal text-[var(--gold)]">
+        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-[var(--gold)] group-hover:bg-[var(--gold)] flex items-center justify-center shrink-0 transition-colors">
+          <span className="font-headline text-[13px] md:text-[16px] font-normal text-[var(--gold)] group-hover:text-[var(--deep)] transition-colors">
             {num}
           </span>
         </div>
@@ -70,7 +70,7 @@ function EpisodeCard({
 
       {/* Title + tag */}
       <div className="flex flex-col gap-0.5 md:gap-1 flex-1">
-        <div className="text-[13px] md:text-[15px] font-medium text-[var(--cream)]">
+        <div className="text-[13px] md:text-[15px] font-medium text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors">
           {title}
         </div>
         <div className="text-[9px] md:text-[11px] tracking-[1px] uppercase text-[var(--gold)] font-normal">
@@ -81,7 +81,7 @@ function EpisodeCard({
       {/* Chevron */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-4 h-4 md:w-5 md:h-5 text-[var(--gold)] opacity-35 group-hover:opacity-70 transition-opacity shrink-0"
+        className="w-4 h-4 md:w-5 md:h-5 text-[var(--gold)] opacity-35 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
