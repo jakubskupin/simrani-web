@@ -6,6 +6,7 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin", "latin-ext"],
   display: "swap",
+  axes: ["WONK", "SOFT", "opsz"],
 });
 
 const bricolage = Bricolage_Grotesque({

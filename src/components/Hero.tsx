@@ -36,7 +36,10 @@ export function Hero() {
         <div className="text-[11px] md:text-[12px] tracking-[3px] uppercase font-medium text-[var(--gold)]">
           Podcast o intimitě
         </div>
-        <h1 className="font-headline font-normal text-[64px] md:text-[96px] leading-[0.95] text-[var(--cream)]">
+        <h1
+          className="font-headline font-normal text-[64px] md:text-[96px] leading-[0.95] text-[var(--cream)]"
+          style={{ fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144" }}
+        >
           Šimrání
         </h1>
 
