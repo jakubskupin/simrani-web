@@ -39,7 +39,7 @@ export function Forendors() {
         </div>
         <a
           href="https://www.forendors.cz/simrani.cz"
-          className="inline-flex items-center justify-center px-9 py-3.5 border border-[var(--gold)] rounded-full text-[13px] md:text-[14px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all"
+          className="inline-flex items-center justify-center px-9 py-3.5 bg-[var(--gold)] rounded-full text-[13px] md:text-[14px] font-medium text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
         >
           Předplať si na Forendors
         </a>
