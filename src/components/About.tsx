@@ -6,7 +6,7 @@ const mediaMentions = [
   },
   {
     label: "HEROINE",
-    desc: "Feature o odvaze mluvit nahlas",
+    desc: "Uvědomit si vlastní touhy",
     href: "https://www.heroine.cz/vztahy-a-sex/12085-utajene-pribehy-me-fascinuji-rika-autorka-noveho-podcastu-rozkos-tabu-v-erotice-se-neboji",
   },
 ];
