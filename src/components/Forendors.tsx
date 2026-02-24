@@ -67,15 +67,17 @@ export function Forendors() {
                   className="w-7 h-7 rounded-full shrink-0 mt-0.5"
                   style={{ backgroundColor: msg.avatarColor }}
                 />
-                <p className="text-[12px] leading-[1.5] text-[var(--cream-60)] font-light text-left">
+                <div className="flex flex-col gap-0.5 text-left">
                   <span
-                    className="font-semibold"
+                    className="text-[11px] font-semibold"
                     style={{ color: msg.nameColor }}
                   >
                     {msg.name}
-                  </span>{" "}
-                  {msg.text}
-                </p>
+                  </span>
+                  <span className="text-[12px] leading-[1.5] text-[var(--cream-60)] font-light">
+                    {msg.text}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
