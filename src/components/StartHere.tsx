@@ -16,10 +16,10 @@ export function StartHere() {
       className="flex flex-col items-center py-16 md:py-[100px] px-5 md:px-12 gap-5 md:gap-6"
     >
       <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
-        Markétina volba
+        Od studu k odvaze
       </div>
-      <h2 className="font-headline font-normal text-[28px] md:text-[42px] leading-[1.1] text-[var(--cream)] text-center">
-        8 dílů pro nováčky
+      <h2 className="font-headline font-normal text-[24px] md:text-[42px] leading-[1.15] text-[var(--cream)] text-center max-w-[800px]">
+        Pomůžu ti najít jazyk pro tvé touhy, hranice a potřeby
       </h2>
       <p className="text-[14px] md:text-[17px] leading-[1.7] text-[var(--cream-60)] font-light text-center max-w-[640px]">
         Tyhle epizody jsem pro vás vybrala, protože v nich
