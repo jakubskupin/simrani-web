@@ -3,7 +3,7 @@ const quotes = [
   { title: "Součást základního vzdělání", quote: "Naprosto boží podcast, který by měl být součástí základního vzdělání.", source: "Spotify" },
   { title: "Markéta začíná tam, kde jiní končí", quote: "Kde jiní v otázkách sexu se zarděním končí, Markéta začíná.", source: "Apple Podcasts" },
   { title: "Odvaha zkoušet nové věci", quote: "Šimrání mi dodalo odvahu zkoušet nové věci. Uvědomila jsem si, že jsem normální.", source: "Spotify" },
-  { title: "Pozitivní vliv na celou existenci", quote: "Podcast pozitivně ovlivnil celou mou existenci a sexualitu.", source: "Apple Podcasts" },
+  { title: "Pozitivní vliv", quote: "Podcast pozitivně ovlivnil celou mou existenci a sexualitu.", source: "Apple Podcasts" },
   { title: "Mění životy", quote: "Šimrání mění životy a vřele doporučuji každému.", source: "Spotify" },
 ];
 
