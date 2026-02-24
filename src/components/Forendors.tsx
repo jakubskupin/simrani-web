@@ -31,7 +31,7 @@ export function Forendors() {
     <section id="komunita" className="flex flex-col items-center py-16 md:py-[100px] px-5 md:px-12">
       <div className="flex flex-col items-center gap-6 md:gap-8 max-w-[960px] w-full bg-gradient-to-br from-[var(--wine)] to-[var(--deep)] rounded-2xl md:rounded-3xl p-8 md:p-14 text-center">
         <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
-          Forendors komunita
+          Vyšimraná komunita
         </div>
         <h2 className="font-headline font-normal text-[24px] md:text-[44px] leading-[1.15] text-[var(--cream)] max-w-[700px]">
           Přidej se ke komunitě, kde se nemusíš stydět
