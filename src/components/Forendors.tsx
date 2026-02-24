@@ -34,7 +34,7 @@ export function Forendors() {
           Forendors komunita
         </div>
         <h2 className="font-headline font-normal text-[24px] md:text-[44px] leading-[1.15] text-[var(--cream)] max-w-[700px]">
-          Přidej se ke komunitě, která se nestydí mluvit
+          Přidej se ke komunitě, kde se nemusíš stydět
         </h2>
         <p className="text-[13px] md:text-[15px] leading-[1.7] text-[var(--cream-60)] max-w-[580px] font-light">
           200+ epizod v archivu, měsíční live setkání s Markétou a Discord plný
