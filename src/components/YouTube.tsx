@@ -1,17 +1,35 @@
+"use client";
+
+import { useState } from "react";
+
 const episodes = [
-  "Epizoda 215",
-  "Epizoda 214",
-  "Epizoda 213",
-  "Epizoda 212",
+  {
+    id: "xcJTeDtoDcI",
+    title: "217. díl Šimrání",
+  },
+  {
+    id: "eZMz180AkKo",
+    title: "216. díl — Ženský cyklus, plodnost a antikoncepce",
+  },
+  {
+    id: "V8oHbpuzsTU",
+    title: "215. díl — Tělo, vztahy, nahota a popularita",
+  },
+  {
+    id: "xsWSRHv1Chc",
+    title: "214. díl — Porod z pohledu muže, Heated Rivalry i ocet",
+  },
 ];
 
 const platforms = [
-  { icon: "youtube", label: "YouTube" },
-  { icon: "headphones", label: "Spotify" },
-  { icon: "podcast", label: "Apple Podcasts" },
+  { icon: "youtube", label: "YouTube", href: "https://www.youtube.com/@%C5%A0imr%C3%A1n%C3%ADpodcast" },
+  { icon: "headphones", label: "Spotify", href: "https://open.spotify.com/show/0DIaEPDBFwSaBTTpZ4bnfj" },
+  { icon: "podcast", label: "Apple Podcasts", href: "https://podcasts.apple.com/cz/podcast/%C5%A1imr%C3%A1n%C3%AD/id1552335085" },
 ];
 
 export function YouTube() {
+  const [activeVideo, setActiveVideo] = useState(episodes[0].id);
+
   return (
     <section
       id="podcast"
@@ -24,7 +42,8 @@ export function YouTube() {
       {/* Main video */}
       <div className="w-full max-w-[1000px] aspect-video rounded-2xl overflow-hidden bg-black">
         <iframe
-          src="https://www.youtube.com/embed?listType=user_uploads&list=Šimránípodcast"
+          key={activeVideo}
+          src={`https://www.youtube.com/embed/${activeVideo}`}
           allowFullScreen
           loading="lazy"
           className="w-full h-full border-0"
@@ -34,12 +53,26 @@ export function YouTube() {
       {/* Thumbnails */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 w-full max-w-[1000px]">
         {episodes.map((ep) => (
-          <div
-            key={ep}
-            className="aspect-video rounded-[10px] bg-[var(--wine)] flex items-end p-3.5 text-[14px] font-normal leading-snug text-[var(--cream-60)] cursor-pointer hover:opacity-80 transition-opacity"
+          <button
+            key={ep.id}
+            onClick={() => setActiveVideo(ep.id)}
+            className={`relative aspect-video rounded-[10px] overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group ${
+              activeVideo === ep.id ? "ring-2 ring-[var(--gold)]" : ""
+            }`}
           >
-            {ep}
-          </div>
+            {/* YouTube thumbnail */}
+            <img
+              src={`https://img.youtube.com/vi/${ep.id}/mqdefault.jpg`}
+              alt={ep.title}
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay + title */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3">
+              <span className="text-[13px] font-normal leading-snug text-[var(--cream-60)] text-left">
+                {ep.title}
+              </span>
+            </div>
+          </button>
         ))}
       </div>
 
@@ -52,7 +85,9 @@ export function YouTube() {
           {platforms.map((p) => (
             <a
               key={p.label}
-              href="#"
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2.5 px-6 py-2.5 border border-[var(--gold-10)] rounded-full hover:border-[var(--gold-25)] transition-colors"
             >
               <PlatformIcon name={p.icon} />
