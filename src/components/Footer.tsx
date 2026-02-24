@@ -1,5 +1,5 @@
 const links = [
-  { label: "Instagram", href: "https://www.instagram.com/simrani.podcast/" },
+  { label: "Instagram", href: "https://www.instagram.com/simrani_podcast" },
   { label: "Spotify", href: "https://open.spotify.com/show/4YtZKf6TsvMbCiuEu2zoUc" },
   { label: "Apple Podcasts", href: "https://podcasts.apple.com/cz/podcast/%C5%A1imr%C3%A1n%C3%AD/id1579002710" },
   { label: "YouTube", href: "https://www.youtube.com/@ŠimráníPodcast" },
