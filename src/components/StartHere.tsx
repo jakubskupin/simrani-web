@@ -40,6 +40,18 @@ export function StartHere() {
           />
         ))}
       </div>
+
+      <p className="text-[13px] md:text-[15px] text-[var(--cream-60)] font-light mt-4">
+        Líbilo se ti?{" "}
+        <a
+          href="https://www.forendors.cz/simrani.cz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--gold)] hover:underline"
+        >
+          Odemkni dalších 200+ epizod na Forendors&nbsp;&rarr;
+        </a>
+      </p>
     </section>
   );
 }
