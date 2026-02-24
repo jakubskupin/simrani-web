@@ -19,6 +19,10 @@ const episodes = [
     id: "xsWSRHv1Chc",
     title: "214. díl — Porod z pohledu muže, Heated Rivalry i ocet",
   },
+  {
+    id: "MwMIw6tgjX4",
+    title: "213. díl — Manželství a pás cudnosti",
+  },
 ];
 
 const platforms = [
@@ -50,15 +54,13 @@ export function YouTube() {
         />
       </div>
 
-      {/* Thumbnails */}
+      {/* Thumbnails — show the 4 episodes that aren't active */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 w-full max-w-[1000px]">
-        {episodes.map((ep) => (
+        {episodes.filter((ep) => ep.id !== activeVideo).map((ep) => (
           <button
             key={ep.id}
             onClick={() => setActiveVideo(ep.id)}
-            className={`relative aspect-video rounded-[10px] overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group ${
-              activeVideo === ep.id ? "ring-2 ring-[var(--gold)]" : ""
-            }`}
+            className="relative aspect-video rounded-[10px] overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group"
           >
             {/* YouTube thumbnail */}
             <img
