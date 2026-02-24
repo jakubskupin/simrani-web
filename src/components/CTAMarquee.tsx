@@ -1,20 +1,28 @@
+function MarqueeBlock() {
+  const items = ["Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání"];
+  return (
+    <div className="flex items-center shrink-0">
+      {items.map((text, i) => (
+        <span key={i} className="flex items-center">
+          <span className="font-headline font-normal text-[80px] text-[var(--cream)]">
+            {text}
+          </span>
+          <span className="font-headline font-normal italic text-[80px] text-[var(--gold)] mx-2">
+            ·
+          </span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function CTAMarquee() {
   return (
     <section className="flex flex-col items-center gap-10 py-20 overflow-hidden">
-      {/* Marquee strip */}
+      {/* Marquee strip — two identical copies for seamless loop */}
       <div className="flex items-center whitespace-nowrap animate-marquee">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <span key={i} className="flex items-center">
-            <span className="font-headline font-normal text-[80px] text-[var(--cream)]">
-              {i % 2 === 0 ? "Poslouchejte" : "Šimrání"}
-            </span>
-            {i < 5 && (
-              <span className="font-headline font-normal italic text-[80px] text-[var(--gold)] mx-1">
-                {" "}·{" "}
-              </span>
-            )}
-          </span>
-        ))}
+        <MarqueeBlock />
+        <MarqueeBlock />
       </div>
 
       {/* CTA Button */}
