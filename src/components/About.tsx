@@ -19,7 +19,7 @@ export function About() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/market-foto/market-velkyusmev-square.png')",
+            backgroundImage: "url('/market-foto/marketa-faberova-simrani.png')",
           }}
         />
         {/* Radial dark tint */}
