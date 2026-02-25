@@ -22,20 +22,19 @@ export function About() {
             backgroundImage: "url('/market-foto/marketa-faberova-simrani.png')",
           }}
         />
-        {/* Radial dark tint */}
+        {/* Edge fade — blends dark photo into page background */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 120% 120% at 40% 35%, #1A0A1450 0%, #1A0A1490 40%, #1A0A14CC 65%, #1A0A14EE 85%)",
+              "linear-gradient(to right, #1A0A14 0%, transparent 8%, transparent 85%, #1A0A14 100%)",
           }}
         />
-        {/* Bottom fade */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, transparent 40%, #1A0A1470 58%, #1A0A14CC 72%, #1A0A14F0 83%, #1A0A14 90%)",
+              "linear-gradient(to bottom, #1A0A14 0%, transparent 10%, transparent 80%, #1A0A14 100%)",
           }}
         />
       </div>
