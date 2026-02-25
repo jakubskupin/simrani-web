@@ -18,7 +18,7 @@ export function Testimonials() {
   return (
     <section className="flex flex-col items-center py-16 md:py-[100px] px-5 md:px-12 gap-6 md:gap-8">
       <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
-        Co říkají posluchači
+        Co se šušká
       </div>
       <h2 className="font-headline font-normal text-[32px] md:text-[48px] leading-[1.1] text-[var(--cream)] text-center">
         Šimrání mění životy
