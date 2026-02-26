@@ -1150,8 +1150,10 @@
     </div>
 
     <div class="ig-carousel-track" id="carouselTrack">
-      <!-- Slide 1 — Cover -->
-      <div class="ig-slide" style="background: linear-gradient(180deg, #4A1942 0%, #1A0A14 80%);">
+      <!-- Slide 1 — Cover (foto Zuzany + gradient overlay) -->
+      <div class="ig-slide" style="background: var(--deep);">
+        <div style="position:absolute;inset:0;background:url('/brand/zuzana-studio.jpg') center/cover;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, #1A0A14EE 25%, #1A0A1488 50%, #1A0A1400 75%);"></div>
         <div class="ig-slide-inner">
           <div class="s-label">Nová epizoda</div>
           <div class="s-pill">DOMINA ZUZANA</div>
@@ -1160,43 +1162,52 @@
         </div>
       </div>
 
-      <!-- Slide 2 — Citát (twist) -->
+      <!-- Slide 2 — Citát: KDYŽ NEVAJBÍŠ -->
       <div class="ig-slide" style="background: linear-gradient(180deg, #2A0F26 0%, #1A0A14 100%);">
         <div class="ig-slide-inner centered">
-          <div class="s-tag">Office manažerka</div>
+          <div class="s-tag">KDYŽ NEVAJBÍŠ</div>
           <div class="s-quote" style="font-size: 26px;">Jsem office manažerka na psychoterapeutické klinice.</div>
         </div>
       </div>
 
-      <!-- Slide 3 — Citát (odhalení, gold) -->
-      <div class="ig-slide" style="background: radial-gradient(ellipse at top, #4A194280 0%, #1A0A14 70%);">
+      <!-- Slide 3 — Citát: KDYŽ VAJBÍŠ (AI foto + gradient overlay) -->
+      <div class="ig-slide" style="background: var(--deep);">
+        <div style="position:absolute;inset:0;background:url('/brand/ai-conversation.jpg') center/cover;opacity:0.35;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, #1A0A14DD, #1A0A1480 50%, #1A0A1400);"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center 40%, #4A194280, #1A0A1400 70%);"></div>
         <div class="ig-slide-inner centered">
-          <div class="s-tag">BDSM studio</div>
+          <div class="s-tag">KDYŽ VAJBÍŠ</div>
           <div class="s-quote gold" style="font-size: 27px;">Pracuju v BDSM studiu. Dělám lekce dominance a&nbsp;erotické masáže.</div>
         </div>
       </div>
 
-      <!-- Slide 4 — Punchline -->
-      <div class="ig-slide" style="background: radial-gradient(ellipse at center, #2A0F26 0%, #1A0A14 80%);">
+      <!-- Slide 4 — Punchline: VÍŠ CO? (foto Zuzany smích + gradient) -->
+      <div class="ig-slide" style="background: var(--deep);">
+        <div style="position:absolute;inset:0;background:url('/brand/zuz-smich.jpg') center/cover;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, #1A0A14EE 25%, #1A0A1488 50%, #1A0A1400 75%);"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, #2A0F2680, #1A0A1400 70%);"></div>
         <div class="ig-slide-inner centered">
+          <div class="s-tag">VÍŠ CO?</div>
           <div class="s-quote cream large">Obě odpovědi jsou pravda.</div>
         </div>
       </div>
 
-      <!-- Slide 5 — Otázka -->
+      <!-- Slide 5 — Otázka: A CO TY? -->
       <div class="ig-slide" style="background: radial-gradient(ellipse at top left, #4A1942 0%, #1A0A14 70%);">
         <div class="ig-slide-inner centered">
+          <div class="s-tag">A CO TY?</div>
           <div class="s-quote cream" style="font-size: 30px;">Taky máš odpověď, kterou neříkáš každému?</div>
         </div>
       </div>
 
-      <!-- Slide 6 — CTA -->
+      <!-- Slide 6 — CTA: EP 217 · ŠIMRÁNÍ -->
       <div class="ig-slide" style="background: radial-gradient(ellipse at top, #4A1942 0%, #1A0A14 60%);">
         <div class="ig-slide-inner centered" style="gap: 0;">
+          <div class="s-tag">EP 217 &middot; ŠIMRÁNÍ</div>
           <div class="s-quote cream" style="font-size: 28px;">Zuzana o&nbsp;důvěře, hranicích a&nbsp;ruce na krku.</div>
           <div class="s-divider"></div>
-          <div class="s-cta">Poslechnout epizodu</div>
-          <div class="s-handle">@simrani.podcast</div>
+          <div style="font-size: 14px; color: var(--gold); font-weight: 500; margin-bottom: 4px;">Celý rozhovor na Forendors</div>
+          <div style="font-size: 12px; color: var(--cream-60); font-weight: 300;">Ukázky na YouTube i Spotify.</div>
         </div>
       </div>
     </div>
