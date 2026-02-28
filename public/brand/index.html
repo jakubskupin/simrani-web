@@ -755,11 +755,42 @@
     font-weight: 600;
   }
 
+  .ig-carousel-pair {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .ig-carousel-pair .ig-phone {
+    margin: 0;
+    flex: 0 0 400px;
+  }
+
+  @media (max-width: 860px) {
+    .ig-carousel-pair {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ig-carousel-pair .ig-phone {
+      margin: 0 auto;
+      flex: none;
+      max-width: 400px;
+      width: 100%;
+    }
+  }
+
   @media (max-width: 500px) {
     .ig-phone {
       max-width: 100%;
       border-radius: 0;
       border: none;
+    }
+
+    .ig-carousel-pair .ig-phone {
+      flex: none;
+      max-width: 100%;
     }
   }
 
@@ -781,9 +812,10 @@
   <div class="hero-label">Brand Manual</div>
   <h1>Šimrání</h1>
   <p>Podcast a komunita o intimitě, sexualitě a vztazích. Kde ostatní končí, tam my začínáme.</p>
-  <span class="version">v2.3 &middot; Únor 2026 &middot; Teplá noc</span>
+  <span class="version">v2.4 &middot; Únor 2026 &middot; Teplá noc</span>
   <div style="margin-top: 32px; text-align: left; display: inline-block; font-size: 12px; color: var(--cream-35); line-height: 2;">
     <div style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-25); margin-bottom: 8px;">Changelog</div>
+    <div><span style="color: var(--gold); opacity: 0.5;">v2.4</span> &mdash; Druhý IG carousel s La Perla fotkami vedle stávajícího (responsive pair layout)</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.3</span> &mdash; IG carousel: interaktivní mockup v telefon framu se swipem a pravidla</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.2</span> &mdash; YT thumbnaily: definice titulku, pillu, copy stylu + reálné příklady</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.1</span> &mdash; Prvotní verze brand manuálu</div>
@@ -1140,6 +1172,8 @@
   <div class="label" style="margin-top: 64px;">Carousel formát &mdash; příklad</div>
   <div class="section-desc" style="margin-bottom: 32px;">6-slidový carousel pro propagaci epizody. Cover &rarr; citáty &rarr; punchline &rarr; CTA. Swipni doprava.</div>
 
+  <div class="ig-carousel-pair">
+
   <div class="ig-phone">
     <div class="ig-phone-header">
       <div class="ig-phone-avatar"></div>
@@ -1228,6 +1262,54 @@
     </div>
     <div class="ig-phone-likes">2 847 To se mi líbí</div>
   </div>
+
+  <div class="ig-phone">
+    <div class="ig-phone-header">
+      <div class="ig-phone-avatar"></div>
+      <div>
+        <div class="ig-phone-name">simrani.podcast</div>
+        <div class="ig-phone-meta">Sponzorováno</div>
+      </div>
+    </div>
+
+    <div class="ig-carousel-track" id="carouselTrack2">
+      <!-- Slide 1 — La Perla foto 1 -->
+      <div class="ig-slide" style="background: var(--deep);">
+        <div style="position:absolute;inset:0;background:url('/brand/laperla-1.png') center/cover;"></div>
+      </div>
+
+      <!-- Slide 2 — La Perla foto 2 -->
+      <div class="ig-slide" style="background: var(--deep);">
+        <div style="position:absolute;inset:0;background:url('/brand/laperla-2.png') center/cover;"></div>
+      </div>
+
+      <!-- Slide 3 — La Perla foto 3 -->
+      <div class="ig-slide" style="background: var(--deep);">
+        <div style="position:absolute;inset:0;background:url('/brand/laperla-3.png') center/cover;"></div>
+      </div>
+
+      <!-- Slide 4 — La Perla foto 4 -->
+      <div class="ig-slide" style="background: var(--deep);">
+        <div style="position:absolute;inset:0;background:url('/brand/laperla-4.png') center/cover;"></div>
+      </div>
+    </div>
+
+    <div class="ig-dots" id="carouselDots2">
+      <div class="ig-dot active"></div>
+      <div class="ig-dot"></div>
+      <div class="ig-dot"></div>
+      <div class="ig-dot"></div>
+    </div>
+
+    <div class="ig-phone-actions">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </div>
+    <div class="ig-phone-likes">1 423 To se mi líbí</div>
+  </div>
+
+  </div><!-- /ig-carousel-pair -->
 
   <div class="label">Pravidla pro carousel</div>
   <div style="font-size: 14px; color: var(--cream-60); line-height: 1.8; max-width: 600px;">
@@ -1343,22 +1425,25 @@
 </div><!-- /container -->
 
 <div class="footer">
-  Šimrání &mdash; Brand Manual v2.3 &middot; Únor 2026 &middot; Teplá noc
+  Šimrání &mdash; Brand Manual v2.4 &middot; Únor 2026 &middot; Teplá noc
 </div>
 
 <script>
 (function() {
-  const track = document.getElementById('carouselTrack');
-  const dots = document.querySelectorAll('#carouselDots .ig-dot');
-  if (!track || !dots.length) return;
-
-  track.addEventListener('scroll', function() {
-    const slideWidth = track.offsetWidth;
-    const index = Math.round(track.scrollLeft / slideWidth);
-    dots.forEach(function(d, i) {
-      d.classList.toggle('active', i === index);
+  function initCarousel(trackId, dotsId) {
+    var track = document.getElementById(trackId);
+    var dots = document.querySelectorAll('#' + dotsId + ' .ig-dot');
+    if (!track || !dots.length) return;
+    track.addEventListener('scroll', function() {
+      var slideWidth = track.offsetWidth;
+      var index = Math.round(track.scrollLeft / slideWidth);
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === index);
+      });
     });
-  });
+  }
+  initCarousel('carouselTrack', 'carouselDots');
+  initCarousel('carouselTrack2', 'carouselDots2');
 })();
 </script>
 
