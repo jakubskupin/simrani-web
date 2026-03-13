@@ -794,6 +794,140 @@
     }
   }
 
+  /* ===== COMPETITIVE MAP ===== */
+  .comp-map-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    background: linear-gradient(135deg, rgba(26, 10, 20, 0.8), rgba(42, 15, 38, 0.4));
+    border: 1px solid var(--gold-06);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .comp-map-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .comp-map-axis-label {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    fill: var(--cream-35);
+  }
+
+  .comp-map-quadrant-label {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .comp-map-bubble-name {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .comp-map-bubble-sub {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    fill: var(--cream-60);
+  }
+
+  .comp-map-intro {
+    font-size: 15px;
+    color: var(--cream-60);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 700px;
+  }
+
+  .comp-map-insight {
+    padding: 28px 32px;
+    border-radius: 16px;
+    border: 1px solid var(--gold-25);
+    background: rgba(197, 155, 104, 0.04);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .comp-map-insight p {
+    font-size: 14px;
+    color: var(--cream-60);
+    line-height: 1.7;
+  }
+
+  .comp-map-insight strong {
+    color: var(--cream);
+  }
+
+  .comp-map-legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .comp-map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--cream-60);
+  }
+
+  .comp-map-legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .comp-diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .comp-risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .comp-map-wrapper {
+      aspect-ratio: auto;
+      height: 400px;
+    }
+
+    .comp-map-bubble-name {
+      font-size: 11px;
+    }
+
+    .comp-map-legend {
+      gap: 12px;
+    }
+
+    .comp-diff-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .comp-risk-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* ===== FOOTER ===== */
   .footer {
     text-align: center;
@@ -812,9 +946,10 @@
   <div class="hero-label">Brand Manual</div>
   <h1>Šimrání</h1>
   <p>Podcast a komunita o intimitě, sexualitě a vztazích. Kde ostatní končí, tam my začínáme.</p>
-  <span class="version">v2.4 &middot; Únor 2026 &middot; Teplá noc</span>
+  <span class="version">v2.5 &middot; Březen 2026 &middot; Teplá noc</span>
   <div style="margin-top: 32px; text-align: left; display: inline-block; font-size: 12px; color: var(--cream-35); line-height: 2;">
     <div style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-25); margin-bottom: 8px;">Changelog</div>
+    <div><span style="color: var(--gold); opacity: 0.5;">v2.5</span> &mdash; Konkurenční mapa: SVG quadrant vizualizace CZ podcast scény + odlišovače + rizika</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.4</span> &mdash; Druhý IG carousel s La Perla fotkami vedle stávajícího (responsive pair layout)</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.3</span> &mdash; IG carousel: interaktivní mockup v telefon framu se swipem a pravidla</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.2</span> &mdash; YT thumbnaily: definice titulku, pillu, copy stylu + reálné příklady</div>
@@ -1422,10 +1557,141 @@
   <div style="font-size: 16px; color: var(--cream-60); line-height: 1.7;">Nejsem terapeutka. Jsem průvodkyně, která jde první a říká: <span style="color: var(--gold);">pojď, nic se nestane.</span> 🔦</div>
 </section>
 
+<!-- ===== 11 — KONKURENČNÍ MAPA ===== -->
+<section id="konkurence">
+  <div class="section-number">11</div>
+  <div class="section-title">Konkurenční mapa</div>
+  <div class="section-desc">Aktuální krajina české podcastové scény o intimitě a sexualitě. Velikost kruhu = relativní zásah.</div>
+
+  <p class="comp-map-intro">Takhle dnes vypadá český podcast prostor kolem intimity a sexuality. Většina hráčů sedí vlevo dole &mdash; humor, explicitnost, hlasitost. Pravý horní kvadrant &mdash; edukace + kultivovaný přístup &mdash; je prázdný. Přesně tam sedí Šimrání.</p>
+
+  <div class="label" style="max-width: 700px; margin-left: auto; margin-right: auto;">Velikost kruhu = relativní zásah</div>
+
+  <div class="comp-map-legend">
+    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #C59B68; box-shadow: 0 0 12px rgba(197,155,104,0.5);"></div> Šimrání</div>
+    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #E85D75;"></div> Humor & entertainment</div>
+    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #6BCB8B;"></div> Edukace & rozhovor</div>
+    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #7B8FA0;"></div> Niche / menší zásah</div>
+  </div>
+
+  <div class="comp-map-wrapper">
+    <svg class="comp-map-svg" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background grid -->
+      <defs>
+        <radialGradient id="shimGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C59B68" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#C59B68" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Grid lines -->
+      <line x1="350" y1="40" x2="350" y2="660" stroke="rgba(245,230,208,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="40" y1="350" x2="660" y2="350" stroke="rgba(245,230,208,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- Border -->
+      <rect x="40" y="40" width="620" height="620" rx="8" fill="none" stroke="rgba(245,230,208,0.08)" stroke-width="1"/>
+
+      <!-- Quadrant labels -->
+      <text x="55" y="660" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">HLASITÝ KOMENTÁŘ</text>
+      <text x="510" y="660" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">TICHÁ HLOUBKA</text>
+
+      <!-- Axis labels (rotated Y) -->
+      <text transform="translate(28, 400) rotate(-90)" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">↓ EXPLICITNÍ &amp; RAW</text>
+      <text transform="translate(28, 200) rotate(-90)" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">↑ KULTIVOVANÝ &amp; SAFE</text>
+
+      <!-- X axis labels -->
+      <text x="55" y="690" class="comp-map-axis-label" fill="rgba(245,230,208,0.35)">← HUMOR &amp; ZÁBAVA</text>
+      <text x="500" y="690" class="comp-map-axis-label" fill="rgba(245,230,208,0.35)">EDUKACE &amp; HLOUBKA →</text>
+
+      <!-- "VOLNÝ PROSTOR" label -->
+      <text x="520" y="75" font-family="'Bricolage Grotesque', sans-serif" font-size="10" letter-spacing="2.5" text-transform="uppercase" fill="#C59B68" font-weight="500">VOLNÝ PROSTOR ↗</text>
+
+      <!-- ======= BUBBLES ======= -->
+
+      <!-- Vyhonit ďábla — large, bottom-left (humor + explicit) -->
+      <circle cx="180" cy="500" r="65" fill="rgba(232, 93, 117, 0.08)" stroke="#E85D75" stroke-width="1.5" stroke-opacity="0.4"/>
+      <text x="180" y="495" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75">Vyhonit</text>
+      <text x="180" y="512" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75">ďábla</text>
+      <text x="180" y="530" text-anchor="middle" class="comp-map-bubble-sub">HeroHero · explicitní humor</text>
+
+      <!-- LOVE IS ON THE AIR — medium, left-center (comedy, moderate) -->
+      <circle cx="220" cy="330" r="48" fill="rgba(232, 93, 117, 0.06)" stroke="#E85D75" stroke-width="1.5" stroke-opacity="0.3"/>
+      <text x="220" y="325" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75" font-size="12">LOVE IS</text>
+      <text x="220" y="341" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75" font-size="12">ON THE AIR</text>
+      <text x="220" y="357" text-anchor="middle" class="comp-map-bubble-sub">comedy · vztahy</text>
+
+      <!-- Lascivní — medium-small, center (couples, light sex-ed) -->
+      <circle cx="370" cy="380" r="38" fill="rgba(107, 203, 139, 0.06)" stroke="#6BCB8B" stroke-width="1.5" stroke-opacity="0.3"/>
+      <text x="370" y="377" text-anchor="middle" class="comp-map-bubble-name" fill="#6BCB8B" font-size="12">Lascivní</text>
+      <text x="370" y="395" text-anchor="middle" class="comp-map-bubble-sub">páry · sex-ed lite</text>
+
+      <!-- Rozkročena nad zrcadlem — small, right-lower (education but explicit, coach) -->
+      <circle cx="490" cy="430" r="32" fill="rgba(123, 143, 160, 0.06)" stroke="#7B8FA0" stroke-width="1.5" stroke-opacity="0.3"/>
+      <text x="490" y="422" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">Rozkročena</text>
+      <text x="490" y="438" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">nad zrcadlem</text>
+      <text x="490" y="454" text-anchor="middle" class="comp-map-bubble-sub">sex koučka · paywall</text>
+
+      <!-- Přirození — small, far left-bottom (male, humor) -->
+      <circle cx="130" cy="390" r="28" fill="rgba(123, 143, 160, 0.06)" stroke="#7B8FA0" stroke-width="1.5" stroke-opacity="0.3"/>
+      <text x="130" y="388" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">Přirození</text>
+      <text x="130" y="404" text-anchor="middle" class="comp-map-bubble-sub">mužský pohled</text>
+
+      <!-- ŠIMRÁNÍ — upper right, with glow (education + safe = empty space) -->
+      <circle cx="550" cy="160" r="52" fill="url(#shimGlow)" stroke="#C59B68" stroke-width="2" filter="url(#glow)"/>
+      <text x="550" y="155" text-anchor="middle" class="comp-map-bubble-name" fill="#C59B68" font-size="15" font-weight="700">Šimrání</text>
+      <text x="550" y="175" text-anchor="middle" class="comp-map-bubble-sub" fill="rgba(197,155,104,0.8)">zvědavost · bezpečný prostor</text>
+
+    </svg>
+  </div>
+
+  <div class="comp-map-insight">
+    <p><strong>Co z toho plyne:</strong> Vyhonit ďábla a LOVE IS ON THE AIR dominují levý dolní prostor &mdash; velký zásah, ale mluví hlasitě a explicitně. Lascivní a Rozkročena sedí uprostřed &mdash; edukativnější, ale stále hodně &bdquo;raw&ldquo;. Přirození jsou niche s mužskou optikou. Pravý horní kvadrant &mdash; edukace + kultivovaný přístup + bezpečný prostor &mdash; je prázdný. <strong>Šimrání je jediný podcast, který kombinuje hloubku, zvědavost a přístupnost bez senzace. Proto positioning &bdquo;Kde ostatní končí, Šimrání začíná&ldquo; funguje.</strong></p>
+  </div>
+
+  <div style="margin-top: 48px;">
+    <div class="label">3 klíčové odlišovače</div>
+    <div class="comp-diff-grid">
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
+        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Zvědavý rozhovor</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Ne comedy persona, ne sex koučka. Ptá se, dává věcem jméno, drží bezpečný prostor.</div>
+      </div>
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
+        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Komunitní engine</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">ŠOL + Discord + archiv 200+ epizod + Intimity Festival. Žádný jiný CZ podcast nemá takový ekosystém.</div>
+      </div>
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
+        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Kultivovaná přístupnost</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Eventy i obsah jsou komunikovatelné veřejně &mdash; &bdquo;bez explicitní nahoty&ldquo;, edukativní i zážitkové.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px;">
+    <div class="label">Rizika zaměnitelnosti</div>
+    <div class="comp-risk-grid">
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid rgba(74,25,66,0.3); background: rgba(74,25,66,0.15);">
+        <div style="font-family: 'Fraunces', serif; font-size: 16px; margin-bottom: 8px;">&bdquo;Sex podcast&ldquo; škatulka</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Bez jasného &bdquo;Start here&ldquo; framingu hrozí slévání s Vyhonit ďábla, LOVE IS ON THE AIR a dalšími.</div>
+      </div>
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid rgba(74,25,66,0.3); background: rgba(74,25,66,0.15);">
+        <div style="font-family: 'Fraunces', serif; font-size: 16px; margin-bottom: 8px;">ENM/poly = core offer?</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Pokud se otevřené vztahy komunikují příliš dopředu, projekt se zúží na &bdquo;open relationship show&ldquo;. Držet jako modul, ne identitu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div><!-- /container -->
 
 <div class="footer">
-  Šimrání &mdash; Brand Manual v2.4 &middot; Únor 2026 &middot; Teplá noc
+  Šimrání &mdash; Brand Manual v2.5 &middot; Březen 2026 &middot; Teplá noc
 </div>
 
 <script>
