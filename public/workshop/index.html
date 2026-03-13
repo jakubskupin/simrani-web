@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Šimrání — Workshop pro páry — 3 koncepty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --deep: #1A0A14;
+    --wine: #4A1942;
+    --wine-bg: #2A0F26;
+    --gold: #C59B68;
+    --cream: #F5E6D0;
+    --cream-60: rgba(245, 230, 208, 0.6);
+    --cream-35: rgba(245, 230, 208, 0.35);
+    --gold-10: rgba(197, 155, 104, 0.1);
+    --gold-06: rgba(197, 155, 104, 0.06);
+    --gold-25: rgba(197, 155, 104, 0.25);
+    --emerald: #6BCB8B;
+    --coral: #E85D75;
+    --blue: #5B9BD5;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+  body {
+    background: var(--deep);
+    color: var(--cream);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26, 10, 20, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--gold-06);
+    padding: 0 24px;
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 52px;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-brand {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    color: var(--cream);
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-right: 12px;
+  }
+
+  .nav-sep {
+    width: 1px;
+    height: 20px;
+    background: var(--gold-25);
+    flex-shrink: 0;
+    margin: 0 6px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--cream-35);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .nav-link:hover { color: var(--gold); background: var(--gold-06); }
+  .nav-link.active { color: var(--gold); background: var(--gold-10); }
+
+  .nav-group-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-25);
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-left: 4px;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  section {
+    padding: 80px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--gold-06);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center;
+    padding: 120px 24px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--gold-06);
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    color: var(--cream-60);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+  }
+
+  .hero-meta {
+    font-size: 12px;
+    color: var(--gold);
+    opacity: 0.6;
+    letter-spacing: 1px;
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  .section-number {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--cream-60);
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+
+  .label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cream-35);
+    margin-bottom: 16px;
+    margin-top: 48px;
+  }
+
+  .label:first-of-type { margin-top: 0; }
+
+  /* ===== TABLES ===== */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  .data-table th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gold-25);
+  }
+
+  .data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gold-06);
+    color: var(--cream-60);
+    vertical-align: top;
+  }
+
+  .data-table td:first-child { color: var(--cream); font-weight: 400; }
+
+  .data-table tr:last-child td { border-bottom: none; }
+
+  /* ===== CARDS ===== */
+  .card {
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--gold-25);
+    background: rgba(197, 155, 104, 0.04);
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--gold);
+  }
+
+  .card-text {
+    font-size: 14px;
+    color: var(--cream-60);
+    line-height: 1.6;
+  }
+
+  .card-wine {
+    border-color: rgba(74, 25, 66, 0.3);
+    background: rgba(74, 25, 66, 0.15);
+  }
+
+  .card-wine .card-title { color: var(--cream); }
+
+  /* ===== GRID ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* ===== CONCEPT CARDS ===== */
+  .concept {
+    padding: 48px 32px;
+    border-radius: 20px;
+    border: 2px solid var(--gold-25);
+    background: linear-gradient(135deg, rgba(197, 155, 104, 0.06) 0%, rgba(26, 10, 20, 0.8) 100%);
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .concept-number {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+  }
+
+  .concept-name {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: var(--cream);
+  }
+
+  .concept-subtitle {
+    font-size: 15px;
+    color: var(--cream-60);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .concept-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .concept-pill {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--gold-10);
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .concept-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--gold);
+    padding: 20px 0;
+    border-top: 1px solid var(--gold-25);
+    border-bottom: 1px solid var(--gold-25);
+    margin: 32px 0;
+    line-height: 1.5;
+  }
+
+  .concept-section-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cream-35);
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+
+  /* ===== AGENDA ===== */
+  .agenda-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gold-06);
+  }
+
+  .agenda-item:last-child { border-bottom: none; }
+
+  .agenda-time {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    padding-top: 2px;
+  }
+
+  .agenda-title {
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .agenda-desc {
+    font-size: 13px;
+    color: var(--cream-60);
+    line-height: 1.6;
+  }
+
+  /* ===== BUDGET ===== */
+  .budget-highlight {
+    background: linear-gradient(135deg, rgba(197, 155, 104, 0.12) 0%, rgba(197, 155, 104, 0.04) 100%);
+    border: 1px solid var(--gold-25);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    margin: 32px 0;
+  }
+
+  .budget-price {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .budget-unit {
+    font-size: 14px;
+    color: var(--cream-60);
+    margin-bottom: 16px;
+  }
+
+  .budget-note {
+    font-size: 13px;
+    color: var(--cream-35);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* ===== COMPARISON ===== */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 32px 0;
+  }
+
+  .compare-table th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 12px;
+    border-bottom: 1px solid var(--gold-25);
+    white-space: nowrap;
+  }
+
+  .compare-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--gold-06);
+    color: var(--cream-60);
+    vertical-align: top;
+  }
+
+  .compare-table td:first-child {
+    color: var(--cream-35);
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* ===== IFDEAL ===== */
+  .ifdeal-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .ifdeal-step {
+    text-align: center;
+    padding: 20px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--gold-06);
+    background: rgba(197, 155, 104, 0.02);
+  }
+
+  .ifdeal-step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .ifdeal-step-text {
+    font-size: 12px;
+    color: var(--cream-60);
+    line-height: 1.4;
+  }
+
+  /* ===== RECOMMENDATION ===== */
+  .reco-box {
+    background: linear-gradient(135deg, rgba(107, 203, 139, 0.08) 0%, rgba(26, 10, 20, 0.8) 100%);
+    border: 2px solid rgba(107, 203, 139, 0.3);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 32px 0;
+  }
+
+  .reco-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+
+  .reco-text {
+    font-size: 15px;
+    color: var(--cream-60);
+    line-height: 1.7;
+  }
+
+  /* ===== GAP PILLS ===== */
+  .gap-pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin: 4px 4px 4px 0;
+    border: 1px solid var(--gold-25);
+    color: var(--gold);
+  }
+
+  .gap-pill.filled {
+    background: var(--gold);
+    color: var(--deep);
+    border-color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 48px 24px;
+    font-size: 12px;
+    color: var(--cream-35);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    section { padding: 60px 20px; }
+    .hero { padding: 80px 20px 60px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .concept { padding: 32px 20px; }
+    .ifdeal-steps { grid-template-columns: 1fr 1fr; }
+    .compare-table { font-size: 11px; }
+    .compare-table th, .compare-table td { padding: 8px 6px; }
+    .agenda-item { grid-template-columns: 50px 1fr; gap: 12px; }
+    .data-table { font-size: 12px; }
+    .data-table th, .data-table td { padding: 10px 8px; }
+  }
+
+  @media (max-width: 480px) {
+    .grid-4 { grid-template-columns: 1fr; }
+    .ifdeal-steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Šimrání</a>
+    <div class="nav-sep"></div>
+    <a href="#trh" class="nav-link">Trh</a>
+    <a href="#ifdeal" class="nav-link">ifdeal</a>
+    <a href="#rozpocet" class="nav-link">Rozpočet</a>
+    <div class="nav-sep"></div>
+    <span class="nav-group-label">Koncepty</span>
+    <a href="#koncept-1" class="nav-link">Ztichlo</a>
+    <a href="#koncept-2" class="nav-link">Touha</a>
+    <a href="#koncept-3" class="nav-link">Dotek</a>
+    <div class="nav-sep"></div>
+    <a href="#srovnani" class="nav-link">Srovnání</a>
+    <a href="#doporuceni" class="nav-link">Doporučení</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-label">Workshop pro páry</div>
+  <h1 class="hero-title">3 koncepty k výběru</h1>
+  <div class="hero-desc">
+    Komorní workshop pro 5&ndash;8 párů. Rešerše trhu, rozpočet, tři distinktivní formáty &mdash; vše připravené k rozhodnutí.
+  </div>
+  <div class="hero-meta">Březen 2026 &middot; Interní dokument</div>
+</div>
+
+<!-- ===== TRH ===== -->
+<section id="trh">
+  <div class="section-number">01</div>
+  <div class="section-title">Rešerše trhu</div>
+  <div class="section-desc">Kdo v Česku dělá workshopy pro páry, za kolik a v jakém formátu.</div>
+
+  <div class="label">Hlavní hráči</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Kdo</th>
+        <th>Focus</th>
+        <th>Cena (odhad)</th>
+        <th>Formát</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Partnerské sladění</td>
+        <td>Terapeutický, konflikty</td>
+        <td>~2 500 Kč/pár</td>
+        <td>Půldenní, max 8 párů</td>
+      </tr>
+      <tr>
+        <td>Milujeme tantru</td>
+        <td>Tantra, dech, energie</td>
+        <td>3 000&ndash;6 000 Kč/pár</td>
+        <td>Víkend</td>
+      </tr>
+      <tr>
+        <td>Škola Intimního splynutí</td>
+        <td>Tantra + transformace</td>
+        <td>N/A</td>
+        <td>Kurzy + individuální</td>
+      </tr>
+      <tr>
+        <td>Bára Vodová</td>
+        <td>Senzualita, playful BDSM</td>
+        <td>N/A</td>
+        <td>Workshopy</td>
+      </tr>
+      <tr>
+        <td>Intimity Festival</td>
+        <td>34 workshopů, marketplace</td>
+        <td>590 Kč/workshop</td>
+        <td>2&ndash;3h, velké skupiny</td>
+      </tr>
+      <tr>
+        <td>Art of Tantra</td>
+        <td>Online kurzy, podcast, e-shop</td>
+        <td>N/A</td>
+        <td>Video + online</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="label">Co na trhu chybí &mdash; příležitost pro Šimrání</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Ne-tantra, ne-terapie</div>
+      <div class="card-text">Většina je buď tantrická (esoterická) nebo terapeutická (klinická). Nikdo nedělá &bdquo;kamarádský, zvědavý, bezpečný&ldquo; formát &mdash; jako Šimrání podcast, ale naživo.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Podcast-to-workshop pipeline</div>
+      <div class="card-text">Žádný český podcast o intimitě nemá live formát pro páry. Markéta má hotovou cílovku &mdash; stačí je pozvat z online do offline.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Muži se nemusí bát</div>
+      <div class="card-text">Většina workshopů je ženami iniciovaná, muži jdou neradi. Šimrání tón (bez ezoterismu, bez svlékání) může být přístupnější pro páry.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Cenově dostupný vstup</div>
+      <div class="card-text">Tantra víkendy stojí 3&ndash;6K, párová terapie 2&ndash;3K za session. Půldenní workshop za 2 500 Kč/pár = nízká bariéra pro první zkušenost.</div>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top: 48px;">Cenové benchmarky</div>
+  <div class="grid-4">
+    <div style="text-align: center; padding: 16px; border-radius: 12px; border: 1px solid var(--gold-06);">
+      <div style="font-size: 11px; color: var(--cream-35); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">2&ndash;3 hodiny</div>
+      <div style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--cream);">500&ndash;1 500</div>
+      <div style="font-size: 11px; color: var(--cream-35);">Kč / pár</div>
+    </div>
+    <div style="text-align: center; padding: 16px; border-radius: 12px; border: 1px solid var(--gold-25); background: var(--gold-06);">
+      <div style="font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Půlden (4&ndash;5h)</div>
+      <div style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--gold);">2 000&ndash;3 500</div>
+      <div style="font-size: 11px; color: var(--cream-35);">Kč / pár</div>
+    </div>
+    <div style="text-align: center; padding: 16px; border-radius: 12px; border: 1px solid var(--gold-06);">
+      <div style="font-size: 11px; color: var(--cream-35); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Celý den (6&ndash;8h)</div>
+      <div style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--cream);">3 500&ndash;6 000</div>
+      <div style="font-size: 11px; color: var(--cream-35);">Kč / pár</div>
+    </div>
+    <div style="text-align: center; padding: 16px; border-radius: 12px; border: 1px solid var(--gold-06);">
+      <div style="font-size: 11px; color: var(--cream-35); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Víkend + ubytování</div>
+      <div style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--cream);">8 000&ndash;15 000</div>
+      <div style="font-size: 11px; color: var(--cream-35);">Kč / pár</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IFDEAL ===== -->
+<section id="ifdeal">
+  <div class="section-number">02</div>
+  <div class="section-title">ifdeal.com &mdash; jak to funguje</div>
+  <div class="section-desc">Crowdfunding model: workshop proběhne jen pokud se přihlásí dostatek párů. Nulové riziko pro účastníky &mdash; pokud se cíl nesplní, peníze se vrátí.</div>
+
+  <div class="ifdeal-steps">
+    <div class="ifdeal-step">
+      <div class="ifdeal-step-num">1</div>
+      <div class="ifdeal-step-text">Markéta vytvoří kampaň s popisem, cenou a minimem párů</div>
+    </div>
+    <div class="ifdeal-step">
+      <div class="ifdeal-step-num">2</div>
+      <div class="ifdeal-step-text">Páry se přihlašují a platí kartou (Stripe)</div>
+    </div>
+    <div class="ifdeal-step">
+      <div class="ifdeal-step-num">3</div>
+      <div class="ifdeal-step-text">Cíl splněn = workshop proběhne. Nesplněn = automatický refund</div>
+    </div>
+    <div class="ifdeal-step">
+      <div class="ifdeal-step-num">4</div>
+      <div class="ifdeal-step-text">Výplata 93 % z vybraných peněz (po 8denní čekací lhůtě)</div>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top: 40px;">Doporučená strategie</div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">Minimum 5 párů</div>
+      <div class="card-text">Pod 5 párů se nevyplatí (nepokryje náklady). Nastavit jako podmínku na ifdeal.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Maximum 8 párů</div>
+      <div class="card-text">Komorní atmosféra = hodnota. Víc párů by narušilo intimitu formátu.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Deadline 3&ndash;4 týdny</div>
+      <div class="card-text">Kampaň běží 3&ndash;4 týdny před plánovaným datem. Čas na přípravu po naplnění.</div>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top: 32px;">Promo kanály</div>
+  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+    <span class="gap-pill filled">IG Stories série</span>
+    <span class="gap-pill filled">Podcast zmínka</span>
+    <span class="gap-pill">Newsletter</span>
+    <span class="gap-pill">Discord komunita</span>
+    <span class="gap-pill">Forendors</span>
+  </div>
+</section>
+
+<!-- ===== ROZPOČET ===== -->
+<section id="rozpocet">
+  <div class="section-number">03</div>
+  <div class="section-title">Rozpočet</div>
+  <div class="section-desc">Orientační kalkulace. Cíl: pokrýt náklady + drobný honorář. Nejde o zisk, jde o validaci formátu.</div>
+
+  <div class="label">Fixní náklady</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Položka</th>
+        <th>Odhad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pronájem prostoru (půlden, Praha)</td>
+        <td>3 000&ndash;6 000 Kč</td>
+      </tr>
+      <tr>
+        <td>Občerstvení (víno, káva, snacky)</td>
+        <td>2 000&ndash;3 500 Kč</td>
+      </tr>
+      <tr>
+        <td>Materiály (kartičky, pracovní listy, tisk)</td>
+        <td>500&ndash;1 000 Kč</td>
+      </tr>
+      <tr>
+        <td>Atmosféra (svíčky, dekorace)</td>
+        <td>500&ndash;1 000 Kč</td>
+      </tr>
+      <tr>
+        <td style="color: var(--gold); font-weight: 500;">Celkem fixní</td>
+        <td style="color: var(--gold); font-weight: 500;">6 000&ndash;11 500 Kč</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="budget-highlight">
+    <div class="budget-price">2 500 Kč</div>
+    <div class="budget-unit">doporučená cena za pár</div>
+    <div class="budget-note">= 1 250 Kč na osobu &mdash; méně než 1 session párové terapie, dvě večeře v restauraci</div>
+  </div>
+
+  <div class="label">Kalkulace výnosu po ifdeal fee (93 %)</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">5 párů (minimum)</div>
+      <div class="card-text">
+        Příjem: 12 500 Kč brutto<br>
+        Po ifdeal: 11 625 Kč<br>
+        Po nákladech: <strong style="color: var(--cream);">+125 až +5 625 Kč</strong>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">8 párů (maximum)</div>
+      <div class="card-text">
+        Příjem: 20 000 Kč brutto<br>
+        Po ifdeal: 18 600 Kč<br>
+        Po nákladech: <strong style="color: var(--gold);">+7 100 až +12 600 Kč</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KONCEPT 1 ===== -->
+<section id="koncept-1">
+  <div class="concept">
+    <div class="concept-number">01</div>
+    <div class="concept-name">&bdquo;Kde to mezi námi ztichlo&ldquo;</div>
+    <div class="concept-subtitle">Workshop pro páry, kterým intimita nevymizela &mdash; jen se schovala</div>
+
+    <div class="concept-meta">
+      <span class="concept-pill">4,5 hodiny</span>
+      <span class="concept-pill">Normalizační tón</span>
+      <span class="concept-pill">Moduly 1 + 3</span>
+      <span class="concept-pill">Riziko: nízké</span>
+    </div>
+
+    <p style="font-size: 15px; color: var(--cream-60); line-height: 1.7; margin-bottom: 24px;">
+      <strong style="color: var(--cream);">Pro koho:</strong> Páry 28&ndash;45, spolu 3+ let, kde intimita postupně utichla. Děti, práce, rutina. Neřeší krizi &mdash; řeší ticho.
+    </p>
+
+    <p style="font-size: 15px; color: var(--cream-60); line-height: 1.7;">
+      <strong style="color: var(--cream);">Tón:</strong> Uklidňující, normalizační. &bdquo;Nejste rozbití, jen jste zapomněli mluvit.&ldquo;
+    </p>
+
+    <div class="concept-quote">
+      &bdquo;Workshop pro páry, kde se mluví o tom, o čem se doma mlčí. Bez terapie, bez tantry, bez trapnosti.&ldquo;
+    </div>
+
+    <div class="concept-section-title">Agenda</div>
+
+    <div class="agenda-item">
+      <div class="agenda-time">30 min</div>
+      <div>
+        <div class="agenda-title">Příchod + ice-breaker</div>
+        <div class="agenda-desc">Anonymní kartičky &bdquo;co bych ti chtěl/a říct, ale nikdy neřeknu nahlas&ldquo;. Markéta čte náhodně &mdash; normalizace, smích, úleva.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">45 min</div>
+      <div>
+        <div class="agenda-title">Proč intimita mizí dřív než vztah</div>
+        <div class="agenda-desc">Edukace z modulu 1 akademie. Aktivní vs. reaktivní touha. Stres, únava, stud jako tichý sabotér. Data, ne názory.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">30 min</div>
+      <div>
+        <div class="agenda-title">Párové cvičení: Mapa naší intimity</div>
+        <div class="agenda-desc">Každý pár dostane vizuální timeline vztahu. Společně vyznačí: kdy bylo nejblíž, kdy nejdál, co se dělo. Sdílení dobrovolné.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">15 min</div>
+      <div>
+        <div class="agenda-title">Přestávka</div>
+        <div class="agenda-desc">Víno, káva, volný pohyb.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">45 min</div>
+      <div>
+        <div class="agenda-title">Jak o tom mluvit, aby se nikdo nezavřel</div>
+        <div class="agenda-desc">Z modulu 3. Rozdíl mezi přáním a výčitkou. Načasování. Jazyk, který spojuje vs. vypíná. Praktické formulace.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">30 min</div>
+      <div>
+        <div class="agenda-title">Párové cvičení: 3 věty</div>
+        <div class="agenda-desc">Každý napíše 3 věty partnerovi: &bdquo;Cítím se blízko, když&hellip;&ldquo; / &bdquo;Stydím se za&hellip;&ldquo; / &bdquo;Přál/a bych si&hellip;&ldquo; Čtou si je navzájem (tiše, jen mezi sebou).</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">15 min</div>
+      <div>
+        <div class="agenda-title">Závěr: Co si odnést domů</div>
+        <div class="agenda-desc">Shrnutí. Každý pár dostane obálku s &bdquo;domácím úkolem&ldquo; na 7 dní &mdash; jednoduchá daily practice.</div>
+      </div>
+    </div>
+
+    <div class="concept-section-title">Proč je distinktivní</div>
+    <p style="font-size: 14px; color: var(--cream-60); line-height: 1.7;">
+      Žádná tantra, žádná terapie. Je to jako podcast Šimrání, ale živě a s partnerem vedle. Normalizace + praktické nástroje. Muži se nemusí bát &mdash; žádné svlékání, žádné dýchání do čaker.
+    </p>
+  </div>
+</section>
+
+<!-- ===== KONCEPT 2 ===== -->
+<section id="koncept-2">
+  <div class="concept">
+    <div class="concept-number">02</div>
+    <div class="concept-name">&bdquo;Touha není spravedlivá&ldquo;</div>
+    <div class="concept-subtitle">Workshop o rozdílné touze, iniciaci a o tom, proč odmítnutí nemusí být konec</div>
+
+    <div class="concept-meta">
+      <span class="concept-pill">4,5 hodiny</span>
+      <span class="concept-pill">Odvážný tón</span>
+      <span class="concept-pill">Modul 4 + 3</span>
+      <span class="concept-pill">Riziko: střední</span>
+    </div>
+
+    <p style="font-size: 15px; color: var(--cream-60); line-height: 1.7; margin-bottom: 24px;">
+      <strong style="color: var(--cream);">Pro koho:</strong> Páry, kde jeden chce víc a druhý míň. Nejčastější problém párů &mdash; desire mismatch. Frustrovaní, ale milující se.
+    </p>
+
+    <p style="font-size: 15px; color: var(--cream-60); line-height: 1.7;">
+      <strong style="color: var(--cream);">Tón:</strong> Odvážnější, přímější. &bdquo;Pojďme si říct, co nefunguje &mdash; a proč to není ničí vina.&ldquo;
+    </p>
+
+    <div class="concept-quote">
+      &bdquo;Jeden chce víc, druhý míň. A oba se cítí špatně. Tenhle workshop je pro vás.&ldquo;
+    </div>
+
+    <div class="concept-section-title">Agenda</div>
+
+    <div class="agenda-item">
+      <div class="agenda-time">20 min</div>
+      <div>
+        <div class="agenda-title">Příchod + Škála touhy</div>
+        <div class="agenda-desc">Páry se fyzicky postaví na škálu v místnosti (1&ndash;10: jak moc je pro vás sex důležitý). Vizuální, okamžitě boří tabu.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">50 min</div>
+      <div>
+        <div class="agenda-title">Aktivní vs. reaktivní touha</div>
+        <div class="agenda-desc">Z modulu 4 akademie. Proč touha nepřichází stejně. Iniciace a odmítnutí. Moc a zranitelnost. &bdquo;Nechci = nemiluju?&ldquo; &mdash; NE.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">25 min</div>
+      <div>
+        <div class="agenda-title">Párové cvičení: Deník odmítnutí</div>
+        <div class="agenda-desc">Každý anonymně napíše: &bdquo;Kdy jsem se naposledy cítil/a odmítnut/a v intimitě&ldquo; + &bdquo;Co jsem si o tom řekl/a&ldquo;. Markéta čte anonymně &mdash; sdílená zkušenost.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">15 min</div>
+      <div>
+        <div class="agenda-title">Přestávka</div>
+        <div class="agenda-desc">Víno, káva, volný pohyb.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">40 min</div>
+      <div>
+        <div class="agenda-title">Frustraci nejde vyřešit tlakem</div>
+        <div class="agenda-desc">Komunikace kolem touhy. Co říct místo &bdquo;ty nikdy&hellip;&ldquo;. Jak iniciovat bez tlaku. Jak odmítnout bez zranění. Konkrétní věty a scénáře.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">30 min</div>
+      <div>
+        <div class="agenda-title">Párové cvičení: Dohoda o iniciaci</div>
+        <div class="agenda-desc">Páry si vytvoří vlastní &bdquo;pravidla hry&ldquo;: jak iniciovat, jak odmítnout laskavě, jaký signál znamená &bdquo;teď ne, ale chci&ldquo;. Písemně, odnášejí domů.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">20 min</div>
+      <div>
+        <div class="agenda-title">Závěr + Q&amp;A</div>
+        <div class="agenda-desc">Otevřená diskuze. Markéta odpovídá jako v podcastu &mdash; upřímně, bez filtru, s humorem.</div>
+      </div>
+    </div>
+
+    <div class="concept-section-title">Proč je distinktivní</div>
+    <p style="font-size: 14px; color: var(--cream-60); line-height: 1.7;">
+      Cílí na #1 problém párů (desire mismatch), o kterém nikdo v CZ nedělá samostatný workshop. Většina nabídek řeší &bdquo;jak zlepšit sex&ldquo; &mdash; tenhle řeší &bdquo;proč ho jeden chce víc a co s tím&ldquo;. Odvážné, přímé, ale bezpečné.
+    </p>
+  </div>
+</section>
+
+<!-- ===== KONCEPT 3 ===== -->
+<section id="koncept-3">
+  <div class="concept">
+    <div class="concept-number">03</div>
+    <div class="concept-name">&bdquo;Intimita začíná před ložnicí&ldquo;</div>
+    <div class="concept-subtitle">Workshop o těle, doteku a blízkosti &mdash; bez svlékání a bez tantry</div>
+
+    <div class="concept-meta">
+      <span class="concept-pill">5 hodin</span>
+      <span class="concept-pill">Teplý, senzuální tón</span>
+      <span class="concept-pill">Modul 2 + 6</span>
+      <span class="concept-pill">Riziko: vyšší</span>
+    </div>
+
+    <p style="font-size: 15px; color: var(--cream-60); line-height: 1.7; margin-bottom: 24px;">
+      <strong style="color: var(--cream);">Pro koho:</strong> Páry, které se přestaly dotýkat mimo sex. Chybí jim fyzická blízkost, ale neví, jak se k ní vrátit bez toho, aby to znamenalo &bdquo;jdeme na to&ldquo;.
+    </p>
+
+    <p style="font-size: 15px; color: var(--cream-60); line-height: 1.7;">
+      <strong style="color: var(--cream);">Tón:</strong> Teplý, senzuální, zvědavý. Více prožitkový (ale NE tantra).
+    </p>
+
+    <div class="concept-quote">
+      &bdquo;Kdy ses naposledy dotkl/a partnera jen tak &mdash; bez toho, aby to něco znamenalo? Workshop o blízkosti, která začíná před ložnicí.&ldquo;
+    </div>
+
+    <div class="concept-section-title">Agenda</div>
+
+    <div class="agenda-item">
+      <div class="agenda-time">20 min</div>
+      <div>
+        <div class="agenda-title">Příchod + senzorické intro</div>
+        <div class="agenda-desc">Místnost voní, hraje hudba, tlumené světlo. Kartička: &bdquo;Kdy ses naposledy dotkl/a partnera ne-sexuálně?&ldquo; Sdílení v kruhu (dobrovolné).</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">40 min</div>
+      <div>
+        <div class="agenda-title">Tělo jako místo, kde to začíná</div>
+        <div class="agenda-desc">Z modulu 2. Vztah k vlastnímu tělu. Odpojení hlavy od těla. Stud, srovnávání. &bdquo;Mám nárok cítit se žádoucí?&ldquo;</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">30 min</div>
+      <div>
+        <div class="agenda-title">Párové cvičení: Mapa doteku</div>
+        <div class="agenda-desc">Každý dostane obrys těla (papír). Vyznačí: kde mě partner dotýká běžně (zelená), kde bych přál/a víc (modrá), kde nepříjemné (červená). Sdílení map &mdash; &bdquo;aha moment&ldquo;.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">30 min</div>
+      <div>
+        <div class="agenda-title">5 jazyků fyzické blízkosti</div>
+        <div class="agenda-desc">Framework: dotek = bezpečí, hravost, vášeň, péče, komunikace. Jak je rozlišit a učit se o ně.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">30 min</div>
+      <div>
+        <div class="agenda-title">Lehký oběd / přestávka</div>
+        <div class="agenda-desc">Společné jídlo, neformální atmosféra.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">40 min</div>
+      <div>
+        <div class="agenda-title">Guided cvičení: Nesexuální dotek</div>
+        <div class="agenda-desc">Páry sedí/leží (oblečené!). Guided instrukce od Markéty: 5 minut pomalého doteku rukou, ramen, obličeje. Přítomnost, ne cíl. Background hudba. Žádný tantrický kontext.</div>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">20 min</div>
+      <div>
+        <div class="agenda-title">Reflexe + co dál</div>
+        <div class="agenda-desc">Sdílení zážitků. Domácí challenge: 7 dní, 5 minut denně nesexuálního doteku.</div>
+      </div>
+    </div>
+
+    <div class="concept-section-title">Proč je distinktivní</div>
+    <p style="font-size: 14px; color: var(--cream-60); line-height: 1.7;">
+      Prožitkový formát, ale explicitně NE tantra. Cílí na &bdquo;dotek deficit&ldquo; &mdash; fenomén, o kterém se mluví, ale nikdo ho neřeší prakticky. Guided cvičení s oblečením = bezpečné i pro nejistější páry. Jediný CZ workshop zaměřený specificky na nesexuální fyzickou blízkost.
+    </p>
+  </div>
+</section>
+
+<!-- ===== SROVNÁNÍ ===== -->
+<section id="srovnani">
+  <div class="section-number">07</div>
+  <div class="section-title">Srovnání konceptů</div>
+  <div class="section-desc">Přehled všech tří variant na jednom místě.</div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Koncept 1</th>
+        <th>Koncept 2</th>
+        <th>Koncept 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Název</td>
+        <td>Kde to mezi námi ztichlo</td>
+        <td>Touha není spravedlivá</td>
+        <td>Intimita začíná před ložnicí</td>
+      </tr>
+      <tr>
+        <td>Energie</td>
+        <td>Uklidňující, normalizační</td>
+        <td>Odvážná, přímá</td>
+        <td>Teplá, senzuální</td>
+      </tr>
+      <tr>
+        <td>Hlavní téma</td>
+        <td>Komunikace + ticho</td>
+        <td>Desire mismatch</td>
+        <td>Tělo + dotek</td>
+      </tr>
+      <tr>
+        <td>Délka</td>
+        <td>4,5 hodiny</td>
+        <td>4,5 hodiny</td>
+        <td>5 hodin (vč. oběda)</td>
+      </tr>
+      <tr>
+        <td>Prožitkovost</td>
+        <td>Střední (kartičky, psaní)</td>
+        <td>Střední (škály, psaní)</td>
+        <td>Vysoká (guided dotek)</td>
+      </tr>
+      <tr>
+        <td>Riziko facilitace</td>
+        <td style="color: var(--emerald);">Nízké</td>
+        <td style="color: var(--gold);">Střední</td>
+        <td style="color: var(--coral);">Vyšší</td>
+      </tr>
+      <tr>
+        <td>Atraktivita pro muže</td>
+        <td style="color: var(--emerald);">Vysoká</td>
+        <td style="color: var(--emerald);">Vysoká</td>
+        <td style="color: var(--gold);">Střední</td>
+      </tr>
+      <tr>
+        <td>Unikátnost CZ trh</td>
+        <td>Střední</td>
+        <td style="color: var(--emerald);">Velmi vysoká</td>
+        <td style="color: var(--emerald);">Vysoká</td>
+      </tr>
+      <tr>
+        <td>Moduly akademie</td>
+        <td>1 + 3</td>
+        <td>4 + 3</td>
+        <td>2 + 6</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===== DOPORUČENÍ ===== -->
+<section id="doporuceni" style="border-bottom: none;">
+  <div class="section-number">08</div>
+  <div class="section-title">Doporučení</div>
+  <div class="section-desc">Co si myslíme, že dává největší smysl pro první workshop.</div>
+
+  <div class="reco-box">
+    <div class="reco-title">Pro první workshop: Koncept 1 nebo 2</div>
+    <div class="reco-text">
+      <strong style="color: var(--cream);">Koncept 1</strong> je nejbezpečnější volba &mdash; facilitace je mluvení + kartičky, Markéta je ve svém živlu (podcast formát na živo). Nízké riziko, vysoká hodnota.<br><br>
+      <strong style="color: var(--cream);">Koncept 2</strong> je nejdistinktivnější &mdash; desire mismatch je #1 problém párů a nikdo v CZ to nedělá jako samostatný workshop. Větší odvaha, ale i větší wow efekt.<br><br>
+      <strong style="color: var(--cream);">Koncept 3</strong> vyžaduje víc zkušeností s facilitací prožitkových cvičení &mdash; lepší jako druhý nebo třetí workshop v sérii.
+    </div>
+  </div>
+
+  <div class="label" style="margin-top: 48px;">Další kroky po výběru konceptu</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Texty pro ifdeal</div>
+      <div class="card-text">Detailní popis kampaně v tónu Šimrání &mdash; claim, co čekat, pro koho to je.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Vizuál + promo</div>
+      <div class="card-text">Grafika pro ifdeal stránku + IG Stories promo série (5&ndash;7 dní).</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Výběr prostoru</div>
+      <div class="card-text">Praha, komorní, příjemný &mdash; ne konferenční sál. Markéta říkala, že má prostor za výhodnější peníze.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Materiály</div>
+      <div class="card-text">Pracovní listy, kartičky, obálky s domácím úkolem, mapy &mdash; podle zvoleného konceptu.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  Šimrání &mdash; Workshop pro páry &middot; Interní dokument &middot; Březen 2026
+</div>
+
+<!-- ===== JS: NAV HIGHLIGHT ===== -->
+<script>
+(function() {
+  var navLinks = document.querySelectorAll('.nav-link');
+  var sections = document.querySelectorAll('section[id]');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function(link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-64px 0px -60% 0px', threshold: 0 });
+  sections.forEach(function(s) { observer.observe(s); });
+})();
+</script>
+
+</body>
+</html>
