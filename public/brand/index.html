@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Šimrání — Brand Manual</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Šimrání — Brand & Strategy Manual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
@@ -23,12 +24,81 @@
     --gold-25: rgba(197, 155, 104, 0.25);
   }
 
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
   body {
     background: var(--deep);
     color: var(--cream);
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 300;
     line-height: 1.6;
+  }
+
+  /* ===== STICKY NAV ===== */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26, 10, 20, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--gold-06);
+    padding: 0 40px;
+  }
+
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 52px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-brand {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    color: var(--cream);
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-right: 16px;
+  }
+
+  .nav-sep {
+    width: 1px;
+    height: 20px;
+    background: var(--gold-25);
+    flex-shrink: 0;
+    margin: 0 8px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--cream-35);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .nav-link:hover { color: var(--gold); background: var(--gold-06); }
+  .nav-link.active { color: var(--gold); background: var(--gold-10); }
+
+  .nav-group-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-25);
+    flex-shrink: 0;
+    padding: 0 4px;
   }
 
   /* ===== LAYOUT ===== */
@@ -116,6 +186,65 @@
     margin-bottom: 16px;
   }
 
+  /* ===== SITUATION / X-FACTOR CARDS ===== */
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .fact-card {
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--gold-06);
+    background: rgba(197, 155, 104, 0.03);
+  }
+
+  .fact-card h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .fact-card p {
+    font-size: 13px;
+    color: var(--cream-60);
+    line-height: 1.6;
+  }
+
+  .fact-card.highlight {
+    border-color: var(--gold-25);
+    background: rgba(197, 155, 104, 0.06);
+  }
+
+  .fact-card.warn {
+    border-color: rgba(74, 25, 66, 0.3);
+    background: rgba(74, 25, 66, 0.12);
+  }
+
+  .funnel-steps {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .funnel-step {
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    border: 1px solid var(--gold-25);
+    color: var(--gold);
+  }
+
+  .funnel-arrow {
+    color: var(--cream-35);
+    font-size: 14px;
+  }
+
   /* ===== PALETTE ===== */
   .palette {
     display: flex;
@@ -146,23 +275,9 @@
     border-radius: 0 0 16px 16px;
   }
 
-  .swatch-name {
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-
-  .swatch-hex {
-    font-size: 11px;
-    color: var(--cream-35);
-    font-family: monospace;
-  }
-
-  .swatch-use {
-    font-size: 11px;
-    color: var(--cream-60);
-    margin-top: 4px;
-  }
+  .swatch-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .swatch-hex { font-size: 11px; color: var(--cream-35); font-family: monospace; }
+  .swatch-use { font-size: 11px; color: var(--cream-60); margin-top: 4px; }
 
   /* ===== TYPOGRAPHY ===== */
   .type-row {
@@ -173,759 +288,146 @@
     border-bottom: 1px solid var(--gold-06);
   }
 
-  .type-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--cream-35);
-    width: 160px;
-    flex-shrink: 0;
-  }
-
-  .type-meta {
-    font-size: 11px;
-    color: var(--cream-35);
-    font-family: monospace;
-    width: 200px;
-    flex-shrink: 0;
-  }
-
+  .type-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cream-35); width: 160px; flex-shrink: 0; }
+  .type-meta { font-size: 11px; color: var(--cream-35); font-family: monospace; width: 200px; flex-shrink: 0; }
   .type-sample { flex: 1; }
 
   /* ===== TONE CARDS ===== */
-  .tone-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
+  .tone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
 
-  .tone-card {
-    padding: 28px;
-    border-radius: 16px;
-    border: 1px solid var(--gold-06);
-  }
+  .tone-card { padding: 28px; border-radius: 16px; border: 1px solid var(--gold-06); }
+  .tone-card h4 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 18px; margin-bottom: 8px; }
+  .tone-card p { font-size: 14px; color: var(--cream-60); line-height: 1.6; }
+  .tone-card.do { background: rgba(197, 155, 104, 0.04); border-color: var(--gold-25); }
+  .tone-card.dont { background: rgba(74, 25, 66, 0.15); border-color: rgba(74, 25, 66, 0.3); }
 
-  .tone-card h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  .tone-card p {
-    font-size: 14px;
-    color: var(--cream-60);
-    line-height: 1.6;
-  }
-
-  .tone-card.do {
-    background: rgba(197, 155, 104, 0.04);
-    border-color: var(--gold-25);
-  }
-
-  .tone-card.dont {
-    background: rgba(74, 25, 66, 0.15);
-    border-color: rgba(74, 25, 66, 0.3);
-  }
-
-  .tone-tag {
-    display: inline-block;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-bottom: 12px;
-  }
-
-  .tone-card.do .tone-tag {
-    background: rgba(197, 155, 104, 0.15);
-    color: var(--gold);
-  }
-
-  .tone-card.dont .tone-tag {
-    background: rgba(74, 25, 66, 0.3);
-    color: rgba(245, 230, 208, 0.5);
-  }
+  .tone-tag { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-bottom: 12px; }
+  .tone-card.do .tone-tag { background: rgba(197, 155, 104, 0.15); color: var(--gold); }
+  .tone-card.dont .tone-tag { background: rgba(74, 25, 66, 0.3); color: rgba(245, 230, 208, 0.5); }
 
   /* ===== KEYWORDS ===== */
-  .keywords {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
-
-  .keyword {
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 12px;
-    border: 1px solid var(--gold-25);
-    color: var(--gold);
-  }
-
-  .keyword.avoid {
-    border-color: rgba(74, 25, 66, 0.4);
-    color: var(--cream-35);
-    text-decoration: line-through;
-  }
+  .keywords { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .keyword { padding: 6px 16px; border-radius: 100px; font-size: 12px; border: 1px solid var(--gold-25); color: var(--gold); }
+  .keyword.avoid { border-color: rgba(74, 25, 66, 0.4); color: var(--cream-35); text-decoration: line-through; }
 
   /* ===== COPY EXAMPLES ===== */
-  .copy-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 32px;
-  }
-
-  .copy-table th {
-    text-align: left;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--cream-35);
-    padding: 12px 0;
-    border-bottom: 1px solid var(--gold-06);
-    font-weight: 400;
-  }
-
-  .copy-table td {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--gold-06);
-    font-size: 14px;
-    vertical-align: top;
-  }
-
-  .copy-table td:first-child {
-    color: var(--cream-35);
-    width: 160px;
-    font-size: 12px;
-  }
-
-  .copy-table td:nth-child(2) {
-    color: var(--cream-60);
-    padding-right: 24px;
-  }
-
-  .copy-table td:last-child {
-    color: var(--cream);
-  }
+  .copy-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+  .copy-table th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--cream-35); padding: 12px 0; border-bottom: 1px solid var(--gold-06); font-weight: 400; }
+  .copy-table td { padding: 16px 0; border-bottom: 1px solid var(--gold-06); font-size: 14px; vertical-align: top; }
+  .copy-table td:first-child { color: var(--cream-35); width: 160px; font-size: 12px; }
+  .copy-table td:nth-child(2) { color: var(--cream-60); padding-right: 24px; }
+  .copy-table td:last-child { color: var(--cream); }
 
   /* ===== MOCKUPS ===== */
-  .mockup-grid {
-    display: grid;
-    gap: 16px;
-    margin-bottom: 48px;
-  }
-
+  .mockup-grid { display: grid; gap: 16px; margin-bottom: 48px; }
   .mockup-grid.ig { grid-template-columns: repeat(4, 1fr); }
   .mockup-grid.reel { grid-template-columns: repeat(3, 1fr); }
   .mockup-grid.yt { grid-template-columns: repeat(2, 1fr); }
 
-  .ig-post {
-    aspect-ratio: 1;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 16px;
-    position: relative;
-    overflow: hidden;
-  }
+  .ig-post { aspect-ratio: 1; border-radius: 4px; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; position: relative; overflow: hidden; }
+  .ig-post .quote { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 15px; line-height: 1.4; color: var(--cream); position: relative; z-index: 1; }
+  .ig-post .tag { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-top: 8px; position: relative; z-index: 1; }
 
-  .ig-post .quote {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 1.4;
-    color: var(--cream);
-    position: relative;
-    z-index: 1;
-  }
+  .reel-card { aspect-ratio: 9/16; border-radius: 12px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; position: relative; overflow: hidden; max-height: 400px; }
+  .reel-card .reel-topic { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; position: relative; z-index: 1; }
+  .reel-card .reel-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; line-height: 1.2; color: var(--cream); position: relative; z-index: 1; }
+  .reel-card .reel-handle { font-size: 11px; color: var(--cream-35); margin-top: 12px; position: relative; z-index: 1; }
 
-  .ig-post .tag {
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 8px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .reel-card {
-    aspect-ratio: 9/16;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 24px;
-    position: relative;
-    overflow: hidden;
-    max-height: 400px;
-  }
-
-  .reel-card .reel-topic {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .reel-card .reel-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 1.2;
-    color: var(--cream);
-    position: relative;
-    z-index: 1;
-  }
-
-  .reel-card .reel-handle {
-    font-size: 11px;
-    color: var(--cream-35);
-    margin-top: 12px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .yt-thumb {
-    aspect-ratio: 16/9;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 28px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .yt-thumb .yt-ep {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .yt-thumb .yt-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 1.15;
-    color: var(--cream);
-    position: relative;
-    z-index: 1;
-  }
-
-  .yt-thumb .yt-guest {
-    font-size: 13px;
-    color: var(--cream-60);
-    margin-top: 8px;
-    position: relative;
-    z-index: 1;
-  }
+  .yt-thumb { aspect-ratio: 16/9; border-radius: 12px; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; position: relative; overflow: hidden; }
+  .yt-thumb .yt-ep { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; position: relative; z-index: 1; }
+  .yt-thumb .yt-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px; line-height: 1.15; color: var(--cream); position: relative; z-index: 1; }
+  .yt-thumb .yt-guest { font-size: 13px; color: var(--cream-60); margin-top: 8px; position: relative; z-index: 1; }
 
   /* ===== VOICE MODES ===== */
-  .mode-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  .mode-card {
-    padding: 28px;
-    border-radius: 16px;
-    border: 1px solid var(--gold-06);
-  }
-
-  .mode-card h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 20px;
-    margin-bottom: 4px;
-  }
-
-  .mode-card .mode-label {
-    font-size: 11px;
-    color: var(--cream-35);
-    margin-bottom: 16px;
-  }
-
-  .mode-card ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .mode-card li {
-    font-size: 13px;
-    color: var(--cream-60);
-    padding: 4px 0;
-    border-bottom: 1px solid var(--gold-06);
-  }
-
+  .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  .mode-card { padding: 28px; border-radius: 16px; border: 1px solid var(--gold-06); }
+  .mode-card h4 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; margin-bottom: 4px; }
+  .mode-card .mode-label { font-size: 11px; color: var(--cream-35); margin-bottom: 16px; }
+  .mode-card ul { list-style: none; padding: 0; }
+  .mode-card li { font-size: 13px; color: var(--cream-60); padding: 4px 0; border-bottom: 1px solid var(--gold-06); }
   .mode-card li:last-child { border: none; }
-
-  .mode-card .example {
-    margin-top: 16px;
-    padding: 16px;
-    background: rgba(197, 155, 104, 0.04);
-    border-radius: 10px;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--cream-60);
-    line-height: 1.6;
-  }
+  .mode-card .example { margin-top: 16px; padding: 16px; background: rgba(197, 155, 104, 0.04); border-radius: 10px; font-size: 13px; font-style: italic; color: var(--cream-60); line-height: 1.6; }
 
   /* ===== PERSONA ===== */
-  .persona-card {
-    padding: 40px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, var(--wine-bg), var(--deep));
-    border: 1px solid var(--gold-06);
-    margin-bottom: 32px;
-  }
-
-  .persona-card h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 28px;
-    margin-bottom: 4px;
-  }
-
-  .persona-card .persona-sub {
-    font-size: 14px;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-
-  .persona-card .persona-quote {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: var(--cream-60);
-    line-height: 1.5;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    border-left: 2px solid var(--gold-25);
-  }
-
-  .persona-traits {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .persona-trait {
-    flex: 1;
-    min-width: 200px;
-  }
-
-  .persona-trait h5 {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-    font-weight: 400;
-  }
-
-  .persona-trait p {
-    font-size: 13px;
-    color: var(--cream-60);
-    line-height: 1.6;
-  }
+  .persona-card { padding: 40px; border-radius: 20px; background: linear-gradient(135deg, var(--wine-bg), var(--deep)); border: 1px solid var(--gold-06); margin-bottom: 32px; }
+  .persona-card h4 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px; margin-bottom: 4px; }
+  .persona-card .persona-sub { font-size: 14px; color: var(--gold); margin-bottom: 20px; }
+  .persona-card .persona-quote { font-family: 'Fraunces', serif; font-style: italic; font-size: 18px; color: var(--cream-60); line-height: 1.5; margin-bottom: 20px; padding-left: 20px; border-left: 2px solid var(--gold-25); }
+  .persona-traits { display: flex; gap: 24px; flex-wrap: wrap; }
+  .persona-trait { flex: 1; min-width: 200px; }
+  .persona-trait h5 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 400; }
+  .persona-trait p { font-size: 13px; color: var(--cream-60); line-height: 1.6; }
 
   /* ===== IG CAROUSEL MOCKUP ===== */
-  .ig-phone {
-    max-width: 400px;
-    margin: 0 auto 32px;
-    border-radius: 36px;
-    border: 2px solid rgba(255,255,255,0.08);
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  }
-
-  .ig-phone-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 16px;
-    background: #000;
-  }
-
-  .ig-phone-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--wine), var(--gold));
-    flex-shrink: 0;
-  }
-
-  .ig-phone-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: #fff;
-  }
-
-  .ig-phone-meta {
-    font-size: 11px;
-    color: rgba(255,255,255,0.4);
-    font-weight: 300;
-  }
-
-  .ig-carousel-track {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
+  .ig-phone { max-width: 400px; margin: 0 auto 32px; border-radius: 36px; border: 2px solid rgba(255,255,255,0.08); overflow: hidden; background: #000; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  .ig-phone-header { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: #000; }
+  .ig-phone-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--wine), var(--gold)); flex-shrink: 0; }
+  .ig-phone-name { font-size: 13px; font-weight: 600; color: #fff; }
+  .ig-phone-meta { font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 300; }
+  .ig-carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .ig-carousel-track::-webkit-scrollbar { display: none; }
-
-  .ig-slide {
-    min-width: 100%;
-    aspect-ratio: 4/5;
-    scroll-snap-align: center;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ig-slide-inner {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 28px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .ig-slide-inner.centered {
-    justify-content: center;
-    padding: 40px 28px;
-  }
-
-  .ig-slide .s-label {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
-  }
-
-  .ig-slide .s-pill {
-    display: inline-block;
-    padding: 6px 16px;
-    background: var(--gold);
-    color: var(--deep);
-    border-radius: 100px;
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    width: fit-content;
-  }
-
-  .ig-slide .s-title {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 36px;
-    line-height: 1.1;
-    color: var(--cream);
-    text-shadow: 0 4px 24px rgba(0,0,0,0.85);
-  }
-
-  .ig-slide .s-sub {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 16px;
-    color: var(--gold);
-    margin-top: 8px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
-  }
-
-  .ig-slide .s-quote {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 28px;
-    line-height: 1.15;
-    color: var(--cream-60);
-  }
-
+  .ig-slide { min-width: 100%; aspect-ratio: 4/5; scroll-snap-align: center; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .ig-slide-inner { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; position: relative; z-index: 1; }
+  .ig-slide-inner.centered { justify-content: center; padding: 40px 28px; }
+  .ig-slide .s-label { font-family: 'Bricolage Grotesque', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; text-shadow: 0 2px 12px rgba(0,0,0,0.8); }
+  .ig-slide .s-pill { display: inline-block; padding: 6px 16px; background: var(--gold); color: var(--deep); border-radius: 100px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; width: fit-content; }
+  .ig-slide .s-title { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 36px; line-height: 1.1; color: var(--cream); text-shadow: 0 4px 24px rgba(0,0,0,0.85); }
+  .ig-slide .s-sub { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 16px; color: var(--gold); margin-top: 8px; text-shadow: 0 2px 12px rgba(0,0,0,0.8); }
+  .ig-slide .s-quote { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 28px; line-height: 1.15; color: var(--cream-60); }
   .ig-slide .s-quote.gold { color: var(--gold); }
   .ig-slide .s-quote.cream { color: var(--cream); }
   .ig-slide .s-quote.large { font-size: 36px; text-shadow: 0 4px 24px rgba(0,0,0,0.85); }
-
-  .ig-slide .s-tag {
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: 100px;
-    border: 1px solid var(--gold-25);
-    font-size: 10px;
-    color: var(--cream-35);
-    letter-spacing: 1px;
-    width: fit-content;
-    margin-bottom: 16px;
-  }
-
-  .ig-slide .s-divider {
-    width: 60px;
-    height: 2px;
-    background: var(--gold);
-    margin: 20px 0;
-  }
-
-  .ig-slide .s-cta {
-    display: inline-block;
-    padding: 10px 28px;
-    background: var(--gold);
-    color: var(--deep);
-    border-radius: 100px;
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    width: fit-content;
-  }
-
-  .ig-slide .s-handle {
-    font-size: 11px;
-    color: var(--cream-35);
-    margin-top: 12px;
-  }
-
-  .ig-dots {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    padding: 12px;
-    background: #000;
-  }
-
-  .ig-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    transition: background 0.2s;
-  }
-
+  .ig-slide .s-tag { display: inline-block; padding: 5px 14px; border-radius: 100px; border: 1px solid var(--gold-25); font-size: 10px; color: var(--cream-35); letter-spacing: 1px; width: fit-content; margin-bottom: 16px; }
+  .ig-slide .s-divider { width: 60px; height: 2px; background: var(--gold); margin: 20px 0; }
+  .ig-slide .s-cta { display: inline-block; padding: 10px 28px; background: var(--gold); color: var(--deep); border-radius: 100px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 13px; font-weight: 600; width: fit-content; }
+  .ig-slide .s-handle { font-size: 11px; color: var(--cream-35); margin-top: 12px; }
+  .ig-dots { display: flex; justify-content: center; gap: 5px; padding: 12px; background: #000; }
+  .ig-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: background 0.2s; }
   .ig-dot.active { background: #3897f0; }
+  .ig-phone-actions { display: flex; align-items: center; gap: 16px; padding: 10px 16px 4px; background: #000; }
+  .ig-phone-actions svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 1.5; }
+  .ig-phone-likes { padding: 2px 16px 10px; background: #000; font-size: 12px; color: #fff; font-weight: 600; }
 
-  .ig-phone-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 10px 16px 4px;
-    background: #000;
-  }
-
-  .ig-phone-actions svg {
-    width: 22px;
-    height: 22px;
-    fill: none;
-    stroke: #fff;
-    stroke-width: 1.5;
-  }
-
-  .ig-phone-likes {
-    padding: 2px 16px 10px;
-    background: #000;
-    font-size: 12px;
-    color: #fff;
-    font-weight: 600;
-  }
-
-  .ig-carousel-pair {
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .ig-carousel-pair .ig-phone {
-    margin: 0;
-    flex: 0 0 400px;
-  }
+  .ig-carousel-pair { display: flex; gap: 32px; justify-content: center; align-items: flex-start; }
+  .ig-carousel-pair .ig-phone { margin: 0; flex: 0 0 400px; }
 
   @media (max-width: 860px) {
-    .ig-carousel-pair {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .ig-carousel-pair .ig-phone {
-      margin: 0 auto;
-      flex: none;
-      max-width: 400px;
-      width: 100%;
-    }
+    .ig-carousel-pair { flex-direction: column; align-items: center; }
+    .ig-carousel-pair .ig-phone { margin: 0 auto; flex: none; max-width: 400px; width: 100%; }
   }
 
   @media (max-width: 500px) {
-    .ig-phone {
-      max-width: 100%;
-      border-radius: 0;
-      border: none;
-    }
-
-    .ig-carousel-pair .ig-phone {
-      flex: none;
-      max-width: 100%;
-    }
+    .ig-phone { max-width: 100%; border-radius: 0; border: none; }
+    .ig-carousel-pair .ig-phone { flex: none; max-width: 100%; }
   }
 
   /* ===== COMPETITIVE MAP ===== */
-  .comp-map-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    max-width: 700px;
-    margin: 0 auto 48px;
-    background: linear-gradient(135deg, rgba(26, 10, 20, 0.8), rgba(42, 15, 38, 0.4));
-    border: 1px solid var(--gold-06);
-    border-radius: 16px;
-    overflow: hidden;
-  }
+  .comp-map-wrapper { position: relative; width: 100%; aspect-ratio: 1; max-width: 700px; margin: 0 auto 48px; background: linear-gradient(135deg, rgba(26, 10, 20, 0.8), rgba(42, 15, 38, 0.4)); border: 1px solid var(--gold-06); border-radius: 16px; overflow: hidden; }
+  .comp-map-svg { width: 100%; height: 100%; }
+  .comp-map-axis-label { font-family: 'Bricolage Grotesque', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; fill: var(--cream-35); }
+  .comp-map-quadrant-label { font-family: 'Bricolage Grotesque', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
+  .comp-map-bubble-name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 13px; }
+  .comp-map-bubble-sub { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 300; font-size: 9px; fill: var(--cream-60); }
+  .comp-map-intro { font-size: 15px; color: var(--cream-60); line-height: 1.7; margin-bottom: 32px; max-width: 700px; }
+  .comp-map-insight { padding: 28px 32px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197, 155, 104, 0.04); max-width: 700px; margin: 0 auto; }
+  .comp-map-insight p { font-size: 14px; color: var(--cream-60); line-height: 1.7; }
+  .comp-map-insight strong { color: var(--cream); }
+  .comp-map-legend { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .comp-map-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--cream-60); }
+  .comp-map-legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 
-  .comp-map-svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .comp-map-axis-label {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    fill: var(--cream-35);
-  }
-
-  .comp-map-quadrant-label {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .comp-map-bubble-name {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-  }
-
-  .comp-map-bubble-sub {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 300;
-    font-size: 9px;
-    fill: var(--cream-60);
-  }
-
-  .comp-map-intro {
-    font-size: 15px;
-    color: var(--cream-60);
-    line-height: 1.7;
-    margin-bottom: 32px;
-    max-width: 700px;
-  }
-
-  .comp-map-insight {
-    padding: 28px 32px;
-    border-radius: 16px;
-    border: 1px solid var(--gold-25);
-    background: rgba(197, 155, 104, 0.04);
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .comp-map-insight p {
-    font-size: 14px;
-    color: var(--cream-60);
-    line-height: 1.7;
-  }
-
-  .comp-map-insight strong {
-    color: var(--cream);
-  }
-
-  .comp-map-legend {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 32px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .comp-map-legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--cream-60);
-  }
-
-  .comp-map-legend-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .comp-diff-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  .comp-risk-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+  .comp-diff-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  .comp-risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
   @media (max-width: 600px) {
-    .comp-map-wrapper {
-      aspect-ratio: auto;
-      height: 400px;
-    }
-
-    .comp-map-bubble-name {
-      font-size: 11px;
-    }
-
-    .comp-map-legend {
-      gap: 12px;
-    }
-
-    .comp-diff-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .comp-risk-grid {
-      grid-template-columns: 1fr;
-    }
+    .comp-map-wrapper { aspect-ratio: auto; height: 400px; }
+    .comp-map-bubble-name { font-size: 11px; }
+    .comp-map-legend { gap: 12px; }
+    .comp-diff-grid { grid-template-columns: 1fr; }
+    .comp-risk-grid { grid-template-columns: 1fr; }
+    .fact-grid { grid-template-columns: 1fr; }
+    .tone-grid { grid-template-columns: 1fr; }
+    .mode-grid { grid-template-columns: 1fr; }
   }
 
   /* ===== FOOTER ===== */
@@ -939,16 +441,45 @@
 </head>
 <body>
 
+<!-- ===== STICKY NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Šimrání</a>
+    <div class="nav-sep"></div>
+    <span class="nav-group-label">Strategie</span>
+    <a href="#situace" class="nav-link">Situace</a>
+    <a href="#persony" class="nav-link">Persony</a>
+    <a href="#konkurence" class="nav-link">Konkurence</a>
+    <a href="#positioning" class="nav-link">Positioning</a>
+    <a href="#x-factor" class="nav-link">X-factor</a>
+    <div class="nav-sep"></div>
+    <span class="nav-group-label">Hlas</span>
+    <a href="#tonalita" class="nav-link">Tonalita</a>
+    <a href="#rezimy" class="nav-link">Režimy</a>
+    <a href="#copy" class="nav-link">Copy</a>
+    <div class="nav-sep"></div>
+    <span class="nav-group-label">Vizuál</span>
+    <a href="#paleta" class="nav-link">Paleta</a>
+    <a href="#typografie" class="nav-link">Typo</a>
+    <div class="nav-sep"></div>
+    <span class="nav-group-label">Formáty</span>
+    <a href="#instagram" class="nav-link">IG</a>
+    <a href="#reels" class="nav-link">Reels</a>
+    <a href="#youtube" class="nav-link">YT</a>
+  </div>
+</nav>
+
 <div class="container">
 
 <!-- ===== HERO ===== -->
 <div class="hero">
-  <div class="hero-label">Brand Manual</div>
+  <div class="hero-label">Brand & Strategy Manual</div>
   <h1>Šimrání</h1>
   <p>Podcast a komunita o intimitě, sexualitě a vztazích. Kde ostatní končí, tam my začínáme.</p>
-  <span class="version">v2.6 &middot; Březen 2026 &middot; Teplá noc</span>
+  <span class="version">v3.0 &middot; Březen 2026 &middot; Teplá noc</span>
   <div style="margin-top: 32px; text-align: left; display: inline-block; font-size: 12px; color: var(--cream-35); line-height: 2;">
     <div style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-25); margin-bottom: 8px;">Changelog</div>
+    <div><span style="color: var(--gold); opacity: 0.5;">v3.0</span> &mdash; Reorganizace: strategie nahoře, vizuál dole. Sticky nav, URL kotvy, nové sekce (Situace, X-factor)</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.6</span> &mdash; Dvě sekundární persony (páry + B2B) z deep research rešerše</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.5</span> &mdash; Konkurenční mapa: SVG quadrant vizualizace CZ podcast scény + odlišovače + rizika</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v2.4</span> &mdash; Druhý IG carousel s La Perla fotkami vedle stávajícího (responsive pair layout)</div>
@@ -958,295 +489,76 @@
   </div>
 </div>
 
-<!-- ===== 01 — BAREVNÁ PALETA ===== -->
-<section>
+<!-- ═══════════════════════════════════════════ -->
+<!-- BLOK A: STRATEGIE & TRH                    -->
+<!-- ═══════════════════════════════════════════ -->
+
+<!-- ===== 01 — AKTUÁLNÍ SITUACE ===== -->
+<section id="situace">
   <div class="section-number">01</div>
-  <div class="section-title">Barevná paleta</div>
-  <div class="section-desc">Paleta &bdquo;Teplá noc&ldquo; &mdash; intimní, sofistikovaná, teplá. Tmavé pozadí vytváří bezpečný prostor, zlaté akcenty přidávají eleganci bez okázalosti.</div>
+  <div class="section-title">Aktuální situace</div>
+  <div class="section-desc">Kde dnes Šimrání stojí &mdash; fakta z evidence-based rešerše (únor 2026).</div>
 
-  <div class="palette">
-    <div class="swatch">
-      <div class="swatch-color" style="background: #1A0A14;">
-        <span style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--cream);">Aa</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name">Deep</div>
-        <div class="swatch-hex">#1A0A14</div>
-        <div class="swatch-use">Hlavní pozadí</div>
-      </div>
+  <div class="label">Ekosystém v číslech</div>
+  <div class="fact-grid">
+    <div class="fact-card highlight">
+      <h4>Aktivní od 2021</h4>
+      <p>5 let nepřetržitého vydávání. Epizoda #216 vyšla v únoru 2026. Přechod od anonymity k identitě, od audia k videu.</p>
     </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background: #4A1942;">
-        <span style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--cream);">Aa</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name">Wine</div>
-        <div class="swatch-hex">#4A1942</div>
-        <div class="swatch-use">Gradienty, karty</div>
-      </div>
+    <div class="fact-card highlight">
+      <h4>4,6 / 5 na Apple Podcasts</h4>
+      <p>177 hodnocení. Opakující se motiv v recenzích: &bdquo;změnilo mi to intimní život&ldquo; a &bdquo;posun v myšlení&ldquo;.</p>
     </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background: #C59B68;">
-        <span style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--deep);">Aa</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name">Gold</div>
-        <div class="swatch-hex">#C59B68</div>
-        <div class="swatch-use">Akcenty, CTA, labely</div>
-      </div>
+    <div class="fact-card">
+      <h4>Předplatné na Forendors</h4>
+      <p>248 Kč/měsíc. Benefity: plné epizody + bonusy, archiv 200+ epizod, Discord, měsíční ŠOL online setkání.</p>
     </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background: #F5E6D0;">
-        <span style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--deep);">Aa</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name">Cream</div>
-        <div class="swatch-hex">#F5E6D0</div>
-        <div class="swatch-use">Hlavní text</div>
-      </div>
+    <div class="fact-card">
+      <h4>Eventová větev</h4>
+      <p>Intimity Festival (6.&ndash;7. 11. 2026, Praha), IF Party, historické Šimrání live akce. Aktivní B2B partnerství.</p>
     </div>
   </div>
 
-  <div class="label">Opacity varianty</div>
-  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-    <div style="padding: 10px 16px; border-radius: 8px; background: var(--gold-06); font-size: 12px;">gold-06 &mdash; bordery</div>
-    <div style="padding: 10px 16px; border-radius: 8px; background: var(--gold-10); font-size: 12px;">gold-10 &mdash; karty</div>
-    <div style="padding: 10px 16px; border-radius: 8px; background: var(--gold-25); font-size: 12px;">gold-25 &mdash; hover</div>
-    <div style="padding: 10px 16px; border-radius: 8px; font-size: 12px; color: var(--cream-60);">cream-60 &mdash; body text</div>
-    <div style="padding: 10px 16px; border-radius: 8px; font-size: 12px; color: var(--cream-35);">cream-35 &mdash; meta</div>
+  <div class="label">Why now</div>
+  <p style="font-size: 15px; color: var(--cream-60); line-height: 1.7; max-width: 600px; margin-bottom: 48px;">Edukace o intimitě se v CZ normalizuje přes mainstream kanály &mdash; DVTV interview, Heroine minisérie, Médium.cz. Markéta rámuje projekt jako odpověď na nedostatek zdrojů a poptávku po destigmatizaci. Prostor roste, ale nikdo ho neobsadil systematicky.</p>
+
+  <div class="label">3 největší díry v aktuálním setupu</div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 48px;" class="fact-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+    <div class="fact-card warn">
+      <h4>Outdated eventy</h4>
+      <p>simrani.cz stále komunikuje festival 2025, zatímco aktuální termíny jsou 2026. Reputační i konverzní problém.</p>
+    </div>
+    <div class="fact-card warn">
+      <h4>Dvojí monetizace</h4>
+      <p>Web říká &bdquo;předplatné na Spotify&ldquo;, Forendors má jasné benefity a cenu. Dva paralelní příběhy = friction.</p>
+    </div>
+    <div class="fact-card warn">
+      <h4>Naming nekonzistence</h4>
+      <p>Markéta Ostrá (web, starší média) vs Markéta Fáberová (novější rozhovory, handle). Oslabuje SEO a doporučitelnost.</p>
+    </div>
+  </div>
+
+  <div class="label">Růstová smyčka</div>
+  <div class="funnel-steps">
+    <span class="funnel-step">IG Reel</span>
+    <span class="funnel-arrow">&rarr;</span>
+    <span class="funnel-step">Podcast</span>
+    <span class="funnel-arrow">&rarr;</span>
+    <span class="funnel-step">Předplatné</span>
+    <span class="funnel-arrow">&rarr;</span>
+    <span class="funnel-step">Komunita</span>
+    <span class="funnel-arrow">&rarr;</span>
+    <span class="funnel-step">Event</span>
+    <span class="funnel-arrow">&rarr;</span>
+    <span class="funnel-step">Referral</span>
+    <span class="funnel-arrow">&rarr;</span>
+    <span class="funnel-step" style="border-color: var(--gold); background: var(--gold-10);">IG</span>
   </div>
 </section>
 
-<!-- ===== 02 — TYPOGRAFIE ===== -->
-<section>
+<!-- ===== 02 — PERSONY ===== -->
+<section id="persony">
   <div class="section-number">02</div>
-  <div class="section-title">Typografie</div>
-  <div class="section-desc">Dva fonty. Fraunces pro emoce, Bricolage Grotesque pro informace. Kontrast serifového a bezserifového písma vytváří napětí mezi intimitou a přístupností.</div>
-
-  <div class="label">Fraunces &mdash; headlines, citace, cena</div>
-  <div style="margin-bottom: 48px;">
-    <div style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 64px; line-height: 1.1; margin-bottom: 8px;">Kde ostatní končí,<br>tam já začínám.</div>
-    <div style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 24px; line-height: 1.5; color: var(--cream-60);">&bdquo;Poprvé cítím, že nejsem divná.&ldquo;</div>
-  </div>
-
-  <div class="label">Bricolage Grotesque &mdash; body, labely, navigace</div>
-  <div style="margin-bottom: 48px;">
-    <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Co se šušká</div>
-    <div style="font-size: 15px; color: var(--cream-60); line-height: 1.7; max-width: 560px;">200+ epizod v archivu. Měsíční live setkání s Markétou. Discord plný lidí, se kterými můžeš řešit to, co jinde nemůžeš.</div>
-  </div>
-
-  <div class="label">Hierarchie</div>
-  <div style="margin-bottom: 32px;">
-    <div class="type-row">
-      <div class="type-label">H1 &mdash; Hero</div>
-      <div class="type-meta">Fraunces 400 / 48&ndash;64px</div>
-      <div class="type-sample" style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 42px; line-height: 1.1;">Kde ostatní končí</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">H2 &mdash; Section</div>
-      <div class="type-meta">Fraunces 400 / 32&ndash;48px</div>
-      <div class="type-sample" style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px; line-height: 1.15;">Šimrání mění životy</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Label</div>
-      <div class="type-meta">Bricolage 400 / 11px / +3px</div>
-      <div class="type-sample" style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold);">Vyšimraná komunita</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Body</div>
-      <div class="type-meta">Bricolage 300 / 15px</div>
-      <div class="type-sample" style="font-size: 15px; color: var(--cream-60); font-weight: 300;">Otevřené rozhovory o intimitě, vztazích a sexualitě.</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Citace</div>
-      <div class="type-meta">Fraunces Italic 300 / 21px</div>
-      <div class="type-sample" style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 21px; color: var(--cream-60);">&bdquo;Intimita začíná tam, kde končí komfortní zóna.&ldquo;</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">Meta / Tag</div>
-      <div class="type-meta">Bricolage 400 / 12px</div>
-      <div class="type-sample" style="font-size: 12px; color: var(--cream-35);">Apple Podcasts &middot; 42 min &middot; Komunikace</div>
-    </div>
-    <div class="type-row">
-      <div class="type-label">CTA</div>
-      <div class="type-meta">Bricolage 600 / 15px</div>
-      <div class="type-sample"><span style="display: inline-block; padding: 12px 36px; background: var(--gold); color: var(--deep); border-radius: 100px; font-size: 15px; font-weight: 600;">Zkus to na měsíc</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 03 — TONALITA ===== -->
-<section>
-  <div class="section-number">03</div>
-  <div class="section-title">Tonalita &amp; hlas</div>
-  <div class="section-desc">Šimrání mluví jako kamarádka, které věříš &mdash; otevřeně, bez souzení, s humorem. Nikdy nepoučuje. Nikdy neprovokuje jen pro pozornost.</div>
-
-  <div class="label">Brand archetype</div>
-  <div style="font-family: 'Fraunces', serif; font-size: 22px; margin-bottom: 32px;">Explorer <span style="color: var(--gold);">&times;</span> Sage <span style="color: var(--gold);">&times;</span> Jester</div>
-
-  <div class="label">Tone of voice</div>
-  <div class="tone-grid">
-    <div class="tone-card do">
-      <div class="tone-tag">Ano</div>
-      <h4>Hravá a otevřená</h4>
-      <p>Primární tón. Lehkost i u těžkých témat. Humor jako nástroj normalizace.</p>
-    </div>
-    <div class="tone-card do">
-      <div class="tone-tag">Ano</div>
-      <h4>Normalizující</h4>
-      <p>Žádné téma není divné. &bdquo;Jsem normální&ldquo; je klíčová věta, kterou posluchači opakují.</p>
-    </div>
-    <div class="tone-card do">
-      <div class="tone-tag">Ano</div>
-      <h4>Intimní, ne vulgární</h4>
-      <p>Přímá bez eufemismů, ale vždy s respektem. Říkáme orgasmus, ne &bdquo;vyvrcholení&ldquo;.</p>
-    </div>
-    <div class="tone-card do">
-      <div class="tone-tag">Ano</div>
-      <h4>Zvědavá, ne poučující</h4>
-      <p>Ptáme se, nezpovídáme. Markéta jde první, ostatní následují.</p>
-    </div>
-    <div class="tone-card do">
-      <div class="tone-tag">Ano</div>
-      <h4>Provokativní, ne clickbaitová</h4>
-      <p>Provokace je OK, pokud za ní stojí reálný obsah a normalizující úhel. &bdquo;Ruku na krk&ldquo; je provokativní. &bdquo;ŠOKUJÍCÍ PRAVDA O...&ldquo; je clickbait. Rozdíl je v důvěře.</p>
-    </div>
-    <div class="tone-card dont">
-      <div class="tone-tag">Ne</div>
-      <h4>Clickbaitový</h4>
-      <p>Žádné &bdquo;ŠOKUJÍCÍ PRAVDA O...&ldquo; nebo &bdquo;Co vám nikdo neřekne&ldquo;. Budujeme důvěru, ne kliknutí.</p>
-    </div>
-    <div class="tone-card dont">
-      <div class="tone-tag">Ne</div>
-      <h4>Terapeutický</h4>
-      <p>Nejsme terapeuti a netvrdíme to. Jsme průvodci. &bdquo;Pojď, nic se nestane.&ldquo;</p>
-    </div>
-  </div>
-
-  <div class="label" style="margin-top: 48px;">Slova, která nás definují</div>
-  <div class="keywords" style="margin-bottom: 32px;">
-    <span class="keyword">zvědavost</span>
-    <span class="keyword">odvaha</span>
-    <span class="keyword">hravost</span>
-    <span class="keyword">bezpečí</span>
-    <span class="keyword">normálnost</span>
-    <span class="keyword">otevřenost</span>
-    <span class="keyword">intimita</span>
-  </div>
-
-  <div class="label">Slova, kterým se vyhýbáme</div>
-  <div class="keywords">
-    <span class="keyword avoid">špinavý</span>
-    <span class="keyword avoid">perverzní</span>
-    <span class="keyword avoid">tabu</span>
-    <span class="keyword avoid">stydlivý</span>
-    <span class="keyword avoid">zakázaný</span>
-    <span class="keyword avoid">kontroverzní</span>
-  </div>
-</section>
-
-<!-- ===== 04 — VOICE MODES ===== -->
-<section>
-  <div class="section-number">04</div>
-  <div class="section-title">Dva režimy komunikace</div>
-  <div class="section-desc">Jiný kanál, jiný slovník. Na webu jsme přístupní, na Instagramu autenticky syrové.</div>
-
-  <div class="mode-grid">
-    <div class="mode-card" style="background: rgba(197, 155, 104, 0.04);">
-      <h4>Web-safe (PG-13)</h4>
-      <div class="mode-label">Web, SEO, email, B2B</div>
-      <ul>
-        <li>intimita, vztahy, touha</li>
-        <li>blízkost, hranice, rozkoš</li>
-        <li>komunikace, sebepřijetí</li>
-      </ul>
-      <div class="example">&bdquo;Mluvíme o tom, co tě vzrušuje, co tě trápí a co bys chtěla ve své intimitě změnit.&ldquo;</div>
-    </div>
-    <div class="mode-card" style="background: rgba(74, 25, 66, 0.12);">
-      <h4>IG-raw (8/10)</h4>
-      <div class="mode-label">Instagram, podcast, Discord, Forendors</div>
-      <ul>
-        <li>orgasmus, masturbace, fetiš</li>
-        <li>BDSM, rozkoš, vzrušení</li>
-        <li>+ hovorové výrazy v kontextu</li>
-      </ul>
-      <div class="example">&bdquo;Mluvíme o orgasmech, fetišech a o tom, proč se za ně pořád stydíme.&ldquo;</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 05 — COPY VZORY ===== -->
-<section>
-  <div class="section-number">05</div>
-  <div class="section-title">Copy vzory z webu</div>
-  <div class="section-desc">Skutečné texty používané na simrani-web.vercel.app. Následuj vzory pro konzistentní hlas.</div>
-
-  <table class="copy-table">
-    <thead>
-      <tr>
-        <th>Element</th>
-        <th>Vzor</th>
-        <th>Aktuální text</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Hero claim</td>
-        <td>Krátký, sebevědomý, v 1. osobě</td>
-        <td style="font-family: 'Fraunces', serif; font-size: 18px;">Kde ostatní končí, tam já začínám.</td>
-      </tr>
-      <tr>
-        <td>Hero sub</td>
-        <td>Popis formátu + tón</td>
-        <td>Otevřené rozhovory o intimitě, vztazích a sexualitě. S lehkostí, respektem a zvědavostí.</td>
-      </tr>
-      <tr>
-        <td>Section label</td>
-        <td>Hravý, krátký, brand-specific</td>
-        <td style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 12px;">Co se šušká &middot; Vyšimraná komunita &middot; Od studu k odvaze</td>
-      </tr>
-      <tr>
-        <td>Section headline</td>
-        <td>Emoční, v 2. osobě</td>
-        <td style="font-family: 'Fraunces', serif; font-size: 18px;">Přidej se ke komunitě, kde se nemusíš stydět</td>
-      </tr>
-      <tr>
-        <td>Body text</td>
-        <td>Fragmenty. Tečky místo čárek.</td>
-        <td>200+ epizod v archivu, měsíční live setkání s Markétou a Discord plný lidí, se kterými můžeš řešit to, co jinde nemůžeš.</td>
-      </tr>
-      <tr>
-        <td>CTA primární</td>
-        <td>Z pohledu uživatele, ne akce</td>
-        <td><span style="display: inline-block; padding: 8px 24px; background: var(--gold); color: var(--deep); border-radius: 100px; font-weight: 600; font-size: 13px;">Zkus to na měsíc</span></td>
-      </tr>
-      <tr>
-        <td>CTA sekundární</td>
-        <td>Soft link, šipka, gold</td>
-        <td style="color: var(--gold);">Odemkni dalších 200+ epizod na Forendors &rarr;</td>
-      </tr>
-      <tr>
-        <td>YT Main Title</td>
-        <td>Hook, 2&ndash;5 slov, twist perspektivy</td>
-        <td style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 900;">RUKU NA KRK</td>
-      </tr>
-      <tr>
-        <td>YT Pill</td>
-        <td>Kontext k titulku, jméno/role hosta</td>
-        <td><span style="display: inline-block; padding: 6px 16px; background: var(--gold); color: var(--deep); border-radius: 100px; font-size: 13px; font-weight: 600;">DOMINA ZUZANA</span></td>
-      </tr>
-      <tr>
-        <td>About claim</td>
-        <td>Kontrast: nejsem X, jsem Y</td>
-        <td>Nejsem terapeutka. Jsem průvodkyně, která jde první a říká: pojď, nic se nestane.</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ===== 06 — PERSONA ===== -->
-<section>
-  <div class="section-number">06</div>
   <div class="section-title">Persony</div>
   <div class="section-desc">Primární persona řídí web, podcast a předplatné. Sekundární persony řídí eventy a B2B.</div>
 
@@ -1317,29 +629,424 @@
   </div>
 </section>
 
-<!-- ===== 07 — INSTAGRAM ===== -->
-<section>
+<!-- ===== 03 — KONKURENČNÍ MAPA ===== -->
+<section id="konkurence">
+  <div class="section-number">03</div>
+  <div class="section-title">Konkurenční mapa</div>
+  <div class="section-desc">Aktuální krajina české podcastové scény o intimitě a sexualitě. Velikost kruhu = relativní zásah.</div>
+
+  <p class="comp-map-intro">Takhle dnes vypadá český podcast prostor kolem intimity a sexuality. Většina hráčů sedí vlevo dole &mdash; humor, explicitnost, hlasitost. Pravý horní kvadrant &mdash; edukace + kultivovaný přístup &mdash; je prázdný. Přesně tam sedí Šimrání.</p>
+
+  <div class="label" style="max-width: 700px; margin-left: auto; margin-right: auto;">Velikost kruhu = relativní zásah</div>
+
+  <div class="comp-map-legend">
+    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #C59B68; box-shadow: 0 0 12px rgba(197,155,104,0.5);"></div> Šimrání</div>
+    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #E85D75;"></div> Humor & entertainment</div>
+    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #6BCB8B;"></div> Edukace & rozhovor</div>
+    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #7B8FA0;"></div> Niche / menší zásah</div>
+  </div>
+
+  <div class="comp-map-wrapper">
+    <svg class="comp-map-svg" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="shimGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C59B68" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#C59B68" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <line x1="350" y1="40" x2="350" y2="660" stroke="rgba(245,230,208,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="40" y1="350" x2="660" y2="350" stroke="rgba(245,230,208,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+      <rect x="40" y="40" width="620" height="620" rx="8" fill="none" stroke="rgba(245,230,208,0.08)" stroke-width="1"/>
+      <text x="55" y="660" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">HLASITÝ KOMENTÁŘ</text>
+      <text x="510" y="660" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">TICHÁ HLOUBKA</text>
+      <text transform="translate(28, 400) rotate(-90)" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">↓ EXPLICITNÍ &amp; RAW</text>
+      <text transform="translate(28, 200) rotate(-90)" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">↑ KULTIVOVANÝ &amp; SAFE</text>
+      <text x="55" y="690" class="comp-map-axis-label" fill="rgba(245,230,208,0.35)">← HUMOR &amp; ZÁBAVA</text>
+      <text x="500" y="690" class="comp-map-axis-label" fill="rgba(245,230,208,0.35)">EDUKACE &amp; HLOUBKA →</text>
+      <text x="520" y="75" font-family="'Bricolage Grotesque', sans-serif" font-size="10" letter-spacing="2.5" fill="#C59B68" font-weight="500">VOLNÝ PROSTOR ↗</text>
+      <circle cx="180" cy="500" r="65" fill="rgba(232, 93, 117, 0.08)" stroke="#E85D75" stroke-width="1.5" stroke-opacity="0.4"/>
+      <text x="180" y="495" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75">Vyhonit</text>
+      <text x="180" y="512" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75">ďábla</text>
+      <text x="180" y="530" text-anchor="middle" class="comp-map-bubble-sub">HeroHero · explicitní humor</text>
+      <circle cx="220" cy="330" r="48" fill="rgba(232, 93, 117, 0.06)" stroke="#E85D75" stroke-width="1.5" stroke-opacity="0.3"/>
+      <text x="220" y="325" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75" font-size="12">LOVE IS</text>
+      <text x="220" y="341" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75" font-size="12">ON THE AIR</text>
+      <text x="220" y="357" text-anchor="middle" class="comp-map-bubble-sub">comedy · vztahy</text>
+      <circle cx="370" cy="380" r="38" fill="rgba(107, 203, 139, 0.06)" stroke="#6BCB8B" stroke-width="1.5" stroke-opacity="0.3"/>
+      <text x="370" y="377" text-anchor="middle" class="comp-map-bubble-name" fill="#6BCB8B" font-size="12">Lascivní</text>
+      <text x="370" y="395" text-anchor="middle" class="comp-map-bubble-sub">páry · sex-ed lite</text>
+      <circle cx="490" cy="430" r="32" fill="rgba(123, 143, 160, 0.06)" stroke="#7B8FA0" stroke-width="1.5" stroke-opacity="0.3"/>
+      <text x="490" y="422" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">Rozkročena</text>
+      <text x="490" y="438" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">nad zrcadlem</text>
+      <text x="490" y="454" text-anchor="middle" class="comp-map-bubble-sub">sex koučka · paywall</text>
+      <circle cx="130" cy="390" r="28" fill="rgba(123, 143, 160, 0.06)" stroke="#7B8FA0" stroke-width="1.5" stroke-opacity="0.3"/>
+      <text x="130" y="388" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">Přirození</text>
+      <text x="130" y="404" text-anchor="middle" class="comp-map-bubble-sub">mužský pohled</text>
+      <circle cx="550" cy="160" r="52" fill="url(#shimGlow)" stroke="#C59B68" stroke-width="2" filter="url(#glow)"/>
+      <text x="550" y="155" text-anchor="middle" class="comp-map-bubble-name" fill="#C59B68" font-size="15" font-weight="700">Šimrání</text>
+      <text x="550" y="175" text-anchor="middle" class="comp-map-bubble-sub" fill="rgba(197,155,104,0.8)">zvědavost · bezpečný prostor</text>
+    </svg>
+  </div>
+
+  <div class="comp-map-insight">
+    <p><strong>Co z toho plyne:</strong> Vyhonit ďábla a LOVE IS ON THE AIR dominují levý dolní prostor &mdash; velký zásah, ale mluví hlasitě a explicitně. Lascivní a Rozkročena sedí uprostřed &mdash; edukativnější, ale stále hodně &bdquo;raw&ldquo;. Přirození jsou niche s mužskou optikou. Pravý horní kvadrant &mdash; edukace + kultivovaný přístup + bezpečný prostor &mdash; je prázdný. <strong>Šimrání je jediný podcast, který kombinuje hloubku, zvědavost a přístupnost bez senzace. Proto positioning &bdquo;Kde ostatní končí, Šimrání začíná&ldquo; funguje.</strong></p>
+  </div>
+
+  <div style="margin-top: 48px;">
+    <div class="label">3 klíčové odlišovače</div>
+    <div class="comp-diff-grid">
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
+        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Zvědavý rozhovor</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Ne comedy persona, ne sex koučka. Ptá se, dává věcem jméno, drží bezpečný prostor.</div>
+      </div>
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
+        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Komunitní engine</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">ŠOL + Discord + archiv 200+ epizod + Intimity Festival. Žádný jiný CZ podcast nemá takový ekosystém.</div>
+      </div>
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
+        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Kultivovaná přístupnost</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Eventy i obsah jsou komunikovatelné veřejně &mdash; &bdquo;bez explicitní nahoty&ldquo;, edukativní i zážitkové.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px;">
+    <div class="label">Rizika zaměnitelnosti</div>
+    <div class="comp-risk-grid">
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid rgba(74,25,66,0.3); background: rgba(74,25,66,0.15);">
+        <div style="font-family: 'Fraunces', serif; font-size: 16px; margin-bottom: 8px;">&bdquo;Sex podcast&ldquo; škatulka</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Bez jasného &bdquo;Start here&ldquo; framingu hrozí slévání s Vyhonit ďábla, LOVE IS ON THE AIR a dalšími.</div>
+      </div>
+      <div style="padding: 24px; border-radius: 16px; border: 1px solid rgba(74,25,66,0.3); background: rgba(74,25,66,0.15);">
+        <div style="font-family: 'Fraunces', serif; font-size: 16px; margin-bottom: 8px;">ENM/poly = core offer?</div>
+        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Pokud se otevřené vztahy komunikují příliš dopředu, projekt se zúží na &bdquo;open relationship show&ldquo;. Držet jako modul, ne identitu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 — POSITIONING ===== -->
+<section id="positioning">
+  <div class="section-number">04</div>
+  <div class="section-title">Positioning</div>
+  <div class="section-desc">Jedno tvrzení, které shrnuje celý brand.</div>
+
+  <div style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 24px; line-height: 1.5; color: var(--cream); max-width: 700px; padding: 32px 0; border-top: 1px solid var(--gold-25); border-bottom: 1px solid var(--gold-25); margin-bottom: 48px;">
+    Šimrání je podcast a komunita pro lidi, kteří chtějí porozumět své intimitě &mdash; bez studu, bez kázání, s naprostou otevřeností &mdash; protože spokojený intimní život začíná odvahou o něm mluvit.
+  </div>
+
+  <div class="label">Klíčový claim</div>
+  <div style="font-family: 'Fraunces', serif; font-size: 36px; margin-bottom: 32px;">Kde ostatní končí, Šimrání začíná.</div>
+
+  <div class="label">Markéta jednou větou</div>
+  <div style="font-size: 16px; color: var(--cream-60); line-height: 1.7;">Nejsem terapeutka. Jsem průvodkyně, která jde první a říká: <span style="color: var(--gold);">pojď, nic se nestane.</span> 🔦</div>
+</section>
+
+<!-- ===== 05 — X-FACTOR MARKÉTY ===== -->
+<section id="x-factor">
+  <div class="section-number">05</div>
+  <div class="section-title">X-factor Markéty</div>
+  <div class="section-desc">Proč zrovna Šimrání &mdash; tři nezkopírovatelné výhody a důkazy důvěry.</div>
+
+  <div class="label">3 unfair advantages</div>
+  <div class="comp-diff-grid">
+    <div class="fact-card highlight">
+      <h4>Track record 2021&ndash;2026</h4>
+      <p>5 let nepřetržité aktivity, 200+ epizod, přechod z anonymity na video. Žádný CZ konkurent nemá takovou konzistenci v tématu intimity.</p>
+    </div>
+    <div class="fact-card highlight">
+      <h4>Měřitelný dopad na životy</h4>
+      <p>Veřejné recenze popisují konkrétní posun: &bdquo;změnilo mi to sexuální život&ldquo;, &bdquo;poprvé cítím, že nejsem divná&ldquo;. Ne jen zábava &mdash; reálná transformace.</p>
+    </div>
+    <div class="fact-card highlight">
+      <h4>Komunitní ekosystém</h4>
+      <p>Archiv 200+ epizod + Discord + ŠOL online live + Intimity Festival + merch. Kompletní svět kolem intimity, ne jen podcast.</p>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top: 48px;">Reasons to believe</div>
+  <div class="fact-grid">
+    <div class="fact-card">
+      <h4>Produkční kapacita</h4>
+      <p>Existuje studio a zvukař/postprodukce. Profesionální workflow popsaný v rozhovoru pro České podcasty (2/2026).</p>
+    </div>
+    <div class="fact-card">
+      <h4>Mainstream visibility</h4>
+      <p>DVTV interview (10/2024), Heroine minisérie (2023), Médium.cz (10/2025). Důkaz, že téma rezonuje i mimo bublinu.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Výdělečný projekt</h4>
+      <p>Markéta v rozhovoru potvrzuje, že projekt je už výdělečný. Forendors předplatné + eventy + merch = diverzifikovaný revenue.</p>
+    </div>
+    <div class="fact-card">
+      <h4>Brand archetype</h4>
+      <p>Explorer &times; Sage &times; Jester. Zvědavá průvodkyně, ne terapeutka. Tento framing je unikátní v CZ prostoru.</p>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top: 48px;">Safe framing</div>
+  <div style="padding: 28px 32px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04); max-width: 700px;">
+    <p style="font-size: 14px; color: var(--cream-60); line-height: 1.7;"><strong style="color: var(--cream);">Disclaimer pro web:</strong> Obsah je edukativní a inspirační, nenahrazuje terapii, zdravotní ani právní poradenství. Sdílíme zkušenosti a rámce, ne diagnózy.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- BLOK B: KOMUNIKACE & HLAS                  -->
+<!-- ═══════════════════════════════════════════ -->
+
+<!-- ===== 06 — TONALITA ===== -->
+<section id="tonalita">
+  <div class="section-number">06</div>
+  <div class="section-title">Tonalita &amp; hlas</div>
+  <div class="section-desc">Šimrání mluví jako kamarádka, které věříš &mdash; otevřeně, bez souzení, s humorem. Nikdy nepoučuje. Nikdy neprovokuje jen pro pozornost.</div>
+
+  <div class="label">Brand archetype</div>
+  <div style="font-family: 'Fraunces', serif; font-size: 22px; margin-bottom: 32px;">Explorer <span style="color: var(--gold);">&times;</span> Sage <span style="color: var(--gold);">&times;</span> Jester</div>
+
+  <div class="label">Tone of voice</div>
+  <div class="tone-grid">
+    <div class="tone-card do">
+      <div class="tone-tag">Ano</div>
+      <h4>Hravá a otevřená</h4>
+      <p>Primární tón. Lehkost i u těžkých témat. Humor jako nástroj normalizace.</p>
+    </div>
+    <div class="tone-card do">
+      <div class="tone-tag">Ano</div>
+      <h4>Normalizující</h4>
+      <p>Žádné téma není divné. &bdquo;Jsem normální&ldquo; je klíčová věta, kterou posluchači opakují.</p>
+    </div>
+    <div class="tone-card do">
+      <div class="tone-tag">Ano</div>
+      <h4>Intimní, ne vulgární</h4>
+      <p>Přímá bez eufemismů, ale vždy s respektem. Říkáme orgasmus, ne &bdquo;vyvrcholení&ldquo;.</p>
+    </div>
+    <div class="tone-card do">
+      <div class="tone-tag">Ano</div>
+      <h4>Zvědavá, ne poučující</h4>
+      <p>Ptáme se, nezpovídáme. Markéta jde první, ostatní následují.</p>
+    </div>
+    <div class="tone-card do">
+      <div class="tone-tag">Ano</div>
+      <h4>Provokativní, ne clickbaitová</h4>
+      <p>Provokace je OK, pokud za ní stojí reálný obsah a normalizující úhel. &bdquo;Ruku na krk&ldquo; je provokativní. &bdquo;ŠOKUJÍCÍ PRAVDA O...&ldquo; je clickbait. Rozdíl je v důvěře.</p>
+    </div>
+    <div class="tone-card dont">
+      <div class="tone-tag">Ne</div>
+      <h4>Clickbaitový</h4>
+      <p>Žádné &bdquo;ŠOKUJÍCÍ PRAVDA O...&ldquo; nebo &bdquo;Co vám nikdo neřekne&ldquo;. Budujeme důvěru, ne kliknutí.</p>
+    </div>
+    <div class="tone-card dont">
+      <div class="tone-tag">Ne</div>
+      <h4>Terapeutický</h4>
+      <p>Nejsme terapeuti a netvrdíme to. Jsme průvodci. &bdquo;Pojď, nic se nestane.&ldquo;</p>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top: 48px;">Slova, která nás definují</div>
+  <div class="keywords" style="margin-bottom: 32px;">
+    <span class="keyword">zvědavost</span>
+    <span class="keyword">odvaha</span>
+    <span class="keyword">hravost</span>
+    <span class="keyword">bezpečí</span>
+    <span class="keyword">normálnost</span>
+    <span class="keyword">otevřenost</span>
+    <span class="keyword">intimita</span>
+  </div>
+
+  <div class="label">Slova, kterým se vyhýbáme</div>
+  <div class="keywords">
+    <span class="keyword avoid">špinavý</span>
+    <span class="keyword avoid">perverzní</span>
+    <span class="keyword avoid">tabu</span>
+    <span class="keyword avoid">stydlivý</span>
+    <span class="keyword avoid">zakázaný</span>
+    <span class="keyword avoid">kontroverzní</span>
+  </div>
+</section>
+
+<!-- ===== 07 — VOICE MODES ===== -->
+<section id="rezimy">
   <div class="section-number">07</div>
+  <div class="section-title">Dva režimy komunikace</div>
+  <div class="section-desc">Jiný kanál, jiný slovník. Na webu jsme přístupní, na Instagramu autenticky syrové.</div>
+
+  <div class="mode-grid">
+    <div class="mode-card" style="background: rgba(197, 155, 104, 0.04);">
+      <h4>Web-safe (PG-13)</h4>
+      <div class="mode-label">Web, SEO, email, B2B</div>
+      <ul>
+        <li>intimita, vztahy, touha</li>
+        <li>blízkost, hranice, rozkoš</li>
+        <li>komunikace, sebepřijetí</li>
+      </ul>
+      <div class="example">&bdquo;Mluvíme o tom, co tě vzrušuje, co tě trápí a co bys chtěla ve své intimitě změnit.&ldquo;</div>
+    </div>
+    <div class="mode-card" style="background: rgba(74, 25, 66, 0.12);">
+      <h4>IG-raw (8/10)</h4>
+      <div class="mode-label">Instagram, podcast, Discord, Forendors</div>
+      <ul>
+        <li>orgasmus, masturbace, fetiš</li>
+        <li>BDSM, rozkoš, vzrušení</li>
+        <li>+ hovorové výrazy v kontextu</li>
+      </ul>
+      <div class="example">&bdquo;Mluvíme o orgasmech, fetišech a o tom, proč se za ně pořád stydíme.&ldquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08 — COPY VZORY ===== -->
+<section id="copy">
+  <div class="section-number">08</div>
+  <div class="section-title">Copy vzory z webu</div>
+  <div class="section-desc">Skutečné texty používané na simrani-web.vercel.app. Následuj vzory pro konzistentní hlas.</div>
+
+  <table class="copy-table">
+    <thead>
+      <tr><th>Element</th><th>Vzor</th><th>Aktuální text</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hero claim</td>
+        <td>Krátký, sebevědomý, v 1. osobě</td>
+        <td style="font-family: 'Fraunces', serif; font-size: 18px;">Kde ostatní končí, tam já začínám.</td>
+      </tr>
+      <tr>
+        <td>Hero sub</td>
+        <td>Popis formátu + tón</td>
+        <td>Otevřené rozhovory o intimitě, vztazích a sexualitě. S lehkostí, respektem a zvědavostí.</td>
+      </tr>
+      <tr>
+        <td>Section label</td>
+        <td>Hravý, krátký, brand-specific</td>
+        <td style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 12px;">Co se šušká &middot; Vyšimraná komunita &middot; Od studu k odvaze</td>
+      </tr>
+      <tr>
+        <td>Section headline</td>
+        <td>Emoční, v 2. osobě</td>
+        <td style="font-family: 'Fraunces', serif; font-size: 18px;">Přidej se ke komunitě, kde se nemusíš stydět</td>
+      </tr>
+      <tr>
+        <td>Body text</td>
+        <td>Fragmenty. Tečky místo čárek.</td>
+        <td>200+ epizod v archivu, měsíční live setkání s Markétou a Discord plný lidí, se kterými můžeš řešit to, co jinde nemůžeš.</td>
+      </tr>
+      <tr>
+        <td>CTA primární</td>
+        <td>Z pohledu uživatele, ne akce</td>
+        <td><span style="display: inline-block; padding: 8px 24px; background: var(--gold); color: var(--deep); border-radius: 100px; font-weight: 600; font-size: 13px;">Zkus to na měsíc</span></td>
+      </tr>
+      <tr>
+        <td>CTA sekundární</td>
+        <td>Soft link, šipka, gold</td>
+        <td style="color: var(--gold);">Odemkni dalších 200+ epizod na Forendors &rarr;</td>
+      </tr>
+      <tr>
+        <td>YT Main Title</td>
+        <td>Hook, 2&ndash;5 slov, twist perspektivy</td>
+        <td style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 900;">RUKU NA KRK</td>
+      </tr>
+      <tr>
+        <td>YT Pill</td>
+        <td>Kontext k titulku, jméno/role hosta</td>
+        <td><span style="display: inline-block; padding: 6px 16px; background: var(--gold); color: var(--deep); border-radius: 100px; font-size: 13px; font-weight: 600;">DOMINA ZUZANA</span></td>
+      </tr>
+      <tr>
+        <td>About claim</td>
+        <td>Kontrast: nejsem X, jsem Y</td>
+        <td>Nejsem terapeutka. Jsem průvodkyně, která jde první a říká: pojď, nic se nestane.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- BLOK C: VIZUÁLNÍ IDENTITA                  -->
+<!-- ═══════════════════════════════════════════ -->
+
+<!-- ===== 09 — BAREVNÁ PALETA ===== -->
+<section id="paleta">
+  <div class="section-number">09</div>
+  <div class="section-title">Barevná paleta</div>
+  <div class="section-desc">Paleta &bdquo;Teplá noc&ldquo; &mdash; intimní, sofistikovaná, teplá. Tmavé pozadí vytváří bezpečný prostor, zlaté akcenty přidávají eleganci bez okázalosti.</div>
+
+  <div class="palette">
+    <div class="swatch">
+      <div class="swatch-color" style="background: #1A0A14;"><span style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--cream);">Aa</span></div>
+      <div class="swatch-info"><div class="swatch-name">Deep</div><div class="swatch-hex">#1A0A14</div><div class="swatch-use">Hlavní pozadí</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #4A1942;"><span style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--cream);">Aa</span></div>
+      <div class="swatch-info"><div class="swatch-name">Wine</div><div class="swatch-hex">#4A1942</div><div class="swatch-use">Gradienty, karty</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #C59B68;"><span style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--deep);">Aa</span></div>
+      <div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-hex">#C59B68</div><div class="swatch-use">Akcenty, CTA, labely</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #F5E6D0;"><span style="font-family: 'Fraunces', serif; font-size: 20px; color: var(--deep);">Aa</span></div>
+      <div class="swatch-info"><div class="swatch-name">Cream</div><div class="swatch-hex">#F5E6D0</div><div class="swatch-use">Hlavní text</div></div>
+    </div>
+  </div>
+
+  <div class="label">Opacity varianty</div>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <div style="padding: 10px 16px; border-radius: 8px; background: var(--gold-06); font-size: 12px;">gold-06 &mdash; bordery</div>
+    <div style="padding: 10px 16px; border-radius: 8px; background: var(--gold-10); font-size: 12px;">gold-10 &mdash; karty</div>
+    <div style="padding: 10px 16px; border-radius: 8px; background: var(--gold-25); font-size: 12px;">gold-25 &mdash; hover</div>
+    <div style="padding: 10px 16px; border-radius: 8px; font-size: 12px; color: var(--cream-60);">cream-60 &mdash; body text</div>
+    <div style="padding: 10px 16px; border-radius: 8px; font-size: 12px; color: var(--cream-35);">cream-35 &mdash; meta</div>
+  </div>
+</section>
+
+<!-- ===== 10 — TYPOGRAFIE ===== -->
+<section id="typografie">
+  <div class="section-number">10</div>
+  <div class="section-title">Typografie</div>
+  <div class="section-desc">Dva fonty. Fraunces pro emoce, Bricolage Grotesque pro informace. Kontrast serifového a bezserifového písma vytváří napětí mezi intimitou a přístupností.</div>
+
+  <div class="label">Fraunces &mdash; headlines, citace, cena</div>
+  <div style="margin-bottom: 48px;">
+    <div style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 64px; line-height: 1.1; margin-bottom: 8px;">Kde ostatní končí,<br>tam já začínám.</div>
+    <div style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 24px; line-height: 1.5; color: var(--cream-60);">&bdquo;Poprvé cítím, že nejsem divná.&ldquo;</div>
+  </div>
+
+  <div class="label">Bricolage Grotesque &mdash; body, labely, navigace</div>
+  <div style="margin-bottom: 48px;">
+    <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Co se šušká</div>
+    <div style="font-size: 15px; color: var(--cream-60); line-height: 1.7; max-width: 560px;">200+ epizod v archivu. Měsíční live setkání s Markétou. Discord plný lidí, se kterými můžeš řešit to, co jinde nemůžeš.</div>
+  </div>
+
+  <div class="label">Hierarchie</div>
+  <div style="margin-bottom: 32px;">
+    <div class="type-row"><div class="type-label">H1 &mdash; Hero</div><div class="type-meta">Fraunces 400 / 48&ndash;64px</div><div class="type-sample" style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 42px; line-height: 1.1;">Kde ostatní končí</div></div>
+    <div class="type-row"><div class="type-label">H2 &mdash; Section</div><div class="type-meta">Fraunces 400 / 32&ndash;48px</div><div class="type-sample" style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px; line-height: 1.15;">Šimrání mění životy</div></div>
+    <div class="type-row"><div class="type-label">Label</div><div class="type-meta">Bricolage 400 / 11px / +3px</div><div class="type-sample" style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold);">Vyšimraná komunita</div></div>
+    <div class="type-row"><div class="type-label">Body</div><div class="type-meta">Bricolage 300 / 15px</div><div class="type-sample" style="font-size: 15px; color: var(--cream-60); font-weight: 300;">Otevřené rozhovory o intimitě, vztazích a sexualitě.</div></div>
+    <div class="type-row"><div class="type-label">Citace</div><div class="type-meta">Fraunces Italic 300 / 21px</div><div class="type-sample" style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 21px; color: var(--cream-60);">&bdquo;Intimita začíná tam, kde končí komfortní zóna.&ldquo;</div></div>
+    <div class="type-row"><div class="type-label">Meta / Tag</div><div class="type-meta">Bricolage 400 / 12px</div><div class="type-sample" style="font-size: 12px; color: var(--cream-35);">Apple Podcasts &middot; 42 min &middot; Komunikace</div></div>
+    <div class="type-row"><div class="type-label">CTA</div><div class="type-meta">Bricolage 600 / 15px</div><div class="type-sample"><span style="display: inline-block; padding: 12px 36px; background: var(--gold); color: var(--deep); border-radius: 100px; font-size: 15px; font-weight: 600;">Zkus to na měsíc</span></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- BLOK D: FORMÁTY & MOCKUPY                  -->
+<!-- ═══════════════════════════════════════════ -->
+
+<!-- ===== 11 — INSTAGRAM ===== -->
+<section id="instagram">
+  <div class="section-number">11</div>
   <div class="section-title">Instagram &mdash; posty</div>
   <div class="section-desc">Čtvercové karty (1080&times;1080). Typografie na gradientu. Žádné stockové fotky, žádné obličeje &mdash; jen text a barva.</div>
 
   <div class="mockup-grid ig">
-    <div class="ig-post" style="background: linear-gradient(135deg, #4A1942 0%, #1A0A14 100%);">
-      <div class="quote">&bdquo;Zvědavost místo studu. Slova místo ticha.&ldquo;</div>
-      <div class="tag">@simrani.podcast</div>
-    </div>
-    <div class="ig-post" style="background: linear-gradient(135deg, #2A0F26 0%, #4A1942 100%);">
-      <div class="quote">&bdquo;Consent není jen slovo. Je to praxe.&ldquo;</div>
-      <div class="tag">Epizoda 07</div>
-    </div>
-    <div class="ig-post" style="background: linear-gradient(160deg, #1A0A14 0%, #3a1a30 100%);">
-      <div class="quote">&bdquo;Poprvé cítím, že nejsem divná. Tohle je můj safe space.&ldquo;</div>
-      <div class="tag">Komunita</div>
-    </div>
-    <div class="ig-post" style="background: linear-gradient(135deg, #4A1942 0%, #2a1520 50%, rgba(197,155,104,0.3) 150%);">
-      <div class="quote">&bdquo;Pojď, nic se nestane.&ldquo;</div>
-      <div class="tag">&mdash; Markéta</div>
-    </div>
+    <div class="ig-post" style="background: linear-gradient(135deg, #4A1942 0%, #1A0A14 100%);"><div class="quote">&bdquo;Zvědavost místo studu. Slova místo ticha.&ldquo;</div><div class="tag">@simrani.podcast</div></div>
+    <div class="ig-post" style="background: linear-gradient(135deg, #2A0F26 0%, #4A1942 100%);"><div class="quote">&bdquo;Consent není jen slovo. Je to praxe.&ldquo;</div><div class="tag">Epizoda 07</div></div>
+    <div class="ig-post" style="background: linear-gradient(160deg, #1A0A14 0%, #3a1a30 100%);"><div class="quote">&bdquo;Poprvé cítím, že nejsem divná. Tohle je můj safe space.&ldquo;</div><div class="tag">Komunita</div></div>
+    <div class="ig-post" style="background: linear-gradient(135deg, #4A1942 0%, #2a1520 50%, rgba(197,155,104,0.3) 150%);"><div class="quote">&bdquo;Pojď, nic se nestane.&ldquo;</div><div class="tag">&mdash; Markéta</div></div>
   </div>
 
   <div class="label">Pravidla pro IG posty</div>
@@ -1355,143 +1062,34 @@
   <div class="section-desc" style="margin-bottom: 32px;">6-slidový carousel pro propagaci epizody. Cover &rarr; citáty &rarr; punchline &rarr; CTA. Swipni doprava.</div>
 
   <div class="ig-carousel-pair">
-
   <div class="ig-phone">
-    <div class="ig-phone-header">
-      <div class="ig-phone-avatar"></div>
-      <div>
-        <div class="ig-phone-name">simrani.podcast</div>
-        <div class="ig-phone-meta">Sponzorováno</div>
-      </div>
-    </div>
-
+    <div class="ig-phone-header"><div class="ig-phone-avatar"></div><div><div class="ig-phone-name">simrani.podcast</div><div class="ig-phone-meta">Sponzorováno</div></div></div>
     <div class="ig-carousel-track" id="carouselTrack">
-      <!-- Slide 1 — Cover (foto Zuzany + gradient overlay) -->
-      <div class="ig-slide" style="background: var(--deep);">
-        <div style="position:absolute;inset:0;background:url('/brand/zuzana-studio.jpg') center/cover;"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(to top, #1A0A14EE 25%, #1A0A1488 50%, #1A0A1400 75%);"></div>
-        <div class="ig-slide-inner">
-          <div class="s-label">Nová epizoda</div>
-          <div class="s-pill">DOMINA ZUZANA</div>
-          <div class="s-title">A co vy děláte, Zuzano?</div>
-          <div class="s-sub">Záleží, s kým mluvíš.</div>
-        </div>
-      </div>
-
-      <!-- Slide 2 — Citát: KDYŽ NEVAJBÍŠ -->
-      <div class="ig-slide" style="background: linear-gradient(180deg, #2A0F26 0%, #1A0A14 100%);">
-        <div class="ig-slide-inner centered">
-          <div class="s-tag">KDYŽ NEVAJBÍŠ</div>
-          <div class="s-quote" style="font-size: 26px;">Jsem office manažerka na psychoterapeutické klinice.</div>
-        </div>
-      </div>
-
-      <!-- Slide 3 — Citát: KDYŽ VAJBÍŠ (AI foto + gradient overlay) -->
-      <div class="ig-slide" style="background: var(--deep);">
-        <div style="position:absolute;inset:0;background:url('/brand/ai-conversation.jpg') center/cover;opacity:0.35;"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, #1A0A14DD, #1A0A1480 50%, #1A0A1400);"></div>
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center 40%, #4A194280, #1A0A1400 70%);"></div>
-        <div class="ig-slide-inner centered">
-          <div class="s-tag">KDYŽ VAJBÍŠ</div>
-          <div class="s-quote gold" style="font-size: 27px;">Pracuju v BDSM studiu. Dělám lekce dominance a&nbsp;erotické masáže.</div>
-        </div>
-      </div>
-
-      <!-- Slide 4 — Punchline: VÍŠ CO? (foto Zuzany smích + gradient) -->
-      <div class="ig-slide" style="background: var(--deep);">
-        <div style="position:absolute;inset:0;background:url('/brand/zuz-smich.jpg') center/cover;"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(to top, #1A0A14EE 25%, #1A0A1488 50%, #1A0A1400 75%);"></div>
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, #2A0F2680, #1A0A1400 70%);"></div>
-        <div class="ig-slide-inner centered">
-          <div class="s-tag">VÍŠ CO?</div>
-          <div class="s-quote cream large">Obě odpovědi jsou pravda.</div>
-        </div>
-      </div>
-
-      <!-- Slide 5 — Otázka: A CO TY? -->
-      <div class="ig-slide" style="background: radial-gradient(ellipse at top left, #4A1942 0%, #1A0A14 70%);">
-        <div class="ig-slide-inner centered">
-          <div class="s-tag">A CO TY?</div>
-          <div class="s-quote cream" style="font-size: 30px;">Taky máš odpověď,<br>kterou neříkáš každému?</div>
-        </div>
-      </div>
-
-      <!-- Slide 6 — CTA: EP 217 · ŠIMRÁNÍ -->
-      <div class="ig-slide" style="background: radial-gradient(ellipse at top, #4A1942 0%, #1A0A14 60%);">
-        <div class="ig-slide-inner centered" style="gap: 0;">
-          <div class="s-tag">EP 217 &middot; ŠIMRÁNÍ</div>
-          <div class="s-quote cream" style="font-size: 28px;">Zuzana o&nbsp;důvěře,<br>hranicích a&nbsp;ruce na krku.</div>
-          <div class="s-divider"></div>
-          <div style="font-size: 14px; color: var(--gold); font-weight: 500; margin-bottom: 4px;">Celý rozhovor na Forendors</div>
-          <div style="font-size: 12px; color: var(--cream-60); font-weight: 300;">Ukázky na YouTube i Spotify.</div>
-        </div>
-      </div>
+      <div class="ig-slide" style="background: var(--deep);"><div style="position:absolute;inset:0;background:url('/brand/zuzana-studio.jpg') center/cover;"></div><div style="position:absolute;inset:0;background:linear-gradient(to top, #1A0A14EE 25%, #1A0A1488 50%, #1A0A1400 75%);"></div><div class="ig-slide-inner"><div class="s-label">Nová epizoda</div><div class="s-pill">DOMINA ZUZANA</div><div class="s-title">A co vy děláte, Zuzano?</div><div class="s-sub">Záleží, s kým mluvíš.</div></div></div>
+      <div class="ig-slide" style="background: linear-gradient(180deg, #2A0F26 0%, #1A0A14 100%);"><div class="ig-slide-inner centered"><div class="s-tag">KDYŽ NEVAJBÍŠ</div><div class="s-quote" style="font-size: 26px;">Jsem office manažerka na psychoterapeutické klinice.</div></div></div>
+      <div class="ig-slide" style="background: var(--deep);"><div style="position:absolute;inset:0;background:url('/brand/ai-conversation.jpg') center/cover;opacity:0.35;"></div><div style="position:absolute;inset:0;background:linear-gradient(to bottom, #1A0A14DD, #1A0A1480 50%, #1A0A1400);"></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse at center 40%, #4A194280, #1A0A1400 70%);"></div><div class="ig-slide-inner centered"><div class="s-tag">KDYŽ VAJBÍŠ</div><div class="s-quote gold" style="font-size: 27px;">Pracuju v BDSM studiu. Dělám lekce dominance a&nbsp;erotické masáže.</div></div></div>
+      <div class="ig-slide" style="background: var(--deep);"><div style="position:absolute;inset:0;background:url('/brand/zuz-smich.jpg') center/cover;"></div><div style="position:absolute;inset:0;background:linear-gradient(to top, #1A0A14EE 25%, #1A0A1488 50%, #1A0A1400 75%);"></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, #2A0F2680, #1A0A1400 70%);"></div><div class="ig-slide-inner centered"><div class="s-tag">VÍŠ CO?</div><div class="s-quote cream large">Obě odpovědi jsou pravda.</div></div></div>
+      <div class="ig-slide" style="background: radial-gradient(ellipse at top left, #4A1942 0%, #1A0A14 70%);"><div class="ig-slide-inner centered"><div class="s-tag">A CO TY?</div><div class="s-quote cream" style="font-size: 30px;">Taky máš odpověď,<br>kterou neříkáš každému?</div></div></div>
+      <div class="ig-slide" style="background: radial-gradient(ellipse at top, #4A1942 0%, #1A0A14 60%);"><div class="ig-slide-inner centered" style="gap: 0;"><div class="s-tag">EP 217 &middot; ŠIMRÁNÍ</div><div class="s-quote cream" style="font-size: 28px;">Zuzana o&nbsp;důvěře,<br>hranicích a&nbsp;ruce na krku.</div><div class="s-divider"></div><div style="font-size: 14px; color: var(--gold); font-weight: 500; margin-bottom: 4px;">Celý rozhovor na Forendors</div><div style="font-size: 12px; color: var(--cream-60); font-weight: 300;">Ukázky na YouTube i Spotify.</div></div></div>
     </div>
-
-    <div class="ig-dots" id="carouselDots">
-      <div class="ig-dot active"></div>
-      <div class="ig-dot"></div>
-      <div class="ig-dot"></div>
-      <div class="ig-dot"></div>
-      <div class="ig-dot"></div>
-      <div class="ig-dot"></div>
-    </div>
-
-    <div class="ig-phone-actions">
-      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    </div>
+    <div class="ig-dots" id="carouselDots"><div class="ig-dot active"></div><div class="ig-dot"></div><div class="ig-dot"></div><div class="ig-dot"></div><div class="ig-dot"></div><div class="ig-dot"></div></div>
+    <div class="ig-phone-actions"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
     <div class="ig-phone-likes">2 847 To se mi líbí</div>
   </div>
 
   <div class="ig-phone">
-    <div class="ig-phone-header">
-      <div class="ig-phone-avatar"></div>
-      <div>
-        <div class="ig-phone-name">simrani.podcast</div>
-        <div class="ig-phone-meta">Sponzorováno</div>
-      </div>
-    </div>
-
+    <div class="ig-phone-header"><div class="ig-phone-avatar"></div><div><div class="ig-phone-name">simrani.podcast</div><div class="ig-phone-meta">Sponzorováno</div></div></div>
     <div class="ig-carousel-track" id="carouselTrack2">
-      <!-- Slide 1 — La Perla foto 4 -->
-      <div class="ig-slide" style="background: var(--deep);">
-        <div style="position:absolute;inset:0;background:url('/brand/laperla-4.png') center/cover;"></div>
-      </div>
-
-      <!-- Slide 2 — La Perla foto 3 -->
-      <div class="ig-slide" style="background: var(--deep);">
-        <div style="position:absolute;inset:0;background:url('/brand/laperla-3.png') center/cover;"></div>
-      </div>
-
-      <!-- Slide 3 — La Perla foto 1 -->
-      <div class="ig-slide" style="background: var(--deep);">
-        <div style="position:absolute;inset:0;background:url('/brand/laperla-1.png') center/cover;"></div>
-      </div>
-
-      <!-- Slide 4 — La Perla foto 2 -->
-      <div class="ig-slide" style="background: var(--deep);">
-        <div style="position:absolute;inset:0;background:url('/brand/laperla-2.png') center/cover;"></div>
-      </div>
+      <div class="ig-slide" style="background: var(--deep);"><div style="position:absolute;inset:0;background:url('/brand/laperla-4.png') center/cover;"></div></div>
+      <div class="ig-slide" style="background: var(--deep);"><div style="position:absolute;inset:0;background:url('/brand/laperla-3.png') center/cover;"></div></div>
+      <div class="ig-slide" style="background: var(--deep);"><div style="position:absolute;inset:0;background:url('/brand/laperla-1.png') center/cover;"></div></div>
+      <div class="ig-slide" style="background: var(--deep);"><div style="position:absolute;inset:0;background:url('/brand/laperla-2.png') center/cover;"></div></div>
     </div>
-
-    <div class="ig-dots" id="carouselDots2">
-      <div class="ig-dot active"></div>
-      <div class="ig-dot"></div>
-      <div class="ig-dot"></div>
-      <div class="ig-dot"></div>
-    </div>
-
-    <div class="ig-phone-actions">
-      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    </div>
+    <div class="ig-dots" id="carouselDots2"><div class="ig-dot active"></div><div class="ig-dot"></div><div class="ig-dot"></div><div class="ig-dot"></div></div>
+    <div class="ig-phone-actions"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
     <div class="ig-phone-likes">1 423 To se mi líbí</div>
   </div>
-
-  </div><!-- /ig-carousel-pair -->
+  </div>
 
   <div class="label">Pravidla pro carousel</div>
   <div style="font-size: 14px; color: var(--cream-60); line-height: 1.8; max-width: 600px;">
@@ -1505,28 +1103,16 @@
   </div>
 </section>
 
-<!-- ===== 08 — REELS ===== -->
-<section>
-  <div class="section-number">08</div>
+<!-- ===== 12 — REELS ===== -->
+<section id="reels">
+  <div class="section-number">12</div>
   <div class="section-title">Instagram &mdash; Reels</div>
   <div class="section-desc">Vertikální formát (1080&times;1920). Titulková karta na začátek Reelu &mdash; hook, který zastaví scrollování.</div>
 
   <div class="mockup-grid reel">
-    <div class="reel-card" style="background: linear-gradient(180deg, #4A1942 0%, #1A0A14 100%);">
-      <div class="reel-topic">Komunikace</div>
-      <div class="reel-title">Jak říct partnerovi, co chceš v posteli</div>
-      <div class="reel-handle">@simrani.podcast</div>
-    </div>
-    <div class="reel-card" style="background: linear-gradient(180deg, #2A0F26 0%, #1A0A14 70%);">
-      <div class="reel-topic">Destigmatizace</div>
-      <div class="reel-title">3 věci, za které se stydíš zbytečně</div>
-      <div class="reel-handle">@simrani.podcast</div>
-    </div>
-    <div class="reel-card" style="background: linear-gradient(180deg, #3a1a30 0%, #1A0A14 100%);">
-      <div class="reel-topic">Rozkoš</div>
-      <div class="reel-title">Proč orgasmus není cíl (a co je)</div>
-      <div class="reel-handle">@simrani.podcast</div>
-    </div>
+    <div class="reel-card" style="background: linear-gradient(180deg, #4A1942 0%, #1A0A14 100%);"><div class="reel-topic">Komunikace</div><div class="reel-title">Jak říct partnerovi, co chceš v posteli</div><div class="reel-handle">@simrani.podcast</div></div>
+    <div class="reel-card" style="background: linear-gradient(180deg, #2A0F26 0%, #1A0A14 70%);"><div class="reel-topic">Destigmatizace</div><div class="reel-title">3 věci, za které se stydíš zbytečně</div><div class="reel-handle">@simrani.podcast</div></div>
+    <div class="reel-card" style="background: linear-gradient(180deg, #3a1a30 0%, #1A0A14 100%);"><div class="reel-topic">Rozkoš</div><div class="reel-title">Proč orgasmus není cíl (a co je)</div><div class="reel-handle">@simrani.podcast</div></div>
   </div>
 
   <div class="label">Pravidla pro Reels</div>
@@ -1539,9 +1125,9 @@
   </div>
 </section>
 
-<!-- ===== 09 — YOUTUBE ===== -->
-<section>
-  <div class="section-number">09</div>
+<!-- ===== 13 — YOUTUBE ===== -->
+<section id="youtube">
+  <div class="section-number">13</div>
   <div class="section-title">YouTube &mdash; thumbnaily</div>
   <div class="section-desc">Horizontální (1280&times;720). Thumbnail je billboard &mdash; musí zastavit scroll za zlomek sekundy a vyprávět příběh bez YouTube titulku.</div>
 
@@ -1587,162 +1173,15 @@
   </div>
 </section>
 
-<!-- ===== 10 — POSITIONING ===== -->
-<section>
-  <div class="section-number">10</div>
-  <div class="section-title">Positioning</div>
-  <div class="section-desc">Jedno tvrzení, které shrnuje celý brand.</div>
-
-  <div style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 24px; line-height: 1.5; color: var(--cream); max-width: 700px; padding: 32px 0; border-top: 1px solid var(--gold-25); border-bottom: 1px solid var(--gold-25); margin-bottom: 48px;">
-    Šimrání je podcast a komunita pro lidi, kteří chtějí porozumět své intimitě &mdash; bez studu, bez kázání, s naprostou otevřeností &mdash; protože spokojený intimní život začíná odvahou o něm mluvit.
-  </div>
-
-  <div class="label">Klíčový claim</div>
-  <div style="font-family: 'Fraunces', serif; font-size: 36px; margin-bottom: 32px;">Kde ostatní končí, Šimrání začíná.</div>
-
-  <div class="label">Markéta jednou větou</div>
-  <div style="font-size: 16px; color: var(--cream-60); line-height: 1.7;">Nejsem terapeutka. Jsem průvodkyně, která jde první a říká: <span style="color: var(--gold);">pojď, nic se nestane.</span> 🔦</div>
-</section>
-
-<!-- ===== 11 — KONKURENČNÍ MAPA ===== -->
-<section id="konkurence">
-  <div class="section-number">11</div>
-  <div class="section-title">Konkurenční mapa</div>
-  <div class="section-desc">Aktuální krajina české podcastové scény o intimitě a sexualitě. Velikost kruhu = relativní zásah.</div>
-
-  <p class="comp-map-intro">Takhle dnes vypadá český podcast prostor kolem intimity a sexuality. Většina hráčů sedí vlevo dole &mdash; humor, explicitnost, hlasitost. Pravý horní kvadrant &mdash; edukace + kultivovaný přístup &mdash; je prázdný. Přesně tam sedí Šimrání.</p>
-
-  <div class="label" style="max-width: 700px; margin-left: auto; margin-right: auto;">Velikost kruhu = relativní zásah</div>
-
-  <div class="comp-map-legend">
-    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #C59B68; box-shadow: 0 0 12px rgba(197,155,104,0.5);"></div> Šimrání</div>
-    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #E85D75;"></div> Humor & entertainment</div>
-    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #6BCB8B;"></div> Edukace & rozhovor</div>
-    <div class="comp-map-legend-item"><div class="comp-map-legend-dot" style="background: #7B8FA0;"></div> Niche / menší zásah</div>
-  </div>
-
-  <div class="comp-map-wrapper">
-    <svg class="comp-map-svg" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
-      <!-- Background grid -->
-      <defs>
-        <radialGradient id="shimGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#C59B68" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="#C59B68" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-
-      <!-- Grid lines -->
-      <line x1="350" y1="40" x2="350" y2="660" stroke="rgba(245,230,208,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
-      <line x1="40" y1="350" x2="660" y2="350" stroke="rgba(245,230,208,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
-
-      <!-- Border -->
-      <rect x="40" y="40" width="620" height="620" rx="8" fill="none" stroke="rgba(245,230,208,0.08)" stroke-width="1"/>
-
-      <!-- Quadrant labels -->
-      <text x="55" y="660" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">HLASITÝ KOMENTÁŘ</text>
-      <text x="510" y="660" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">TICHÁ HLOUBKA</text>
-
-      <!-- Axis labels (rotated Y) -->
-      <text transform="translate(28, 400) rotate(-90)" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">↓ EXPLICITNÍ &amp; RAW</text>
-      <text transform="translate(28, 200) rotate(-90)" class="comp-map-axis-label" fill="rgba(245,230,208,0.25)">↑ KULTIVOVANÝ &amp; SAFE</text>
-
-      <!-- X axis labels -->
-      <text x="55" y="690" class="comp-map-axis-label" fill="rgba(245,230,208,0.35)">← HUMOR &amp; ZÁBAVA</text>
-      <text x="500" y="690" class="comp-map-axis-label" fill="rgba(245,230,208,0.35)">EDUKACE &amp; HLOUBKA →</text>
-
-      <!-- "VOLNÝ PROSTOR" label -->
-      <text x="520" y="75" font-family="'Bricolage Grotesque', sans-serif" font-size="10" letter-spacing="2.5" text-transform="uppercase" fill="#C59B68" font-weight="500">VOLNÝ PROSTOR ↗</text>
-
-      <!-- ======= BUBBLES ======= -->
-
-      <!-- Vyhonit ďábla — large, bottom-left (humor + explicit) -->
-      <circle cx="180" cy="500" r="65" fill="rgba(232, 93, 117, 0.08)" stroke="#E85D75" stroke-width="1.5" stroke-opacity="0.4"/>
-      <text x="180" y="495" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75">Vyhonit</text>
-      <text x="180" y="512" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75">ďábla</text>
-      <text x="180" y="530" text-anchor="middle" class="comp-map-bubble-sub">HeroHero · explicitní humor</text>
-
-      <!-- LOVE IS ON THE AIR — medium, left-center (comedy, moderate) -->
-      <circle cx="220" cy="330" r="48" fill="rgba(232, 93, 117, 0.06)" stroke="#E85D75" stroke-width="1.5" stroke-opacity="0.3"/>
-      <text x="220" y="325" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75" font-size="12">LOVE IS</text>
-      <text x="220" y="341" text-anchor="middle" class="comp-map-bubble-name" fill="#E85D75" font-size="12">ON THE AIR</text>
-      <text x="220" y="357" text-anchor="middle" class="comp-map-bubble-sub">comedy · vztahy</text>
-
-      <!-- Lascivní — medium-small, center (couples, light sex-ed) -->
-      <circle cx="370" cy="380" r="38" fill="rgba(107, 203, 139, 0.06)" stroke="#6BCB8B" stroke-width="1.5" stroke-opacity="0.3"/>
-      <text x="370" y="377" text-anchor="middle" class="comp-map-bubble-name" fill="#6BCB8B" font-size="12">Lascivní</text>
-      <text x="370" y="395" text-anchor="middle" class="comp-map-bubble-sub">páry · sex-ed lite</text>
-
-      <!-- Rozkročena nad zrcadlem — small, right-lower (education but explicit, coach) -->
-      <circle cx="490" cy="430" r="32" fill="rgba(123, 143, 160, 0.06)" stroke="#7B8FA0" stroke-width="1.5" stroke-opacity="0.3"/>
-      <text x="490" y="422" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">Rozkročena</text>
-      <text x="490" y="438" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">nad zrcadlem</text>
-      <text x="490" y="454" text-anchor="middle" class="comp-map-bubble-sub">sex koučka · paywall</text>
-
-      <!-- Přirození — small, far left-bottom (male, humor) -->
-      <circle cx="130" cy="390" r="28" fill="rgba(123, 143, 160, 0.06)" stroke="#7B8FA0" stroke-width="1.5" stroke-opacity="0.3"/>
-      <text x="130" y="388" text-anchor="middle" class="comp-map-bubble-name" fill="#7B8FA0" font-size="11">Přirození</text>
-      <text x="130" y="404" text-anchor="middle" class="comp-map-bubble-sub">mužský pohled</text>
-
-      <!-- ŠIMRÁNÍ — upper right, with glow (education + safe = empty space) -->
-      <circle cx="550" cy="160" r="52" fill="url(#shimGlow)" stroke="#C59B68" stroke-width="2" filter="url(#glow)"/>
-      <text x="550" y="155" text-anchor="middle" class="comp-map-bubble-name" fill="#C59B68" font-size="15" font-weight="700">Šimrání</text>
-      <text x="550" y="175" text-anchor="middle" class="comp-map-bubble-sub" fill="rgba(197,155,104,0.8)">zvědavost · bezpečný prostor</text>
-
-    </svg>
-  </div>
-
-  <div class="comp-map-insight">
-    <p><strong>Co z toho plyne:</strong> Vyhonit ďábla a LOVE IS ON THE AIR dominují levý dolní prostor &mdash; velký zásah, ale mluví hlasitě a explicitně. Lascivní a Rozkročena sedí uprostřed &mdash; edukativnější, ale stále hodně &bdquo;raw&ldquo;. Přirození jsou niche s mužskou optikou. Pravý horní kvadrant &mdash; edukace + kultivovaný přístup + bezpečný prostor &mdash; je prázdný. <strong>Šimrání je jediný podcast, který kombinuje hloubku, zvědavost a přístupnost bez senzace. Proto positioning &bdquo;Kde ostatní končí, Šimrání začíná&ldquo; funguje.</strong></p>
-  </div>
-
-  <div style="margin-top: 48px;">
-    <div class="label">3 klíčové odlišovače</div>
-    <div class="comp-diff-grid">
-      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
-        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Zvědavý rozhovor</div>
-        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Ne comedy persona, ne sex koučka. Ptá se, dává věcem jméno, drží bezpečný prostor.</div>
-      </div>
-      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
-        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Komunitní engine</div>
-        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">ŠOL + Discord + archiv 200+ epizod + Intimity Festival. Žádný jiný CZ podcast nemá takový ekosystém.</div>
-      </div>
-      <div style="padding: 24px; border-radius: 16px; border: 1px solid var(--gold-25); background: rgba(197,155,104,0.04);">
-        <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 8px; color: var(--gold);">Kultivovaná přístupnost</div>
-        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Eventy i obsah jsou komunikovatelné veřejně &mdash; &bdquo;bez explicitní nahoty&ldquo;, edukativní i zážitkové.</div>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin-top: 16px;">
-    <div class="label">Rizika zaměnitelnosti</div>
-    <div class="comp-risk-grid">
-      <div style="padding: 24px; border-radius: 16px; border: 1px solid rgba(74,25,66,0.3); background: rgba(74,25,66,0.15);">
-        <div style="font-family: 'Fraunces', serif; font-size: 16px; margin-bottom: 8px;">&bdquo;Sex podcast&ldquo; škatulka</div>
-        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Bez jasného &bdquo;Start here&ldquo; framingu hrozí slévání s Vyhonit ďábla, LOVE IS ON THE AIR a dalšími.</div>
-      </div>
-      <div style="padding: 24px; border-radius: 16px; border: 1px solid rgba(74,25,66,0.3); background: rgba(74,25,66,0.15);">
-        <div style="font-family: 'Fraunces', serif; font-size: 16px; margin-bottom: 8px;">ENM/poly = core offer?</div>
-        <div style="font-size: 13px; color: var(--cream-60); line-height: 1.6;">Pokud se otevřené vztahy komunikují příliš dopředu, projekt se zúží na &bdquo;open relationship show&ldquo;. Držet jako modul, ne identitu.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 </div><!-- /container -->
 
 <div class="footer">
-  Šimrání &mdash; Brand Manual v2.6 &middot; Březen 2026 &middot; Teplá noc
+  Šimrání &mdash; Brand & Strategy Manual v3.0 &middot; Březen 2026 &middot; Teplá noc
 </div>
 
 <script>
 (function() {
+  // Carousel init
   function initCarousel(trackId, dotsId) {
     var track = document.getElementById(trackId);
     var dots = document.querySelectorAll('#' + dotsId + ' .ig-dot');
@@ -1750,13 +1189,25 @@
     track.addEventListener('scroll', function() {
       var slideWidth = track.offsetWidth;
       var index = Math.round(track.scrollLeft / slideWidth);
-      dots.forEach(function(d, i) {
-        d.classList.toggle('active', i === index);
-      });
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
     });
   }
   initCarousel('carouselTrack', 'carouselDots');
   initCarousel('carouselTrack2', 'carouselDots2');
+
+  // Nav active section highlight
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-link');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function(link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-64px 0px -60% 0px', threshold: 0 });
+  sections.forEach(function(s) { observer.observe(s); });
 })();
 </script>
 
