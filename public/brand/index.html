@@ -26,6 +26,22 @@
 
   html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
+  /* Retreat tooltip */
+  .retreat-tooltip-fo { pointer-events: none; opacity: 0; transition: opacity 0.25s ease; }
+  .retreat-hover-trigger:hover + .retreat-tooltip-fo { opacity: 1; }
+  .retreat-tooltip {
+    background: rgba(26,10,20,0.95);
+    border: 1px solid rgba(197,155,104,0.3);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(245,230,208,0.7);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
   body {
     background: var(--deep);
     color: var(--cream);
@@ -903,15 +919,20 @@
     <text x="360" y="45" fill="rgba(245,230,208,0.12)" font-size="7" font-family="Bricolage Grotesque, sans-serif" text-anchor="middle">škálovatelný &bull; pasivní income &bull; celá ČR</text>
 
     <!-- Future: Retreat (vpravo, mezi workshop a firemní přednášky) -->
-    <g style="cursor: help;">
-      <title>💰 Price point: 12 000–18 000 Kč/pár (víkend + ubytování + 3 lektoři). Při 12 párech = 144 000–216 000 Kč brutto. I po rozdělení mezi 3 lektory + náklady na místo je to výrazně víc než workshop — a Markéta nemusí facilitovat všechno sama.</title>
-      <rect x="570" y="175" width="145" height="72" rx="12" fill="none" stroke="rgba(197,155,104,0.14)" stroke-width="1" stroke-dasharray="4,4"/>
-      <text x="642" y="193" fill="rgba(197,155,104,0.3)" font-size="9" font-family="Bricolage Grotesque, sans-serif" font-weight="500" text-anchor="middle">🏡 RETREAT</text>
-      <text x="642" y="206" fill="rgba(245,230,208,0.18)" font-size="8" font-family="Fraunces, serif" font-style="italic" text-anchor="middle">Víkend pro 10–15 párů</text>
-      <text x="642" y="219" fill="rgba(245,230,208,0.12)" font-size="7" font-family="Bricolage Grotesque, sans-serif" text-anchor="middle">collab: Nester · Diana Vera</text>
-      <text x="642" y="231" fill="rgba(245,230,208,0.1)" font-size="7" font-family="Bricolage Grotesque, sans-serif" text-anchor="middle">multi-lektorový · high-ticket</text>
-      <text x="642" y="242" fill="rgba(197,155,104,0.1)" font-size="6.5" font-family="Bricolage Grotesque, sans-serif" text-anchor="middle">Markéta = kurátorka programu</text>
-    </g>
+    <rect x="570" y="175" width="145" height="72" rx="12" fill="none" stroke="rgba(197,155,104,0.14)" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="642" y="193" fill="rgba(197,155,104,0.3)" font-size="9" font-family="Bricolage Grotesque, sans-serif" font-weight="500" text-anchor="middle">🏡 RETREAT</text>
+    <text x="642" y="206" fill="rgba(245,230,208,0.18)" font-size="8" font-family="Fraunces, serif" font-style="italic" text-anchor="middle">Víkend pro 10–15 párů</text>
+    <text x="642" y="219" fill="rgba(245,230,208,0.12)" font-size="7" font-family="Bricolage Grotesque, sans-serif" text-anchor="middle">collab: Nester · Diana Vera</text>
+    <text x="642" y="231" fill="rgba(245,230,208,0.1)" font-size="7" font-family="Bricolage Grotesque, sans-serif" text-anchor="middle">multi-lektorový · high-ticket</text>
+    <text x="642" y="242" fill="rgba(197,155,104,0.1)" font-size="6.5" font-family="Bricolage Grotesque, sans-serif" text-anchor="middle">Markéta = kurátorka programu</text>
+    <!-- Invisible hover trigger over retreat box (must be before foreignObject for ~ selector) -->
+    <rect x="570" y="175" width="145" height="72" fill="transparent" class="retreat-hover-trigger" style="cursor: help;"/>
+    <!-- Hover tooltip via foreignObject -->
+    <foreignObject x="370" y="150" width="350" height="130" class="retreat-tooltip-fo">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="retreat-tooltip">
+        💰 Price point: 12 000–18 000 Kč/pár (víkend + ubytování + 3 lektoři). Při 12 párech = 144 000–216 000 Kč brutto. I po rozdělení mezi 3 lektory + náklady na místo je to výrazně víc než workshop — a Markéta nemusí facilitovat všechno sama.
+      </div>
+    </foreignObject>
   </svg>
 
   <!-- Textový breakdown -->
