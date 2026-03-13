@@ -518,6 +518,141 @@
     font-weight: 500;
   }
 
+  /* ===== WOW MOMENTS ===== */
+  .wow-box {
+    margin-top: 32px;
+    padding: 24px 28px;
+    border-radius: 16px;
+    border: 2px dashed rgba(197, 155, 104, 0.35);
+    background: linear-gradient(135deg, rgba(197, 155, 104, 0.06) 0%, rgba(74, 25, 66, 0.08) 100%);
+    position: relative;
+  }
+
+  .wow-badge {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: var(--gold);
+    color: var(--deep);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+
+  .wow-title {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 6px;
+    margin-top: 8px;
+  }
+
+  .wow-text {
+    font-size: 13px;
+    color: var(--cream-60);
+    line-height: 1.6;
+  }
+
+  .wow-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .wow-grid .wow-box { margin-top: 0; }
+
+  /* ===== JOURNEY ===== */
+  .journey-svg { width: 100%; margin: 32px 0; }
+
+  .journey-phases {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .journey-phase {
+    padding: 16px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--gold-06);
+    background: rgba(197, 155, 104, 0.02);
+  }
+
+  .journey-phase-num {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+
+  .journey-phase-title {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--cream);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .journey-phase-desc {
+    font-size: 11px;
+    color: var(--cream-35);
+    line-height: 1.5;
+  }
+
+  .journey-phase-emotion {
+    font-size: 11px;
+    color: var(--gold);
+    margin-top: 8px;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ===== AUDIO RECO ===== */
+  .audio-card {
+    padding: 20px 24px;
+    border-radius: 14px;
+    border: 1px solid var(--gold-25);
+    background: rgba(197, 155, 104, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .audio-card-name {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    color: var(--cream);
+  }
+
+  .audio-card-type {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  .audio-card-desc {
+    font-size: 13px;
+    color: var(--cream-60);
+    line-height: 1.5;
+  }
+
+  .audio-card-link {
+    font-size: 12px;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-25);
+    align-self: flex-start;
+  }
+
+  .audio-card-link:hover { border-color: var(--gold); }
+
   /* ===== FOOTER ===== */
   .footer {
     text-align: center;
@@ -541,11 +676,14 @@
     .agenda-item { grid-template-columns: 50px 1fr; gap: 12px; }
     .data-table { font-size: 12px; }
     .data-table th, .data-table td { padding: 10px 8px; }
+    .wow-grid { grid-template-columns: 1fr; }
+    .journey-phases { grid-template-columns: 1fr 1fr; }
   }
 
   @media (max-width: 480px) {
     .grid-4 { grid-template-columns: 1fr; }
     .ifdeal-steps { grid-template-columns: 1fr; }
+    .journey-phases { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -559,12 +697,14 @@
     <a href="#trh" class="nav-link">Trh</a>
     <a href="#ifdeal" class="nav-link">ifdeal</a>
     <a href="#rozpocet" class="nav-link">Rozpočet</a>
+    <a href="#journey" class="nav-link">Journey</a>
     <div class="nav-sep"></div>
     <span class="nav-group-label">Koncepty</span>
     <a href="#koncept-1" class="nav-link">Ztichlo</a>
     <a href="#koncept-2" class="nav-link">Touha</a>
     <a href="#koncept-3" class="nav-link">Dotek</a>
     <div class="nav-sep"></div>
+    <a href="#wow" class="nav-link">Wow</a>
     <a href="#srovnani" class="nav-link">Srovnání</a>
     <a href="#doporuceni" class="nav-link">Doporučení</a>
   </div>
@@ -797,6 +937,120 @@
   </div>
 </section>
 
+<!-- ===== CUSTOMER JOURNEY ===== -->
+<section id="journey">
+  <div class="section-number">04</div>
+  <div class="section-title">Customer journey páru</div>
+  <div class="section-desc">Od objednávky po návrat domů &mdash; jak eskalují emoce a kde jsou klíčové touchpointy.</div>
+
+  <!-- SVG Emotion Curve -->
+  <svg class="journey-svg" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background grid -->
+    <line x1="50" y1="180" x2="860" y2="180" stroke="rgba(197,155,104,0.1)" stroke-width="1"/>
+    <line x1="50" y1="140" x2="860" y2="140" stroke="rgba(197,155,104,0.06)" stroke-width="1" stroke-dasharray="4"/>
+    <line x1="50" y1="100" x2="860" y2="100" stroke="rgba(197,155,104,0.06)" stroke-width="1" stroke-dasharray="4"/>
+    <line x1="50" y1="60" x2="860" y2="60" stroke="rgba(197,155,104,0.06)" stroke-width="1" stroke-dasharray="4"/>
+    <line x1="50" y1="20" x2="860" y2="20" stroke="rgba(197,155,104,0.06)" stroke-width="1" stroke-dasharray="4"/>
+
+    <!-- Axis labels -->
+    <text x="20" y="185" fill="rgba(245,230,208,0.25)" font-size="9" font-family="Bricolage Grotesque" text-anchor="middle">😐</text>
+    <text x="20" y="105" fill="rgba(245,230,208,0.25)" font-size="9" font-family="Bricolage Grotesque" text-anchor="middle">😊</text>
+    <text x="20" y="25" fill="rgba(245,230,208,0.25)" font-size="9" font-family="Bricolage Grotesque" text-anchor="middle">🤩</text>
+
+    <!-- Phase dividers -->
+    <line x1="212" y1="10" x2="212" y2="190" stroke="rgba(197,155,104,0.08)" stroke-width="1" stroke-dasharray="2"/>
+    <line x1="374" y1="10" x2="374" y2="190" stroke="rgba(197,155,104,0.08)" stroke-width="1" stroke-dasharray="2"/>
+    <line x1="536" y1="10" x2="536" y2="190" stroke="rgba(197,155,104,0.08)" stroke-width="1" stroke-dasharray="2"/>
+    <line x1="698" y1="10" x2="698" y2="190" stroke="rgba(197,155,104,0.08)" stroke-width="1" stroke-dasharray="2"/>
+
+    <!-- Emotion curve (gold, smooth) -->
+    <path d="M 50,160 C 100,155 140,145 212,120 C 260,105 310,130 374,140 C 420,148 470,130 536,80 C 580,50 640,30 698,25 C 740,22 800,55 860,70"
+          fill="none" stroke="#C59B68" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Glow under curve -->
+    <path d="M 50,160 C 100,155 140,145 212,120 C 260,105 310,130 374,140 C 420,148 470,130 536,80 C 580,50 640,30 698,25 C 740,22 800,55 860,70 L 860,190 L 50,190 Z"
+          fill="url(#curveGlow)" opacity="0.3"/>
+
+    <defs>
+      <linearGradient id="curveGlow" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#C59B68" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#C59B68" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Phase dots -->
+    <circle cx="131" cy="140" r="5" fill="#C59B68" opacity="0.8"/>
+    <circle cx="293" cy="125" r="5" fill="#C59B68" opacity="0.8"/>
+    <circle cx="455" cy="115" r="5" fill="#C59B68" opacity="0.8"/>
+    <circle cx="617" cy="40" r="6" fill="#C59B68"/>
+    <circle cx="779" cy="55" r="5" fill="#C59B68" opacity="0.8"/>
+
+    <!-- Phase labels -->
+    <text x="131" y="168" fill="rgba(245,230,208,0.35)" font-size="9" font-family="Bricolage Grotesque" text-anchor="middle" letter-spacing="1">OBJEDNÁVKA</text>
+    <text x="293" y="168" fill="rgba(245,230,208,0.35)" font-size="9" font-family="Bricolage Grotesque" text-anchor="middle" letter-spacing="1">ČEKÁNÍ</text>
+    <text x="455" y="168" fill="rgba(245,230,208,0.35)" font-size="9" font-family="Bricolage Grotesque" text-anchor="middle" letter-spacing="1">CESTA TAM</text>
+    <text x="617" y="168" fill="#C59B68" font-size="9" font-family="Bricolage Grotesque" text-anchor="middle" letter-spacing="1" font-weight="600">WORKSHOP</text>
+    <text x="779" y="168" fill="rgba(245,230,208,0.35)" font-size="9" font-family="Bricolage Grotesque" text-anchor="middle" letter-spacing="1">PO</text>
+  </svg>
+
+  <div class="journey-phases">
+    <div class="journey-phase">
+      <div class="journey-phase-num">01</div>
+      <div class="journey-phase-title">Objednávka</div>
+      <div class="journey-phase-desc">Katka přesvědčí partnera. Klikne na ifdeal. Platba. Nervozita + úleva &mdash; &bdquo;tak jsme to udělali.&ldquo;</div>
+      <div class="journey-phase-emotion">Nervozita + vzrušení</div>
+    </div>
+    <div class="journey-phase">
+      <div class="journey-phase-num">02</div>
+      <div class="journey-phase-title">Čekání (1&ndash;3 týdny)</div>
+      <div class="journey-phase-desc">Trochu obavy. &bdquo;Nebude to trapné?&ldquo; Markéta posílá warm-up email s tím, co čekat. Uklidnění.</div>
+      <div class="journey-phase-emotion">Obavy → uklidnění</div>
+    </div>
+    <div class="journey-phase">
+      <div class="journey-phase-num">03</div>
+      <div class="journey-phase-title">Den D: cesta tam</div>
+      <div class="journey-phase-desc">V autě/MHD si pustí doporučenou audio povídku. Nálada se mění. Přijíždí naladění, ne nervózní.</div>
+      <div class="journey-phase-emotion">Zvědavost + intimní nálada</div>
+    </div>
+    <div class="journey-phase" style="border-color: var(--gold-25); background: var(--gold-06);">
+      <div class="journey-phase-num">04</div>
+      <div class="journey-phase-title">Workshop</div>
+      <div class="journey-phase-desc">Peak zážitku. Normalizace, smích, aha momenty, slzy, blízkost. Polaroid. Vůně. Obálka na rozloučenou.</div>
+      <div class="journey-phase-emotion">Emoční vrchol ✦</div>
+    </div>
+    <div class="journey-phase">
+      <div class="journey-phase-num">05</div>
+      <div class="journey-phase-title">Cesta domů + po</div>
+      <div class="journey-phase-desc">Playlist v autě. Doma otevřou obálku s 7denní praxí. Za 6 měsíců přijde dopis. Polaroid na ledničce.</div>
+      <div class="journey-phase-emotion">Propojení + nostalgie</div>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top: 48px;">Audio naladění cestou na workshop</div>
+  <div class="section-desc" style="margin-bottom: 24px;">Doporučit párům, aby si cestou na workshop pustili erotickou audio povídku &mdash; naladí intimní atmosféru dřív, než dorazí. Žádné porno, žádná vulgarita &mdash; storytelling, hlas, představivost.</div>
+
+  <div class="grid-3">
+    <div class="audio-card">
+      <div class="audio-card-type">Podcast &middot; Česky</div>
+      <div class="audio-card-name">Zhasni</div>
+      <div class="audio-card-desc">Český erotický podcast s povídkami pro muže i ženy. 110+ epizod, 5&ndash;20 min. Atmosféra, hlas, představivost. Zdarma na všech platformách.</div>
+      <a href="https://zhasni.buzzsprout.com/" class="audio-card-link" target="_blank">zhasni.buzzsprout.com →</a>
+    </div>
+    <div class="audio-card">
+      <div class="audio-card-type">Platforma &middot; Česky</div>
+      <div class="audio-card-name">Oh My Hot</div>
+      <div class="audio-card-desc">Audio platforma Hany Kuncové. Věrohodné příběhy o intimitě, ~16 min. Respekt, ohleduplnost, gender-inclusive. Patreon předplatné.</div>
+      <a href="https://www.patreon.com/posts/vitejte-na-oh-my-103530049" class="audio-card-link" target="_blank">patreon.com/ohmyhot →</a>
+    </div>
+    <div class="audio-card">
+      <div class="audio-card-type">Aplikace &middot; Anglicky</div>
+      <div class="audio-card-name">Dipsea</div>
+      <div class="audio-card-desc">Největší světová appka na erotické audio příběhy. 1 000+ nahrávek, feministický přístup, 5&ndash;20 min. Předplatné $12.99/měsíc.</div>
+      <a href="https://www.dipseastories.com/" class="audio-card-link" target="_blank">dipseastories.com →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== KONCEPT 1 ===== -->
 <section id="koncept-1">
   <div class="concept">
@@ -879,6 +1133,24 @@
     <p style="font-size: 14px; color: var(--cream-60); line-height: 1.7;">
       Žádná tantra, žádná terapie. Je to jako podcast Šimrání, ale živě a s partnerem vedle. Normalizace + praktické nástroje. Muži se nemusí bát &mdash; žádné svlékání, žádné dýchání do čaker.
     </p>
+
+    <div class="wow-grid">
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">Obálka zapečetěná voskem</div>
+        <div class="wow-text">Obálka s domácím úkolem na 7 dní zapečetěná zlatým voskem (brand). Uvnitř 7 kartiček &mdash; každý den jedna 3minutová mikropraxe. Fyzický artefakt, který připomíná workshop celý týden.</div>
+      </div>
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">Loom video od odborníka</div>
+        <div class="wow-text">90s video od sexuoložky/psycholožky promítnuté na začátku: &bdquo;to, co dnes zažijete, není terapie &mdash; ale může to být začátek.&ldquo; Legitimizuje formát, Markéta nemusí být ta autorita.</div>
+      </div>
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">Dopis sobě za půl roku</div>
+        <div class="wow-text">Na konci workshopu každý napíše dopis sám sobě (nebo partnerovi). Markéta je za 6 měsíců pošle poštou. Páry si vzpomenou přesně ve chvíli, kdy rutina opět převáží. Virální potenciál.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -964,6 +1236,24 @@
     <p style="font-size: 14px; color: var(--cream-60); line-height: 1.7;">
       Cílí na #1 problém párů (desire mismatch), o kterém nikdo v CZ nedělá samostatný workshop. Většina nabídek řeší &bdquo;jak zlepšit sex&ldquo; &mdash; tenhle řeší &bdquo;proč ho jeden chce víc a co s tím&ldquo;. Odvážné, přímé, ale bezpečné.
     </p>
+
+    <div class="wow-grid">
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">Mini shibari ukázka</div>
+        <div class="wow-text">5minutová demonstrace od profesionálního rigger/ky &mdash; NE jako sexuální akt, ale jako metafora důvěry. &bdquo;Každý uzel vyžaduje souhlas.&ldquo; Reframe: &bdquo;Kde ve vašem vztahu jste ten, kdo drží? A kde se necháváte držet?&ldquo; Vizuálně nezapomenutelný moment.</div>
+      </div>
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">&bdquo;Desire menu&ldquo; kartička</div>
+        <div class="wow-text">Karta formátu jídelního lístku s konkrétními formami intimity (od masáže po roleplay). Každý zaškrtne: zelená (chci), žlutá (zvědavá/ý), červená (ne teď). Výměna karet = obrovský aha moment &mdash; &bdquo;ty bys chtěla tohle?!&ldquo;</div>
+      </div>
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">Anonymní digitální zpovědnice</div>
+        <div class="wow-text">QR kód → anonymní formulář, kam každý napíše věc, co by nikdy neřekl nahlas. Markéta čte anonymně. Silnější než kartičky &mdash; partner nepozná rukopis. Okamžitě vidíš, že nejsi sám/sama.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1049,12 +1339,76 @@
     <p style="font-size: 14px; color: var(--cream-60); line-height: 1.7;">
       Prožitkový formát, ale explicitně NE tantra. Cílí na &bdquo;dotek deficit&ldquo; &mdash; fenomén, o kterém se mluví, ale nikdo ho neřeší prakticky. Guided cvičení s oblečením = bezpečné i pro nejistější páry. Jediný CZ workshop zaměřený specificky na nesexuální fyzickou blízkost.
     </p>
+
+    <div class="wow-grid">
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">Senzorický tunel na příchodu</div>
+        <div class="wow-text">Místo normálního vstupu projdou páry krátkým &bdquo;tunelem&ldquo; (závěsy, tlumené světlo, jiná vůně, jiná hudba). 10 sekund, ale okamžitě přepne mozek. Levné (závěsy + difuzér + speaker), efekt obrovský.</div>
+      </div>
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">Kotevní olej: La Perla od Šimrání</div>
+        <div class="wow-text">Každý pár dostane lahvičku <a href="https://shop.simrani.cz/la-perla/" target="_blank" style="color: var(--gold); border-bottom: 1px solid var(--gold-25);">La Perla</a> z eshopu Šimrání. Použijí ho během guided cvičení. Doma, když si nakapou olej, tělo si vzpomene = senzorická kotva. ~30 Kč/lahvička, nejsilnější trigger paměti.</div>
+      </div>
+      <div class="wow-box">
+        <div class="wow-badge">✦ Wow nápad</div>
+        <div class="wow-title">Guided masáž rukou (5 min)</div>
+        <div class="wow-text">Ruce jsou bezpečné, veřejně přijatelné, ale překvapivě intimní. Markéta vede: &bdquo;Vezmi jeho/její ruku. Prozkoumej ji. Kolik let tuhle ruku držíš? Kdy naposledy ses na ni podíval/a?&ldquo; Nízká bariéra, vysoká emoce.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CROSS-CONCEPT WOW ===== -->
+<section id="wow">
+  <div class="section-number">08</div>
+  <div class="section-title">Wow momenty pro všechny koncepty</div>
+  <div class="section-desc">Detaily, které z workshopu udělají nezapomenutelný zážitek. Fungují pro jakýkoliv zvolený koncept. Náklady ~200 Kč navíc na pár, vnímaná hodnota 10&times;.</div>
+
+  <div class="wow-grid">
+    <div class="wow-box">
+      <div class="wow-badge">✦ Cross-koncept</div>
+      <div class="wow-title">Polaroid fotka páru</div>
+      <div class="wow-text">Na konci vyfotit každý pár Instax Polaroidem. Dostanou ji s sebou &mdash; fyzický artefakt z večera, který skončí na ledničce. ~15 Kč/fotka, virální potenciál (IG stories).</div>
+    </div>
+    <div class="wow-box">
+      <div class="wow-badge">✦ Cross-koncept</div>
+      <div class="wow-title">Spotify playlist</div>
+      <div class="wow-text">QR kód na kartičce → kurátorovaný playlist &bdquo;Šimrání: po workshopu&ldquo;. Hudba z workshopu + bonusy. Každé přehrání = připomínka. Zero cost, trvalý touchpoint.</div>
+    </div>
+    <div class="wow-box">
+      <div class="wow-badge">✦ Cross-koncept</div>
+      <div class="wow-title">Handwritten kartička od Markéty</div>
+      <div class="wow-text">Při 5&ndash;8 párech je reálné, aby Markéta během přestávky napsala každému páru 2 věty osobní zprávy na předtištěnou brand kartičku. Komorní luxus, který nikdo jiný nedělá.</div>
+    </div>
+    <div class="wow-box">
+      <div class="wow-badge">✦ Cross-koncept</div>
+      <div class="wow-title">Audio naladění cestou</div>
+      <div class="wow-text">V potvrzovacím emailu doporučit párům, aby si cestou na workshop pustili erotickou audio povídku (Zhasni, Oh My Hot, Dipsea). Přijedou naladění &mdash; ne nervózní. Detail v sekci <a href="#journey" style="color: var(--gold);">Journey</a>.</div>
+    </div>
+    <div class="wow-box">
+      <div class="wow-badge">✦ Cross-koncept</div>
+      <div class="wow-title">Loom video od páru z podcastu</div>
+      <div class="wow-text">Krátké (90s) video-svědectví od páru, co byl hostem v podcastu Šimrání. Autentické, ne reklamní. Pro 2.+ workshop: video od páru z předchozího běhu.</div>
+    </div>
+    <div class="wow-box">
+      <div class="wow-badge">✦ Cross-koncept</div>
+      <div class="wow-title">Dopis sobě za 6 měsíců</div>
+      <div class="wow-text">Každý napíše dopis sám sobě nebo partnerovi. Markéta je za půl roku pošle poštou. Připomínka workshopu ve chvíli, kdy je to nejpotřebnější &mdash; když rutina převáží.</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; padding: 20px 24px; border-radius: 12px; background: var(--gold-06); border: 1px solid var(--gold-06);">
+    <p style="font-size: 13px; color: var(--cream-60); line-height: 1.7;">
+      <strong style="color: var(--gold);">Celkové náklady wow momentů na pár:</strong> Polaroid (~15 Kč) + olej La Perla (~30 Kč) + vosková pečeť na obálku (~20 Kč) + kartička (~5 Kč) + poštovné za dopis za 6 měsíců (~30 Kč) = <strong style="color: var(--cream);">~100 Kč/pár</strong>. Playlist + audio doporučení + Loom video = 0 Kč. Celkem: <strong style="color: var(--gold);">~100&ndash;150 Kč navíc na pár</strong>, vnímaná hodnota: <strong style="color: var(--cream);">nepočitatelná</strong>.
+    </p>
   </div>
 </section>
 
 <!-- ===== SROVNÁNÍ ===== -->
 <section id="srovnani">
-  <div class="section-number">07</div>
+  <div class="section-number">09</div>
   <div class="section-title">Srovnání konceptů</div>
   <div class="section-desc">Přehled všech tří variant na jednom místě.</div>
 
@@ -1128,7 +1482,7 @@
 
 <!-- ===== DOPORUČENÍ ===== -->
 <section id="doporuceni" style="border-bottom: none;">
-  <div class="section-number">08</div>
+  <div class="section-number">10</div>
   <div class="section-title">Doporučení</div>
   <div class="section-desc">Co si myslíme, že dává největší smysl pro první workshop.</div>
 
