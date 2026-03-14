@@ -6,7 +6,7 @@ export function B2BStrip() {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div className="relative overflow-hidden border-t border-[rgba(197,155,104,0.06)] rounded-xl px-7 md:px-10 py-10 md:py-14 mt-2">
+    <div className="relative overflow-hidden border-t border-[rgba(197,155,104,0.06)] rounded-xl px-7 md:px-10 py-8 md:py-10 -mt-2">
       {/* Background image — revealed on CTA hover */}
       <div
         className="absolute inset-0 transition-opacity duration-700 ease-out"

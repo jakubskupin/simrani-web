@@ -51,7 +51,7 @@ function EventCard({
 }: EventCardProps) {
   return (
     <div
-      className={`flex flex-col rounded-xl overflow-hidden bg-[var(--wine-bg)] ${
+      className={`flex flex-col rounded-xl overflow-hidden bg-[var(--wine-bg)] min-w-[300px] snap-start md:min-w-0 ${
         border ? "ring-1 ring-[var(--gold-25)]" : ""
       }`}
     >
@@ -150,8 +150,8 @@ function EventCard({
 
 export function Events() {
   return (
-    <section className="bg-[var(--deep)] px-5 md:px-12 lg:px-[120px] py-16 md:py-20">
-      <div className="flex flex-col gap-12">
+    <section className="bg-[var(--deep)] px-5 md:px-12 lg:px-[120px] pt-16 md:pt-20 pb-10 md:pb-12">
+      <div className="flex flex-col gap-10">
         {/* Header */}
         <div className="flex flex-col gap-4">
           <span className="text-[11px] font-medium tracking-[4px] uppercase text-[var(--gold)]">
@@ -165,8 +165,8 @@ export function Events() {
           </p>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Cards grid — horizontal scroll on mobile, 3-col on desktop */}
+        <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-5 px-5 md:mx-0 md:px-0 md:overflow-visible">
           <EventCard
             badge="Již brzy"
             title="Workshop pro páry"

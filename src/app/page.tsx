@@ -1,4 +1,3 @@
-import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { YouTube } from "@/components/YouTube";
@@ -9,20 +8,32 @@ import { About } from "@/components/About";
 import { Events } from "@/components/Events";
 import { CTAMarquee } from "@/components/CTAMarquee";
 import { Footer } from "@/components/Footer";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 export default function Home() {
   return (
     <>
-      {/* <AnnouncementBar /> */}
       <Nav />
       <main>
         <Hero />
-        <YouTube />
-        <StartHere />
-        <Testimonials />
-        <Forendors />
-        <About />
-        <Events />
+        <AnimatedSection>
+          <YouTube />
+        </AnimatedSection>
+        <AnimatedSection>
+          <StartHere />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Testimonials />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Forendors />
+        </AnimatedSection>
+        <AnimatedSection>
+          <About />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Events />
+        </AnimatedSection>
         <CTAMarquee />
       </main>
       <Footer />
