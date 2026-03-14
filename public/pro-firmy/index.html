@@ -535,9 +535,11 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .hero { flex-direction: column-reverse; }
-      .hero-text { padding: 48px 40px; }
+      .hero-text { width: 100%; min-width: unset; padding: 48px 40px; }
       .hero-image { width: 100%; min-width: unset; height: 300px; }
+      .hero-image::before { display: none; }
       .hero-title { font-size: 36px; }
+      .hero-title br { display: none; }
       .promise { padding: 48px 40px; }
       .format { padding: 0 40px 48px; }
       .format-row { flex-direction: column; gap: 16px; }
@@ -552,19 +554,33 @@
     }
 
     @media (max-width: 640px) {
-      .hero-text { padding: 32px 20px; }
-      .hero-title { font-size: 28px; }
-      .hero-desc { font-size: 16px; }
-      .promise { padding: 40px 20px; }
-      .promise-headline { font-size: 22px; }
-      .format { padding: 0 20px 40px; }
-      .topics { padding: 48px 20px; gap: 32px; }
-      .section-title { font-size: 28px; }
-      .testimonials { padding: 48px 20px; }
-      .final-cta { padding: 48px 20px; }
-      .final-title { font-size: 26px; }
+      .hero-image { height: 240px; }
+      .hero-text { padding: 32px 20px; gap: 18px; }
+      .hero-title { font-size: 26px; }
+      .hero-desc { font-size: 15px; }
+      .hero-cta { padding: 12px 32px; font-size: 13px; }
+      .promise { padding: 36px 20px; }
+      .promise-headline { font-size: 20px; }
+      .promise-text { font-size: 15px; }
+      .promise-not { gap: 8px; }
+      .promise-not-pill { font-size: 11px; padding: 6px 14px; }
+      .format { padding: 0 20px 36px; }
+      .format-option { padding: 20px 22px; }
+      .format-value { font-size: 19px; }
+      .topics { padding: 40px 20px; gap: 28px; }
+      .section-title { font-size: 26px; }
+      .topic-card { padding: 24px 20px; }
+      .testimonials { padding: 40px 20px; }
+      .testimonial-card { padding: 28px 22px; }
+      .testimonial-quote { font-size: 15px; }
+      .final-cta { padding: 40px 20px; }
+      .final-note { font-size: 14px; max-width: 100%; }
+      .final-title { font-size: 24px; }
       .final-email { padding: 12px 28px; font-size: 13px; }
+      .final-linkedin { font-size: 12px; }
       .footer { padding: 20px; }
+      .footer-links { gap: 12px; }
+      .footer-links a { font-size: 12px; }
     }
   </style>
 </head>
