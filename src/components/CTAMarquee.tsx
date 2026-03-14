@@ -1,5 +1,5 @@
 function MarqueeBlock() {
-  const items = ["Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání"];
+  const items = ["Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání", "Poslouchejte", "Šimrání"];
   return (
     <div className="flex items-center shrink-0">
       {items.map((text, i) => (
