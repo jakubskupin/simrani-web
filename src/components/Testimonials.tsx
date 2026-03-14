@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const heroTestimonial = {
   label: "Odvaha zkoušet nové věci",
   quote:
@@ -15,6 +19,8 @@ const quotes = [
 ];
 
 export function Testimonials() {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <section className="flex flex-col items-center py-16 md:py-[100px] px-5 md:px-12 gap-6 md:gap-8">
       <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)] font-normal">
@@ -37,18 +43,29 @@ export function Testimonials() {
         </div>
       </div>
 
-      {/* Grid row 1 */}
+      {/* Grid row 1 — always visible */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full">
         {quotes.slice(0, 3).map((q, i) => (
           <TestimonialCard key={i} {...q} />
         ))}
       </div>
-      {/* Grid row 2 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full">
+
+      {/* Grid row 2 — hidden on mobile until expanded, always visible on desktop */}
+      <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full ${expanded ? "block" : "hidden md:grid"}`}>
         {quotes.slice(3).map((q, i) => (
           <TestimonialCard key={i + 3} {...q} />
         ))}
       </div>
+
+      {/* Expand button — mobile only */}
+      {!expanded && (
+        <button
+          onClick={() => setExpanded(true)}
+          className="md:hidden text-[13px] font-medium text-[var(--gold)] hover:text-[var(--cream)] transition-colors"
+        >
+          A další… →
+        </button>
+      )}
     </section>
   );
 }
