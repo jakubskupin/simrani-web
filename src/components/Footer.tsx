@@ -8,14 +8,14 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="flex flex-col gap-6 md:flex-row md:justify-between md:items-start md:gap-8 px-5 md:px-12 py-8 md:py-12 border-t border-[var(--gold-06)] text-[13px] text-[var(--cream-35)]">
+    <footer className="flex flex-col items-center text-center gap-6 md:flex-row md:items-start md:text-left md:justify-between md:gap-8 px-5 md:px-12 py-8 md:py-12 border-t border-[var(--gold-06)] text-[13px] text-[var(--cream-35)]">
       <div>
         <div className="font-headline text-[18px] md:text-[20px] text-[var(--cream)] mb-2">
           Šimrání
         </div>
         <div className="text-[11px] md:text-[13px]">&copy; 2026 Šimrání Podcast</div>
       </div>
-      <div className="flex gap-4 md:gap-5 flex-wrap">
+      <div className="flex gap-4 md:gap-5 flex-wrap justify-center md:justify-end">
         {links.map((l) => (
           <a
             key={l.label}
