@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markéta pro firmy — Šimrání</title>
+  <meta name="description" content="Přednášky a workshopy o komunikaci, intimitě a well-beingu pro firemní týmy. Neformálně, otevřeně, s respektem.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,700&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep: #1A0A14;
+      --wine: #4A1942;
+      --wine-bg: #2A0F26;
+      --gold: #C59B68;
+      --gold-06: rgba(197, 155, 104, 0.06);
+      --gold-10: rgba(197, 155, 104, 0.1);
+      --gold-25: rgba(197, 155, 104, 0.25);
+      --cream: #F5E6D0;
+      --cream-35: rgba(245, 230, 208, 0.35);
+      --cream-60: rgba(245, 230, 208, 0.6);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--deep);
+      color: var(--cream);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .font-headline {
+      font-family: 'Fraunces', serif;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: flex;
+      min-height: 560px;
+    }
+
+    .hero-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      padding: 80px 80px 80px 120px;
+      background: var(--deep);
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: 48px;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: var(--cream);
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--cream-60);
+      max-width: 500px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 16px 36px;
+      border-radius: 8px;
+      background: var(--gold);
+      color: var(--deep);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      width: fit-content;
+    }
+
+    .hero-cta:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .hero-image {
+      width: 560px;
+      min-width: 560px;
+      background: var(--wine-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-image-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: var(--cream-35);
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    /* ===== TOPICS ===== */
+    .topics {
+      background: var(--wine-bg);
+      padding: 80px 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--cream);
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .topic-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 32px 28px;
+      border-radius: 12px;
+      background: var(--gold-06);
+      border: 1px solid var(--gold-10);
+      transition: border-color 0.3s;
+    }
+
+    .topic-card:hover {
+      border-color: var(--gold-25);
+    }
+
+    .topic-num {
+      font-family: 'Fraunces', serif;
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold-25);
+    }
+
+    .topic-title {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--cream);
+    }
+
+    .topic-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--cream-60);
+    }
+
+    .topics-note {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--cream-35);
+      font-style: italic;
+      max-width: 700px;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: var(--deep);
+      padding: 80px 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 36px 32px;
+      border-radius: 12px;
+      border: 1px solid var(--gold-10);
+      transition: border-color 0.3s;
+    }
+
+    .testimonial-card:hover {
+      border-color: var(--gold-25);
+    }
+
+    .testimonial-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    .testimonial-quote {
+      font-family: 'Fraunces', serif;
+      font-size: 17px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--cream-60);
+    }
+
+    .testimonial-source {
+      font-size: 12px;
+      color: var(--cream-35);
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: var(--wine-bg);
+      padding: 80px 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .final-title {
+      font-family: 'Fraunces', serif;
+      font-size: 42px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--cream);
+    }
+
+    .final-desc {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--cream-60);
+      max-width: 600px;
+    }
+
+    .final-email {
+      display: inline-flex;
+      align-items: center;
+      padding: 18px 48px;
+      border-radius: 8px;
+      background: var(--gold);
+      color: var(--deep);
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .final-email:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .final-note {
+      font-size: 13px;
+      color: var(--cream-35);
+      font-style: italic;
+    }
+
+    .final-linkedin {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .final-linkedin span {
+      color: var(--cream-35);
+      font-style: italic;
+    }
+
+    .final-linkedin a {
+      color: var(--gold);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: opacity 0.2s;
+    }
+
+    .final-linkedin a:hover {
+      opacity: 0.8;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 32px 120px;
+      background: var(--deep);
+      border-top: 1px solid var(--gold-10);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-size: 13px;
+      color: var(--cream-35);
+    }
+
+    .footer-left a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footer-right a {
+      font-size: 13px;
+      color: var(--cream-35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-right a:hover {
+      color: var(--gold);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero { flex-direction: column-reverse; }
+      .hero-text { padding: 48px 40px; }
+      .hero-image { width: 100%; min-width: unset; height: 300px; }
+      .hero-title { font-size: 36px; }
+      .topics { padding: 60px 40px; }
+      .topics-grid { grid-template-columns: 1fr; }
+      .testimonials { padding: 60px 40px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .final-cta { padding: 60px 40px; }
+      .final-title { font-size: 32px; }
+      .footer { padding: 24px 40px; flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-text { padding: 32px 20px; }
+      .hero-title { font-size: 28px; }
+      .hero-desc { font-size: 16px; }
+      .topics { padding: 48px 20px; gap: 32px; }
+      .section-title { font-size: 28px; }
+      .testimonials { padding: 48px 20px; }
+      .final-cta { padding: 48px 20px; }
+      .final-title { font-size: 26px; }
+      .final-email { padding: 14px 32px; font-size: 15px; }
+      .footer { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-label">Markéta pro firmy</div>
+      <h1 class="hero-title">
+        Neformální hovory<br>
+        o intimitě.<br>
+        To je moje doména.
+      </h1>
+      <p class="hero-desc">
+        Přednášky a workshopy pro firemní týmy o komunikaci, intimitě a well-beingu. Otevřeně, s humorem, bez ostychu — protože i v práci jsme pořád lidé.
+      </p>
+      <a href="mailto:marketa@simrani.cz" class="hero-cta">
+        Napište mi na marketa@simrani.cz →
+      </a>
+    </div>
+    <div class="hero-image">
+      <!-- Placeholder — nahradit fotkou Markéty s mikrofonem -->
+      <div class="hero-image-placeholder">
+        Fotka Markéty s mikrofonem
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMATA PŘEDNÁŠEK -->
+  <section class="topics">
+    <div class="section-label">Co nabízím</div>
+    <h2 class="section-title">Témata, o kterých umím mluvit</h2>
+
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-num">01</div>
+        <div class="topic-title">Komunikace o intimitě v páru</div>
+        <div class="topic-desc">Jak mluvit o tom, co chceme a nechceme. Hranice, souhlas, touhy — bez studu.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-num">02</div>
+        <div class="topic-title">Well-being a intimní zdraví</div>
+        <div class="topic-desc">Proč je intimita klíčová pro celkový well-being. Body positivity, sebeláska, prevence.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-num">03</div>
+        <div class="topic-title">Sexuální edukace bez studu</div>
+        <div class="topic-desc">Co nás nenaučili ve škole. Moderní přístup k sexuální výchově pro dospělé v bezpečném prostoru.</div>
+      </div>
+    </div>
+
+    <p class="topics-note">
+      Každé téma přizpůsobím vaší firemní kultuře. Přednáška trvá 60–90 minut, workshop 3 hodiny.
+    </p>
+  </section>
+
+  <!-- REFERENCE -->
+  <section class="testimonials">
+    <div class="section-label">Reference</div>
+    <h2 class="section-title">Co říkají firmy</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-label">Odvaha otevřít nová témata</div>
+        <div class="testimonial-quote">
+          Markéta dokázala otevřít témata, o kterých se u nás nikdy nemluvilo — a přitom se nikdo necítil trapně. Kolegové si to chválili ještě týdny poté.
+        </div>
+        <div class="testimonial-source">— Škoda Auto</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-label">Přirozený přístup k citlivým tématům</div>
+        <div class="testimonial-quote">
+          Měli jsme obavy, jak téma intimity zapadne do firemního prostředí. Markéta to pojala tak přirozeně, že na konci chtěli všichni pokračování.
+        </div>
+        <div class="testimonial-source">— Direct Pojišťovna</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2 class="final-title">Otevřeme to u vás?</h2>
+    <p class="final-desc">
+      Napište mi, co vás zajímá, a domluvíme se na termínu.<br>
+      Přednášku přizpůsobím vašemu týmu a firemní kultuře.
+    </p>
+    <a href="mailto:marketa@simrani.cz" class="final-email">
+      marketa@simrani.cz
+    </a>
+    <div class="final-note">Odpovím do 48 hodin. Žádné formuláře, žádní prostředníci.</div>
+    <div class="final-linkedin">
+      <span>Raději se nejdřív podívat, kdo jsem?</span>
+      <a href="https://www.linkedin.com/in/marketafaberova/" target="_blank">Najdete mě i na LinkedIn →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-left">
+      © 2026 <a href="/">Šimrání</a> — Markéta Fáberová
+    </div>
+    <div class="footer-right">
+      <a href="/">← Zpět na hlavní stránku</a>
+    </div>
+  </footer>
+
+</body>
+</html>
