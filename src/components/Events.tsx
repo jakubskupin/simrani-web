@@ -161,8 +161,7 @@ export function Events() {
             Kde to šimrá
           </h2>
           <p className="text-[16px] md:text-[18px] leading-[1.5] text-[var(--cream-60)] max-w-[700px]">
-            Podcast byl začátek. Workshopy, komunitní setkání, festival — vyber
-            si, co ti sedí.
+            Workshopy, komunitní setkání, festival — vyber si, co ti sedí.
           </p>
         </div>
 
@@ -202,7 +201,7 @@ export function Events() {
             description="Největší český festival o intimitě a vztazích. Přednášky, workshopy, panely — celý den pro jednotlivce i páry. Grand Hotel International, Praha."
             location="Grand Hotel International, Praha"
             date="6.–7. listopadu 2026"
-            price="Early bird spuštěno"
+            price="Early bird v prodeji"
             priceHighlight
             cta={{
               label: "intimityfestival.cz →",
