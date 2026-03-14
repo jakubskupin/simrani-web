@@ -292,6 +292,51 @@
       color: var(--cream-35);
     }
 
+    /* ===== REFERRAL TIP ===== */
+    .referral-tip {
+      background: var(--deep);
+      padding: 48px 120px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .referral-tip-inner {
+      max-width: 620px;
+      padding: 32px 36px;
+      border: 1px solid var(--gold-25);
+      border-radius: 16px;
+      background: var(--gold-06);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .referral-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 6px 16px;
+      background: rgba(197, 155, 104, 0.12);
+      border-radius: 9999px;
+    }
+
+    .referral-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--cream-60);
+    }
+
+    .referral-text strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+
     /* ===== FINAL CTA ===== */
     .final-cta {
       background: var(--wine-bg);
@@ -541,6 +586,7 @@
       .topics-grid { grid-template-columns: 1fr; }
       .testimonials { padding: 60px 40px; }
       .testimonials-grid { grid-template-columns: 1fr; }
+      .referral-tip { padding: 48px 40px; }
       .final-cta { padding: 60px 40px; }
       .final-title { font-size: 32px; }
       .footer { padding: 24px 40px; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
@@ -566,6 +612,9 @@
       .testimonials { padding: 40px 20px; }
       .testimonial-card { padding: 28px 22px; }
       .testimonial-quote { font-size: 15px; }
+      .referral-tip { padding: 32px 20px; }
+      .referral-tip-inner { padding: 24px 22px; }
+      .referral-text { font-size: 14px; }
       .final-cta { padding: 40px 20px; }
       .final-note { font-size: 14px; max-width: 100%; }
       .final-title { font-size: 24px; }
@@ -697,6 +746,16 @@
         </div>
         <div class="testimonial-source">— Direct Pojišťovna</div>
       </div>
+    </div>
+  </section>
+
+  <!-- REFERRAL TIP -->
+  <section class="referral-tip">
+    <div class="referral-tip-inner">
+      <div class="referral-badge">🎧 Tip pro posluchače</div>
+      <p class="referral-text">
+        Posloucháte Šimrání? Pokud vám dává smysl, co dělám, a&nbsp;znáte ve firmě někoho, kdo rozhoduje o&nbsp;vzdělávání&nbsp;&mdash; propojte nás. Stačí přeposlat tuhle stránku nebo napsat jméno a&nbsp;e-mail. <strong>Když z&nbsp;toho vznikne přednáška nebo workshop, celoroční předplatné podcastu je na&nbsp;mě.</strong>
+      </p>
     </div>
   </section>
 
