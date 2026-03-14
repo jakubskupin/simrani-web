@@ -373,30 +373,49 @@
     .footer {
       padding: 32px 120px;
       background: var(--deep);
-      border-top: 1px solid var(--gold-10);
+      border-top: 1px solid var(--gold-06);
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
+      gap: 32px;
     }
 
     .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-brand {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .footer-brand:hover {
+      color: var(--gold);
+    }
+
+    .footer-copy {
       font-size: 13px;
       color: var(--cream-35);
     }
 
-    .footer-left a {
-      color: var(--gold);
-      text-decoration: none;
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .footer-right a {
+    .footer-links a {
       font-size: 13px;
       color: var(--cream-35);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-right a:hover {
+    .footer-links a:hover {
       color: var(--gold);
     }
 
@@ -525,7 +544,7 @@
       .testimonials-grid { grid-template-columns: 1fr; }
       .final-cta { padding: 60px 40px; }
       .final-title { font-size: 32px; }
-      .footer { padding: 24px 40px; flex-direction: column; gap: 16px; text-align: center; }
+      .footer { padding: 24px 40px; flex-direction: column; gap: 20px; }
     }
 
     @media (max-width: 640px) {
@@ -604,8 +623,8 @@
 
   <!-- TÉMATA PŘEDNÁŠEK -->
   <section class="topics">
-    <div class="section-label">O čem mluvím</div>
-    <h2 class="section-title">Témata, o kterých mluvím ráda</h2>
+    <div class="section-label">Témata</div>
+    <h2 class="section-title">O čem mluvím ráda</h2>
 
     <div class="topics-grid">
       <div class="topic-card">
@@ -675,13 +694,11 @@
   <section class="final-cta" id="kontakt">
     <h2 class="final-title">Otevřeme to u vás?</h2>
     <p class="final-desc">
-      Napište mi, co vás zajímá, a domluvíme se na termínu.<br>
-      Přednášku přizpůsobím vašemu týmu a firemní kultuře.
+      Napište mi, co vás zajímá, a domluvíme se na termínu.
     </p>
     <a href="mailto:marketa@simrani.cz" class="final-email">
       marketa@simrani.cz
     </a>
-    <div class="final-note">Odpovím do 48 hodin. Žádné formuláře, žádní prostředníci.</div>
     <div class="final-linkedin">
       <span>Raději se nejdřív podívat, kdo jsem?</span>
       <a href="https://www.linkedin.com/in/marketafaberova/" target="_blank">Najdete mě i na LinkedIn →</a>
@@ -691,10 +708,15 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-left">
-      © 2026 <a href="/">Šimrání</a> — Markéta Fáberová
+      <a href="/" class="footer-brand">Šimrání</a>
+      <div class="footer-copy">&copy; 2026 Šimrání Podcast</div>
     </div>
-    <div class="footer-right">
-      <a href="/">← Zpět na hlavní stránku</a>
+    <div class="footer-links">
+      <a href="/">Hlavní stránka</a>
+      <a href="https://www.instagram.com/simrani_podcast" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://open.spotify.com/show/4YtZKf6TsvMbCiuEu2zoUc" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@ŠimráníPodcast" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.forendors.cz/simrani.cz" target="_blank" rel="noopener">Forendors</a>
     </div>
   </footer>
 
