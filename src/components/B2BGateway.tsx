@@ -15,9 +15,9 @@ export function B2BGateway() {
             firemní týmy. Neformálně, otevřeně, s&nbsp;respektem.
           </p>
           <div className="flex items-center gap-5 mt-1 text-[12px] text-[var(--cream-35)]">
-            <span>Škoda Auto</span>
-            <span className="text-[var(--gold-25)]">·</span>
-            <span>Direct Pojišťovna</span>
+            <span>Důvěřují mi:</span>
+            <span className="font-semibold tracking-[2px] uppercase text-[13px]">Škoda Auto</span>
+            <span className="font-semibold tracking-[2px] uppercase text-[13px]">Direct Pojišťovna</span>
           </div>
         </div>
 
