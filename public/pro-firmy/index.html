@@ -369,16 +369,14 @@
       background: var(--deep);
       border-top: 1px solid var(--gold-06);
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      text-align: center;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
     }
 
     .footer-left {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 4px;
     }
 
@@ -402,7 +400,6 @@
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
-      justify-content: center;
     }
 
     .footer-links a {
@@ -546,7 +543,7 @@
       .testimonials-grid { grid-template-columns: 1fr; }
       .final-cta { padding: 60px 40px; }
       .final-title { font-size: 32px; }
-      .footer { padding: 24px 40px; gap: 12px; }
+      .footer { padding: 24px 40px; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
     }
 
     @media (max-width: 640px) {
