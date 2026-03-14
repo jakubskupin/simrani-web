@@ -8,6 +8,7 @@ import { Forendors } from "@/components/Forendors";
 import { About } from "@/components/About";
 import { Festival } from "@/components/Festival";
 import { CTAMarquee } from "@/components/CTAMarquee";
+import { B2BGateway } from "@/components/B2BGateway";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <About />
         <Festival />
         <CTAMarquee />
+        <B2BGateway />
       </main>
       <Footer />
     </>
