@@ -158,7 +158,7 @@ export function Events() {
             Od sluchátek k setkání
           </span>
           <h2 className="font-headline text-[36px] md:text-[48px] font-normal italic text-[var(--cream)] tracking-tight">
-            Kde se šimrá
+            Kde to šimrá
           </h2>
           <p className="text-[16px] md:text-[18px] leading-[1.5] text-[var(--cream-60)] max-w-[700px]">
             Podcast byl začátek. Workshopy, komunitní setkání, festival — vyber
