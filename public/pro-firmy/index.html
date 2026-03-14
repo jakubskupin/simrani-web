@@ -372,46 +372,31 @@
       color: var(--gold);
     }
 
-    /* ===== MARQUEE STRIP ===== */
-    .marquee {
+    /* ===== KEYWORD STRIP ===== */
+    .keyword-strip {
       background: var(--wine-bg);
-      overflow: hidden;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--gold-06);
+      padding: 24px 40px;
       position: relative;
       z-index: 4;
     }
 
-    .marquee-track {
+    .keyword-strip-inner {
       display: flex;
-      width: max-content;
-      animation: marquee 25s linear infinite;
-    }
-
-    .marquee-item {
-      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 24px;
-      padding: 0 24px;
-      white-space: nowrap;
-      font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 15px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .keyword-pill {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       color: var(--cream-35);
-    }
-
-    .marquee-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--gold-25);
-      flex-shrink: 0;
-    }
-
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      padding: 8px 20px;
+      border: 1px solid var(--gold-10);
+      border-radius: 9999px;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -466,21 +451,13 @@
     </div>
   </section>
 
-  <!-- MARQUEE STRIP -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <div class="marquee-item">Otevřeně <span class="marquee-dot"></span></div>
-      <div class="marquee-item">S humorem <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Bez ostychu <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Protože i v práci jsme pořád lidé <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Otevřeně <span class="marquee-dot"></span></div>
-      <div class="marquee-item">S humorem <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Bez ostychu <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Protože i v práci jsme pořád lidé <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Otevřeně <span class="marquee-dot"></span></div>
-      <div class="marquee-item">S humorem <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Bez ostychu <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Protože i v práci jsme pořád lidé <span class="marquee-dot"></span></div>
+  <!-- KEYWORD STRIP -->
+  <div class="keyword-strip">
+    <div class="keyword-strip-inner">
+      <span class="keyword-pill">Otevřeně</span>
+      <span class="keyword-pill">S humorem</span>
+      <span class="keyword-pill">Bez ostychu</span>
+      <span class="keyword-pill">Protože i v práci jsme pořád lidé</span>
     </div>
   </div>
 
