@@ -160,9 +160,6 @@ export function Events() {
           <h2 className="font-headline text-[36px] md:text-[48px] font-normal italic text-[var(--cream)] tracking-tight">
             Kde to šimrá
           </h2>
-          <p className="text-[16px] md:text-[18px] leading-[1.5] text-[var(--cream-60)] max-w-[700px]">
-            Workshopy, komunitní setkání, festival — vyber si, co ti sedí.
-          </p>
         </div>
 
         {/* Cards grid — horizontal scroll on mobile, 3-col on desktop */}
