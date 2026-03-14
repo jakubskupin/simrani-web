@@ -451,16 +451,20 @@
       padding: 0 120px 64px;
     }
 
-    .format-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .format-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
     }
 
-    .format-item {
+    .format-option {
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 6px;
+      padding: 28px 32px;
+      border: 1px solid var(--gold-10);
+      border-radius: 16px;
     }
 
     .format-label {
@@ -473,14 +477,36 @@
 
     .format-value {
       font-family: 'Fraunces', serif;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 600;
       color: var(--cream);
     }
 
-    .format-note {
+    .format-desc {
       font-size: 13px;
       color: var(--cream-35);
+    }
+
+    .format-or {
+      padding: 0 24px;
+      font-family: 'Fraunces', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--cream-35);
+      flex-shrink: 0;
+    }
+
+    .format-shared {
+      margin-top: 20px;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--cream-35);
+    }
+
+    .format-shared strong {
+      color: var(--gold);
+      font-weight: 500;
+      font-style: normal;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -491,7 +517,8 @@
       .hero-title { font-size: 36px; }
       .promise { padding: 48px 40px; }
       .format { padding: 0 40px 48px; }
-      .format-grid { grid-template-columns: 1fr; gap: 24px; }
+      .format-row { flex-direction: column; gap: 16px; }
+      .format-or { padding: 0; }
       .topics { padding: 60px 40px; }
       .topics-grid { grid-template-columns: 1fr; }
       .testimonials { padding: 60px 40px; }
@@ -551,7 +578,6 @@
       <div class="promise-not">
         <span class="promise-not-pill">Žádná terapie</span>
         <span class="promise-not-pill">Žádná tantra</span>
-        <span class="promise-not-pill">Žádná trapnost</span>
         <span class="promise-not-pill">Workplace-safe</span>
         <span class="promise-not-pill">Dospělé, ne explicitní</span>
       </div>
@@ -560,23 +586,20 @@
 
   <!-- FORMAT -->
   <section class="format">
-    <div class="format-grid">
-      <div class="format-item">
+    <div class="format-row">
+      <div class="format-option">
         <div class="format-label">Přednáška</div>
         <div class="format-value">60&ndash;90 minut</div>
-        <div class="format-note">Interaktivní, s prostorem na otázky</div>
+        <div class="format-desc">Interaktivní, s prostorem na otázky</div>
       </div>
-      <div class="format-item">
+      <div class="format-or">nebo</div>
+      <div class="format-option">
         <div class="format-label">Workshop</div>
         <div class="format-value">3 hodiny</div>
-        <div class="format-note">Skupinová práce, cvičení, diskuse</div>
-      </div>
-      <div class="format-item">
-        <div class="format-label">Přizpůsobení</div>
-        <div class="format-value">Vždy na míru</div>
-        <div class="format-note">Obsah, jazyk i hloubku ladím s vámi</div>
+        <div class="format-desc">Skupinová práce, cvičení, diskuse</div>
       </div>
     </div>
+    <div class="format-shared"><strong>Vždy na míru</strong> &mdash; obsah, jazyk i hloubku ladím s vámi předem</div>
   </section>
 
   <!-- TÉMATA PŘEDNÁŠEK -->
@@ -628,7 +651,7 @@
   <!-- REFERENCE -->
   <section class="testimonials">
     <div class="section-label">Ohlasy</div>
-    <h2 class="section-title">Po přednášce</h2>
+    <h2 class="section-title">Přežili to. A chtějí víc</h2>
 
     <div class="testimonials-grid">
       <div class="testimonial-card">
