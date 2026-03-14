@@ -36,10 +36,10 @@ export function B2BGateway() {
             Pro firmy
           </span>
           <h2 className="font-headline text-[26px] md:text-[32px] font-semibold italic text-[var(--cream)]">
-            Pozvěte mě do firmy
+            Doporučte mě do firmy
           </h2>
           <p className="text-[15px] md:text-[16px] leading-relaxed text-[var(--cream-60)] max-w-[600px]">
-            Doporučte mě do firmy. Pokud akce proběhne, roční předplatné podcastu je na&nbsp;mě.
+            Pokud akce proběhne, roční předplatné podcastu je na&nbsp;mě.
           </p>
           <div className="flex items-center gap-5 mt-1 text-[12px] text-[var(--cream-35)]">
             <span>Důvěřují mi:</span>
