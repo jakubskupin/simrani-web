@@ -177,6 +177,7 @@ export function Events() {
             price="2 500 Kč / pár"
             priceHighlight
             cta={{ label: "Duben 2026" }}
+            image="/pirko-ws.png"
           />
 
           <EventCard
@@ -191,6 +192,7 @@ export function Events() {
               label: "Pro předplatitele →",
               href: "https://www.forendors.cz/simrani.cz",
             }}
+            image="/pirko-ws.png"
           />
 
           <EventCard
