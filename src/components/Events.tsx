@@ -192,7 +192,7 @@ export function Events() {
               label: "Pro předplatitele →",
               href: "https://www.forendors.cz/simrani.cz",
             }}
-            image="/simrani-offline.jpg"
+            image="/soloff.png"
           />
 
           <EventCard
