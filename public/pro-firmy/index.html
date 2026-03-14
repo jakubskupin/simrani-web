@@ -205,9 +205,37 @@
     }
 
     .topic-desc {
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 15px;
+      line-height: 1.6;
       color: var(--cream-60);
+    }
+
+    .topic-desc-lead {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--cream-60);
+      margin-bottom: 10px;
+    }
+
+    .topic-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .topic-bullets li {
+      font-size: 13px;
+      color: var(--cream-35);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .topic-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--gold-25);
     }
 
     .topics-note {
@@ -372,31 +400,87 @@
       color: var(--gold);
     }
 
-    /* ===== KEYWORD STRIP ===== */
-    .keyword-strip {
+    /* ===== PROMISE STRIP ===== */
+    .promise {
       background: var(--wine-bg);
-      padding: 24px 40px;
+      padding: 64px 120px;
       position: relative;
       z-index: 4;
     }
 
-    .keyword-strip-inner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+    .promise-inner {
+      max-width: 780px;
     }
 
-    .keyword-pill {
+    .promise-headline {
+      font-family: 'Fraunces', serif;
+      font-size: 26px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+
+    .promise-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--cream-60);
+      margin-bottom: 28px;
+    }
+
+    .promise-not {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .promise-not-pill {
       font-size: 12px;
       font-weight: 500;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--cream-35);
-      padding: 8px 20px;
+      padding: 7px 18px;
       border: 1px solid var(--gold-10);
       border-radius: 9999px;
+    }
+
+    /* ===== FORMAT STRIP ===== */
+    .format {
+      background: var(--wine-bg);
+      padding: 0 120px 64px;
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .format-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .format-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .format-value {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    .format-note {
+      font-size: 13px;
+      color: var(--cream-35);
     }
 
     /* ===== RESPONSIVE ===== */
@@ -405,6 +489,9 @@
       .hero-text { padding: 48px 40px; }
       .hero-image { width: 100%; min-width: unset; height: 300px; }
       .hero-title { font-size: 36px; }
+      .promise { padding: 48px 40px; }
+      .format { padding: 0 40px 48px; }
+      .format-grid { grid-template-columns: 1fr; gap: 24px; }
       .topics { padding: 60px 40px; }
       .topics-grid { grid-template-columns: 1fr; }
       .testimonials { padding: 60px 40px; }
@@ -418,6 +505,9 @@
       .hero-text { padding: 32px 20px; }
       .hero-title { font-size: 28px; }
       .hero-desc { font-size: 16px; }
+      .promise { padding: 40px 20px; }
+      .promise-headline { font-size: 22px; }
+      .format { padding: 0 20px 40px; }
       .topics { padding: 48px 20px; gap: 32px; }
       .section-title { font-size: 28px; }
       .testimonials { padding: 48px 20px; }
@@ -436,14 +526,14 @@
       <div class="hero-label">Markéta pro firmy</div>
       <h1 class="hero-title">
         Neformální hovory<br>
-        o intimitě.<br>
-        To je moje doména.
+        o intimitě<br>
+        To je moje doména
       </h1>
       <p class="hero-desc">
-        Přednášky a workshopy pro firemní týmy o komunikaci, intimitě a well-beingu.
+        Přednášky a workshopy pro firemní týmy. Komunikace. Hranice. Well-being. Otevřeně, s humorem &mdash; protože i v práci jsme pořád lidé.
       </p>
-      <a href="mailto:marketa@simrani.cz" class="hero-cta">
-        Napište mi na marketa@simrani.cz →
+      <a href="#kontakt" class="hero-cta">
+        Napište mi &rarr;
       </a>
     </div>
     <div class="hero-image">
@@ -451,48 +541,94 @@
     </div>
   </section>
 
-  <!-- KEYWORD STRIP -->
-  <div class="keyword-strip">
-    <div class="keyword-strip-inner">
-      <span class="keyword-pill">Otevřeně</span>
-      <span class="keyword-pill">S humorem</span>
-      <span class="keyword-pill">Bez ostychu</span>
-      <span class="keyword-pill">Protože i v práci jsme pořád lidé</span>
+  <!-- PROMISE — uklidnění bariér -->
+  <section class="promise">
+    <div class="promise-inner">
+      <div class="promise-headline">Obsah přizpůsobím vašemu prostředí. Vždy.</div>
+      <p class="promise-text">
+        Vím, že pozvat někoho mluvit o intimitě do firmy chce odvahu. Proto se vždy předem bavíme o tom, co je pro váš tým vhodné, kde jsou hranice a co od přednášky očekáváte. Vy rozhodujete o rámci &mdash; já ho naplním obsahem, který má dopad.
+      </p>
+      <div class="promise-not">
+        <span class="promise-not-pill">Žádná terapie</span>
+        <span class="promise-not-pill">Žádná tantra</span>
+        <span class="promise-not-pill">Žádná trapnost</span>
+        <span class="promise-not-pill">Workplace-safe</span>
+        <span class="promise-not-pill">Dospělé, ne explicitní</span>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- FORMAT -->
+  <section class="format">
+    <div class="format-grid">
+      <div class="format-item">
+        <div class="format-label">Přednáška</div>
+        <div class="format-value">60&ndash;90 minut</div>
+        <div class="format-note">Interaktivní, s prostorem na otázky</div>
+      </div>
+      <div class="format-item">
+        <div class="format-label">Workshop</div>
+        <div class="format-value">3 hodiny</div>
+        <div class="format-note">Skupinová práce, cvičení, diskuse</div>
+      </div>
+      <div class="format-item">
+        <div class="format-label">Přizpůsobení</div>
+        <div class="format-value">Vždy na míru</div>
+        <div class="format-note">Obsah, jazyk i hloubku ladím s vámi</div>
+      </div>
+    </div>
+  </section>
 
   <!-- TÉMATA PŘEDNÁŠEK -->
   <section class="topics">
-    <div class="section-label">Co nabízím</div>
-    <h2 class="section-title">Témata, o kterých umím mluvit</h2>
+    <div class="section-label">O čem mluvím</div>
+    <h2 class="section-title">Témata, o kterých mluvím ráda</h2>
 
     <div class="topics-grid">
       <div class="topic-card">
         <div class="topic-num">01</div>
-        <div class="topic-title">Komunikace o intimitě v páru</div>
-        <div class="topic-desc">Jak mluvit o tom, co chceme a nechceme. Hranice, souhlas, touhy — bez studu.</div>
+        <div class="topic-title">Jak mluvit o tom, o čem se nemluví</div>
+        <div class="topic-desc-lead">Komunikace o potřebách, hranicích a blízkosti. V týmu i ve vztahu.</div>
+        <ul class="topic-bullets">
+          <li>Proč je to tak těžké téma</li>
+          <li>Rozdíl mezi přáním a výčitkou</li>
+          <li>Jazyk, který spojuje vs. jazyk, který vypíná</li>
+          <li>Mlčení jako forma komunikace</li>
+        </ul>
       </div>
       <div class="topic-card">
         <div class="topic-num">02</div>
-        <div class="topic-title">Well-being a intimní zdraví</div>
-        <div class="topic-desc">Proč je intimita klíčová pro celkový well-being. Body positivity, sebeláska, prevence.</div>
+        <div class="topic-title">Well-being, tělo a sebeúcta</div>
+        <div class="topic-desc-lead">Vztah k vlastnímu tělu jako základ celkového well-beingu.</div>
+        <ul class="topic-bullets">
+          <li>Stud, srovnávání, odpojení od těla</li>
+          <li>Změny těla v čase a jejich přijetí</li>
+          <li>Bezpečí vs. výkon</li>
+          <li>Drobné návraty k vnímání sebe sama</li>
+        </ul>
       </div>
       <div class="topic-card">
         <div class="topic-num">03</div>
-        <div class="topic-title">Sexuální edukace bez studu</div>
-        <div class="topic-desc">Co nás nenaučili ve škole. Moderní přístup k sexuální výchově pro dospělé v bezpečném prostoru.</div>
+        <div class="topic-title">Co nás nenaučili &mdash; a proč na tom záleží</div>
+        <div class="topic-desc-lead">Dospělá edukace o intimitě. Bez ostychu, bez poučování.</div>
+        <ul class="topic-bullets">
+          <li>Co chybělo ve školní sexuální výchově</li>
+          <li>Mýty vs. realita (touha, souhlas, role)</li>
+          <li>Normalizace: nejste sami</li>
+          <li>Prostor pro otázky, ne pro hodnocení</li>
+        </ul>
       </div>
     </div>
 
     <p class="topics-note">
-      Každé téma přizpůsobím vaší firemní kultuře. Přednáška trvá 60–90 minut, workshop 3 hodiny.
+      Každé téma přizpůsobím vaší firemní kultuře, týmu a tomu, co právě řešíte.
     </p>
   </section>
 
   <!-- REFERENCE -->
   <section class="testimonials">
-    <div class="section-label">Reference</div>
-    <h2 class="section-title">Co říkají firmy</h2>
+    <div class="section-label">Ohlasy</div>
+    <h2 class="section-title">Po přednášce</h2>
 
     <div class="testimonials-grid">
       <div class="testimonial-card">
@@ -513,7 +649,7 @@
   </section>
 
   <!-- FINAL CTA -->
-  <section class="final-cta">
+  <section class="final-cta" id="kontakt">
     <h2 class="final-title">Otevřeme to u vás?</h2>
     <p class="final-desc">
       Napište mi, co vás zajímá, a domluvíme se na termínu.<br>
