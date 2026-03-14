@@ -478,6 +478,7 @@
     <span class="nav-group-label">Vizuál</span>
     <a href="#paleta" class="nav-link">Paleta</a>
     <a href="#typografie" class="nav-link">Typo</a>
+    <a href="#ui-komponenty" class="nav-link">UI</a>
     <div class="nav-sep"></div>
     <span class="nav-group-label">Formáty</span>
     <a href="#instagram" class="nav-link">IG</a>
@@ -493,9 +494,10 @@
   <div class="hero-label">Brand & Strategy Manual</div>
   <h1>Šimrání</h1>
   <p>Podcast a komunita o intimitě, sexualitě a vztazích. Kde ostatní končí, tam my začínáme.</p>
-  <span class="version">v3.2 &middot; Březen 2026 &middot; Teplá noc</span>
+  <span class="version">v3.3 &middot; Březen 2026 &middot; Teplá noc</span>
   <div style="margin-top: 32px; text-align: left; display: inline-block; font-size: 12px; color: var(--cream-35); line-height: 2;">
     <div style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-25); margin-bottom: 8px;">Changelog</div>
+    <div><span style="color: var(--gold); opacity: 0.5;">v3.3</span> &mdash; UI komponenty: design tokeny (CTA pill, karty 16px, labely, nadpisy, gradienty)</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v3.2</span> &mdash; Ekosystém Šimrání: SVG diagram 5 revenue streamů + flywheel efekt</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v3.1</span> &mdash; Konkurenční mapa: +Už budu! (Blesk.cz) a Pindy z gyndy (Podcast roku 2025)</div>
     <div><span style="color: var(--gold); opacity: 0.5;">v3.0</span> &mdash; Reorganizace: strategie nahoře, vizuál dole. Sticky nav, URL kotvy, nové sekce (Situace, X-factor)</div>
@@ -1244,13 +1246,80 @@
   </div>
 </section>
 
+<!-- ===== 12 — UI KOMPONENTY ===== -->
+<section id="ui-komponenty">
+  <div class="section-number">12</div>
+  <div class="section-title">UI komponenty</div>
+  <div class="section-desc">Design tokeny pro web a podstránky. Konzistentní zaoblení, hover stavy a rozměry zajišťují jednotný vizuální jazyk napříč celým webem.</div>
+
+  <div class="label">CTA tlačítka</div>
+  <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 16px;">
+    <span style="display: inline-block; padding: 14px 44px; background: var(--gold); color: var(--deep); border-radius: 9999px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.3s;">Primární CTA</span>
+    <span style="display: inline-block; padding: 12px 28px; border: 1px solid var(--gold); color: var(--gold); border-radius: 9999px; font-size: 13px; font-weight: 500; cursor: pointer;">Sekundární CTA</span>
+  </div>
+  <div style="font-size: 14px; color: var(--cream-60); line-height: 1.8; max-width: 600px; margin-bottom: 48px;">
+    &bull; <strong style="color: var(--cream);">Tvar:</strong> vždy pill &mdash; <code style="font-size: 12px; background: var(--gold-06); padding: 2px 6px; border-radius: 4px;">border-radius: 9999px</code> (rounded-full)<br>
+    &bull; <strong style="color: var(--cream);">Primární:</strong> gold bg + deep text, padding 14px 44px, font-size 14px, font-weight 600<br>
+    &bull; <strong style="color: var(--cream);">Hover (primární):</strong> background přejde na cream &mdash; <code style="font-size: 12px; background: var(--gold-06); padding: 2px 6px; border-radius: 4px;">hover: bg cream</code><br>
+    &bull; <strong style="color: var(--cream);">Sekundární:</strong> transparentní bg + gold border + gold text, padding 12px 28px, font-size 13px<br>
+    &bull; <strong style="color: var(--cream);">Hover (sekundární):</strong> gold bg + deep text<br>
+    &bull; <strong style="color: var(--cream);">Nikdy:</strong> zaoblení 8px, 12px ani jiné &mdash; vždy pill
+  </div>
+
+  <div class="label">Karty</div>
+  <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px;">
+    <div style="flex: 1; min-width: 200px; padding: 32px 28px; border-radius: 16px; border: 1px solid var(--gold-10); transition: border-color 0.3s;">
+      <div style="font-size: 14px; font-weight: 600; color: var(--cream); margin-bottom: 8px;">Obsahová karta</div>
+      <div style="font-size: 13px; color: var(--cream-60);">rounded-2xl (16px), border gold-10</div>
+    </div>
+    <div style="flex: 1; min-width: 200px; padding: 32px 28px; border-radius: 16px; background: var(--gold-06); border: 1px solid var(--gold-10); transition: border-color 0.3s;">
+      <div style="font-size: 14px; font-weight: 600; color: var(--cream); margin-bottom: 8px;">Karta s pozadím</div>
+      <div style="font-size: 13px; color: var(--cream-60);">+ gold-06 background fill</div>
+    </div>
+  </div>
+  <div style="font-size: 14px; color: var(--cream-60); line-height: 1.8; max-width: 600px; margin-bottom: 48px;">
+    &bull; <strong style="color: var(--cream);">Zaoblení:</strong> vždy 16px &mdash; <code style="font-size: 12px; background: var(--gold-06); padding: 2px 6px; border-radius: 4px;">border-radius: 16px</code> (rounded-2xl)<br>
+    &bull; <strong style="color: var(--cream);">Border:</strong> 1px solid gold-10 (rgba 197, 155, 104, 0.1)<br>
+    &bull; <strong style="color: var(--cream);">Hover:</strong> border přejde na gold-25 (rgba 197, 155, 104, 0.25)<br>
+    &bull; <strong style="color: var(--cream);">Padding:</strong> 32px 28px (desktop), 24px 20px (mobile)<br>
+    &bull; <strong style="color: var(--cream);">Varianty:</strong> transparentní bg (testimonials) nebo gold-06 bg (topic karty)
+  </div>
+
+  <div class="label">Section labely</div>
+  <div style="margin-bottom: 16px;">
+    <span style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 400;">Ukázkový label</span>
+  </div>
+  <div style="font-size: 14px; color: var(--cream-60); line-height: 1.8; max-width: 600px; margin-bottom: 48px;">
+    &bull; Bricolage Grotesque, 11px, font-weight 400<br>
+    &bull; Letter-spacing: 3px, uppercase, barva gold<br>
+    &bull; Konzistentní na všech stránkách (homepage, /pro-firmy, /workshop)
+  </div>
+
+  <div class="label">Section nadpisy (H2)</div>
+  <div style="margin-bottom: 16px;">
+    <span style="font-family: 'Fraunces', serif; font-size: 36px; font-weight: 400; color: var(--cream);">Šimrání mění životy</span>
+  </div>
+  <div style="font-size: 14px; color: var(--cream-60); line-height: 1.8; max-width: 600px; margin-bottom: 48px;">
+    &bull; Fraunces, font-weight 400 (normal, ne bold, ne italic)<br>
+    &bull; Desktop: 36&ndash;48px, mobile: 28&ndash;32px<br>
+    &bull; Barva cream. Žádná tečka na konci nadpisu.
+  </div>
+
+  <div class="label">Gradientové přechody mezi sekcemi</div>
+  <div style="font-size: 14px; color: var(--cream-60); line-height: 1.8; max-width: 600px;">
+    &bull; <strong style="color: var(--cream);">Deep &rarr; Wine-bg:</strong> multi-stop gradient (transparent 0%, #1A0A1420 30%, #1A0A14BB 60%, #2A0F26 100%)<br>
+    &bull; <strong style="color: var(--cream);">Levý fade (hero):</strong> 120px široký gradient z deep do transparent<br>
+    &bull; Přechody musí být plynulé &mdash; žádné ostré řezy mezi sekcemi
+  </div>
+</section>
+
 <!-- ═══════════════════════════════════════════ -->
 <!-- BLOK D: FORMÁTY & MOCKUPY                  -->
 <!-- ═══════════════════════════════════════════ -->
 
-<!-- ===== 12 — INSTAGRAM ===== -->
+<!-- ===== 13 — INSTAGRAM ===== -->
 <section id="instagram">
-  <div class="section-number">12</div>
+  <div class="section-number">13</div>
   <div class="section-title">Instagram &mdash; posty</div>
   <div class="section-desc">Čtvercové karty (1080&times;1080). Typografie na gradientu. Žádné stockové fotky, žádné obličeje &mdash; jen text a barva.</div>
 
@@ -1315,9 +1384,9 @@
   </div>
 </section>
 
-<!-- ===== 13 — REELS ===== -->
+<!-- ===== 14 — REELS ===== -->
 <section id="reels">
-  <div class="section-number">13</div>
+  <div class="section-number">14</div>
   <div class="section-title">Instagram &mdash; Reels</div>
   <div class="section-desc">Vertikální formát (1080&times;1920). Titulková karta na začátek Reelu &mdash; hook, který zastaví scrollování.</div>
 
@@ -1337,9 +1406,9 @@
   </div>
 </section>
 
-<!-- ===== 14 — YOUTUBE ===== -->
+<!-- ===== 15 — YOUTUBE ===== -->
 <section id="youtube">
-  <div class="section-number">14</div>
+  <div class="section-number">15</div>
   <div class="section-title">YouTube &mdash; thumbnaily</div>
   <div class="section-desc">Horizontální (1280&times;720). Thumbnail je billboard &mdash; musí zastavit scroll za zlomek sekundy a vyprávět příběh bez YouTube titulku.</div>
 
