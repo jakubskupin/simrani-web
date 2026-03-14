@@ -78,7 +78,7 @@ export function About() {
                   <span className="text-[13px] md:text-[15px] font-medium tracking-[1.5px] uppercase text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors">
                     {m.label}
                   </span>
-                  <span className="text-[var(--cream-35)] group-hover:text-[var(--gold)] group-hover:translate-x-0.5 transition-all text-[11px]">
+                  <span className="hidden md:inline text-[var(--cream-35)] group-hover:text-[var(--gold)] group-hover:translate-x-0.5 transition-all text-[11px]">
                     ↗
                   </span>
                 </span>

@@ -150,7 +150,7 @@ function EventCard({
 
 export function Events() {
   return (
-    <section className="bg-[var(--deep)] px-5 md:px-12 lg:px-[120px] pt-16 md:pt-20 pb-10 md:pb-12">
+    <section id="eventy" className="bg-[var(--deep)] px-5 md:px-12 lg:px-[120px] pt-16 md:pt-20 pb-10 md:pb-12">
       <div className="flex flex-col gap-10">
         {/* Header */}
         <div className="flex flex-col gap-4">
