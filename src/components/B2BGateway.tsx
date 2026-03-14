@@ -36,7 +36,7 @@ export function B2BGateway() {
             Pro firmy
           </span>
           <h2 className="font-headline text-[26px] md:text-[32px] font-semibold italic text-[var(--cream)]">
-            Pozvěte mě do vaší firmy
+            Pozvěte mě do firmy
           </h2>
           <p className="text-[15px] md:text-[16px] leading-relaxed text-[var(--cream-60)] max-w-[600px]">
             Přednášky a workshopy o komunikaci, intimitě a well-beingu pro
