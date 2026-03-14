@@ -1,3 +1,5 @@
+import { B2BStrip } from "./B2BStrip";
+
 const iconClass = "w-3.5 h-3.5 text-[var(--gold)] shrink-0";
 
 function MapPinIcon() {
@@ -153,14 +155,14 @@ export function Events() {
         {/* Header */}
         <div className="flex flex-col gap-4">
           <span className="text-[11px] font-medium tracking-[4px] uppercase text-[var(--gold)]">
-            Zažijte Šimrání naživo
+            Od sluchátek k setkání
           </span>
           <h2 className="font-headline text-[36px] md:text-[48px] font-normal italic text-[var(--cream)] tracking-tight">
-            Naše eventy
+            Kde se šimrá naživo
           </h2>
           <p className="text-[16px] md:text-[18px] leading-[1.5] text-[var(--cream-60)] max-w-[700px]">
-            Od komorních workshopů po největší český festival intimity. Vyberte
-            si, co vám sedí.
+            Podcast byl začátek. Workshopy, komunitní setkání, festival — vyber
+            si, co ti sedí.
           </p>
         </div>
 
@@ -210,36 +212,7 @@ export function Events() {
         </div>
 
         {/* B2B strip — inline under events */}
-        <div className="border-t border-[rgba(197,155,104,0.06)] pt-10 mt-2">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-12">
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] font-medium tracking-[3px] uppercase text-[var(--gold)] opacity-50">
-                Pro firmy
-              </span>
-              <p className="text-[18px] md:text-[20px] font-headline italic text-[var(--cream)] opacity-80">
-                Doporučte mě do firmy
-              </p>
-              <p className="text-[13px] leading-relaxed text-[var(--cream-35)] max-w-[460px]">
-                Pokud akce proběhne, roční předplatné podcastu je na&nbsp;mě.
-              </p>
-              <div className="flex items-center gap-4 mt-0.5 text-[11px] text-[var(--cream-35)] opacity-50">
-                <span>Důvěřují mi:</span>
-                <span className="font-semibold tracking-[2px] uppercase text-[12px]">
-                  Škoda Auto
-                </span>
-                <span className="font-semibold tracking-[2px] uppercase text-[12px]">
-                  Direct Pojišťovna
-                </span>
-              </div>
-            </div>
-            <a
-              href="/pro-firmy"
-              className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-[var(--gold-25)] text-[13px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all shrink-0 w-fit"
-            >
-              Mám odvahu →
-            </a>
-          </div>
-        </div>
+        <B2BStrip />
       </div>
     </section>
   );
