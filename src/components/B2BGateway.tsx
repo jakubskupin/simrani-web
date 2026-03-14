@@ -6,7 +6,7 @@ export function B2BGateway() {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[var(--wine-bg)] px-5 md:px-12 lg:px-[120px] py-12 md:py-16">
+    <section className="relative overflow-hidden bg-[var(--deep)] border-t border-[rgba(197,155,104,0.06)] px-5 md:px-12 lg:px-[120px] py-10 md:py-12">
       {/* Background image — revealed on CTA hover */}
       <div
         className="absolute inset-0 transition-opacity duration-700 ease-out"
@@ -29,33 +29,33 @@ export function B2BGateway() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-12">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12">
         {/* Left — text */}
-        <div className="flex flex-col gap-3.5">
-          <span className="text-[11px] font-medium tracking-[4px] uppercase text-[var(--gold)]">
+        <div className="flex flex-col gap-2.5">
+          <span className="text-[10px] font-medium tracking-[3px] uppercase text-[var(--gold)] opacity-50">
             Pro firmy
           </span>
-          <h2 className="font-headline text-[26px] md:text-[32px] font-semibold italic text-[var(--cream)]">
+          <h2 className="font-headline text-[20px] md:text-[24px] font-semibold italic text-[var(--cream)] opacity-80">
             Doporučte mě do firmy
           </h2>
-          <p className="text-[15px] md:text-[16px] leading-relaxed text-[var(--cream-60)] max-w-[600px]">
+          <p className="text-[14px] leading-relaxed text-[var(--cream-35)] max-w-[500px]">
             Pokud akce proběhne, roční předplatné podcastu je na&nbsp;mě.
           </p>
-          <div className="flex items-center gap-5 mt-1 text-[12px] text-[var(--cream-35)]">
+          <div className="flex items-center gap-4 mt-0.5 text-[11px] text-[var(--cream-35)] opacity-50">
             <span>Důvěřují mi:</span>
-            <span className="font-semibold tracking-[2px] uppercase text-[13px]">
+            <span className="font-semibold tracking-[2px] uppercase text-[12px]">
               Škoda Auto
             </span>
-            <span className="font-semibold tracking-[2px] uppercase text-[13px]">
+            <span className="font-semibold tracking-[2px] uppercase text-[12px]">
               Direct Pojišťovna
             </span>
           </div>
         </div>
 
-        {/* Right — CTA */}
+        {/* Right — CTA (secondary: outline, not filled) */}
         <a
           href="/pro-firmy"
-          className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[var(--gold)] text-[14px] font-semibold text-[var(--deep)] hover:bg-[var(--cream)] transition-all shrink-0 w-fit"
+          className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-[var(--gold-25)] text-[13px] font-medium text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all shrink-0 w-fit"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
