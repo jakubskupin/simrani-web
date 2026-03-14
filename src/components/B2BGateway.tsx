@@ -24,9 +24,9 @@ export function B2BGateway() {
         {/* Right — CTA */}
         <a
           href="/pro-firmy"
-          className="inline-flex items-center justify-center px-9 py-4 rounded-lg border border-[var(--gold)] text-[15px] font-semibold text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-all shrink-0 w-fit"
+          className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[var(--gold)] text-[14px] font-semibold text-[var(--deep)] hover:bg-[var(--cream)] transition-all shrink-0 w-fit"
         >
-          Zjistit více →
+          Mám odvahu →
         </a>
       </div>
     </section>
