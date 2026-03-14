@@ -55,8 +55,8 @@ function EventCard({
         border ? "ring-1 ring-[var(--gold-25)]" : ""
       }`}
     >
-      {/* Image placeholder */}
-      <div className="w-full h-[200px] bg-[var(--wine)] relative">
+      {/* Image — hidden until real photos are provided */}
+      {/* <div className="w-full h-[200px] bg-[var(--wine)] relative">
         {image ? (
           <img
             src={image}
@@ -69,7 +69,7 @@ function EventCard({
             Foto placeholder
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* Body */}
       <div className="flex flex-col gap-3.5 p-7">
