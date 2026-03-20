@@ -192,13 +192,12 @@ export function Events() {
             title="Workshop pro páry"
             description="Komorní půldenní zážitek pro 3–5 párů. Komunikace, hravost, důvěra — pod vedením Markéty."
             location="Praha"
-            date="Termín upřesníme"
+            date="Termín vybereme společně"
             price="∞"
             cta={{
               label: "Napište mi DM →",
               href: "https://www.instagram.com/simrani_podcast",
             }}
-            ctaVariant="button"
             image="/pirko-ws.png"
             border
             highlight
