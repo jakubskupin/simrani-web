@@ -279,19 +279,14 @@ export default function ProFirmy() {
         >
           marketa@simrani.cz
         </a>
-        <div className="flex flex-col items-center gap-1 text-[12px] sm:text-[13px]">
-          <span className="text-[var(--cream-35)] italic">
-            Raději se nejdřív podívat, kdo jsem?
-          </span>
-          <a
-            href="https://www.linkedin.com/in/marketa-faber/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--gold)] font-medium underline underline-offset-2 hover:opacity-80 transition-opacity"
-          >
-            Najdete mě i na LinkedIn &rarr;
-          </a>
-        </div>
+        <a
+          href="https://www.linkedin.com/in/marketa-faber/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--gold-25)] text-[12px] hover:text-[var(--gold)] transition-colors"
+        >
+          Najdete mě i na LinkedIn
+        </a>
       </section>
 
       {/* FOOTER */}
