@@ -95,11 +95,11 @@ export default function ProFirmy() {
         </div>
         <div className="w-full lg:w-1/2 h-[240px] sm:h-[300px] lg:h-auto bg-[var(--wine-bg)] relative overflow-hidden">
           <Image
-            src="/marketa-faberova-pro-firmy.png"
-            alt="Markéta Fáberová — přednáška pro firmy"
+            src="/marketa-faberova-simrani-event-2026.jpg"
+            alt="Markéta Fáberová na pódiu — live event Šimrání"
             fill
             priority
-            className="object-cover object-[65%_15%] scale-110 origin-[65%_15%]"
+            className="object-cover object-[50%_20%] scale-110 origin-[50%_20%]"
           />
           {/* Left fade — desktop only */}
           <div className="hidden lg:block absolute inset-y-0 left-0 w-[120px] bg-gradient-to-r from-[var(--deep)] to-transparent z-[1] pointer-events-none" />
