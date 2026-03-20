@@ -84,7 +84,7 @@ export default function ProFirmy() {
             {" "}To je moje doména
           </h1>
           <p className="text-[15px] sm:text-[18px] leading-[1.6] text-[var(--cream-60)] max-w-[500px]">
-            Přednášky a workshopy pro firemní týmy. Komunikace. Hranice. Well-being. Otevřeně, s humorem — protože i v práci jsme pořád lidé.
+            Naplněné vztahy a intimita jsou pro šťastný život stejně důležité jako dobrý spánek a strava. A&nbsp;člověk, který doma řeší krizi, nebude dobře pracovat — ať dělá, co dělá. Pomáhám týmům otevřít témata, která se v&nbsp;práci neřeší, ale ovlivňují všechno.
           </p>
           <a
             href="#kontakt"
@@ -114,13 +114,13 @@ export default function ProFirmy() {
       <section className="bg-[var(--wine-bg)] px-5 py-9 sm:px-10 sm:py-12 lg:px-[120px] lg:py-16 relative z-[4]">
         <div className="max-w-[780px]">
           <h2 className="font-headline text-[20px] sm:text-[26px] font-semibold italic text-[var(--cream)] mb-5">
-            Obsah přizpůsobím vašemu prostředí. Vždy
+            Žádná teorie. Spíš výlet za hranice všedních dní
           </h2>
           <p className="text-[15px] sm:text-base leading-[1.7] text-[var(--cream-60)] mb-7">
-            Vím, že pozvat někoho mluvit o intimitě do firmy chce odvahu. Proto se vždy předem bavíme o tom, co je pro váš tým vhodné, kde jsou hranice a co od přednášky očekáváte. Vy rozhodujete o rámci — já ho naplním obsahem, který má dopad.
+            Nečekejte suchopárnou přednášku. Moje vystoupení jsou o úlevě, zábavě a otevřenosti — ideální pro neformální firemní setkání, teambuildingový večer nebo offsite. Vím, že pozvat někoho mluvit o intimitě do firmy chce odvahu. Proto se vždy předem bavíme o tom, co je pro váš tým vhodné. Vy rozhodujete o rámci — já ho naplním obsahem, který má dopad.
           </p>
           <div className="flex flex-wrap gap-2 sm:gap-[10px]">
-            {["Žádná terapie", "Žádná tantra", "Workplace-safe", "Dospělé, ne explicitní"].map(
+            {["Žádná terapie", "Žádná ezoterika", "Workplace-safe", "Dospělé, ne explicitní"].map(
               (pill) => (
                 <span
                   key={pill}
@@ -145,7 +145,7 @@ export default function ProFirmy() {
               60–90 minut
             </div>
             <div className="text-[13px] text-[var(--cream-35)]">
-              Interaktivní, s prostorem na otázky
+              Humor, příběhy, prostor na otázky
             </div>
           </div>
           <div className="px-6 font-headline text-[15px] italic text-[var(--cream-35)] shrink-0">
@@ -159,7 +159,7 @@ export default function ProFirmy() {
               3 hodiny
             </div>
             <div className="text-[13px] text-[var(--cream-35)]">
-              Skupinová práce, cvičení, diskuse
+              Zážitek, sdílení, společná práce
             </div>
           </div>
         </div>
