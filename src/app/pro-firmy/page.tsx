@@ -41,23 +41,23 @@ const topics = [
   },
   {
     num: "03",
-    title: "Co nás nenaučili — a proč na tom záleží",
-    lead: "Dospělá edukace o intimitě. Bez ostychu, bez poučování.",
+    title: "Odvaha jít vlastní cestou",
+    lead: "Inspirativní cesta z korporátu do podnikání. Pro zaměstnanecké skupiny a neformální setkání.",
     bullets: [
-      "Co chybělo ve školní sexuální výchově",
-      "Mýty vs. realita (touha, souhlas, role)",
-      "Normalizace: nejste sami",
-      "Prostor pro otázky, ne pro hodnocení",
+      "Z korporátu do vlastní značky — co to obnáší",
+      "Odvaha otevírat témata, která zůstávají nevyslovená",
+      "Budování autentické značky v online světě",
+      "Jak najít hlas, když se všichni kolem mlčí",
     ],
   },
 ];
 
 const testimonials = [
   {
-    label: "Odvaha otevřít nová témata",
+    label: "Autenticita, která otevře diskusi",
     quote:
-      "Markéta dokázala otevřít témata, o kterých se u nás nikdy nemluvilo — a přitom se nikdo necítil trapně. Kolegové si to chválili ještě týdny poté.",
-    source: "Škoda Auto",
+      "Markéta sdílela své zkušenosti tak autenticky, že se přirozeně rozběhla živá diskuse s celým publikem. Přesně takové rozhovory mají sílu otevírat důležitá témata.",
+    source: "Pavlína Tringelová, Škoda Auto",
   },
   {
     label: "Přirozený přístup k citlivým tématům",
