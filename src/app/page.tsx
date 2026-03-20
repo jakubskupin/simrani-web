@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { YouTube } from "@/components/YouTube";
@@ -17,7 +18,9 @@ export default function Home() {
       <main>
         <Hero />
         <AnimatedSection>
-          <YouTube />
+          <Suspense fallback={null}>
+            <YouTube />
+          </Suspense>
         </AnimatedSection>
         <AnimatedSection>
           <Events />
