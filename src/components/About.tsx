@@ -19,7 +19,7 @@ export function About() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/market-foto/marketa-faberova-simrani.png')",
+            backgroundImage: "url('/market-faber-bio.png')",
           }}
         />
         {/* Edge fade — blends dark photo into page background */}
