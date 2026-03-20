@@ -20,8 +20,12 @@ export default function Home() {
           <YouTube />
         </AnimatedSection>
         <AnimatedSection>
-          <StartHere />
+          <Events />
         </AnimatedSection>
+        {/* StartHere — temporarily hidden, content TBD */}
+        {/* <AnimatedSection>
+          <StartHere />
+        </AnimatedSection> */}
         <AnimatedSection>
           <Testimonials />
         </AnimatedSection>
@@ -30,9 +34,6 @@ export default function Home() {
         </AnimatedSection>
         <AnimatedSection>
           <About />
-        </AnimatedSection>
-        <AnimatedSection>
-          <Events />
         </AnimatedSection>
         <CTAMarquee />
       </main>
