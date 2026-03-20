@@ -195,7 +195,7 @@ export function Events() {
           <EventCard
             badge="24. dubna"
             title="Alterno Vanilla"
-            description={<>Šimrací setkání před Alternem. Vstupenky na Alterno Vanilla koupíš na <a href="https://hellevents.cz/cs/vstupenky/128-alterno-vanilla-2026.html" target="_blank" rel="noopener" className="text-[var(--gold)] underline hover:text-[var(--cream)] transition-colors">hellevents.cz</a>. Potkej komunitu naživo a nalaď se na večer.</>}
+            description={<>Šimrací setkání před Alternem. Vstupenky na Alterno Vanilla koupíš na <a href="https://hellevents.cz/cs/vstupenky/128-alterno-vanilla-2026.html" target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline hover:text-[var(--cream)] transition-colors">hellevents.cz</a>. Potkej komunitu naživo a nalaď se na večer.</>}
             location="Praha"
             date="24. dubna 2026"
             price="Vstup zdarma"

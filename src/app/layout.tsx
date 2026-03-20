@@ -19,6 +19,20 @@ export const metadata: Metadata = {
   title: "Šimrání — Podcast o intimitě, sexualitě & BDSM",
   description:
     "Otevřené rozhovory o tom, o čem se běžně nemluví. S lehkostí, respektem a zvědavostí. Protože intimita si zaslouží vlastní hlas.",
+  openGraph: {
+    title: "Šimrání — Podcast o intimitě",
+    description:
+      "Otevřené rozhovory o tom, o čem se běžně nemluví. S lehkostí, respektem a zvědavostí.",
+    type: "website",
+    locale: "cs_CZ",
+    siteName: "Šimrání",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Šimrání — Podcast o intimitě",
+    description:
+      "Otevřené rozhovory o tom, o čem se běžně nemluví. S lehkostí, respektem a zvědavostí.",
+  },
 };
 
 export default function RootLayout({

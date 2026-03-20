@@ -2,7 +2,7 @@ export function Nav() {
   return (
     <nav className="hidden md:flex sticky top-0 z-50 items-center justify-between px-12 py-5 bg-[var(--deep)]/90 backdrop-blur-lg border-b border-[var(--gold-06)]">
       <a
-        href="#"
+        href="/"
         className="font-headline text-[20px] md:text-[22px] font-normal text-[var(--cream)]"
         style={{ fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144" }}
       >
