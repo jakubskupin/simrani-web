@@ -13,6 +13,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "cs_CZ",
     siteName: "Šimrání",
+    images: [
+      {
+        url: "/OG-profirmy.png",
+        width: 1200,
+        height: 630,
+        alt: "Markéta pro firmy — Šimrání",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Markéta pro firmy — Šimrání",
+    description:
+      "Přednášky a workshopy o komunikaci, intimitě a well-beingu pro firemní týmy.",
+    images: ["/OG-profirmy.png"],
   },
 };
 
