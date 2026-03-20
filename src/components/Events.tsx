@@ -181,14 +181,16 @@ export function Events() {
           />
 
           <EventCard
-            badge="Již brzy"
+            badge="Ověřuji zájem"
             title="Workshop pro páry"
-            description="Komorní půldenní zážitek pro 5–8 párů. Komunikace, hravost, důvěra — pod vedením Markéty."
+            description="Komorní půldenní zážitek pro 3–5 párů. Komunikace, hravost, důvěra — pod vedením Markéty."
             location="Praha"
-            date="Duben 2026"
-            price="2 500 Kč / pár"
-            priceHighlight
-            cta={{ label: "Duben 2026" }}
+            date="Termín upřesníme"
+            price="∞"
+            cta={{
+              label: "Napište mi DM →",
+              href: "https://www.instagram.com/simrani_podcast",
+            }}
             image="/pirko-ws.png"
           />
 
