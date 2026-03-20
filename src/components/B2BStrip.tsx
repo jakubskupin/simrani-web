@@ -38,7 +38,7 @@ export function B2BStrip() {
             Doporučte mě do firmy
           </p>
           <p className="text-[13px] leading-relaxed text-[var(--cream-35)] max-w-[460px]">
-            Pokud akce proběhne, roční předplatné podcastu je na&nbsp;mě.
+            Pokud akce proběhne, roční předplatné podcastu je samozřejmost.
           </p>
           <div className="flex items-center gap-4 mt-0.5 text-[11px] text-[var(--cream-35)] opacity-50">
             <span>Důvěřují mi:</span>

@@ -39,7 +39,7 @@ export function B2BGateway() {
             Doporučte mě do firmy
           </h2>
           <p className="text-[14px] leading-relaxed text-[var(--cream-35)] max-w-[500px]">
-            Pokud akce proběhne, roční předplatné podcastu je na&nbsp;mě.
+            Pokud akce proběhne, roční předplatné podcastu je samozřejmost.
           </p>
           <div className="flex items-center gap-4 mt-0.5 text-[11px] text-[var(--cream-35)] opacity-50">
             <span>Důvěřují mi:</span>

@@ -274,7 +274,7 @@ export default function ProFirmy() {
           <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)]">
             Posloucháte Šimrání? Pokud vám dává smysl, co dělám, a&nbsp;znáte ve firmě někoho, kdo rozhoduje o&nbsp;vzdělávání — propojte nás. Stačí přeposlat tuhle stránku nebo napsat jméno a&nbsp;e-mail.{" "}
             <strong className="text-[var(--cream)] font-semibold">
-              Když z&nbsp;toho vznikne přednáška nebo workshop, celoroční předplatné podcastu je na&nbsp;mě.
+              Když z&nbsp;toho vznikne přednáška nebo workshop, celoroční předplatné podcastu přihodím jako samozřejmost.
             </strong>
           </p>
         </div>
