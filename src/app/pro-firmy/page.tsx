@@ -72,7 +72,7 @@ export default function ProFirmy() {
     <>
       {/* HERO */}
       <section className="relative flex flex-col-reverse lg:flex-row min-h-[560px]">
-        <div className="w-full lg:w-1/2 flex flex-col justify-center gap-6 px-5 py-8 sm:px-10 sm:py-12 lg:px-20 lg:py-20 lg:pl-[120px] bg-[var(--deep)] relative z-[2]">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center gap-6 px-5 py-8 sm:px-10 sm:py-12 lg:px-20 lg:py-20 lg:pl-[120px] bg-[var(--wine-bg)] relative z-[2]">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase">
             Markéta pro firmy
           </div>
@@ -101,13 +101,13 @@ export default function ProFirmy() {
             priority
             className="object-cover object-[50%_20%] scale-110 origin-[50%_20%]"
           />
-          {/* Left fade — desktop only */}
-          <div className="hidden lg:block absolute inset-y-0 left-0 w-[120px] bg-gradient-to-r from-[var(--deep)] to-transparent z-[1] pointer-events-none" />
+          {/* Left fade — desktop only, wider & softer */}
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-[240px] z-[1] pointer-events-none" style={{ background: 'linear-gradient(to right, var(--wine-bg) 0%, var(--wine-bg) 15%, transparent 100%)' }} />
           {/* Bottom fade — mobile only */}
-          <div className="block lg:hidden absolute inset-x-0 bottom-0 h-[80px] bg-gradient-to-b from-transparent to-[var(--deep)] z-[1] pointer-events-none" />
+          <div className="block lg:hidden absolute inset-x-0 bottom-0 h-[80px] bg-gradient-to-b from-transparent to-[var(--wine-bg)] z-[1] pointer-events-none" />
         </div>
-        {/* Bottom fade — desktop */}
-        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-[80px] bg-gradient-to-b from-transparent via-[#2A0F2640] to-[#2A0F26] z-[3] pointer-events-none" />
+        {/* Bottom fade — desktop, blends into wine-bg */}
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-[120px] z-[3] pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 0%, #2A0F2660 40%, #2A0F26 100%)' }} />
       </section>
 
       {/* PROMISE */}
