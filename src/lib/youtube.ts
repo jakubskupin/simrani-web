@@ -2,11 +2,11 @@ const CHANNEL_ID = "UCz6s0662MakUS1aJhaADo7w";
 const FEED_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
 
 const FALLBACK_VIDEOS: YouTubeVideo[] = [
+  { id: "hg_FugtcvN4", title: "Infojeskyňka #01" },
+  { id: "6LVveqD_1kU", title: "220. díl Šimrání s Karolínou a Christianem o lásce, tranzici a odvaze k otevřenosti" },
+  { id: "ShOPcppF-ro", title: "219. díl Šimrání o intimitě, očekáváních a cestě k BDSM očima mladých snoubenců" },
+  { id: "HqkQocR8nTM", title: "218. díl Šimrání o play party pro začátečníky" },
   { id: "xcJTeDtoDcI", title: "217. díl — Podruhé s dominou a masérkou Zuzanou" },
-  { id: "eZMz180AkKo", title: "216. díl — Ženský cyklus, plodnost a antikoncepce" },
-  { id: "V8oHbpuzsTU", title: "215. díl — Tělo, vztahy, nahota a popularita" },
-  { id: "xsWSRHv1Chc", title: "214. díl — Porod z pohledu muže" },
-  { id: "MwMIw6tgjX4", title: "213. díl — Manželství a pás cudnosti" },
 ];
 
 export interface YouTubeVideo {
@@ -16,7 +16,7 @@ export interface YouTubeVideo {
 
 export async function getLatestVideos(count = 5): Promise<YouTubeVideo[]> {
   try {
-    const res = await fetch(FEED_URL, { next: { revalidate: 21600 } }); // 6 hours
+    const res = await fetch(FEED_URL, { next: { revalidate: 3600 } }); // 1 hour
 
     if (!res.ok) return FALLBACK_VIDEOS;
 
@@ -41,11 +41,8 @@ export async function getLatestVideos(count = 5): Promise<YouTubeVideo[]> {
         const title = titleMatch[1];
         const link = linkMatch ? linkMatch[1] : "";
 
-        // Skip Shorts (even if title contains "díl")
+        // Skip Shorts
         if (link.includes("/shorts/")) continue;
-
-        // Only include full episodes (title contains "díl" or "Díl")
-        if (!/d[íi]l/i.test(title)) continue;
 
         videos.push({
           id: idMatch[1],
