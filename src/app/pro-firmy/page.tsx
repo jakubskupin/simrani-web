@@ -268,8 +268,11 @@ export default function ProFirmy() {
         className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20 flex flex-col items-center gap-6 text-center"
       >
         <h2 className="font-headline text-[24px] sm:text-[32px] lg:text-[42px] font-normal text-[var(--cream)]">
-          Kdy to otevřeme?
+          Šimrá vás to?
         </h2>
+        <p className="text-[15px] sm:text-[17px] text-[var(--cream-60)] italic">
+          Napište, o zbytek se postarám.
+        </p>
         <a
           href="mailto:marketa@simrani.cz"
           className="inline-flex items-center px-7 sm:px-11 py-3 sm:py-4 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--cream)] hover:-translate-y-px transition-all duration-300"
