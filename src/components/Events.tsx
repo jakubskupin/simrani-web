@@ -51,7 +51,7 @@ function EventCard({
 }: EventCardProps) {
   return (
     <div
-      className={`flex flex-col rounded-xl overflow-hidden bg-[var(--wine-bg)] min-w-[300px] shrink-0 snap-start md:min-w-0 md:w-[calc((100%-48px)/3)] md:shrink-0 ${
+      className={`flex flex-col rounded-xl overflow-hidden bg-[var(--wine-bg)] w-[85vw] max-w-[340px] shrink-0 snap-start md:max-w-none md:w-[calc((100%-48px)/3)] ${
         border ? "ring-1 ring-[var(--gold-25)]" : ""
       }`}
     >
@@ -129,7 +129,7 @@ function EventCard({
             href={cta.href || "#"}
             target={cta.href?.startsWith("http") ? "_blank" : undefined}
             rel={cta.href?.startsWith("http") ? "noopener" : undefined}
-            className="inline-flex w-fit items-center justify-center px-7 py-3 rounded-lg bg-[var(--gold)] text-[14px] font-semibold text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
+            className="inline-flex w-fit items-center justify-center px-7 py-3 rounded-full bg-[var(--gold)] text-[14px] font-semibold text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
           >
             {cta.label}
           </a>
@@ -163,7 +163,7 @@ export function Events() {
         </div>
 
         {/* Cards grid — horizontal scroll on mobile, 3-col on desktop */}
-        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-5 px-5 md:mx-0 md:px-0">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-5 px-5 md:mx-0 md:pl-0 md:-mr-12 lg:-mr-[120px] md:pr-12 lg:pr-[120px]">
           <EventCard
             badge="9. dubna"
             badgeVariant="gold"
