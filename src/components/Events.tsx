@@ -24,7 +24,7 @@ interface EventCardProps {
   badge: string;
   badgeVariant?: "default" | "gold";
   title: string;
-  description: string;
+  description: React.ReactNode;
   location: string;
   date: string;
   price: string;
@@ -51,7 +51,7 @@ function EventCard({
 }: EventCardProps) {
   return (
     <div
-      className={`flex flex-col rounded-xl overflow-hidden bg-[var(--wine-bg)] min-w-[300px] snap-start md:min-w-0 ${
+      className={`flex flex-col rounded-xl overflow-hidden bg-[var(--wine-bg)] min-w-[300px] shrink-0 snap-start md:min-w-0 md:w-[calc((100%-48px)/3)] md:shrink-0 ${
         border ? "ring-1 ring-[var(--gold-25)]" : ""
       }`}
     >
@@ -163,7 +163,23 @@ export function Events() {
         </div>
 
         {/* Cards grid — horizontal scroll on mobile, 3-col on desktop */}
-        <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-5 px-5 md:mx-0 md:px-0 md:overflow-visible">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-5 px-5 md:mx-0 md:px-0">
+          <EventCard
+            badge="9. dubna"
+            badgeVariant="gold"
+            title="Šimrání Offline Live"
+            description="Večer plný rozhovorů, otázek a komunity — jako podcast, ale naživo. Exkluzivní setkání pro předplatitele."
+            location="Stanice 6, Praha Bubeneč"
+            date="9. dubna 2026, od 19:30"
+            price="V rámci předplatného"
+            priceHighlight
+            cta={{
+              label: "Pro předplatitele →",
+              href: "https://www.forendors.cz/p/921457255512151400",
+            }}
+            image="/soloff.png"
+          />
+
           <EventCard
             badge="Již brzy"
             title="Workshop pro páry"
@@ -177,25 +193,40 @@ export function Events() {
           />
 
           <EventCard
-            badge="Pro předplatitele"
-            title="ŠOL offline"
-            description="Exkluzivní setkání pro předplatitele. Večer plný rozhovorů, otázek a komunity — jako podcast, ale naživo."
+            badge="24. dubna"
+            title="Alterno Vanilla"
+            description={<>Šimrací setkání před Alternem. Vstupenky na Alterno Vanilla koupíš na <a href="https://hellevents.cz/cs/vstupenky/128-alterno-vanilla-2026.html" target="_blank" rel="noopener" className="text-[var(--gold)] underline hover:text-[var(--cream)] transition-colors">hellevents.cz</a>. Potkej komunitu naživo a nalaď se na večer.</>}
             location="Praha"
-            date="Termín připravujeme"
-            price="V rámci předplatného"
-            priceHighlight
-            cta={{
-              label: "Pro předplatitele →",
-              href: "https://www.forendors.cz/simrani.cz",
-            }}
-            image="/soloff.png"
+            date="24. dubna 2026"
+            price="Vstup zdarma"
+            cta={{ label: "Více info brzy" }}
           />
 
           <EventCard
-            badge="6.–7. listopadu 2026"
+            badge="5. června"
+            title="Šimrací Buřty"
+            description="Neformální setkání venku. Buřty, příroda a rozhovory bez filtrů."
+            location="Upřesníme"
+            date="5. června 2026"
+            price="Upřesníme"
+            cta={{ label: "Více info brzy" }}
+          />
+
+          <EventCard
+            badge="18. srpna"
+            title="Šimrání Live"
+            description="Letní podcastová scéna v Troji. Live natáčení epizody pod širým nebem."
+            location="Troja, Praha"
+            date="18. srpna 2026"
+            price="Upřesníme"
+            cta={{ label: "Více info brzy" }}
+          />
+
+          <EventCard
+            badge="6.–7. listopadu"
             badgeVariant="gold"
             title="Intimity Festival"
-            description="Největší český festival o intimitě a vztazích. Přednášky, workshopy, panely — celý den pro jednotlivce i páry. Grand Hotel International, Praha."
+            description="Největší český festival o intimitě a vztazích. Přednášky, workshopy, panely — celý den pro jednotlivce i páry."
             location="Grand Hotel International, Praha"
             date="6.–7. listopadu 2026"
             price="Early bird v prodeji"
