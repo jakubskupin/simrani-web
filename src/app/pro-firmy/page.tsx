@@ -107,11 +107,11 @@ export default function ProFirmy() {
           <div className="block lg:hidden absolute inset-x-0 bottom-0 h-[80px] bg-gradient-to-b from-transparent to-[var(--wine-bg)] z-[1] pointer-events-none" />
         </div>
         {/* Bottom fade — desktop, blends into wine-bg */}
-        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-[120px] z-[3] pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 0%, #2A0F2660 40%, #2A0F26 100%)' }} />
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-[160px] z-[3] pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 0%, var(--wine-bg) 100%)' }} />
       </section>
 
-      {/* PROMISE */}
-      <section className="bg-[var(--wine-bg)] px-5 py-9 sm:px-10 sm:py-12 lg:px-[120px] lg:py-16 relative z-[4]">
+      {/* PROMISE — no top padding, flows directly from hero */}
+      <section className="bg-[var(--wine-bg)] px-5 pb-9 sm:px-10 sm:pb-12 lg:px-[120px] lg:pb-16 lg:pt-4 relative z-[4]">
         <div className="max-w-[780px]">
           <h2 className="font-headline text-[20px] sm:text-[26px] font-semibold italic text-[var(--cream)] mb-5">
             Žádná teorie. Spíš výlet za hranice všedních dní
