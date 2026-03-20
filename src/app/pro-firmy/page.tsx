@@ -114,10 +114,10 @@ export default function ProFirmy() {
       <section className="bg-[var(--wine-bg)] px-5 py-9 sm:px-10 sm:py-12 lg:px-[120px] lg:py-16 relative z-[4]">
         <div className="max-w-[780px]">
           <h2 className="font-headline text-[20px] sm:text-[26px] font-semibold italic text-[var(--cream)] mb-5">
-            Žádná teorie. Spíš výlet za hranice všedních dní
+            Obsah přizpůsobím vašemu prostředí. Vždy
           </h2>
           <p className="text-[15px] sm:text-base leading-[1.7] text-[var(--cream-60)] mb-7">
-            Nečekejte suchopárnou přednášku. Moje vystoupení jsou o úlevě, zábavě a otevřenosti — ideální pro neformální firemní setkání, teambuildingový večer nebo offsite. Vím, že pozvat někoho mluvit o intimitě do firmy chce odvahu. Proto se vždy předem bavíme o tom, co je pro váš tým vhodné. Vy rozhodujete o rámci — já ho naplním obsahem, který má dopad.
+            Vím, že pozvat někoho mluvit o intimitě do firmy chce odvahu. Proto se vždy předem bavíme o tom, co je pro váš tým vhodné, kde jsou hranice a co od přednášky očekáváte. Vy rozhodujete o rámci — já ho naplním obsahem, který má dopad.
           </p>
           <div className="flex flex-wrap gap-2 sm:gap-[10px]">
             {["Žádná terapie", "Žádná ezoterika", "Workplace-safe", "Dospělé, ne explicitní"].map(
