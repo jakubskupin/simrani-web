@@ -176,11 +176,11 @@ export default function ProFirmy() {
         <h2 className="font-headline text-[26px] sm:text-[36px] font-normal text-[var(--cream)] mb-7 sm:mb-12">
           O čem mluvím ráda
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-5 px-5 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-3 lg:overflow-visible">
           {topics.map((topic) => (
             <div
               key={topic.num}
-              className="flex flex-col gap-[14px] p-6 sm:p-8 rounded-2xl bg-[var(--wine-bg)] border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors"
+              className="flex flex-col gap-[14px] p-6 sm:p-8 rounded-2xl bg-[var(--wine-bg)] border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors w-[85vw] max-w-[340px] shrink-0 snap-start lg:w-auto lg:max-w-none"
             >
               <div className="font-headline text-[28px] font-light italic text-[var(--gold-25)]">
                 {topic.num}
