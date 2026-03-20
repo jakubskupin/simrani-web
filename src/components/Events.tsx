@@ -55,9 +55,9 @@ function EventCard({
     <div
       className={`flex flex-col rounded-xl overflow-hidden w-[85vw] max-w-[340px] shrink-0 snap-start md:max-w-none md:w-[calc((100%-48px)/3)] ${
         highlight
-          ? "bg-[rgba(197,155,104,0.08)] ring-1 ring-[var(--gold)]"
+          ? "bg-[rgba(197,155,104,0.08)] border border-[var(--gold)]"
           : border
-            ? "bg-[var(--wine-bg)] ring-1 ring-[var(--gold-25)]"
+            ? "bg-[var(--wine-bg)] border border-[var(--gold-25)]"
             : "bg-[var(--wine-bg)]"
       }`}
     >
