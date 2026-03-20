@@ -91,7 +91,10 @@ export default function ProFirmy() {
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase">
             Markéta pro firmy
           </div>
-          <h1 className="font-headline text-[26px] sm:text-[36px] lg:text-[48px] font-bold italic leading-[1.15] tracking-[-1px] text-[var(--cream)]">
+          <h1
+            className="font-headline text-[26px] sm:text-[36px] lg:text-[48px] font-normal leading-[1.1] text-[var(--cream)]"
+            style={{ fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144" }}
+          >
             Neformální hovory
             <br className="hidden lg:block" />
             {" "}o intimitě.
