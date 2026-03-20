@@ -84,7 +84,7 @@ export default function ProFirmy() {
             {" "}To je moje doména
           </h1>
           <p className="text-[15px] sm:text-[18px] leading-[1.6] text-[var(--cream-60)] max-w-[500px]">
-            Naplněné vztahy a intimita jsou pro šťastný život stejně důležité jako dobrý spánek a strava. A&nbsp;člověk, který doma řeší krizi, nebude dobře pracovat — ať dělá, co dělá. Pomáhám týmům otevřít témata, která se v&nbsp;práci neřeší, ale ovlivňují všechno.
+            Naplněný vztah je pro výkon stejně důležitý jako dobrý spánek. Pomáhám týmům otevřít témata, která se v&nbsp;práci neřeší, ale ovlivňují všechno.
           </p>
           <a
             href="#kontakt"
@@ -267,10 +267,6 @@ export default function ProFirmy() {
         id="kontakt"
         className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20 flex flex-col items-center gap-6 text-center"
       >
-        <p className="text-[14px] sm:text-[15px] italic leading-[1.6] text-[var(--cream-35)] max-w-[520px] mb-2">
-          Pokud tohle čtete, jste pravděpodobně ta odvážná v&nbsp;HR, které není jedno, jak se její lidé skutečně cítí. Ráda se dozvím víc.
-          <br />— Vaše Markéta
-        </p>
         <h2 className="font-headline text-[24px] sm:text-[32px] lg:text-[42px] font-bold italic text-[var(--cream)]">
           Kdy to otevřeme?
         </h2>
