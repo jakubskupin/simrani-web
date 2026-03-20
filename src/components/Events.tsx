@@ -33,6 +33,7 @@ interface EventCardProps {
   ctaVariant?: "text" | "button";
   image?: string;
   border?: boolean;
+  highlight?: boolean;
 }
 
 function EventCard({
@@ -48,11 +49,16 @@ function EventCard({
   ctaVariant = "text",
   image,
   border = false,
+  highlight = false,
 }: EventCardProps) {
   return (
     <div
-      className={`flex flex-col rounded-xl overflow-hidden bg-[var(--wine-bg)] w-[85vw] max-w-[340px] shrink-0 snap-start md:max-w-none md:w-[calc((100%-48px)/3)] ${
-        border ? "ring-1 ring-[var(--gold-25)]" : ""
+      className={`flex flex-col rounded-xl overflow-hidden w-[85vw] max-w-[340px] shrink-0 snap-start md:max-w-none md:w-[calc((100%-48px)/3)] ${
+        highlight
+          ? "bg-[rgba(197,155,104,0.08)] ring-1 ring-[var(--gold)]"
+          : border
+            ? "bg-[var(--wine-bg)] ring-1 ring-[var(--gold-25)]"
+            : "bg-[var(--wine-bg)]"
       }`}
     >
       {/* Image — hidden until real photos are provided */}
@@ -182,6 +188,7 @@ export function Events() {
 
           <EventCard
             badge="Ověřuji zájem"
+            badgeVariant="gold"
             title="Workshop pro páry"
             description="Komorní půldenní zážitek pro 3–5 párů. Komunikace, hravost, důvěra — pod vedením Markéty."
             location="Praha"
@@ -191,7 +198,10 @@ export function Events() {
               label: "Napište mi DM →",
               href: "https://www.instagram.com/simrani_podcast",
             }}
+            ctaVariant="button"
             image="/pirko-ws.png"
+            border
+            highlight
           />
 
           <EventCard
