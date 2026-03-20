@@ -180,7 +180,7 @@ export default function ProFirmy() {
           {topics.map((topic) => (
             <div
               key={topic.num}
-              className="flex flex-col gap-[14px] p-6 sm:p-8 rounded-2xl bg-[var(--gold-06)] border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors"
+              className="flex flex-col gap-[14px] p-6 sm:p-8 rounded-2xl bg-[var(--wine-bg)] border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors"
             >
               <div className="font-headline text-[28px] font-light italic text-[var(--gold-25)]">
                 {topic.num}
@@ -267,7 +267,7 @@ export default function ProFirmy() {
         id="kontakt"
         className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20 flex flex-col items-center gap-6 text-center"
       >
-        <h2 className="font-headline text-[24px] sm:text-[32px] lg:text-[42px] font-bold italic text-[var(--cream)]">
+        <h2 className="font-headline text-[24px] sm:text-[32px] lg:text-[42px] font-normal text-[var(--cream)]">
           Kdy to otevřeme?
         </h2>
         <a
