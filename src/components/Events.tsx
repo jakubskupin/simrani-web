@@ -174,14 +174,14 @@ export function Events() {
             badge="9. dubna"
             badgeVariant="gold"
             title="Šimrání Offline Live"
-            description="Večer plný rozhovorů, otázek a komunity — jako podcast, ale naživo. Exkluzivní setkání pro předplatitele."
+            description="Večer plný rozhovorů, otázek a komunity — jako podcast, ale naživo. Míst je málo, tak se nám ozvi včas."
             location="Stanice 6, Praha Bubeneč"
             date="9. dubna 2026, od 19:30"
-            price="V rámci předplatného"
+            price="Od 99 Kč (předplatitelé) / 350 Kč"
             priceHighlight
             cta={{
-              label: "Pro předplatitele →",
-              href: "https://www.forendors.cz/p/921457255512151400",
+              label: "Chci přijít →",
+              href: "https://docs.google.com/forms/d/1ZfBZNyctni2E1UDmY52KPiomzpLSLJ-Cdt4G0u71I5E/viewform",
             }}
             image="/soloff.png"
           />
