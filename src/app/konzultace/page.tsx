@@ -532,6 +532,25 @@ export default function Konzultace() {
         </AnimatedSection>
       </section>
 
+      {/* BONUS — Spotify epizoda */}
+      <section className="bg-[var(--deep)] px-5 py-8 sm:px-10 sm:py-12 lg:px-[120px] lg:py-14">
+        <AnimatedSection className="max-w-[680px] mx-auto text-center">
+          <p className="text-[14px] sm:text-[15px] text-[var(--cream-60)] italic mb-5">
+            Jak vnímám intimitu a proč mi na ní záleží
+          </p>
+          <div className="rounded-xl overflow-hidden">
+            <iframe
+              src="https://open.spotify.com/embed/episode/7sHIkpIqxZXWu3J9dvJY8T?utm_source=generator&theme=0"
+              width="100%"
+              height="152"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="border-0"
+            />
+          </div>
+        </AnimatedSection>
+      </section>
+
       {/* FINAL CTA */}
       <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16 flex flex-col items-center gap-5 text-center">
         <AnimatedSection className="flex flex-col items-center gap-5">
