@@ -7,28 +7,43 @@ export function PricingToggle() {
 
   return (
     <div>
-      {/* Toggle */}
-      <div className="flex items-center justify-center gap-3 mb-6">
-        <button
-          onClick={() => setIsSubscriber(false)}
-          className={`text-[13px] sm:text-[14px] font-medium px-4 sm:px-5 py-2 rounded-full transition-all duration-300 ${
-            !isSubscriber
-              ? "bg-[var(--gold)] text-[var(--deep)]"
-              : "text-[var(--cream-60)] hover:text-[var(--cream)]"
-          }`}
-        >
-          Standardní cena
-        </button>
-        <button
-          onClick={() => setIsSubscriber(true)}
-          className={`text-[13px] sm:text-[14px] font-medium px-4 sm:px-5 py-2 rounded-full transition-all duration-300 ${
-            isSubscriber
-              ? "bg-[var(--gold)] text-[var(--deep)]"
-              : "text-[var(--cream-60)] hover:text-[var(--cream)]"
-          }`}
-        >
-          Jsem předplatitel/ka
-        </button>
+      {/* Toggle — pill style */}
+      <div className="flex justify-center mb-3">
+        <div className="inline-flex items-center rounded-full bg-[var(--wine-bg)] border border-[var(--gold-10)] p-1">
+          <button
+            onClick={() => setIsSubscriber(false)}
+            className={`text-[13px] sm:text-[14px] font-medium px-5 py-2 rounded-full transition-all duration-300 ${
+              !isSubscriber
+                ? "bg-[var(--gold)] text-[var(--deep)]"
+                : "text-[var(--cream-60)] hover:text-[var(--cream)]"
+            }`}
+          >
+            Standardní
+          </button>
+          <button
+            onClick={() => setIsSubscriber(true)}
+            className={`text-[13px] sm:text-[14px] font-medium px-5 py-2 rounded-full transition-all duration-300 ${
+              isSubscriber
+                ? "bg-[var(--gold)] text-[var(--deep)]"
+                : "text-[var(--cream-60)] hover:text-[var(--cream)]"
+            }`}
+          >
+            Předplatitel/ka
+          </button>
+        </div>
+      </div>
+
+      {/* Savings hint */}
+      <div className="text-center mb-6">
+        {isSubscriber ? (
+          <span className="text-[13px] text-[var(--gold)] font-medium">
+            Sleva 25 % za předplatné na Forendors nebo Spotify
+          </span>
+        ) : (
+          <span className="text-[13px] text-[var(--cream-35)]">
+            Předplatitelé mají trvalou slevu 25 %
+          </span>
+        )}
       </div>
 
       {/* Pricing card */}
@@ -41,44 +56,18 @@ export function PricingToggle() {
         </div>
 
         <div className="mb-5">
-          <div>
-            {isSubscriber && (
-              <span className="inline-block text-[11px] font-semibold tracking-[2px] uppercase text-[var(--deep)] bg-[var(--gold)] px-3 py-[3px] rounded-full mb-2">
-                &minus;25 %
-              </span>
-            )}
-            <div className="font-headline text-[32px] sm:text-[40px] font-semibold text-[var(--cream)] transition-all duration-300">
-              {isSubscriber ? "517 Kč" : "690 Kč"}
-            </div>
-            <div className="text-[13px] text-[var(--cream-60)]">
-              45 minut / Google Meet
-            </div>
+          {isSubscriber && (
+            <span className="inline-block text-[11px] font-semibold tracking-[2px] uppercase text-[var(--deep)] bg-[var(--gold)] px-3 py-[3px] rounded-full mb-2">
+              &minus;25 %
+            </span>
+          )}
+          <div className="font-headline text-[32px] sm:text-[40px] font-semibold text-[var(--cream)] transition-all duration-300">
+            {isSubscriber ? "517 Kč" : "690 Kč"}
+          </div>
+          <div className="text-[13px] text-[var(--cream-60)]">
+            45 minut / Google Meet
           </div>
         </div>
-
-        {isSubscriber && (
-          <p className="text-[13px] leading-[1.6] text-[var(--cream-60)] mb-5">
-            Trvalá sleva pro předplatitele na{" "}
-            <a
-              href="https://www.forendors.cz/simrani.cz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--gold)] hover:text-[var(--cream)] transition-colors underline underline-offset-2"
-            >
-              Forendors
-            </a>{" "}
-            nebo{" "}
-            <a
-              href="https://open.spotify.com/show/4YtZKf6TsvMbCiuEu2zoUc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--gold)] hover:text-[var(--cream)] transition-colors underline underline-offset-2"
-            >
-              Spotify
-            </a>
-            .
-          </p>
-        )}
 
         {/* QR kód — vycentrovaný */}
         <div className="pt-5 border-t border-[var(--gold-10)] flex flex-col items-center">
@@ -97,7 +86,7 @@ export function PricingToggle() {
             </div>
           </div>
           <p className="text-[12px] leading-[1.6] text-[var(--cream-35)] mt-4 text-center max-w-[360px]">
-            Platba předem potvrzuje rezervaci. Připravuju se na každý hovor a&nbsp;chci mít jistotu, že se potkáme.
+            Platba předem potvrzuje rezervaci.
           </p>
         </div>
       </div>
