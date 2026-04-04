@@ -237,13 +237,13 @@ export default function Konzultace() {
       </section>
 
       {/* VIDEO — Markéta vysvětluje konzultace (start 14:05) */}
-      <section id="video" className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
+      <section id="video" className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
         <AnimatedSection className="max-w-[780px] mx-auto">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4 text-center">
             Markéta vysvětluje
           </div>
           <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8 text-center">
-            Jak nad konzultací přemýšlím
+            Proč konzultace
           </h2>
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[var(--gold-10)]">
             <iframe
@@ -258,10 +258,10 @@ export default function Konzultace() {
       </section>
 
       {/* PROČ ZROVNA MARKÉTA — 3 value pillars */}
-      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
+      <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
         <AnimatedSection className="max-w-[780px] mx-auto text-center">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
-            Proč zrovna já
+            Kontext
           </div>
           <h2
             className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-4"
@@ -327,7 +327,7 @@ export default function Konzultace() {
       </section>
 
       {/* CO TO NENÍ */}
-      <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16">
+      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16">
         <AnimatedSection className="max-w-[680px] mx-auto text-center">
           <h2
             className="font-headline text-[22px] sm:text-[28px] font-normal text-[var(--cream)] mb-6"
@@ -351,25 +351,6 @@ export default function Konzultace() {
               </span>
             ))}
           </div>
-        </AnimatedSection>
-      </section>
-
-      {/* PUSH — rozpohybuj to */}
-      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16">
-        <AnimatedSection className="max-w-[600px] mx-auto text-center">
-          <h2
-            className="font-headline text-[22px] sm:text-[28px] lg:text-[32px] font-normal text-[var(--cream)] mb-5"
-            style={{
-              fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
-            }}
-          >
-            Podcastů jsi slyšela dost.
-            <br />
-            <span className="text-[var(--gold)] italic">Teď to chce rozhovor.</span>
-          </h2>
-          <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)]">
-            Poslouchat příběhy je první krok. Ale ten tvůj se rozpohybuje, až o&nbsp;něm promluvíš. 45 minut, praktické tipy, konkrétní odkazy. Žádná teorie, žádné „to bude dobré". Jen upřímný rozhovor s&nbsp;někým, kdo tam už byl.
-          </p>
         </AnimatedSection>
       </section>
 
@@ -472,7 +453,7 @@ export default function Konzultace() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
+      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
         <AnimatedSection className="max-w-[680px] mx-auto text-center">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
             Časté otázky
@@ -513,7 +494,7 @@ export default function Konzultace() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16 flex flex-col items-center gap-5 text-center">
+      <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16 flex flex-col items-center gap-5 text-center">
         <AnimatedSection className="flex flex-col items-center gap-5">
           <h2
             className="font-headline text-[22px] sm:text-[30px] lg:text-[38px] font-normal text-[var(--cream)]"
