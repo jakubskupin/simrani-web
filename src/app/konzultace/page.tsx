@@ -542,7 +542,7 @@ export default function Konzultace() {
             <iframe
               src="https://open.spotify.com/embed/episode/7sHIkpIqxZXWu3J9dvJY8T?utm_source=generator&theme=0"
               width="100%"
-              height="152"
+              height="352"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
               className="border-0"
