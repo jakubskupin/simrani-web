@@ -532,22 +532,29 @@ export default function Konzultace() {
         </AnimatedSection>
       </section>
 
-      {/* BONUS — Spotify epizoda */}
+      {/* BONUS — Bloudíš podcast */}
       <section className="bg-[var(--deep)] px-5 py-8 sm:px-10 sm:py-12 lg:px-[120px] lg:py-14">
-        <AnimatedSection className="max-w-[680px] mx-auto text-center">
-          <p className="text-[14px] sm:text-[15px] text-[var(--cream-60)] italic mb-5">
-            Jak vnímám intimitu a proč mi na ní záleží
-          </p>
-          <div className="rounded-xl overflow-hidden">
-            <iframe
-              src="https://open.spotify.com/embed/episode/7sHIkpIqxZXWu3J9dvJY8T?utm_source=generator&theme=0"
-              width="100%"
-              height="352"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              className="border-0"
+        <AnimatedSection className="max-w-[480px] mx-auto">
+          <a
+            href="https://open.spotify.com/episode/7sHIkpIqxZXWu3J9dvJY8T"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-2xl overflow-hidden border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors"
+          >
+            <img
+              src="/marketa-faberova-bloudis-podcast.png"
+              alt="Markéta v podcastu Bloudíš — o intimitě a sexualitě"
+              className="w-full aspect-video object-cover object-center"
             />
-          </div>
+            <div className="p-4 text-center">
+              <p className="text-[13px] text-[var(--cream-60)] italic">
+                Jak vnímám intimitu a proč mi na ní záleží
+              </p>
+              <p className="text-[11px] text-[var(--cream-35)] mt-1">
+                Poslechni si na Spotify &rarr;
+              </p>
+            </div>
+          </a>
         </AnimatedSection>
       </section>
 
