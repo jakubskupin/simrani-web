@@ -149,12 +149,12 @@ export default function Konzultace() {
             className="w-full h-full object-cover object-top"
           />
         </div>
-        {/* Photo — mobile */}
-        <div className="absolute inset-0 z-0 md:hidden">
+        {/* Photo — mobile, zoomed + positioned to match Pencil design */}
+        <div className="absolute inset-0 z-0 md:hidden overflow-hidden">
           <img
             src="/konzultace-mobil.jpg"
             alt="Markéta Fáberová — 1:1 konzultace Šimrání"
-            className="w-full h-full object-cover object-[58%_2%]"
+            className="w-full h-full object-cover object-[55%_15%] scale-[1.3] origin-[55%_15%]"
           />
         </div>
         {/* Overlay gradient — only left side for text readability */}
@@ -200,13 +200,13 @@ export default function Konzultace() {
               <br />
               <span className="text-[var(--gold)]">a&nbsp;tvoje otázky</span>
             </h1>
-            <p className="text-[14px] md:text-[16px] leading-[1.6] text-[var(--cream-60)] font-light max-w-[440px]">
+            <p className="hidden md:block text-[14px] md:text-[16px] leading-[1.6] text-[var(--cream-60)] font-light max-w-[440px]">
               Některé otázky potřebují víc než pár zpráv. Potřebují
               prostor, kde se nemusíš stydět za to, co se chceš zeptat.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5 mt-1">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 mt-6 md:mt-1">
               <a
                 href="#booking"
                 className="inline-flex items-center px-9 py-3.5 bg-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
