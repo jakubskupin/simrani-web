@@ -50,7 +50,7 @@ export function PricingToggle() {
       <div className="p-6 sm:p-8 rounded-2xl border border-[var(--gold-25)] bg-[var(--gold-06)] text-center">
         {/* Zaváděcí badge */}
         <div className="flex justify-center mb-4">
-          <span className="text-[11px] font-semibold tracking-[2px] uppercase text-[var(--gold)] px-3 py-[3px] bg-[rgba(197,155,104,0.12)] rounded-full">
+          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[2px] uppercase text-[var(--gold)] px-3 py-[3px] bg-[rgba(197,155,104,0.12)] rounded-full whitespace-nowrap">
             Zaváděcí cena pro prvních 5
           </span>
         </div>
@@ -89,7 +89,7 @@ export function PricingToggle() {
         <div className="mt-5 pt-5 border-t border-[var(--gold-10)]">
           <div className="text-[13px] text-[var(--cream-35)]">
             Po zaplnění 5 míst se cena zvýší na{" "}
-            <span className="text-[var(--cream)] font-medium">{isSubscriber ? "1 035" : "1 380"} Kč</span>
+            <span className="text-[var(--cream)] font-medium whitespace-nowrap">{isSubscriber ? "1\u00a0035" : "1\u00a0380"}\u00a0Kč</span>
           </div>
         </div>
       </div>
