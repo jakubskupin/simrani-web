@@ -154,7 +154,7 @@ export default function Konzultace() {
           <img
             src="/konzultace-mobil.jpg"
             alt="Markéta Fáberová — 1:1 konzultace Šimrání"
-            className="w-full h-full object-cover object-[center_20%]"
+            className="w-full h-full object-cover object-[58%_2%]"
           />
         </div>
         {/* Overlay gradient — only left side for text readability */}
@@ -185,11 +185,11 @@ export default function Konzultace() {
         {/* Content — mobile: pinned to bottom below photo; desktop: centered left */}
         <div className="absolute md:relative z-[2] left-0 right-0 bottom-0 md:bottom-auto md:top-0 md:flex md:flex-col md:justify-center md:min-h-[720px] px-5 sm:px-10 lg:px-[120px] pb-8 pt-4 md:py-20">
           <div className="max-w-[540px] flex flex-col gap-3 md:gap-5">
-            <div className="text-[10px] md:text-[12px] tracking-[3px] uppercase font-medium text-[var(--gold)]">
+            <div className="text-[15px] md:text-[12px] tracking-[3px] uppercase font-medium text-[var(--gold)]">
               Konzultace
             </div>
             <h1
-              className="font-headline text-[32px] sm:text-[44px] lg:text-[56px] font-normal leading-[1.05] text-[var(--cream)]"
+              className="font-headline text-[43px] sm:text-[44px] lg:text-[56px] font-normal leading-[1.05] text-[var(--cream)]"
               style={{
                 fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
               }}
