@@ -68,7 +68,7 @@ const useCases = [
   {
     icon: <MessageIcon />,
     title: "Jak o tom mluvit",
-    desc: "Komunikace tužeb s partnerem. Jak začít rozhovor, který se odsouvá měsíce.",
+    desc: "Ten rozhovor, který odsouvá\u0161 měsíce. Jak ho otevřít, aniž bys někoho vyděsila.",
   },
   {
     icon: <CompassIcon />,
@@ -83,7 +83,7 @@ const useCases = [
   {
     icon: <HelpCircleIcon />,
     title: "Osobní dilema",
-    desc: "Cokoli, na co se bojíš zeptat. Bez zábrany, bez soudu, bez filtru.",
+    desc: "To, na co se googl\u00ed\u0161 v anonymn\u00edm okně. Tady to můžeš říct nahlas.",
   },
 ];
 
@@ -201,9 +201,9 @@ export default function Konzultace() {
               <span className="text-[var(--gold)]">a&nbsp;tvoje otázky</span>
             </h1>
             <p className="text-[14px] md:text-[16px] leading-[1.6] text-[var(--cream-60)] font-light max-w-[440px]">
-              Na drobnosti odpovídám stále přes DM. Ale když chceš hlubší
-              rozhovor, oponenturu, širší pohled na to, co řešíš, pojďme si
-              zavolat. Na základě toho, co jsem zažila. Ne z&nbsp;učebnice.
+              Na drobnosti odpovídám stále přes DM. Ale některé otázky
+              potřebují víc než pár zpráv. Potřebují prostor, kde se nemusíš
+              stydět za to, co se chceš zeptat.
             </p>
 
             {/* CTAs */}
@@ -290,7 +290,7 @@ export default function Konzultace() {
             Připravím se na tebe
           </h2>
           <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)] mb-8 max-w-[600px]">
-            Tohle není hovor, kde improvizuju. Když mi předem napíšeš, co řešíš, sednu si k&nbsp;tomu a&nbsp;připravím se. Projdu si související epizody, vyhledám tipy, propojím to s&nbsp;tím, co vím z&nbsp;komunity na Discordu. Abys z&nbsp;těch 45 minut vytěžila maximum.
+            Tohle není „zavolej mi a&nbsp;uvidíme". Sednu si k&nbsp;tvému tématu, projdu epizody, které se ho týkají, vyhledám tipy, propojím to s&nbsp;tím, co vím z&nbsp;komunity na Discordu. Přijdu připravená, abys z&nbsp;těch 45 minut vytěžila maximum.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <AnimatedSection delay={0.1}>
@@ -393,11 +393,19 @@ export default function Konzultace() {
               </span>
             ))}
           </div>
-          <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)]">
+          <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)] mb-6">
             Jsem někdo, kdo už toho hodně zažil. Navštívila jsem spoustu míst,
             mluvila s&nbsp;desítkami lidí, prošla si vlastní cestou. Můžu ti
             říct, co a&nbsp;jak. Upřímně, z&nbsp;první ruky. Ale nejsem
             odbornice a&nbsp;nebudu se tak tvářit.
+          </p>
+          <p
+            className="font-headline text-[16px] sm:text-[18px] italic text-[var(--gold)] leading-[1.5]"
+            style={{
+              fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
+            }}
+          >
+            „Nejsem terapeutka. Jsem ta, která už tam byla, a&nbsp;říká: pojď, nic se nestane."
           </p>
         </AnimatedSection>
       </section>
@@ -547,8 +555,8 @@ export default function Konzultace() {
             Stále váháš?
           </h2>
           <p className="text-[14px] sm:text-[15px] text-[var(--cream-60)] max-w-[440px]">
-            Nic se neděje. Napiš mi, co řešíš, a&nbsp;řekneme si, jestli ti
-            konzultace dává smysl.
+            Většina lidí, co mi nakonec zavolala, taky nejdřív váhala.
+            Napiš mi, co řešíš, a&nbsp;řekneme si, jestli to dává smysl.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
