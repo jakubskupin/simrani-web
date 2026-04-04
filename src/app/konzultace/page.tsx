@@ -108,7 +108,7 @@ const faqs = [
   },
   {
     q: "Musím zaplatit předem?",
-    a: "Ano. Na každý hovor se připravuju a vyhrazuju si na něj čas. Platba předem potvrzuje, že se opravdu potkáme. Po domluvení termínu ti pošlu QR kód na platbu převodem.",
+    a: "Ano. Na každý hovor se připravuju a vyhrazuju si na něj čas. Platba předem potvrzuje, že se opravdu potkáme. QR kód najdeš přímo na této stránce.",
   },
   {
     q: "Co když se nemůžu dostavit?",
