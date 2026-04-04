@@ -557,9 +557,9 @@ export default function Konzultace() {
             href="https://open.spotify.com/episode/7sHIkpIqxZXWu3J9dvJY8T"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[14px] font-medium hover:bg-[var(--cream)] transition-all"
+            className="text-[13px] text-[var(--cream-35)] hover:text-[var(--gold)] transition-colors"
           >
-            Poslechnout na Spotify
+            Poslechnout na Spotify &rarr;
           </a>
         </AnimatedSection>
       </section>
