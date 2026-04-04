@@ -486,7 +486,7 @@ export default function Konzultace() {
                   Záruka spokojenosti
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)]">
-                  Pokud nebudeš spokojená, peníze vracím. Bez dalšího dotazování.
+                  Pokud konzultace nenaplní očekávání, peníze vrátím.
                 </p>
               </div>
             </div>
