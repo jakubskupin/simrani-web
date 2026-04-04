@@ -396,7 +396,7 @@ export default function Konzultace() {
               {/* Content */}
               <div className="pb-10">
                 <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                  Ozvi se mi
+                  Vyberme termín
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
                   Napiš mi na e-mail nebo Instagram, co chceš řešit a&nbsp;kdy by se ti hovor hodil. Domluvíme termín, který vyhovuje oběma.
