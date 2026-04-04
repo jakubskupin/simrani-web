@@ -257,7 +257,7 @@ export default function Konzultace() {
       <section id="video" className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
         <AnimatedSection className="max-w-[780px] mx-auto">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4 text-center">
-            Markéta vysvětluje
+            Můj záměr
           </div>
           <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8 text-center">
             Proč konzultace
@@ -286,7 +286,7 @@ export default function Konzultace() {
               fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
             }}
           >
-            Co vám chci předat
+            Chci ti předat
           </h2>
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-[960px] mx-auto">
@@ -486,7 +486,7 @@ export default function Konzultace() {
                   Záruka spokojenosti
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)]">
-                  Pokud konzultace nenaplní očekávání, platbu pošlu zpátky.
+                  Pokud konzultace nesplní očekávání, platbu pošlu zpátky.
                 </p>
               </div>
             </div>
