@@ -302,7 +302,7 @@ export default function Konzultace() {
                 Zažila jsem to
               </div>
               <div className="text-[13px] leading-[1.7] text-[var(--cream-60)]">
-                Byla jsem na BDSM akcích, festivalech, workshopech, párty. Vím, co se děje za dveřmi, o&nbsp;kterých přemýšlíš. Narozdíl od těch, co tě odrazují, ti řeknu, jak to vypadá zevnitř.
+                Byla jsem na BDSM akcích, festivalech, tantrických masážích, workshopech, párty. Vím, co se děje za dveřmi, o&nbsp;kterých přemýšlíš. Narozdíl od těch, co tě odrazují, ti řeknu, jak to vypadá zevnitř.
               </div>
             </div>
           </AnimatedSection>
