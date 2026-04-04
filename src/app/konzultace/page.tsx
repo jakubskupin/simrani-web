@@ -523,9 +523,9 @@ export default function Konzultace() {
         </AnimatedSection>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16 flex flex-col items-center gap-5 text-center">
-        <AnimatedSection className="flex flex-col items-center gap-5">
+      {/* FINAL CTA + BONUS */}
+      <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16">
+        <AnimatedSection className="max-w-[560px] mx-auto text-center flex flex-col items-center gap-6">
           <h2
             className="font-headline text-[22px] sm:text-[30px] lg:text-[38px] font-normal text-[var(--cream)]"
             style={{
@@ -534,51 +534,32 @@ export default function Konzultace() {
           >
             Stále váháš?
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-[var(--cream-60)] max-w-[440px]">
-            Většina lidí, co mi nakonec zavolala, taky nejdřív váhala.
-            Napiš mi, co řešíš, a&nbsp;řekneme si, jestli to dává smysl.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="mailto:marketa@simrani.cz"
-              className="inline-flex items-center px-7 sm:px-9 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--cream)] hover:-translate-y-px transition-all duration-300"
-            >
-              marketa@simrani.cz
-            </a>
-            <a
-              href="https://www.instagram.com/simrani_podcast"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-7 sm:px-9 py-3 rounded-full border border-[var(--gold)] text-[var(--gold)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--gold)] hover:text-[var(--deep)] hover:-translate-y-px transition-all duration-300"
-            >
-              Instagram DM
-            </a>
-          </div>
-        </AnimatedSection>
-      </section>
 
-      {/* BONUS — Bloudíš podcast */}
-      <section className="bg-[var(--deep)] px-5 py-8 sm:px-10 sm:py-12 lg:px-[120px] lg:py-14">
-        <AnimatedSection className="max-w-[480px] mx-auto">
+          {/* Video screenshot */}
           <a
             href="https://open.spotify.com/episode/7sHIkpIqxZXWu3J9dvJY8T"
             target="_blank"
             rel="noopener noreferrer"
-            className="block rounded-2xl overflow-hidden border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors"
+            className="block w-full rounded-2xl overflow-hidden border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors"
           >
             <img
               src="/marketa-faberova-bloudis-podcast.png"
               alt="Markéta v podcastu Bloudíš — o intimitě a sexualitě"
               className="w-full aspect-video object-cover object-center"
             />
-            <div className="p-4 text-center">
-              <p className="text-[13px] text-[var(--cream-60)] italic">
-                Jak vnímám intimitu a proč mi na ní záleží
-              </p>
-              <p className="text-[11px] text-[var(--cream-35)] mt-1">
-                Poslechni si na Spotify &rarr;
-              </p>
-            </div>
+          </a>
+
+          <p className="text-[14px] sm:text-[15px] text-[var(--cream-60)] max-w-[440px]">
+            Poslechni si, jak přemýšlím o&nbsp;intimitě a&nbsp;proč mi na ní záleží. Možná ti to pomůže rozhodnout se.
+          </p>
+
+          <a
+            href="https://open.spotify.com/episode/7sHIkpIqxZXWu3J9dvJY8T"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-3.5 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[14px] font-medium hover:bg-[var(--cream)] transition-all"
+          >
+            Poslechnout na Spotify
           </a>
         </AnimatedSection>
       </section>
