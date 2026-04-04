@@ -248,7 +248,7 @@ export default function Konzultace() {
           </h2>
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[var(--gold-10)]">
             <iframe
-              src="https://www.youtube.com/embed/t7Zfe8_vWk4?start=845&rel=0"
+              src="https://www.youtube.com/embed/t7Zfe8_vWk4?start=816&rel=0"
               title="Markéta o konzultacích — Šimrání"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
