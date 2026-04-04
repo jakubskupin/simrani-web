@@ -169,7 +169,7 @@ export default function Konzultace() {
         <div className="absolute md:relative z-[2] left-0 right-0 bottom-0 md:bottom-auto md:top-0 md:flex md:flex-col md:justify-center md:min-h-[720px] px-5 sm:px-10 lg:px-[120px] pb-8 pt-4 md:py-20">
           <div className="max-w-[540px] flex flex-col gap-3 md:gap-5">
             <div className="text-[10px] md:text-[12px] tracking-[3px] uppercase font-medium text-[var(--gold)]">
-              1 : 1&ensp;Konzultace
+              Konzultace
             </div>
             <h1
               className="font-headline text-[32px] sm:text-[44px] lg:text-[56px] font-normal leading-[1.05] text-[var(--cream)]"
@@ -214,7 +214,7 @@ export default function Konzultace() {
             Témata
           </div>
           <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8 sm:mb-12">
-            Co spolu můžeme řešit
+            Co spolu vyřešíme
           </h2>
         </AnimatedSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[780px] mx-auto">
@@ -272,60 +272,54 @@ export default function Konzultace() {
             Co vám chci předat
           </h2>
         </AnimatedSection>
-        <div className="flex flex-col gap-5 max-w-[780px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-[960px] mx-auto">
           <AnimatedSection delay={0.1}>
-            <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors">
-              <div className="flex gap-4 items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-1">
+            <div className="h-full p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-full bg-[rgba(197,155,104,0.12)] flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)]">
                   <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
-                <div>
-                  <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                    Zažila jsem to
-                  </div>
-                  <div className="text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
-                    Byla jsem na BDSM akcích, festivalech, workshopech, párty. Vím, co se děje za dveřmi, o&nbsp;kterých přemýšlíš. Narozdíl od těch, co tě odrazují, ti řeknu, jak to vypadá zevnitř.
-                  </div>
-                </div>
+              </div>
+              <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-3">
+                Zažila jsem to
+              </div>
+              <div className="text-[13px] leading-[1.7] text-[var(--cream-60)]">
+                Byla jsem na BDSM akcích, festivalech, workshopech, párty. Vím, co se děje za dveřmi, o&nbsp;kterých přemýšlíš. Narozdíl od těch, co tě odrazují, ti řeknu, jak to vypadá zevnitř.
               </div>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors">
-              <div className="flex gap-4 items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-1">
+            <div className="h-full p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-full bg-[rgba(197,155,104,0.12)] flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)]">
                   <path d="M12 20h9" />
                   <path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z" />
                 </svg>
-                <div>
-                  <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                    200+ příběhů v&nbsp;hlavě
-                  </div>
-                  <div className="text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
-                    Za 200+ epizod podcastu jsem slyšela stovky příběhů lidí, kteří řeší to samé co ty. Vím, která epizoda se týká tvého tématu, a&nbsp;pošlu ti konkrétní odkazy. Odejdeš s&nbsp;materiálem, ne jen s&nbsp;pocitem.
-                  </div>
-                </div>
+              </div>
+              <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-3">
+                200+ příběhů v&nbsp;hlavě
+              </div>
+              <div className="text-[13px] leading-[1.7] text-[var(--cream-60)]">
+                Za 200+ epizod podcastu jsem slyšela stovky příběhů lidí, kteří řeší to samé co ty. Vím, která epizoda se týká tvého tématu, a&nbsp;pošlu ti konkrétní odkazy. Odejdeš s&nbsp;materiálem, ne jen s&nbsp;pocitem.
               </div>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.3}>
-            <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors">
-              <div className="flex gap-4 items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-1">
+            <div className="h-full p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-full bg-[rgba(197,155,104,0.12)] flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)]">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
-                <div>
-                  <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                    Propojím tě
-                  </div>
-                  <div className="text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
-                    Vyšimraný Discord je plný lidí, kteří řeší podobná témata. Občas je těžké najít lidi se stejnými zájmy. Nasměruju tě do diskuzí, propojím tě s&nbsp;lidmi, kteří si tím prošli.
-                  </div>
-                </div>
+              </div>
+              <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-3">
+                Propojím tě
+              </div>
+              <div className="text-[13px] leading-[1.7] text-[var(--cream-60)]">
+                Vyšimraný Discord je plný lidí, kteří řeší podobná témata. Občas je těžké najít lidi se stejnými zájmy. Nasměruju tě do diskuzí, propojím tě s&nbsp;lidmi, kteří si tím prošli.
               </div>
             </div>
           </AnimatedSection>
@@ -346,7 +340,6 @@ export default function Konzultace() {
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6">
             {[
               "Ne terapie",
-              "Ne poradenství",
               "Ne všeználek",
               "Ne náhrada za odborníka",
             ].map((pill) => (

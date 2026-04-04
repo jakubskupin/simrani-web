@@ -76,7 +76,7 @@ export function PricingToggle() {
             >
               Spotify
             </a>
-            . Ne jen první hovor, ale každý.
+            .
           </p>
         )}
 
