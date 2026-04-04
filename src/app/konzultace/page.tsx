@@ -480,7 +480,7 @@ export default function Konzultace() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[var(--wine-bg)] px-5 py-8 sm:px-10 sm:py-12 lg:px-[120px] lg:py-14">
+      <section className="bg-[var(--deep)] px-5 py-8 sm:px-10 sm:py-12 lg:px-[120px] lg:py-14">
         <AnimatedSection className="max-w-[680px] mx-auto">
           <h3 className="text-[16px] sm:text-[18px] font-normal text-[var(--cream-60)] mb-6 text-center">
             Možná se ptáš&hellip;
@@ -518,7 +518,7 @@ export default function Konzultace() {
       </section>
 
       {/* FINAL CTA + BONUS */}
-      <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16">
+      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16">
         <AnimatedSection className="max-w-[560px] mx-auto text-center flex flex-col items-center gap-6">
           <h2
             className="font-headline text-[22px] sm:text-[30px] lg:text-[38px] font-normal text-[var(--cream)]"
