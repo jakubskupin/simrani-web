@@ -85,11 +85,11 @@ export function PricingToggle() {
           </div>
         </div>
 
-        {/* Budoucí cena — statická */}
+        {/* Budoucí cena — mění se s togglem */}
         <div className="mt-5 pt-5 border-t border-[var(--gold-10)]">
           <div className="text-[13px] text-[var(--cream-35)]">
             Po zaplnění 5 míst se cena zvýší na{" "}
-            <span className="text-[var(--cream)] font-medium">1 380 Kč</span>
+            <span className="text-[var(--cream)] font-medium">{isSubscriber ? "1 035" : "1 380"} Kč</span>
           </div>
         </div>
       </div>
