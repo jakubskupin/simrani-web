@@ -211,7 +211,7 @@ export default function Konzultace() {
                 href="#booking"
                 className="inline-flex items-center px-9 py-3.5 bg-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
               >
-                Napiš mi
+                Vyberme termín
               </a>
               <a
                 href="#video"
