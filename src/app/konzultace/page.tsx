@@ -399,7 +399,7 @@ export default function Konzultace() {
                   Vyberme termín
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
-                  Napiš mi na e-mail nebo Instagram, co chceš řešit a&nbsp;kdy by se ti hovor hodil. Domluvíme termín, který vyhovuje oběma.
+                  Napiš mi, co chceš řešit a&nbsp;kdy by se ti hovor hodil. Domluvíme termín, který vyhovuje oběma.
                 </p>
                 {/* Contact links */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
@@ -439,7 +439,7 @@ export default function Konzultace() {
                   Zaplať převodem předem
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
-                  Po domluvení termínu ti pošlu QR kód. Naskenuj ho v&nbsp;bankovní aplikaci a&nbsp;platba potvrdí rezervaci.
+                  Na každý hovor se připravuju a&nbsp;chci ti dát maximum. Převod předem mi potvrdí, že se opravdu potkáme, a&nbsp;tobě zajistí, že ten čas je jen tvůj.
                 </p>
                 {/* Pricing toggle */}
                 <div id="cena">
@@ -452,19 +452,41 @@ export default function Konzultace() {
           {/* Step 3 — Připoj se */}
           <AnimatedSection delay={0.3}>
             <div className="flex gap-5 sm:gap-8">
-              {/* Timeline circle (no line after) */}
+              {/* Timeline line + circle */}
               <div className="flex flex-col items-center shrink-0">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[var(--gold)] flex items-center justify-center font-headline text-[18px] sm:text-[20px] font-semibold text-[var(--gold)]">
                   3
                 </div>
+                <div className="w-px flex-1 bg-[var(--gold-10)] mt-3" />
               </div>
               {/* Content */}
-              <div>
+              <div className="pb-10">
                 <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
                   Připoj se
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)]">
                   45 minut jen pro tebe. Přes Google Meet, bez záznamu, bez hodnocení. Jenom upřímný rozhovor.
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Step 4 — Záruka */}
+          <AnimatedSection delay={0.4}>
+            <div className="flex gap-5 sm:gap-8">
+              {/* Timeline circle (no line after) */}
+              <div className="flex flex-col items-center shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[var(--gold)] flex items-center justify-center font-headline text-[18px] sm:text-[20px] font-semibold text-[var(--gold)]">
+                  ✓
+                </div>
+              </div>
+              {/* Content */}
+              <div>
+                <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
+                  Záruka spokojenosti
+                </div>
+                <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)]">
+                  Pokud nebudeš spokojená, peníze vracím. Bez dalšího dotazování.
                 </p>
               </div>
             </div>
