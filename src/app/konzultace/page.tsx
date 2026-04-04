@@ -231,7 +231,7 @@ export default function Konzultace() {
             Témata
           </div>
           <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8 sm:mb-12">
-            Co spolu vyřešíme
+            V čem tě podpořím
           </h2>
         </AnimatedSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[780px] mx-auto">
