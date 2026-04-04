@@ -4,10 +4,11 @@ import { useState } from "react";
 
 export function PricingToggle() {
   const [isSubscriber, setIsSubscriber] = useState(false);
+  const currentPrice = isSubscriber ? 517 : 690;
 
   return (
     <div>
-      {/* Toggle — pill style */}
+      {/* Toggle */}
       <div className="flex justify-center mb-3">
         <div className="inline-flex items-center rounded-full bg-[var(--wine-bg)] border border-[var(--gold-10)] p-1">
           <button
@@ -33,11 +34,10 @@ export function PricingToggle() {
         </div>
       </div>
 
-      {/* Savings hint */}
       <div className="text-center mb-6">
         {isSubscriber ? (
           <span className="text-[13px] text-[var(--gold)] font-medium">
-            Sleva 25 % za předplatné na Forendors nebo Spotify
+            25 % sleva ze zaváděcí ceny
           </span>
         ) : (
           <span className="text-[13px] text-[var(--cream-35)]">
@@ -46,48 +46,51 @@ export function PricingToggle() {
         )}
       </div>
 
-      {/* Pricing card */}
-      <div className="p-6 sm:p-8 rounded-2xl border border-[var(--gold-25)] bg-[var(--gold-06)] transition-all duration-300 text-center">
-        {/* Zaváděcí cena badge */}
+      {/* Card */}
+      <div className="p-6 sm:p-8 rounded-2xl border border-[var(--gold-25)] bg-[var(--gold-06)] text-center">
+        {/* Zaváděcí badge */}
         <div className="flex justify-center mb-4">
           <span className="text-[11px] font-semibold tracking-[2px] uppercase text-[var(--gold)] px-3 py-[3px] bg-[rgba(197,155,104,0.12)] rounded-full">
             Zaváděcí cena pro prvních 5
           </span>
         </div>
 
-        <div className="mb-5">
-          {isSubscriber && (
-            <span className="inline-block text-[11px] font-semibold tracking-[2px] uppercase text-[var(--deep)] bg-[var(--gold)] px-3 py-[3px] rounded-full mb-2">
-              &minus;25 %
-            </span>
-          )}
-          <div className="font-headline text-[32px] sm:text-[40px] font-semibold text-[var(--cream)] transition-all duration-300">
-            {isSubscriber ? "517 Kč" : "690 Kč"}
-          </div>
-          <div className="text-[13px] text-[var(--cream-60)]">
-            45 minut / Google Meet
-          </div>
+        {isSubscriber && (
+          <span className="inline-block text-[11px] font-semibold tracking-[2px] uppercase text-[var(--deep)] bg-[var(--gold)] px-3 py-[3px] rounded-full mb-2">
+            &minus;25 %
+          </span>
+        )}
+        <div className="font-headline text-[32px] sm:text-[40px] font-semibold text-[var(--cream)] transition-all duration-300">
+          {currentPrice} Kč
+        </div>
+        <div className="text-[13px] text-[var(--cream-60)] mb-5">
+          45 minut / Google Meet
         </div>
 
-        {/* QR kód — vycentrovaný */}
+        {/* QR kód */}
         <div className="pt-5 border-t border-[var(--gold-10)] flex flex-col items-center">
           <div className="text-[12px] text-[var(--cream-35)] mb-3">
-            QR kód pro platbu převodem ({isSubscriber ? "517 Kč" : "690 Kč"}):
+            QR kód pro platbu převodem ({currentPrice} Kč):
           </div>
-          <div className="w-[200px] h-[200px] rounded-xl bg-[var(--wine-bg)] border border-[var(--gold-10)] flex items-center justify-center transition-all duration-300">
+          <div className="w-[200px] h-[200px] rounded-xl bg-[var(--wine-bg)] border border-[var(--gold-10)] flex items-center justify-center">
             <div className="text-[11px] text-[var(--cream-35)] text-center px-3">
               QR kód
               <br />
               <span className="text-[var(--gold)] font-medium text-[14px]">
-                {isSubscriber ? "517 Kč" : "690 Kč"}
+                {currentPrice} Kč
               </span>
               <br />
               <span className="text-[10px]">(doplníme)</span>
             </div>
           </div>
-          <p className="text-[12px] leading-[1.6] text-[var(--cream-35)] mt-4 text-center max-w-[360px]">
-            Platba předem potvrzuje rezervaci.
-          </p>
+        </div>
+
+        {/* Budoucí cena — statická */}
+        <div className="mt-5 pt-5 border-t border-[var(--gold-10)]">
+          <div className="text-[13px] text-[var(--cream-35)]">
+            Po zaplnění 5 míst se cena zvýší na{" "}
+            <span className="text-[var(--cream)] font-medium">1 380 Kč</span>
+          </div>
         </div>
       </div>
     </div>
