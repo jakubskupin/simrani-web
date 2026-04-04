@@ -70,7 +70,7 @@ export function PricingToggle() {
         {/* QR kód */}
         <div className="pt-5 border-t border-[var(--gold-10)] flex flex-col items-center">
           <div className="text-[12px] text-[var(--cream-35)] mb-3">
-            QR kód pro platbu převodem ({currentPrice} Kč):
+            {isSubscriber ? "Zvýhodněný QR" : "QR"} kód pro platbu převodem ({currentPrice} Kč):
           </div>
           <div className="w-[200px] h-[200px] rounded-xl bg-[var(--wine-bg)] border border-[var(--gold-10)] flex items-center justify-center">
             <div className="text-[11px] text-[var(--cream-35)] text-center px-3">
