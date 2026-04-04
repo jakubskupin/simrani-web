@@ -286,7 +286,7 @@ export default function Konzultace() {
               fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
             }}
           >
-            Chci ti předat
+            Projdeme tím společně
           </h2>
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-[960px] mx-auto">
