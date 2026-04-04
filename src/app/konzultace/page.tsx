@@ -464,7 +464,7 @@ export default function Konzultace() {
                   Připoj se
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)]">
-                  45 minut jen pro tebe. Přes Google Meet, bez záznamu, bez hodnocení. Jenom upřímný rozhovor. Odkaz ti přijde automaticky po rezervaci.
+                  45 minut jen pro tebe. Přes Google Meet, bez záznamu, bez hodnocení. Jenom upřímný rozhovor.
                 </p>
               </div>
             </div>
