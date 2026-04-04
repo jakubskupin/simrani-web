@@ -343,7 +343,10 @@ export default function Konzultace() {
         </div>
 
         {/* Drobné vymezení */}
-        <AnimatedSection delay={0.5} className="mt-8">
+        <AnimatedSection delay={0.5} className="mt-10 text-center">
+          <div className="text-[14px] sm:text-[16px] font-normal text-[var(--cream-60)] mb-4 font-headline italic">
+            Co ode mě nečekej
+          </div>
           <div className="flex flex-wrap justify-center gap-2">
             {["Ne terapie", "Ne všeználek", "Ne náhrada za odborníka"].map(
               (pill) => (
