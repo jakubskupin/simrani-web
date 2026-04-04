@@ -341,32 +341,20 @@ export default function Konzultace() {
             </div>
           </AnimatedSection>
         </div>
-      </section>
 
-      {/* CO TO NENÍ */}
-      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16">
-        <AnimatedSection className="max-w-[680px] mx-auto text-center">
-          <h2
-            className="font-headline text-[22px] sm:text-[28px] font-normal text-[var(--cream)] mb-6"
-            style={{
-              fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
-            }}
-          >
-            Upřímně, co ode mě <span className="italic">ne</span>čekej
-          </h2>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6">
-            {[
-              "Ne terapie",
-              "Ne všeználek",
-              "Ne náhrada za odborníka",
-            ].map((pill) => (
-              <span
-                key={pill}
-                className="text-[11px] sm:text-[12px] font-medium tracking-[1px] uppercase text-[var(--cream-35)] px-[14px] sm:px-[18px] py-[6px] sm:py-[7px] border border-[var(--gold-10)] rounded-full"
-              >
-                {pill}
-              </span>
-            ))}
+        {/* Drobné vymezení */}
+        <AnimatedSection delay={0.5} className="mt-8">
+          <div className="flex flex-wrap justify-center gap-2">
+            {["Ne terapie", "Ne všeználek", "Ne náhrada za odborníka"].map(
+              (pill) => (
+                <span
+                  key={pill}
+                  className="text-[10px] sm:text-[11px] font-medium tracking-[1px] uppercase text-[var(--cream-35)] px-3 py-[5px] border border-[var(--gold-06)] rounded-full"
+                >
+                  {pill}
+                </span>
+              )
+            )}
           </div>
         </AnimatedSection>
       </section>
