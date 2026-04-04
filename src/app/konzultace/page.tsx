@@ -141,12 +141,20 @@ export default function Konzultace() {
         </Link>
         {/* Background fallback gradient */}
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[var(--wine)] to-[var(--deep)]" />
-        {/* Photo placeholder — replace with real image */}
-        <div className="absolute inset-0 z-0">
+        {/* Photo — desktop */}
+        <div className="absolute inset-0 z-0 hidden md:block">
           <img
             src="/marketa-faberova-simrani-konzultace.png"
             alt="Markéta Fáberová — 1:1 konzultace Šimrání"
             className="w-full h-full object-cover object-top"
+          />
+        </div>
+        {/* Photo — mobile */}
+        <div className="absolute inset-0 z-0 md:hidden">
+          <img
+            src="/konzultace-mobil.jpg"
+            alt="Markéta Fáberová — 1:1 konzultace Šimrání"
+            className="w-full h-full object-cover object-[center_20%]"
           />
         </div>
         {/* Overlay gradient — only left side for text readability */}
