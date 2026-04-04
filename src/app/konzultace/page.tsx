@@ -421,7 +421,7 @@ export default function Konzultace() {
               {/* Content */}
               <div className="pb-10">
                 <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                  Zaplať převodem předem
+                  Zaplať předem, prosím
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
                   Na každý hovor se připravuju a&nbsp;chci ti dát maximum. Proveď platbu přes QR kód v&nbsp;bankovní aplikaci. Jakmile dorazí, termín je potvrzený a&nbsp;ten čas patří jen tobě.
