@@ -68,7 +68,7 @@ const useCases = [
   {
     icon: <MessageIcon />,
     title: "Jak o tom mluvit",
-    desc: "Víš, co chceš, ale neumíš to pojmenovat. Pomůžu ti najít slova pro ten rozhovor, který odsouvíš měsíce.",
+    desc: "Víš, co chceš, ale neumíš to pojmenovat. Pomůžu ti najít slova pro ten rozhovor, který odsouváš měsíce.",
   },
   {
     icon: <CompassIcon />,
@@ -83,7 +83,7 @@ const useCases = [
   {
     icon: <HelpCircleIcon />,
     title: "Osobní dilema",
-    desc: "To, na co se googlíš v anonymním okně. Tady to můžeš říct nahlas.",
+    desc: "To, co googlíš v anonymním okně. Tady to konečně řekneš nahlas.",
   },
 ];
 
@@ -177,16 +177,15 @@ export default function Konzultace() {
                 fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
               }}
             >
-              45 minut jen
+              45 minut
               <br />
-              pro tebe
+              jen pro tebe
               <br />
               <span className="text-[var(--gold)]">a&nbsp;tvoje otázky</span>
             </h1>
             <p className="text-[14px] md:text-[16px] leading-[1.6] text-[var(--cream-60)] font-light max-w-[440px]">
-              Na drobnosti odpovídám stále přes DM. Ale některé otázky
-              potřebují víc než pár zpráv. Potřebují prostor, kde se nemusíš
-              stydět za to, co se chceš zeptat.
+              Některé otázky potřebují víc než pár zpráv. Potřebují
+              prostor, kde se nemusíš stydět za to, co se chceš zeptat.
             </p>
 
             {/* CTAs */}
@@ -212,7 +211,7 @@ export default function Konzultace() {
       <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
         <AnimatedSection className="text-center">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
-            Pro koho to je
+            Témata
           </div>
           <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8 sm:mb-12">
             Co spolu můžeme řešit
@@ -244,7 +243,7 @@ export default function Konzultace() {
             Markéta vysvětluje
           </div>
           <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8 text-center">
-            Poslechni si to z&nbsp;první ruky
+            Jak nad konzultací přemýšlím
           </h2>
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[var(--gold-10)]">
             <iframe
@@ -270,7 +269,7 @@ export default function Konzultace() {
               fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
             }}
           >
-            Co vám můžu předat
+            Co vám chci předat
           </h2>
         </AnimatedSection>
         <div className="flex flex-col gap-5 max-w-[780px] mx-auto">
@@ -286,7 +285,7 @@ export default function Konzultace() {
                     Zažila jsem to
                   </div>
                   <div className="text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
-                    Byla jsem na BDSM akcích, festivalech, workshopech, párty. Vím, co se děje za dveřmi, o&nbsp;kterých přemýšlíš. Narozdíl od terapeuta nebo sexuologa ti můžu říct, jak to vypadá zevnitř. Praktické tipy, ne poučky z&nbsp;knihy.
+                    Byla jsem na BDSM akcích, festivalech, workshopech, párty. Vím, co se děje za dveřmi, o&nbsp;kterých přemýšlíš. Narozdíl od těch, co tě odrazují, ti řeknu, jak to vypadá zevnitř.
                   </div>
                 </div>
               </div>
@@ -321,10 +320,10 @@ export default function Konzultace() {
                 </svg>
                 <div>
                   <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                    Propojím tě s&nbsp;komunitou
+                    Propojím tě
                   </div>
                   <div className="text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
-                    Mám Discord plný lidí, kteří řeší podobná témata. V&nbsp;BDSM komunitě je těžké najít lidi se stejnými zájmy. Můžu tě nasměrovat do diskuzí, propojit s&nbsp;lidmi, kteří si tím prošli. To je hodnota, kterou jinde nedostaneš.
+                    Vyšimraný Discord je plný lidí, kteří řeší podobná témata. Občas je těžké najít lidi se stejnými zájmy. Nasměruju tě do diskuzí, propojím tě s&nbsp;lidmi, kteří si tím prošli.
                   </div>
                 </div>
               </div>
@@ -359,20 +358,6 @@ export default function Konzultace() {
               </span>
             ))}
           </div>
-          <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)] mb-6">
-            Jsem někdo, kdo už toho hodně zažil. Navštívila jsem spoustu míst,
-            mluvila s&nbsp;desítkami lidí, prošla si vlastní cestou. Můžu ti
-            říct, co a&nbsp;jak. Upřímně, z&nbsp;první ruky. Ale nejsem
-            odbornice a&nbsp;nebudu se tak tvářit.
-          </p>
-          <p
-            className="font-headline text-[16px] sm:text-[18px] italic text-[var(--gold)] leading-[1.5]"
-            style={{
-              fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
-            }}
-          >
-            „Nejsem terapeutka. Jsem ta, která už tam byla, a&nbsp;říká: pojď, nic se nestane."
-          </p>
         </AnimatedSection>
       </section>
 
@@ -420,10 +405,10 @@ export default function Konzultace() {
               {/* Content */}
               <div className="pb-10">
                 <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                  Vyber si termín a napiš, co řešíš
+                  Vyber si termín
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
-                  Zvol volný slot v&nbsp;kalendáři. V&nbsp;rezervačním formuláři mi napiš, co tě trápí nebo zajímá. Díky tomu se na hovor připravím.
+                  Zvol volný slot v&nbsp;kalendáři. V&nbsp;rezervačním formuláři mi napiš, co tě trápí nebo zajímá.
                 </p>
                 {/* Calendar placeholder */}
                 <div className="p-6 sm:p-8 rounded-2xl border-2 border-dashed border-[var(--gold-25)] bg-[var(--gold-06)]">
@@ -460,7 +445,7 @@ export default function Konzultace() {
                   Zaplať převodem předem
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
-                  Po rezervaci naskenuj QR kód v&nbsp;bankovní aplikaci. Platba předem potvrzuje rezervaci. Připravuju se na každý hovor a&nbsp;chci mít jistotu, že se potkáme.
+                  Po rezervaci naskenuj QR kód v&nbsp;bankovní aplikaci. Platba předem potvrzuje rezervaci.
                 </p>
                 {/* Pricing toggle */}
                 <div id="cena">
@@ -482,7 +467,7 @@ export default function Konzultace() {
               {/* Content */}
               <div>
                 <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                  Připoj se a ptej se
+                  Připoj se
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)]">
                   45 minut jen pro tebe. Přes Google Meet, bez záznamu, bez hodnocení. Jenom upřímný rozhovor. Odkaz ti přijde automaticky po rezervaci.
