@@ -439,7 +439,7 @@ export default function Konzultace() {
                   Zaplať převodem předem
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
-                  Na každý hovor se připravuju a&nbsp;chci ti dát maximum. Převod předem mi potvrdí, že se opravdu potkáme, a&nbsp;tobě zajistí, že ten čas je jen tvůj.
+                  Na každý hovor se připravuju a&nbsp;chci ti dát maximum. Proveď platbu přes QR kód v&nbsp;bankovní aplikaci. Jakmile dorazí, termín je potvrzený a&nbsp;ten čas patří jen tobě.
                 </p>
                 {/* Pricing toggle */}
                 <div id="cena">
