@@ -138,7 +138,7 @@ export default function Konzultace() {
   return (
     <>
       {/* HERO — full-width photo background, text left */}
-      <section className="relative min-h-[560px] md:min-h-[720px] overflow-hidden">
+      <section className="relative h-[780px] md:min-h-[720px] md:h-auto overflow-hidden">
         {/* Logo — absolute over hero */}
         <Link
           href="/"
@@ -173,18 +173,18 @@ export default function Konzultace() {
               "linear-gradient(to bottom, transparent 75%, #1A0A1480 85%, #1A0A14CC 92%, #1A0A14 100%)",
           }}
         />
-        {/* Mobile bottom fade — into deep */}
+        {/* Mobile bottom fade — strong fade for text readability */}
         <div
           className="absolute inset-0 z-[1] md:hidden"
           style={{
             background:
-              "linear-gradient(to bottom, #1A0A14CC 0%, transparent 20%, transparent 50%, #1A0A14F0 80%, #1A0A14 95%)",
+              "linear-gradient(to bottom, transparent 0%, transparent 30%, #1A0A1480 50%, #1A0A14CC 60%, #1A0A14F0 70%, #1A0A14 80%)",
           }}
         />
 
-        {/* Content */}
-        <div className="relative z-[2] flex flex-col justify-center min-h-[560px] md:min-h-[720px] px-5 sm:px-10 lg:px-[120px] py-16 md:py-20">
-          <div className="max-w-[540px] flex flex-col gap-4 md:gap-5">
+        {/* Content — mobile: pinned to bottom below photo; desktop: centered left */}
+        <div className="absolute md:relative z-[2] left-0 right-0 bottom-0 md:bottom-auto md:top-0 md:flex md:flex-col md:justify-center md:min-h-[720px] px-5 sm:px-10 lg:px-[120px] pb-8 pt-4 md:py-20">
+          <div className="max-w-[540px] flex flex-col gap-3 md:gap-5">
             <div className="text-[10px] md:text-[12px] tracking-[3px] uppercase font-medium text-[var(--gold)]">
               1 : 1&ensp;Konzultace
             </div>
