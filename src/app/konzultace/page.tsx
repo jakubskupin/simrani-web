@@ -401,19 +401,20 @@ export default function Konzultace() {
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
                   Napiš mi na e-mail nebo Instagram, co chceš řešit a&nbsp;kdy by se ti hovor hodil. Domluvíme termín, který vyhovuje oběma.
                 </p>
-                {/* Contact buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
+                {/* Contact links */}
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <a
                     href="mailto:marketa@simrani.cz"
-                    className="inline-flex items-center px-7 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--cream)] hover:-translate-y-px transition-all duration-300"
+                    className="text-[var(--gold)] text-[14px] hover:text-[var(--cream)] transition-colors underline underline-offset-2"
                   >
                     marketa@simrani.cz
                   </a>
+                  <span className="hidden sm:inline text-[var(--cream-35)]">nebo</span>
                   <a
                     href="https://www.instagram.com/simrani_podcast"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-7 py-3 rounded-full border border-[var(--gold)] text-[var(--gold)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--gold)] hover:text-[var(--deep)] hover:-translate-y-px transition-all duration-300"
+                    className="text-[var(--gold)] text-[14px] hover:text-[var(--cream)] transition-colors underline underline-offset-2"
                   >
                     Instagram DM
                   </a>
