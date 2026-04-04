@@ -357,7 +357,7 @@ export default function Konzultace() {
       </section>
 
       {/* VERTICAL TIMELINE — booking flow */}
-      <section id="booking" className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
+      <section id="booking" className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
         <AnimatedSection className="text-center mb-10">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
             Jak to funguje
