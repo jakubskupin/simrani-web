@@ -495,21 +495,18 @@ export default function Konzultace() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
-        <AnimatedSection className="max-w-[680px] mx-auto text-center">
-          <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
-            Časté otázky
-          </div>
-          <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8">
+      <section className="bg-[var(--wine-bg)] px-5 py-8 sm:px-10 sm:py-12 lg:px-[120px] lg:py-14">
+        <AnimatedSection className="max-w-[680px] mx-auto">
+          <h3 className="text-[16px] sm:text-[18px] font-normal text-[var(--cream-60)] mb-6 text-center">
             Možná se ptáš&hellip;
-          </h2>
-          <div className="flex flex-col gap-3 text-left">
+          </h3>
+          <div className="flex flex-col gap-2 text-left">
             {faqs.map((faq) => (
               <details
                 key={faq.q}
-                className="group rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors overflow-hidden"
+                className="group border-b border-[var(--gold-06)] last:border-b-0 transition-colors"
               >
-                <summary className="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-[15px] sm:text-[16px] font-semibold text-[var(--cream)] select-none">
+                <summary className="flex items-center justify-between gap-4 py-3 sm:py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-[14px] sm:text-[15px] font-medium text-[var(--cream-60)] hover:text-[var(--cream)] select-none transition-colors">
                   {faq.q}
                   <svg
                     className="w-4 h-4 shrink-0 text-[var(--gold)] transition-transform duration-300 group-open:rotate-45"
@@ -526,7 +523,7 @@ export default function Konzultace() {
                     />
                   </svg>
                 </summary>
-                <div className="px-5 sm:px-6 pb-5 text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
+                <div className="pb-3 sm:pb-4 text-[13px] leading-[1.7] text-[var(--cream-35)]">
                   {faq.a}
                 </div>
               </details>
