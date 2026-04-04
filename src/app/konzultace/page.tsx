@@ -108,7 +108,7 @@ const faqs = [
   },
   {
     q: "Musím zaplatit předem?",
-    a: "Ano. Na každý hovor se připravuju a vyhrazuju si na něj čas. Platba předem potvrzuje, že se opravdu potkáme. Po výběru termínu dostaneš QR kód na platbu převodem.",
+    a: "Ano. Na každý hovor se připravuju a vyhrazuju si na něj čas. Platba předem potvrzuje, že se opravdu potkáme. Po domluvení termínu ti pošlu QR kód na platbu převodem.",
   },
   {
     q: "Co když se nemůžu dostavit?",
@@ -211,7 +211,7 @@ export default function Konzultace() {
                 href="#booking"
                 className="inline-flex items-center px-9 py-3.5 bg-[var(--gold)] rounded-full text-[14px] font-medium text-[var(--deep)] hover:bg-[var(--cream)] transition-all"
               >
-                Vyber si termín
+                Napiš mi
               </a>
               <a
                 href="#video"
@@ -383,7 +383,7 @@ export default function Konzultace() {
         </AnimatedSection>
 
         <div className="max-w-[640px] mx-auto">
-          {/* Step 1 — Vyber si termín */}
+          {/* Step 1 — Ozvi se mi */}
           <AnimatedSection delay={0.1}>
             <div className="flex gap-5 sm:gap-8">
               {/* Timeline line + circle */}
@@ -396,25 +396,27 @@ export default function Konzultace() {
               {/* Content */}
               <div className="pb-10">
                 <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
-                  Vyber si termín
+                  Ozvi se mi
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
-                  Zvol volný slot v&nbsp;kalendáři. V&nbsp;rezervačním formuláři mi napiš, co tě trápí nebo zajímá.
+                  Napiš mi na e-mail nebo Instagram, co chceš řešit a&nbsp;kdy by se ti hovor hodil. Domluvíme termín, který vyhovuje oběma.
                 </p>
-                {/* Calendar placeholder */}
-                <div className="p-6 sm:p-8 rounded-2xl border-2 border-dashed border-[var(--gold-25)] bg-[var(--gold-06)]">
-                  <div className="text-[14px] text-[var(--cream-60)] mb-4">
-                    Zde bude kalendář pro výběr termínu
-                  </div>
+                {/* Contact buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="#"
-                    className="inline-flex items-center px-8 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--cream)] hover:-translate-y-px transition-all duration-300"
+                    href="mailto:marketa@simrani.cz"
+                    className="inline-flex items-center px-7 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--cream)] hover:-translate-y-px transition-all duration-300"
                   >
-                    Otevřít kalendář &rarr;
+                    marketa@simrani.cz
                   </a>
-                  <div className="text-[11px] text-[var(--cream-35)] mt-3">
-                    (Google Calendar Appointment Schedule, doplníme odkaz)
-                  </div>
+                  <a
+                    href="https://www.instagram.com/simrani_podcast"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-7 py-3 rounded-full border border-[var(--gold)] text-[var(--gold)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--gold)] hover:text-[var(--deep)] hover:-translate-y-px transition-all duration-300"
+                  >
+                    Instagram DM
+                  </a>
                 </div>
               </div>
             </div>
@@ -436,7 +438,7 @@ export default function Konzultace() {
                   Zaplať převodem předem
                 </div>
                 <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
-                  Po rezervaci naskenuj QR kód v&nbsp;bankovní aplikaci. Platba předem potvrzuje rezervaci.
+                  Po domluvení termínu ti pošlu QR kód. Naskenuj ho v&nbsp;bankovní aplikaci a&nbsp;platba potvrdí rezervaci.
                 </p>
                 {/* Pricing toggle */}
                 <div id="cena">
