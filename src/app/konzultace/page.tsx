@@ -476,7 +476,7 @@ export default function Konzultace() {
                 key={faq.q}
                 className="group rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors overflow-hidden"
               >
-                <summary className="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 cursor-pointer list-none text-[15px] sm:text-[16px] font-semibold text-[var(--cream)] select-none">
+                <summary className="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-[15px] sm:text-[16px] font-semibold text-[var(--cream)] select-none">
                   {faq.q}
                   <svg
                     className="w-4 h-4 shrink-0 text-[var(--gold)] transition-transform duration-300 group-open:rotate-45"
