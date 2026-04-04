@@ -68,42 +68,25 @@ const useCases = [
   {
     icon: <MessageIcon />,
     title: "Jak o tom mluvit",
-    desc: "Ten rozhovor, který odsouvá\u0161 měsíce. Jak ho otevřít, aniž bys někoho vyděsila.",
+    desc: "Víš, co chceš, ale neumíš to pojmenovat. Pomůžu ti najít slova pro ten rozhovor, který odsouvíš měsíce.",
   },
   {
     icon: <CompassIcon />,
     title: "Kam vyrazit poprvé",
-    desc: "Akce, festivaly, párty. Co čekat, jak se připravit, co (ne)nosit.",
+    desc: "Akce, festivaly, párty. Byla jsem tam. Řeknu ti, co čekat, co si vzít, na co se připravit.",
   },
   {
     icon: <FlameIcon />,
     title: "Rozvíjet intimitu",
-    desc: "BDSM praktiky, smyslové zážitky, bondáž. Co a jak, z první ruky.",
+    desc: "BDSM, smyslové zážitky, bondáž. Praktické tipy z první ruky, ne teorie z článku.",
   },
   {
     icon: <HelpCircleIcon />,
     title: "Osobní dilema",
-    desc: "To, na co se googl\u00ed\u0161 v anonymn\u00edm okně. Tady to můžeš říct nahlas.",
+    desc: "To, na co se googlíš v anonymním okně. Tady to můžeš říct nahlas.",
   },
 ];
 
-const steps = [
-  {
-    num: "1",
-    title: "Vyber si termín a napiš, co řešíš",
-    desc: "Zvol volný slot v kalendáři. V rezervačním formuláři mi napiš, co tě trápí nebo zajímá. Díky tomu se na hovor připravím.",
-  },
-  {
-    num: "2",
-    title: "Zaplať převodem",
-    desc: "Po rezervaci ti přijde QR kód na platbu. Stačí naskenovat v bankovní aplikaci.",
-  },
-  {
-    num: "3",
-    title: "Připoj se a ptej se",
-    desc: "45 minut jen pro tebe. Žádný záznam, žádné hodnocení. Jenom upřímný rozhovor.",
-  },
-];
 
 const faqs = [
   {
@@ -275,11 +258,11 @@ export default function Konzultace() {
         </AnimatedSection>
       </section>
 
-      {/* PŘÍPRAVA — co dostaneš */}
+      {/* PROČ ZROVNA MARKÉTA — 3 value pillars */}
       <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
         <AnimatedSection className="max-w-[780px] mx-auto text-center">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
-            Ne jen hovor
+            Proč zrovna já
           </div>
           <h2
             className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-4"
@@ -287,84 +270,67 @@ export default function Konzultace() {
               fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
             }}
           >
-            Připravím se na tebe
+            Co vám můžu předat
           </h2>
-          <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)] mb-8 max-w-[600px] mx-auto">
-            Tohle není „zavolej mi a&nbsp;uvidíme". Sednu si k&nbsp;tvému tématu, projdu epizody, které se ho týkají, vyhledám tipy, propojím to s&nbsp;tím, co vím z&nbsp;komunity na Discordu. Přijdu připravená, abys z&nbsp;těch 45 minut vytěžila maximum.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <AnimatedSection delay={0.1}>
-              <div className="flex gap-3 p-5 rounded-2xl border border-[var(--gold-10)]">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-[2px]">
-                  <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" />
-                  <rect x="2" y="6" width="14" height="12" rx="2" />
+        </AnimatedSection>
+        <div className="flex flex-col gap-5 max-w-[780px] mx-auto">
+          <AnimatedSection delay={0.1}>
+            <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors">
+              <div className="flex gap-4 items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-1">
+                  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                  <circle cx="12" cy="10" r="3"/>
                 </svg>
                 <div>
-                  <div className="font-headline text-[15px] font-semibold italic text-[var(--cream)] mb-1">
-                    Odkazy na epizody
+                  <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
+                    Zažila jsem to
                   </div>
-                  <div className="text-[13px] leading-[1.6] text-[var(--cream-60)]">
-                    Ke tvému tématu najdu konkrétní rozhovory, které ti dají kontext ještě před hovorem nebo po něm.
+                  <div className="text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
+                    Byla jsem na BDSM akcích, festivalech, workshopech, párty. Vím, co se děje za dveřmi, o&nbsp;kterých přemýšlíš. Narozdíl od terapeuta nebo sexuologa ti můžu říct, jak to vypadá zevnitř. Praktické tipy, ne poučky z&nbsp;knihy.
                   </div>
                 </div>
               </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.2}>
-              <div className="flex gap-3 p-5 rounded-2xl border border-[var(--gold-10)]">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-[2px]">
-                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                  <line x1="10" y1="9" x2="8" y2="9" />
+            </div>
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors">
+              <div className="flex gap-4 items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-1">
+                  <path d="M12 20h9" />
+                  <path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z" />
                 </svg>
                 <div>
-                  <div className="font-headline text-[15px] font-semibold italic text-[var(--cream)] mb-1">
-                    Tipy a zdroje na míru
+                  <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
+                    200+ příběhů v&nbsp;hlavě
                   </div>
-                  <div className="text-[13px] leading-[1.6] text-[var(--cream-60)]">
-                    Praktické rady, odkazy, doporučení. Ne obecné poučky, ale přesně to, co se hodí k&nbsp;tvé situaci.
+                  <div className="text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
+                    Za 200+ epizod podcastu jsem slyšela stovky příběhů lidí, kteří řeší to samé co ty. Vím, která epizoda se týká tvého tématu, a&nbsp;pošlu ti konkrétní odkazy. Odejdeš s&nbsp;materiálem, ne jen s&nbsp;pocitem.
                   </div>
                 </div>
               </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.3}>
-              <div className="flex gap-3 p-5 rounded-2xl border border-[var(--gold-10)]">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-[2px]">
+            </div>
+          </AnimatedSection>
+          <AnimatedSection delay={0.3}>
+            <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors">
+              <div className="flex gap-4 items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-1">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
                 <div>
-                  <div className="font-headline text-[15px] font-semibold italic text-[var(--cream)] mb-1">
-                    Propojení s komunitou
+                  <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
+                    Propojím tě s&nbsp;komunitou
                   </div>
-                  <div className="text-[13px] leading-[1.6] text-[var(--cream-60)]">
-                    Pokud to dává smysl, nasměruju tě do diskuzí na Discordu, kde se řeší podobná témata.
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.4}>
-              <div className="flex gap-3 p-5 rounded-2xl border border-[var(--gold-10)]">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[var(--gold)] shrink-0 mt-[2px]">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M3 9h18" />
-                  <path d="M9 21V9" />
-                </svg>
-                <div>
-                  <div className="font-headline text-[15px] font-semibold italic text-[var(--cream)] mb-1">
-                    Tvoje téma, tvůj prostor
-                  </div>
-                  <div className="text-[13px] leading-[1.6] text-[var(--cream-60)]">
-                    Pošli mi předem pár vět o tom, co chceš řešit. Čím víc toho vím, tím líp se připravím a tím víc z hovoru dostaneš.
+                  <div className="text-[13px] sm:text-[14px] leading-[1.7] text-[var(--cream-60)]">
+                    Mám Discord plný lidí, kteří řeší podobná témata. V&nbsp;BDSM komunitě je těžké najít lidi se stejnými zájmy. Můžu tě nasměrovat do diskuzí, propojit s&nbsp;lidmi, kteří si tím prošli. To je hodnota, kterou jinde nedostaneš.
                   </div>
                 </div>
               </div>
-            </AnimatedSection>
-          </div>
-        </AnimatedSection>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
 
       {/* CO TO NENÍ */}
@@ -410,96 +376,121 @@ export default function Konzultace() {
         </AnimatedSection>
       </section>
 
-      {/* JAK TO FUNGUJE */}
-      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
-        <AnimatedSection className="text-center">
-          <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
-            Jak to funguje
-          </div>
-          <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8 sm:mb-12">
-            Tři jednoduché kroky
-          </h2>
-        </AnimatedSection>
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-0 max-w-[900px] mx-auto">
-          {steps.map((step, i) => (
-            <AnimatedSection
-              key={step.num}
-              delay={i * 0.15}
-              className="flex-1 flex flex-col lg:items-center"
-            >
-              <div className="flex lg:flex-col items-start lg:items-center gap-4 lg:gap-3 p-5 sm:p-6 lg:p-8 lg:text-center">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full border-2 border-[var(--gold)] flex items-center justify-center font-headline text-[18px] sm:text-[20px] font-semibold text-[var(--gold)]">
-                  {step.num}
-                </div>
-                <div>
-                  <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-1 lg:mb-2">
-                    {step.title}
-                  </div>
-                  <div className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)]">
-                    {step.desc}
-                  </div>
-                </div>
-              </div>
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block h-px w-full bg-[var(--gold-10)]" />
-              )}
-            </AnimatedSection>
-          ))}
-        </div>
-      </section>
-
-      {/* CENA — toggle standard / předplatitel */}
-      <section
-        id="cena"
-        className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20 flex flex-col items-center"
-      >
-        <AnimatedSection className="w-full max-w-[560px]">
-          <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4 text-center">
-            Cena
-          </div>
-          <PricingToggle />
-        </AnimatedSection>
-      </section>
-
-      {/* BOOKING */}
-      <section
-        id="booking"
-        className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20 flex flex-col items-center text-center"
-      >
-        <AnimatedSection className="flex flex-col items-center gap-6 max-w-[560px]">
-          <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase">
-            Rezervace
-          </div>
+      {/* PUSH — rozpohybuj to */}
+      <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-16">
+        <AnimatedSection className="max-w-[600px] mx-auto text-center">
           <h2
-            className="font-headline text-[24px] sm:text-[32px] lg:text-[42px] font-normal text-[var(--cream)]"
+            className="font-headline text-[22px] sm:text-[28px] lg:text-[32px] font-normal text-[var(--cream)] mb-5"
             style={{
               fontVariationSettings: "'WONK' 1, 'SOFT' 50, 'opsz' 144",
             }}
           >
-            Vyber si termín
+            Podcastů jsi slyšela dost.
+            <br />
+            <span className="text-[var(--gold)] italic">Teď to chce rozhovor.</span>
           </h2>
-          <p className="text-[14px] sm:text-[15px] leading-[1.6] text-[var(--cream-60)]">
-            Klikni na tlačítko níže, vyber si volný slot v&nbsp;kalendáři
-            a&nbsp;rezervace je hotová. Odkaz na Google Meet ti přijde
-            automaticky.
+          <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)]">
+            Poslouchat příběhy je první krok. Ale ten tvůj se rozpohybuje, až o&nbsp;něm promluvíš. 45 minut, praktické tipy, konkrétní odkazy. Žádná teorie, žádné „to bude dobré". Jen upřímný rozhovor s&nbsp;někým, kdo tam už byl.
           </p>
-
-          {/* Placeholder — nahradit Google Calendar Appointment Schedule linkem */}
-          <div className="w-full p-8 sm:p-12 rounded-2xl border-2 border-dashed border-[var(--gold-25)] bg-[var(--gold-06)]">
-            <div className="text-[14px] text-[var(--cream-60)] mb-4">
-              Zde bude kalendář pro výběr termínu
-            </div>
-            <a
-              href="#"
-              className="inline-flex items-center px-8 sm:px-11 py-3 sm:py-[14px] rounded-full bg-[var(--gold)] text-[var(--deep)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--cream)] hover:-translate-y-px transition-all duration-300"
-            >
-              Otevřít kalendář &rarr;
-            </a>
-            <div className="text-[11px] text-[var(--cream-35)] mt-3">
-              (Google Calendar Appointment Schedule, doplníme odkaz)
-            </div>
-          </div>
         </AnimatedSection>
+      </section>
+
+      {/* VERTICAL TIMELINE — booking flow */}
+      <section id="booking" className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
+        <AnimatedSection className="text-center mb-10">
+          <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
+            Jak to funguje
+          </div>
+          <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)]">
+            Tři jednoduché kroky
+          </h2>
+        </AnimatedSection>
+
+        <div className="max-w-[640px] mx-auto">
+          {/* Step 1 — Vyber si termín */}
+          <AnimatedSection delay={0.1}>
+            <div className="flex gap-5 sm:gap-8">
+              {/* Timeline line + circle */}
+              <div className="flex flex-col items-center shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[var(--gold)] flex items-center justify-center font-headline text-[18px] sm:text-[20px] font-semibold text-[var(--gold)]">
+                  1
+                </div>
+                <div className="w-px flex-1 bg-[var(--gold-10)] mt-3" />
+              </div>
+              {/* Content */}
+              <div className="pb-10">
+                <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
+                  Vyber si termín a napiš, co řešíš
+                </div>
+                <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
+                  Zvol volný slot v&nbsp;kalendáři. V&nbsp;rezervačním formuláři mi napiš, co tě trápí nebo zajímá. Díky tomu se na hovor připravím.
+                </p>
+                {/* Calendar placeholder */}
+                <div className="p-6 sm:p-8 rounded-2xl border-2 border-dashed border-[var(--gold-25)] bg-[var(--gold-06)]">
+                  <div className="text-[14px] text-[var(--cream-60)] mb-4">
+                    Zde bude kalendář pro výběr termínu
+                  </div>
+                  <a
+                    href="#"
+                    className="inline-flex items-center px-8 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[13px] sm:text-[14px] font-semibold hover:bg-[var(--cream)] hover:-translate-y-px transition-all duration-300"
+                  >
+                    Otevřít kalendář &rarr;
+                  </a>
+                  <div className="text-[11px] text-[var(--cream-35)] mt-3">
+                    (Google Calendar Appointment Schedule, doplníme odkaz)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Step 2 — Zaplať předem */}
+          <AnimatedSection delay={0.2}>
+            <div className="flex gap-5 sm:gap-8">
+              {/* Timeline line + circle */}
+              <div className="flex flex-col items-center shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[var(--gold)] flex items-center justify-center font-headline text-[18px] sm:text-[20px] font-semibold text-[var(--gold)]">
+                  2
+                </div>
+                <div className="w-px flex-1 bg-[var(--gold-10)] mt-3" />
+              </div>
+              {/* Content */}
+              <div className="pb-10">
+                <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
+                  Zaplať převodem předem
+                </div>
+                <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)] mb-5">
+                  Po rezervaci naskenuj QR kód v&nbsp;bankovní aplikaci. Platba předem potvrzuje rezervaci. Připravuju se na každý hovor a&nbsp;chci mít jistotu, že se potkáme.
+                </p>
+                {/* Pricing toggle */}
+                <div id="cena">
+                  <PricingToggle />
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Step 3 — Připoj se */}
+          <AnimatedSection delay={0.3}>
+            <div className="flex gap-5 sm:gap-8">
+              {/* Timeline circle (no line after) */}
+              <div className="flex flex-col items-center shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[var(--gold)] flex items-center justify-center font-headline text-[18px] sm:text-[20px] font-semibold text-[var(--gold)]">
+                  3
+                </div>
+              </div>
+              {/* Content */}
+              <div>
+                <div className="font-headline text-[17px] sm:text-[19px] font-semibold italic text-[var(--cream)] mb-2">
+                  Připoj se a ptej se
+                </div>
+                <p className="text-[13px] sm:text-[14px] leading-[1.6] text-[var(--cream-60)]">
+                  45 minut jen pro tebe. Přes Google Meet, bez záznamu, bez hodnocení. Jenom upřímný rozhovor. Odkaz ti přijde automaticky po rezervaci.
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
 
       {/* FAQ */}

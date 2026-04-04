@@ -32,15 +32,15 @@ export function PricingToggle() {
       </div>
 
       {/* Pricing card */}
-      <div className="p-6 sm:p-8 rounded-2xl border border-[var(--gold-25)] bg-[var(--gold-06)] transition-all duration-300">
+      <div className="p-6 sm:p-8 rounded-2xl border border-[var(--gold-25)] bg-[var(--gold-06)] transition-all duration-300 text-center">
         {/* Zaváděcí cena badge */}
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex justify-center mb-4">
           <span className="text-[11px] font-semibold tracking-[2px] uppercase text-[var(--gold)] px-3 py-[3px] bg-[rgba(197,155,104,0.12)] rounded-full">
             Zaváděcí cena pro prvních 5
           </span>
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5">
+        <div className="mb-5">
           <div>
             {isSubscriber && (
               <span className="inline-block text-[11px] font-semibold tracking-[2px] uppercase text-[var(--deep)] bg-[var(--gold)] px-3 py-[3px] rounded-full mb-2">
@@ -54,12 +54,6 @@ export function PricingToggle() {
               45 minut / Google Meet
             </div>
           </div>
-          <a
-            href="#booking"
-            className="inline-flex items-center w-fit px-7 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[13px] font-semibold hover:bg-[var(--cream)] hover:-translate-y-px transition-all duration-300"
-          >
-            Vyber si termín
-          </a>
         </div>
 
         {isSubscriber && (
