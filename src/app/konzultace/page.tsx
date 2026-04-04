@@ -227,7 +227,7 @@ export default function Konzultace() {
 
       {/* USE CASES */}
       <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
-        <AnimatedSection>
+        <AnimatedSection className="text-center">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
             Pro koho to je
           </div>
@@ -235,7 +235,7 @@ export default function Konzultace() {
             Co spolu můžeme řešit
           </h2>
         </AnimatedSection>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[780px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[780px] mx-auto">
           {useCases.map((uc, i) => (
             <AnimatedSection key={uc.title} delay={i * 0.1}>
               <div className="flex gap-4 p-5 sm:p-6 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors">
@@ -277,7 +277,7 @@ export default function Konzultace() {
 
       {/* PŘÍPRAVA — co dostaneš */}
       <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
-        <AnimatedSection className="max-w-[780px]">
+        <AnimatedSection className="max-w-[780px] mx-auto text-center">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
             Ne jen hovor
           </div>
@@ -289,7 +289,7 @@ export default function Konzultace() {
           >
             Připravím se na tebe
           </h2>
-          <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)] mb-8 max-w-[600px]">
+          <p className="text-[14px] sm:text-[15px] leading-[1.7] text-[var(--cream-60)] mb-8 max-w-[600px] mx-auto">
             Tohle není „zavolej mi a&nbsp;uvidíme". Sednu si k&nbsp;tvému tématu, projdu epizody, které se ho týkají, vyhledám tipy, propojím to s&nbsp;tím, co vím z&nbsp;komunity na Discordu. Přijdu připravená, abys z&nbsp;těch 45 minut vytěžila maximum.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -412,7 +412,7 @@ export default function Konzultace() {
 
       {/* JAK TO FUNGUJE */}
       <section className="bg-[var(--wine-bg)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
-        <AnimatedSection>
+        <AnimatedSection className="text-center">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
             Jak to funguje
           </div>
@@ -420,7 +420,7 @@ export default function Konzultace() {
             Tři jednoduché kroky
           </h2>
         </AnimatedSection>
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-0 max-w-[900px]">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-0 max-w-[900px] mx-auto">
           {steps.map((step, i) => (
             <AnimatedSection
               key={step.num}
@@ -504,14 +504,14 @@ export default function Konzultace() {
 
       {/* FAQ */}
       <section className="bg-[var(--deep)] px-5 py-10 sm:px-10 sm:py-[60px] lg:px-[120px] lg:py-20">
-        <AnimatedSection className="max-w-[680px] mx-auto">
+        <AnimatedSection className="max-w-[680px] mx-auto text-center">
           <div className="text-[11px] font-normal tracking-[3px] text-[var(--gold)] uppercase mb-4">
             Časté otázky
           </div>
           <h2 className="font-headline text-[24px] sm:text-[32px] font-normal text-[var(--cream)] mb-8">
             Možná se ptáš&hellip;
           </h2>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 text-left">
             {faqs.map((faq) => (
               <details
                 key={faq.q}
