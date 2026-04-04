@@ -14,12 +14,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "cs_CZ",
     siteName: "Šimrání",
+    images: [
+      {
+        url: "/OG-konzultace.png",
+        width: 1200,
+        height: 630,
+        alt: "Konzultace o intimitě s Markétou — Šimrání",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Konzultace o intimitě s Markétou — Šimrání podcast",
     description:
       "45 minut jen pro tebe a tvoje otázky. Konzultace o intimitě s Markétou ze Šimrání. Na základě zkušeností, ne teorie.",
+    images: ["/OG-konzultace.png"],
   },
 };
 
