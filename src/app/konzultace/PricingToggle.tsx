@@ -89,7 +89,7 @@ export function PricingToggle() {
         <div className="mt-5 pt-5 border-t border-[var(--gold-10)]">
           <div className="text-[13px] text-[var(--cream-35)]">
             Po zaplnění 5 míst se cena zvýší na{" "}
-            <span className="text-[var(--cream)] font-medium whitespace-nowrap">{isSubscriber ? "1\u00a0035" : "1\u00a0380"}\u00a0Kč</span>
+            <span className="text-[var(--cream)] font-medium whitespace-nowrap">{isSubscriber ? "1 035 Kč" : "1 380 Kč"}</span>
           </div>
         </div>
       </div>
