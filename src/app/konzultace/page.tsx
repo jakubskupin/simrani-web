@@ -289,8 +289,8 @@ export default function Konzultace() {
             Projdeme tím společně
           </h2>
         </AnimatedSection>
-        <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-5 px-5 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:overflow-visible max-w-[960px] md:mx-auto">
-          <div className="w-[85vw] max-w-[320px] shrink-0 snap-start md:w-auto md:max-w-none p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
+          <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
             <div className="w-12 h-12 rounded-full bg-[rgba(197,155,104,0.12)] flex items-center justify-center mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-[var(--gold)]">
                 <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
@@ -304,7 +304,7 @@ export default function Konzultace() {
               Byla jsem na BDSM i&nbsp;tantra akcích, festivalech, workshopech, párty. Vím, co se děje za dveřmi, o&nbsp;kterých přemýšlíš. Narozdíl od těch, co tě odrazují, ti řeknu, jak to vypadá zevnitř.
             </div>
           </div>
-          <div className="w-[85vw] max-w-[320px] shrink-0 snap-start md:w-auto md:max-w-none p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
+          <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
             <div className="w-12 h-12 rounded-full bg-[rgba(197,155,104,0.12)] flex items-center justify-center mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-[var(--gold)]">
                 <path d="M12 20h9" />
@@ -318,7 +318,7 @@ export default function Konzultace() {
               Za 200+ epizod podcastu jsem slyšela stovky příběhů lidí, kteří řeší to samé co ty. Vím, která epizoda se týká tvého tématu, a&nbsp;pošlu ti konkrétní odkazy. Odejdeš s&nbsp;materiálem, ne jen s&nbsp;pocitem.
             </div>
           </div>
-          <div className="w-[85vw] max-w-[320px] shrink-0 snap-start md:w-auto md:max-w-none p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
+          <div className="p-6 sm:p-7 rounded-2xl border border-[var(--gold-10)] hover:border-[var(--gold-25)] transition-colors flex flex-col items-center text-center">
             <div className="w-12 h-12 rounded-full bg-[rgba(197,155,104,0.12)] flex items-center justify-center mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-[var(--gold)]">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
