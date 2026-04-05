@@ -190,7 +190,7 @@ export function Events() {
             badge="Ověřuji zájem"
             badgeVariant="gold"
             title="Workshop pro páry"
-            description="Komorní půldenní zážitek pro 3–5 párů. Komunikace, hravost, důvěra — pod vedením Markéty."
+            description={<>Komorní půldenní zážitek pro 3–5 párů. Komunikace, hravost, důvěra. <a href="https://youtu.be/t7Zfe8_vWk4?t=294" target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:text-[var(--cream)] transition-colors underline underline-offset-2">Víc o tom ve videu</a>.</>}
             location="Praha"
             date="Termín vybereme společně"
             price="∞"
