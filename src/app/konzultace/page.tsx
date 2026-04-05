@@ -394,7 +394,7 @@ export default function Konzultace() {
                   >
                     marketa@simrani.cz
                   </a>
-                  <span className="hidden sm:inline text-[var(--cream-35)]">nebo</span>
+                  <span className="text-[var(--cream-35)]">nebo</span>
                   <a
                     href="https://www.instagram.com/simrani_podcast"
                     target="_blank"
