@@ -72,16 +72,12 @@ export function PricingToggle() {
           <div className="text-[12px] text-[var(--cream-35)] mb-3">
             {isSubscriber ? "Zvýhodněný QR" : "QR"} kód pro platbu převodem ({currentPrice} Kč):
           </div>
-          <div className="w-[200px] h-[200px] rounded-xl bg-[var(--wine-bg)] border border-[var(--gold-10)] flex items-center justify-center">
-            <div className="text-[11px] text-[var(--cream-35)] text-center px-3">
-              QR kód
-              <br />
-              <span className="text-[var(--gold)] font-medium text-[14px]">
-                {currentPrice} Kč
-              </span>
-              <br />
-              <span className="text-[10px]">(doplníme)</span>
-            </div>
+          <div className="w-[200px] h-[200px] rounded-xl bg-white border border-[var(--gold-10)] p-2 flex items-center justify-center">
+            <img
+              src={isSubscriber ? "/qr-517.jpg" : "/qr-690.jpg"}
+              alt={`QR kód pro platbu ${currentPrice} Kč`}
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
 
