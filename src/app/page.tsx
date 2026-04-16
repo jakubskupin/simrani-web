@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Nav } from "@/components/Nav";
+import { AnnouncementBarB } from "@/components/AnnouncementBarB";
 import { Hero } from "@/components/Hero";
 import { YouTube } from "@/components/YouTube";
 import { Testimonials } from "@/components/Testimonials";
@@ -14,6 +15,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 export default function Home() {
   return (
     <>
+      <AnnouncementBarB />
       <Nav />
       <main>
         <Hero />
