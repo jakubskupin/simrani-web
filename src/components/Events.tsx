@@ -20,6 +20,12 @@ function TicketIcon() {
   );
 }
 
+function PlayIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+  );
+}
+
 interface EventCardProps {
   badge: string;
   badgeVariant?: "default" | "gold";
@@ -34,6 +40,7 @@ interface EventCardProps {
   image?: string;
   border?: boolean;
   highlight?: boolean;
+  video?: { url: string; thumb: string; label: string; title: string };
 }
 
 function EventCard({
@@ -50,6 +57,7 @@ function EventCard({
   image,
   border = false,
   highlight = false,
+  video,
 }: EventCardProps) {
   return (
     <div
@@ -99,6 +107,42 @@ function EventCard({
         <p className="text-[13px] leading-[1.6] text-[var(--cream-60)]">
           {description}
         </p>
+
+        {/* Optional video strip */}
+        {video && (
+          <a
+            href={video.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-stretch gap-3 mt-1 rounded-lg overflow-hidden bg-[var(--deep)] border border-[var(--gold-25)] hover:border-[var(--gold)] transition-colors"
+          >
+            <div className="relative w-[110px] shrink-0 bg-[var(--deep)] overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={video.thumb}
+                alt={video.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+                <div className="flex items-center justify-center w-9 h-9 rounded-full bg-[var(--gold)] text-[var(--deep)] group-hover:scale-110 transition-transform">
+                  <PlayIcon size={16} />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center gap-1 py-2 pr-3 min-w-0">
+              <span className="text-[10px] font-semibold tracking-[1.5px] uppercase text-[var(--gold)]">
+                {video.label}
+              </span>
+              <span className="text-[13px] font-medium text-[var(--cream)] leading-tight">
+                {video.title}
+              </span>
+              <span className="text-[11px] text-[var(--cream-35)]">
+                Přehrát na YouTube →
+              </span>
+            </div>
+          </a>
+        )}
 
         {/* Meta strip */}
         <div className="flex flex-col gap-1.5 pt-3.5">
@@ -197,6 +241,12 @@ export function Events() {
             cta={{
               label: "Rezervovat místo →",
               href: "https://docs.google.com/forms/d/e/1FAIpQLSd7QLeAFlwdMPUMM7hGYAiM8UaFW7JlUjJmdJ0UjhG2_FNHcg/viewform",
+            }}
+            video={{
+              url: "https://www.youtube.com/watch?v=xrAuQ2c6Ykc",
+              thumb: "https://i.ytimg.com/vi/xrAuQ2c6Ykc/hqdefault.jpg",
+              label: "Tipy k večeru",
+              title: "Markéta o Alternu Vanilla",
             }}
           />
 
