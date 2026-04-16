@@ -171,22 +171,6 @@ export function Events() {
         {/* Cards grid — horizontal scroll on mobile, 3-col on desktop */}
         <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-5 px-5 md:mx-0 md:pl-0 md:-mr-12 lg:-mr-[120px] md:pr-12 lg:pr-[120px]">
           <EventCard
-            badge="9. dubna"
-            badgeVariant="gold"
-            title="Šimrání Offline Live"
-            description="Večer plný rozhovorů, otázek a komunity — jako podcast, ale naživo. Míst je málo, tak se nám ozvi včas."
-            location="Stanice 6, Praha Bubeneč"
-            date="9. dubna 2026, od 19:30"
-            price="Od 99 Kč (předplatitelé) / 350 Kč"
-            priceHighlight
-            cta={{
-              label: "Chci přijít →",
-              href: "https://docs.google.com/forms/d/1ZfBZNyctni2E1UDmY52KPiomzpLSLJ-Cdt4G0u71I5E/viewform",
-            }}
-            image="/soloff.png"
-          />
-
-          <EventCard
             badge="Ověřuji zájem"
             badgeVariant="gold"
             title="Workshop pro páry"
@@ -206,11 +190,14 @@ export function Events() {
           <EventCard
             badge="24. dubna"
             title="Alterno Vanilla"
-            description={<>Šimrací setkání před Alternem. Vstupenky na Alterno Vanilla koupíš na <a href="https://hellevents.cz/cs/vstupenky/128-alterno-vanilla-2026.html" target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline hover:text-[var(--cream)] transition-colors">hellevents.cz</a>. Potkej komunitu naživo a nalaď se na večer.</>}
-            location="Praha"
-            date="24. dubna 2026"
+            description={<>Šimrací sraz před Alternem Vanilla. Potkej komunitu naživo a nalaď se na večer. Vstupenky na samotnou akci koupíš na <a href="https://hellevents.cz/cs/vstupenky/128-alterno-vanilla-2026.html" target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline hover:text-[var(--cream)] transition-colors">hellevents.cz</a>.</>}
+            location="Bar Decentní Dýně (u Tresoru), Praha"
+            date="24. dubna 2026, od 20:00"
             price="Vstup zdarma"
-            cta={{ label: "Více info brzy" }}
+            cta={{
+              label: "Rezervovat místo →",
+              href: "https://docs.google.com/forms/d/e/1FAIpQLSd7QLeAFlwdMPUMM7hGYAiM8UaFW7JlUjJmdJ0UjhG2_FNHcg/viewform",
+            }}
           />
 
           <EventCard
