@@ -232,32 +232,19 @@ export function Events() {
           />
 
           <EventCard
-            badge="24. dubna"
-            title="Alterno Vanilla"
-            description={<>Šimrací sraz před Alternem Vanilla. Potkej komunitu naživo a nalaď se na večer. Vstupenky na samotnou akci koupíš na <a href="https://hellevents.cz/cs/vstupenky/128-alterno-vanilla-2026.html" target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline hover:text-[var(--cream)] transition-colors">hellevents.cz</a>.</>}
-            location="Bar Decentní Dýně (u Tresoru), Praha"
-            date="24. dubna 2026, od 20:00"
-            price="Vstup zdarma"
-            cta={{
-              label: "Rezervovat místo →",
-              href: "https://docs.google.com/forms/d/e/1FAIpQLSd7QLeAFlwdMPUMM7hGYAiM8UaFW7JlUjJmdJ0UjhG2_FNHcg/viewform",
-            }}
-            video={{
-              url: "https://www.youtube.com/watch?v=xrAuQ2c6Ykc",
-              thumb: "https://i.ytimg.com/vi/xrAuQ2c6Ykc/hqdefault.jpg",
-              label: "Tipy k večeru",
-              title: "Markéta o Alternu Vanilla",
-            }}
-          />
-
-          <EventCard
             badge="5. června"
-            title="Šimrací Buřty"
-            description="Neformální setkání venku. Buřty, příroda a rozhovory bez filtrů."
-            location="Upřesníme"
-            date="5. června 2026"
-            price="Upřesníme"
-            cta={{ label: "Více info brzy" }}
+            badgeVariant="gold"
+            title="Šimrací buřty vol. 3"
+            description="Už třetí ročník neformálního srazu. Café s občerstvením, ohniště, deky na místě a dětské hřiště. Stačí přijít s dobrou náladou — v ceně buřt se vším všudy a koláč."
+            location="Café Nábřeží, Hořejší nábř. 1126, Praha 5"
+            date="5. června 2026, od 17:00"
+            price="200 Kč / osoba"
+            priceHighlight
+            cta={{
+              label: "Registrovat se →",
+              href: "https://forms.gle/PQwQKK8KuGLhwR2f8",
+            }}
+            ctaVariant="button"
           />
 
           <EventCard
