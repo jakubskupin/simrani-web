@@ -249,12 +249,18 @@ export function Events() {
 
           <EventCard
             badge="18. srpna"
+            badgeVariant="gold"
             title="Šimrání Live"
-            description="Letní podcastová scéna v Troji. Live natáčení epizody pod širým nebem."
-            location="Troja, Praha"
-            date="18. srpna 2026"
-            price="Upřesníme"
-            cta={{ label: "Více info brzy" }}
+            description="Součást Letní podcastové scény. Rozhovor o vztazích, intimitě a sexualitě, prostor na otázky z publika, merch a projekt Hračky pomáhají. Po programu networking."
+            location="Trojský Pivovar, Praha"
+            date="18. srpna 2026, 19:00–21:30"
+            price="Vstupenky v prodeji"
+            priceHighlight
+            cta={{
+              label: "Koupit vstupenky →",
+              href: "https://connect.boomevents.org/cs/letni-podcastova-scena/simrani-live-lps",
+            }}
+            ctaVariant="button"
           />
 
           <EventCard
