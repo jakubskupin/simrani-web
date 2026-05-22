@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export function PricingToggle() {
   const [isSubscriber, setIsSubscriber] = useState(false);
-  const currentPrice = isSubscriber ? 517 : 690;
+  const currentPrice = isSubscriber ? 1035 : 1380;
 
   return (
     <div>
@@ -37,7 +37,7 @@ export function PricingToggle() {
       <div className="text-center mb-6">
         {isSubscriber ? (
           <span className="text-[13px] text-[var(--gold)] font-medium">
-            25 % sleva ze zaváděcí ceny
+            25 % sleva pro předplatitele
           </span>
         ) : (
           <span className="text-[13px] text-[var(--cream-35)]">
@@ -48,20 +48,13 @@ export function PricingToggle() {
 
       {/* Card */}
       <div className="p-6 sm:p-8 rounded-2xl border border-[var(--gold-25)] bg-[var(--gold-06)] text-center">
-        {/* Zaváděcí badge */}
-        <div className="flex justify-center mb-4">
-          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[2px] uppercase text-[var(--gold)] px-3 py-[3px] bg-[rgba(197,155,104,0.12)] rounded-full whitespace-nowrap">
-            Zaváděcí cena pro prvních 5
-          </span>
-        </div>
-
         {isSubscriber && (
           <span className="inline-block text-[11px] font-semibold tracking-[2px] uppercase text-[var(--deep)] bg-[var(--gold)] px-3 py-[3px] rounded-full mb-2">
             &minus;25 %
           </span>
         )}
         <div className="font-headline text-[32px] sm:text-[40px] font-semibold text-[var(--cream)] transition-all duration-300">
-          {currentPrice} Kč
+          {currentPrice.toLocaleString("cs-CZ")} Kč
         </div>
         <div className="text-[13px] text-[var(--cream-60)] mb-5">
           45 minut / Google Meet
@@ -70,22 +63,14 @@ export function PricingToggle() {
         {/* QR kód */}
         <div className="pt-5 border-t border-[var(--gold-10)] flex flex-col items-center">
           <div className="text-[12px] text-[var(--cream-35)] mb-3">
-            {isSubscriber ? "Zvýhodněný QR" : "QR"} kód pro platbu převodem ({currentPrice} Kč):
+            {isSubscriber ? "Zvýhodněný QR" : "QR"} kód pro platbu převodem ({currentPrice.toLocaleString("cs-CZ")} Kč):
           </div>
           <div className="w-[200px] h-[200px] rounded-xl bg-white border border-[var(--gold-10)] p-2 flex items-center justify-center">
             <img
-              src={isSubscriber ? "/qr-517.jpg" : "/qr-690.jpg"}
-              alt={`QR kód pro platbu ${currentPrice} Kč`}
+              src={isSubscriber ? "/qr-1035.jpg" : "/qr-1380.jpg"}
+              alt={`QR kód pro platbu ${currentPrice.toLocaleString("cs-CZ")} Kč`}
               className="w-full h-full object-contain"
             />
-          </div>
-        </div>
-
-        {/* Budoucí cena — mění se s togglem */}
-        <div className="mt-5 pt-5 border-t border-[var(--gold-10)]">
-          <div className="text-[13px] text-[var(--cream-35)]">
-            Po zaplnění 5 míst se cena zvýší na{" "}
-            <span className="text-[var(--cream)] font-medium whitespace-nowrap">{isSubscriber ? "1 035 Kč" : "1 380 Kč"}</span>
           </div>
         </div>
       </div>

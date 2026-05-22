@@ -12,7 +12,7 @@ export function AnnouncementBarB() {
         </span>
         <span className="text-[12px] sm:text-[14px] font-medium text-[var(--deep)]">
           Konzultace s&nbsp;Markétou
-          <span className="hidden sm:inline"> &mdash; zaváděcí cena pro prvních 5</span>
+          <span className="hidden sm:inline"> &mdash; 45 minut jen pro tebe</span>
         </span>
         <span className="inline-flex items-center gap-1 text-[12px] sm:text-[13px] font-semibold text-[var(--deep)] underline underline-offset-2 decoration-[var(--deep)] group-hover:decoration-transparent transition-all">
           Chci termín
