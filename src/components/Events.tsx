@@ -254,7 +254,7 @@ export function Events() {
             description="Součást Letní podcastové scény. Rozhovor o vztazích, intimitě a sexualitě, prostor na otázky z publika, merch a projekt Hračky pomáhají. Po programu networking."
             location="Trojský Pivovar, Praha"
             date="18. srpna 2026, 19:00–21:30"
-            price="Vstupenky v prodeji"
+            price="250 Kč / vstupenka"
             priceHighlight
             cta={{
               label: "Koupit vstupenky →",
