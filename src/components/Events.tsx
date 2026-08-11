@@ -232,22 +232,6 @@ export function Events() {
           />
 
           <EventCard
-            badge="5. června"
-            badgeVariant="gold"
-            title="Šimrací buřty vol. 3"
-            description="Už třetí ročník neformálního srazu. Café s občerstvením, ohniště, deky na místě a dětské hřiště. Stačí přijít s dobrou náladou — v ceně buřt se vším všudy a koláč."
-            location="Café Nábřeží, Hořejší nábř. 1126, Praha 5"
-            date="5. června 2026, od 17:00"
-            price="200 Kč / osoba"
-            priceHighlight
-            cta={{
-              label: "Registrovat se →",
-              href: "https://forms.gle/PQwQKK8KuGLhwR2f8",
-            }}
-            ctaVariant="button"
-          />
-
-          <EventCard
             badge="18. srpna"
             badgeVariant="gold"
             title="Šimrání Live"
