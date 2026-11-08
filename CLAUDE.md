@@ -20,7 +20,7 @@ Next.js (App Router, Tailwind, TypeScript) web pro podcast Šimrání — https:
 
 - Trvalá adresa a QR pro ŠOL (`public/sol-qr.png`, `.svg`). Na každý ŠOL se mění jen údaje a slovo z dílu, odkaz na Meet se pošle až po správném slově.
 - Změna údajů: `/sol/zmena?klic=…` (klíč v `SOL_ADMIN_KEY`, bez něj 404). Vloží se text pozvánky z kalendáře, zbytek se vyplní sám.
-- Data: na Vercelu Edge Config (`EDGE_CONFIG`, zápis přes `SOL_VERCEL_TOKEN` a `SOL_VERCEL_TEAM_ID`), na lokálu `.data/sol.json`.
+- Data: na Vercelu soukromý Blob store `simrani-sol` (`BLOB_READ_WRITE_TOKEN`, platí jen pro tenhle store), na lokálu `.data/sol.json`.
 - Ve vývojovém režimu je odkaz v HTML kvůli ladicím datům Reactu. Ochranu ověřuj jen na produkčním buildu.
 
 ## Prostředí (Claude Code on the web)

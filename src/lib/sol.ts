@@ -1,3 +1,4 @@
+import { get, put } from "@vercel/blob";
 import { createHash, timingSafeEqual } from "crypto";
 import { promises as fs } from "fs";
 import path from "path";
@@ -11,30 +12,20 @@ export type Sol = SolDraft & {
 export type SolPhase = "upcoming" | "live" | "over";
 
 const TZ = "Europe/Prague";
-const STORE_KEY = "sol";
+const BLOB_PATH = "sol.json";
 const LOCAL_FILE = path.join(process.cwd(), ".data", "sol.json");
 
 export const SOL_COOKIE = "sol_uvnitr";
 
-/* ────────────── Úložiště: Edge Config na Vercelu, soubor na lokálu ────────────── */
+/* ────────────── Úložiště: soukromý Vercel Blob na webu, soubor na lokálu ────────────── */
 
-function edgeConfig() {
-  const raw = process.env.EDGE_CONFIG;
-  if (!raw) return null;
-  const url = new URL(raw);
-  return { url, id: url.pathname.replace(/^\//, "") };
-}
+const usesBlob = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN);
 
 export async function readSol(): Promise<Sol | null> {
-  const edge = edgeConfig();
-  if (edge) {
-    const res = await fetch(
-      `${edge.url.origin}/${edge.id}/item/${STORE_KEY}${edge.url.search}`,
-      { cache: "no-store" },
-    );
-    if (res.status === 404) return null;
-    if (!res.ok) throw new Error(`Edge Config read failed: ${res.status}`);
-    return (await res.json()) as Sol;
+  if (usesBlob()) {
+    const res = await get(BLOB_PATH, { access: "private", useCache: false });
+    if (!res?.stream) return null;
+    return (await new Response(res.stream).json()) as Sol;
   }
 
   try {
@@ -45,26 +36,13 @@ export async function readSol(): Promise<Sol | null> {
 }
 
 export async function writeSol(sol: Sol): Promise<void> {
-  const edge = edgeConfig();
-  if (edge) {
-    const team = process.env.SOL_VERCEL_TEAM_ID
-      ? `?teamId=${process.env.SOL_VERCEL_TEAM_ID}`
-      : "";
-    const res = await fetch(
-      `https://api.vercel.com/v1/edge-config/${edge.id}/items${team}`,
-      {
-        method: "PATCH",
-        headers: {
-          Authorization: `Bearer ${process.env.SOL_VERCEL_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          items: [{ operation: "upsert", key: STORE_KEY, value: sol }],
-        }),
-        cache: "no-store",
-      },
-    );
-    if (!res.ok) throw new Error(`Edge Config write failed: ${res.status}`);
+  if (usesBlob()) {
+    await put(BLOB_PATH, JSON.stringify(sol), {
+      access: "private",
+      addRandomSuffix: false,
+      allowOverwrite: true,
+      contentType: "application/json",
+    });
     return;
   }
 
