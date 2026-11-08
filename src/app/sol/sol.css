@@ -1,0 +1,104 @@
+.sol-page {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(110% 70% at 96% 4%, rgba(74, 25, 66, 0.95) 0%, transparent 64%),
+    radial-gradient(85% 50% at -6% 108%, rgba(197, 155, 104, 0.16) 0%, transparent 72%),
+    var(--deep);
+}
+
+.sol-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+  background-size: 240px 240px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.sol-mark {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  height: 50svh;
+  top: 2svh;
+  right: -42px;
+}
+
+@media (min-width: 768px) {
+  .sol-mark {
+    height: 104svh;
+    top: 2svh;
+    right: -6vw;
+  }
+}
+
+@keyframes sol-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sol-rise {
+  animation: sol-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@keyframes sol-nope {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-7px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+.sol-nope {
+  animation: sol-nope 0.42s ease-in-out;
+}
+
+.sol-cta {
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease;
+}
+
+.sol-cta:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 14px 44px rgba(197, 155, 104, 0.32);
+}
+
+.sol-cta:active {
+  transform: scale(0.985);
+}
+
+.sol-admin {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sol-rise,
+  .sol-nope {
+    animation: none;
+  }
+}
