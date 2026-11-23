@@ -32,6 +32,7 @@ const PRAVIDLA: [string, RegExp][] = (
     ["masaz", "mas(?:áž|ér)\\p{L}*"],
     ["orgasmus", "orgasm\\p{L}*"],
     ["nahota", "nahot\\p{L}*"],
+    ["terapie", "psychoterapeut\\p{L}*|terapeut(?!ick)\\p{L}*|terapi\\p{L}*"],
     ["konsent", "konsent\\p{L}*"],
     ["lgbtq", "LGBT\\p{L}*\\+?"],
     ["asexualita", "asexuál\\p{L}*"],
