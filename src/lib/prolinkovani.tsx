@@ -16,6 +16,7 @@ const PRAVIDLA: [string, RegExp][] = (
     ["zarlivost", "žárliv\\p{L}*"],
     ["nevera", "nevě[rř]\\p{L}*"],
     ["komunikace", "komunikac\\p{L}*"],
+    ["dominance", "domin(?!ik)\\p{L}*|submis\\p{L}*"],
     ["spanking", "spank\\p{L}*"],
     ["waxplay", "waxplay"],
     ["latex", "latex\\p{L}*"],
