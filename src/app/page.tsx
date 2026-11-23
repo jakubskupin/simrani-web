@@ -11,6 +11,7 @@ import { Events } from "@/components/Events";
 import { CTAMarquee } from "@/components/CTAMarquee";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { ArchivTeaser } from "@/components/ArchivTeaser";
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
           <Suspense fallback={null}>
             <YouTube />
           </Suspense>
+        </AnimatedSection>
+        <AnimatedSection>
+          <ArchivTeaser />
         </AnimatedSection>
         <AnimatedSection>
           <Events />

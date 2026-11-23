@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import data from "@/data/archiv.json";
-import { hosteDilu } from "@/lib/archiv";
+import { hosteDilu, HOSTE_LITE } from "@/lib/archiv";
 import { HostOdkaz } from "@/components/HostAvatar";
 
 type Pojem = { slug: string; label: string; pocet: number };
@@ -15,7 +15,10 @@ const EPS = data.epizody as Ep[];
 const ROKY = [...(data.roky as number[])].reverse();
 const STRANKY = new Set(Object.keys(data.detail));
 const LABEL: Record<string, string> = Object.fromEntries(OBLASTI.flatMap((o) => o.pojmy.map((p) => [p.slug, p.label])));
-const PISMENA = Array.from(new Set(OBLASTI.flatMap((o) => o.pojmy.map((p) => p.label[0].toUpperCase())).concat("Š"))).sort((a, b) => a.localeCompare(b, "cs"));
+const PISMENA = Array.from(
+  new Set(OBLASTI.flatMap((o) => o.pojmy.map((p) => p.label[0].toUpperCase())).concat(HOSTE_LITE.map((h) => h.jmeno[0].toUpperCase()), "Š")),
+).sort((a, b) => a.localeCompare(b, "cs"));
+const HOSTE_ABC = [...HOSTE_LITE].sort((a, b) => a.jmeno.localeCompare(b.jmeno, "cs"));
 
 const SEL = "w-full px-4 py-3 rounded-[4px] border border-[var(--gold-25)] bg-[var(--deep)] text-[15px] text-[var(--cream)] outline-none focus:border-[var(--gold)]";
 const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -40,6 +43,7 @@ export function IntimitaPrototyp() {
   const [q, setQ] = useState("");
   const [pismeno, setPismeno] = useState<string | null>(null);
   const [limit, setLimit] = useState(40);
+  const [rozsirene, setRozsirene] = useState(false);
 
   // pojem z adresy (/intimita?pojem=shibari), aby šlo prokliknout z medailonku hosta
   useEffect(() => {
@@ -53,7 +57,8 @@ export function IntimitaPrototyp() {
     window.history.replaceState(null, "", u.pathname + u.search);
   }, [sel]);
 
-  const filtr = sel !== null || rok !== "" || format !== "" || jenYt || q.trim() !== "";
+  const rozsirenyFiltr = rok !== "" || format !== "" || jenYt || q.trim() !== "";
+  const filtr = sel !== null || rozsirenyFiltr;
   const list = useMemo(() => {
     const nq = norm(q.trim());
     return EPS.filter(
@@ -129,7 +134,7 @@ export function IntimitaPrototyp() {
             Abeceda intimity
           </h1>
           <p className="m-0 text-[16px] md:text-[20px] text-[var(--cream-60)]">
-            Vztahy se dají naučit. <strong className="font-medium text-[var(--cream)]">Vyber pojem, nebo projdi všechno.</strong>
+            Vztahy se dají naučit. <strong className="font-medium text-[var(--cream)]">Vyber písmeno nebo pojem.</strong>
           </p>
           <div className="flex gap-1.5 overflow-x-auto scrollbar-hide -mx-5 px-5 md:mx-0 md:px-0 md:flex-wrap pt-1" aria-label="Abeceda">
             {PISMENA.map((l) => {
@@ -139,7 +144,7 @@ export function IntimitaPrototyp() {
                 <button
                   key={l}
                   type="button"
-                  title={s ? "Š jako Šimrání" : `Pojmy na ${l}`}
+                  title={s ? "Š jako Šimrání" : `Pojmy a hosté na ${l}`}
                   onClick={() => (s ? undefined : setPismeno(on ? null : l))}
                   className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-[4px] font-headline text-[19px] md:text-[22px] transition-colors ${
                     s ? "bg-[var(--gold)] text-[var(--deep)] cursor-default" : on ? "bg-[var(--cream)] text-[var(--deep)]" : "bg-[var(--wine-bg)] text-[var(--cream)] hover:bg-[var(--wine)]"
@@ -151,48 +156,73 @@ export function IntimitaPrototyp() {
             })}
           </div>
           {pismeno && (
-            <div className="flex flex-wrap gap-2 items-center text-[13px] text-[var(--cream-60)]">
-              <span>Na {pismeno}:</span>
-              {OBLASTI.flatMap((o) => o.pojmy)
-                .filter((p) => p.label[0].toUpperCase() === pismeno)
-                .map((p) => (
-                  <button key={p.slug} type="button" onClick={() => vyber(p.slug)} className="px-3 py-1 rounded-full bg-[var(--gold-10)] text-[var(--cream)] hover:bg-[var(--gold-25)]">
-                    #{p.label} <span className="opacity-60">{p.pocet}</span>
-                  </button>
-                ))}
+            <div className="flex flex-col gap-3 pt-1">
+              {OBLASTI.some((o) => o.pojmy.some((p) => p.label[0].toUpperCase() === pismeno)) && (
+                <div className="flex flex-wrap gap-2 items-center text-[13px] text-[var(--cream-60)]">
+                  <span className="w-16 shrink-0">Pojmy</span>
+                  {OBLASTI.flatMap((o) => o.pojmy)
+                    .filter((p) => p.label[0].toUpperCase() === pismeno)
+                    .map((p) => (
+                      <button key={p.slug} type="button" onClick={() => vyber(p.slug)} className="px-3 py-1 rounded-full border border-[var(--gold-25)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-colors">
+                        #{p.label} <span className="opacity-60">{p.pocet}</span>
+                      </button>
+                    ))}
+                </div>
+              )}
+              {HOSTE_ABC.some((h) => h.jmeno[0].toUpperCase() === pismeno) && (
+                <div className="flex flex-wrap gap-x-5 gap-y-2 items-center text-[13px] text-[var(--cream-60)]">
+                  <span className="w-16 shrink-0">Hosté</span>
+                  {HOSTE_ABC.filter((h) => h.jmeno[0].toUpperCase() === pismeno).map((h) => (
+                    <HostOdkaz key={h.slug} h={h} size={30} />
+                  ))}
+                </div>
+              )}
             </div>
           )}
           <div className="md:hidden pt-2">{panel}</div>
         </header>
 
-        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-2.5">
-          <input
-            id="hledat"
-            value={q}
-            onChange={(e) => { setQ(e.target.value); setLimit(40); }}
-            placeholder="Hledej v názvech, třeba shibari, Neya, porod"
-            className="col-span-2 md:col-span-1 px-4 py-3 rounded-[4px] border border-[var(--gold-25)] bg-[var(--deep)] text-[15px] text-[var(--cream)] placeholder:text-[var(--cream-35)] outline-none focus:border-[var(--gold)]"
-          />
-          <select id="f-rok" value={rok} onChange={(e) => { setRok(e.target.value); setLimit(40); }} className={SEL}>
-            <option value="">Všechny roky</option>
-            {ROKY.map((y) => <option key={y} value={y}>{y}</option>)}
-          </select>
-          <select id="f-pojem" value={sel ?? ""} onChange={(e) => { setSel(e.target.value || null); setLimit(40); }} className={SEL}>
-            <option value="">Všechny pojmy</option>
-            {OBLASTI.map((o) => (
-              <optgroup key={o.nazev} label={o.nazev}>
-                {o.pojmy.map((p) => <option key={p.slug} value={p.slug}>#{p.label} ({p.pocet})</option>)}
-              </optgroup>
-            ))}
-          </select>
-          <select id="f-format" value={format} onChange={(e) => { setFormat(e.target.value); setLimit(40); }} className={SEL}>
-            <option value="">Všechny formáty</option>
-            {FORMATY.map((f) => <option key={f} value={f}>{f}</option>)}
-          </select>
-          <label className="col-span-1 md:col-span-2 flex items-center gap-2 px-1 text-[14px] text-[var(--cream-60)]">
-            <input id="f-yt" type="checkbox" checked={jenYt} onChange={(e) => setJenYt(e.target.checked)} className="accent-[var(--gold)] w-4 h-4" />
-            jen díly s částí zdarma na YouTube
-          </label>
+        <div className="flex flex-col gap-3">
+          <button
+            type="button"
+            onClick={() => setRozsirene(!rozsirene)}
+            aria-expanded={rozsirene || rozsirenyFiltr}
+            className="self-start inline-flex items-center gap-2 text-[14px] text-[var(--gold)] hover:text-[var(--cream)] transition-colors"
+          >
+            Rozšířené hledání
+            <span aria-hidden className={`transition-transform ${rozsirene || rozsirenyFiltr ? "rotate-180" : ""}`}>▾</span>
+          </button>
+          {(rozsirene || rozsirenyFiltr) && (
+          <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-2.5">
+            <input
+              id="hledat"
+              value={q}
+              onChange={(e) => { setQ(e.target.value); setLimit(40); }}
+              placeholder="Hledej v názvech, třeba shibari, Neya, porod"
+              className="col-span-2 md:col-span-1 px-4 py-3 rounded-[4px] border border-[var(--gold-25)] bg-[var(--deep)] text-[15px] text-[var(--cream)] placeholder:text-[var(--cream-35)] outline-none focus:border-[var(--gold)]"
+            />
+            <select id="f-rok" value={rok} onChange={(e) => { setRok(e.target.value); setLimit(40); }} className={SEL}>
+              <option value="">Všechny roky</option>
+              {ROKY.map((y) => <option key={y} value={y}>{y}</option>)}
+            </select>
+            <select id="f-pojem" value={sel ?? ""} onChange={(e) => { setSel(e.target.value || null); setLimit(40); }} className={SEL}>
+              <option value="">Všechny pojmy</option>
+              {OBLASTI.map((o) => (
+                <optgroup key={o.nazev} label={o.nazev}>
+                  {o.pojmy.map((p) => <option key={p.slug} value={p.slug}>#{p.label} ({p.pocet})</option>)}
+                </optgroup>
+              ))}
+            </select>
+            <select id="f-format" value={format} onChange={(e) => { setFormat(e.target.value); setLimit(40); }} className={SEL}>
+              <option value="">Všechny formáty</option>
+              {FORMATY.map((f) => <option key={f} value={f}>{f}</option>)}
+            </select>
+            <label className="col-span-1 md:col-span-2 flex items-center gap-2 px-1 text-[14px] text-[var(--cream-60)]">
+              <input id="f-yt" type="checkbox" checked={jenYt} onChange={(e) => setJenYt(e.target.checked)} className="accent-[var(--gold)] w-4 h-4" />
+              jen díly s částí zdarma na YouTube
+            </label>
+          </div>
+          )}
         </div>
 
         {sel && STRANKY.has(sel) && (

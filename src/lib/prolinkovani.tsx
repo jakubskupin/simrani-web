@@ -19,6 +19,8 @@ const PRAVIDLA: [string, RegExp][] = (
     ["spanking", "spank\\p{L}*"],
     ["waxplay", "waxplay"],
     ["latex", "latex\\p{L}*"],
+    ["dresscode", "dress ?cod\\p{L}*|dress kód\\p{L}*"],
+    ["pomucky", "pomůc(?:k|ek)\\p{L}*"],
     ["tantra", "tant[rř]\\p{L}*"],
     ["masaz", "mas(?:áž|ér)\\p{L}*"],
     ["orgasmus", "orgasm\\p{L}*"],

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Nav() {
   return (
     <nav className="hidden md:flex sticky top-0 z-50 items-center justify-between px-12 py-5 bg-[var(--deep)]/90 backdrop-blur-lg border-b border-[var(--gold-06)]">
@@ -11,6 +13,8 @@ export function Nav() {
       <div className="hidden md:flex items-center gap-8">
         <ul className="flex gap-8 list-none text-[13px] font-normal tracking-[1px]">
           <li><a href="#podcast" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Podcast</a></li>
+          <li><Link href="/intimita" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Abeceda intimity</Link></li>
+          <li><Link href="/host" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Hosté</Link></li>
           {/* Eventy dočasně skryté (SKRYT_EVENTY v Events.tsx) */}
           {/* <li><a href="#eventy" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Eventy</a></li> */}
           <li><a href="#komunita" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Komunita</a></li>
