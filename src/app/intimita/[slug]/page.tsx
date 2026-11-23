@@ -7,6 +7,8 @@ import { HACKY, DETAIL, ROKY, hacek, dilyHacku, stitekDilu, vazby, hostPodleJmen
 import { HostOdkaz } from "@/components/HostAvatar";
 import { prolinkuj } from "@/lib/prolinkovani";
 
+const dilu = (n: number) => (n === 1 ? "díl" : n >= 2 && n <= 4 ? "díly" : "dílů");
+
 export function generateStaticParams() {
   return HACKY.map((h) => ({ slug: h.slug }));
 }
@@ -41,7 +43,7 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
         <article className="flex flex-col gap-14 md:gap-20 min-w-0">
           <header className="flex flex-col gap-5">
             <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)]">
-              Pojem · {h.pocet} dílů{prvni ? ` od roku ${prvni}` : ""}
+              Pojem · {h.pocet} {dilu(h.pocet)}{prvni ? ` od roku ${prvni}` : ""}
             </div>
             <h1 className="font-headline font-normal text-[40px] md:text-[76px] leading-[1] text-[var(--cream)]">
               <span className="text-[var(--gold)] font-light">#</span>
@@ -137,8 +139,8 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                     <div className="md:sticky md:top-24 md:self-start">
                       <div className="font-headline text-[40px] leading-none text-[var(--cream)]">{y}</div>
                       <div className="mt-2 text-[12px] text-[var(--cream-35)]">
-                        {cc.length ? `${cc.length} citací · ` : ""}
-                        {ee.length} dílů
+                        {cc.length ? `${cc.length} ${cc.length === 1 ? "citace" : cc.length < 5 ? "citace" : "citací"} · ` : ""}
+                        {ee.length} {dilu(ee.length)}
                       </div>
                     </div>
                     <div className="flex flex-col gap-6 min-w-0">
