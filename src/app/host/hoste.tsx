@@ -6,8 +6,9 @@ export type Host = {
   jmeno: string;
   kdo: string;
   proc: string;
-  projekty: string[];
   web: string | null;
+  instagram?: string | null;
+  dalsi?: { nazev: string; url: string }[];
   foto: string | null;
   dily: number[];
   citace: { text: string; kotva: string; odkaz: string; dil: number | string; stitek?: string | null }[];

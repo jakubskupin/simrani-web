@@ -32,6 +32,21 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: h.jmeno,
+            description: h.kdo,
+            url: `https://simrani.cz/host/${h.slug}`,
+            image: h.foto ? `https://simrani.cz${h.foto}` : undefined,
+            sameAs: [h.web, h.instagram, ...(h.dalsi || []).map((x) => x.url)].filter(Boolean),
+            subjectOf: h.epizody.map((e) => ({ "@type": "PodcastEpisode", name: e.t, url: e.fo || undefined, partOfSeries: { "@type": "PodcastSeries", name: "Šimrání", url: "https://simrani.cz" } })),
+          }),
+        }}
+      />
       <HostBar slug={h.slug} />
       <main className="max-w-[1280px] mx-auto px-5 md:px-12 pt-10 md:pt-16 pb-20 flex flex-col gap-14 md:gap-20">
         <section className="flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-center">
@@ -45,15 +60,22 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
             <h1 className="font-headline font-normal text-[48px] md:text-[88px] leading-[1] text-[var(--cream)]">{h.jmeno}</h1>
             <p className="m-0 text-[17px] md:text-[19px] leading-[1.55] text-[var(--cream)] max-w-[640px]">{h.kdo}</p>
             <p className="m-0 text-[15px] md:text-[16px] leading-[1.55] text-[var(--cream-60)] max-w-[640px]">{h.proc}</p>
-            {(h.web || h.projekty.length > 0) && (
+            {(h.web || h.instagram || (h.dalsi && h.dalsi.length > 0)) && (
               <div className="flex flex-wrap gap-2">
                 {h.web && (
                   <a href={h.web} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full border border-[var(--gold)] text-[13px] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-colors">
-                    {h.web.replace("https://", "")} ↗
+                    {h.web.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} ↗
                   </a>
                 )}
-                {h.projekty.map((p) => (
-                  <span key={p} className="px-4 py-2 rounded-full border border-[var(--gold-25)] text-[13px] text-[var(--cream-60)]">{p}</span>
+                {h.instagram && (
+                  <a href={h.instagram} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full border border-[var(--gold)] text-[13px] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-colors">
+                    Instagram @{h.instagram.replace(/\/$/, "").split("/").pop()} ↗
+                  </a>
+                )}
+                {(h.dalsi || []).map((x) => (
+                  <a key={x.url} href={x.url} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full border border-[var(--gold-25)] text-[13px] text-[var(--cream-60)] hover:text-[var(--cream)] hover:border-[var(--gold)] transition-colors">
+                    {x.nazev} ↗
+                  </a>
                 ))}
               </div>
             )}
