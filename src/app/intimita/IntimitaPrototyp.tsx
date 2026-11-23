@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import data from "@/data/archiv.json";
 import { hosteDilu } from "@/lib/archiv";
 import { HostOdkaz } from "@/components/HostAvatar";
@@ -40,6 +40,18 @@ export function IntimitaPrototyp() {
   const [q, setQ] = useState("");
   const [pismeno, setPismeno] = useState<string | null>(null);
   const [limit, setLimit] = useState(40);
+
+  // pojem z adresy (/intimita?pojem=shibari), aby šlo prokliknout z medailonku hosta
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search).get("pojem");
+    if (p && LABEL[p]) setSel(p); // eslint-disable-line react-hooks/set-state-in-effect
+  }, []);
+  useEffect(() => {
+    const u = new URL(window.location.href);
+    if (sel) u.searchParams.set("pojem", sel);
+    else u.searchParams.delete("pojem");
+    window.history.replaceState(null, "", u.pathname + u.search);
+  }, [sel]);
 
   const filtr = sel !== null || rok !== "" || format !== "" || jenYt || q.trim() !== "";
   const list = useMemo(() => {

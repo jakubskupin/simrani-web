@@ -82,13 +82,15 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
             {h.pojmy.length > 0 && (
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-[10px] tracking-[2px] uppercase text-[var(--cream-35)] mr-1">Mluví o</span>
-                {h.pojmy.map((p) =>
-                  STRANKY_POJMU.has(p) ? (
-                    <Link key={p} href={`/intimita/${p}`} className="px-3 py-1 rounded-full bg-[var(--wine-bg)] text-[13px] text-[var(--cream)] hover:bg-[var(--wine)]">#{POJMY_LABEL[p]}</Link>
-                  ) : (
-                    <span key={p} className="px-3 py-1 rounded-full bg-[var(--wine-bg)] text-[13px] text-[var(--cream-60)]">#{POJMY_LABEL[p]}</span>
-                  ),
-                )}
+                {h.pojmy.map((p) => (
+                  <Link
+                    key={p}
+                    href={STRANKY_POJMU.has(p) ? `/intimita/${p}` : `/intimita?pojem=${p}`}
+                    className="px-3 py-1 rounded-full bg-[var(--wine-bg)] text-[13px] text-[var(--cream)] hover:bg-[var(--wine)] hover:text-[var(--gold)] transition-colors"
+                  >
+                    #{POJMY_LABEL[p]}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
