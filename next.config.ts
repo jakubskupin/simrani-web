@@ -5,6 +5,12 @@ const nextConfig: NextConfig = {
     return [
       { source: encodeURI("/šol"), destination: "/sol", permanent: false },
       { source: encodeURI("/ŠOL"), destination: "/sol", permanent: false },
+      // hosté: jméno a příjmení se spojovníkem (23. 11. 2026), staré adresy trvale přesměrovat
+      ...[
+        ["dennyworm", "denny-worm"], ["hanavackova", "hana-vackova"], ["lenkakralova", "lenka-kralova"],
+        ["jitkamandalam", "jitka-mandalam"], ["eliskakodysova", "eliska-kodysova"], ["marketasetinova", "marketa-setinova"],
+        ["dianavera", "diana-vera"], ["kristynapracharova", "kristyna-pracharova"],
+      ].map(([z, na]) => ({ source: `/host/${z}`, destination: `/host/${na}`, permanent: true })),
     ];
   },
 };

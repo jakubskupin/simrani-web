@@ -49,7 +49,7 @@ export function vazby(text: string) {
 /* ---------- hosté: propojení citací a dílů s medailonky /host/<jmeno> ---------- */
 export type HostLite = { slug: string; jmeno: string; foto: string | null; dily: number[] };
 export const HOSTE_LITE: HostLite[] = ((data as unknown as { hoste?: HostLite[] }).hoste || []).map((h) => ({ slug: h.slug, jmeno: h.jmeno, foto: h.foto, dily: h.dily }));
-const ALIAS: Record<string, string> = { "danny worm": "dennyworm" };
+const ALIAS: Record<string, string> = { "danny worm": "denny-worm" };
 const nm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
 
 /** Host podle jména; u samotného křestního jména musí sedět i díl (dvě Elišky, dva Josefové…). */
