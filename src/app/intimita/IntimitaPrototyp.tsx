@@ -269,9 +269,9 @@ export function IntimitaPrototyp() {
                   )}
                   <span className="md:hidden"> · {datumPlne(e.d)} · {delka(e.m)}</span>
                 </span>
-                {hosteDilu(e.n).length > 0 && (
+                {hosteDilu(e.n, e.t).length > 0 && (
                   <span className="flex flex-wrap gap-x-4 gap-y-1.5 pt-0.5 text-[13px]">
-                    {hosteDilu(e.n).map((h) => <HostOdkaz key={h.slug} h={h} size={24} />)}
+                    {hosteDilu(e.n, e.t).map((h) => <HostOdkaz key={h.slug} h={h} size={24} />)}
                   </span>
                 )}
                 {e.p.length > 0 && (

@@ -49,8 +49,16 @@ export function vazby(text: string) {
 }
 
 /* ---------- hosté: propojení citací a dílů s medailonky /host/<jmeno> ---------- */
-export type HostLite = { slug: string; jmeno: string; foto: string | null; dily: number[] };
-export const HOSTE_LITE: HostLite[] = ((data as unknown as { hoste?: HostLite[] }).hoste || []).map((h) => ({ slug: h.slug, jmeno: h.jmeno, foto: h.foto, dily: h.dily }));
+export type HostLite = { slug: string; jmeno: string; foto: string | null; dily: number[]; bezCisla: string[] };
+type HostData = Omit<HostLite, "bezCisla"> & { epizody?: { n: number | null; t: string }[] };
+/** bezCisla = názvy bonusů a speciálů bez čísla, ve kterých host byl (BEZ_CISLA v export_web.py). */
+export const HOSTE_LITE: HostLite[] = ((data as unknown as { hoste?: HostData[] }).hoste || []).map((h) => ({
+  slug: h.slug,
+  jmeno: h.jmeno,
+  foto: h.foto,
+  dily: h.dily,
+  bezCisla: (h.epizody || []).filter((e) => !e.n).map((e) => e.t),
+}));
 const ALIAS: Record<string, string> = { "danny worm": "denny-worm" };
 const nm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
 
@@ -69,7 +77,7 @@ export function hostPodleJmena(jmeno: string, dily: (number | string)[] = []): H
   return presne && k.includes(" ") ? presne : undefined;
 }
 
-export function hosteDilu(n: number | null): HostLite[] {
-  if (!n) return [];
-  return HOSTE_LITE.filter((h) => h.dily.includes(n));
+export function hosteDilu(n: number | null, titul?: string): HostLite[] {
+  if (n) return HOSTE_LITE.filter((h) => h.dily.includes(n));
+  return titul ? HOSTE_LITE.filter((h) => h.bezCisla.includes(titul)) : [];
 }

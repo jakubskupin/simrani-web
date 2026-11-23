@@ -128,8 +128,12 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
           <h2 className="m-0 text-[11px] tracking-[3px] uppercase text-[var(--cream-35)] font-normal">Díly · celé na Forendors</h2>
           <ul className="list-none p-0 m-0 border-t border-[var(--gold-10)]">
             {h.epizody.map((e) => (
-              <li key={e.n} className="grid grid-cols-[52px_minmax(0,1fr)] md:grid-cols-[72px_minmax(0,1fr)_120px] gap-x-4 py-4 border-b border-[var(--gold-10)] items-baseline">
-                <span className="font-headline text-[22px] text-[var(--gold)] tabular-nums">{e.n}.</span>
+              <li key={e.n ?? e.t} className="grid grid-cols-[52px_minmax(0,1fr)] md:grid-cols-[72px_minmax(0,1fr)_120px] gap-x-4 py-4 border-b border-[var(--gold-10)] items-baseline">
+                {e.n ? (
+                  <span className="font-headline text-[22px] text-[var(--gold)] tabular-nums">{e.n}.</span>
+                ) : (
+                  <span className="pt-1.5 text-[10px] tracking-[1px] uppercase text-[var(--cream-35)]">{/bonus/i.test(e.t) ? "bonus" : /live/i.test(e.t) ? "live" : "speciál"}</span>
+                )}
                 <span className="flex flex-col gap-1 min-w-0">
                   {e.fo ? (
                     <a href={e.fo} target="_blank" rel="noopener noreferrer" className="font-headline text-[18px] md:text-[21px] leading-[1.3] text-[var(--cream)] underline decoration-[var(--gold-25)] underline-offset-4 hover:text-[var(--gold)]">{e.t}</a>
