@@ -13,7 +13,8 @@ type Ep = { n: number | null; t: string; d: string; r: number; fo: string | null
 const OBLASTI = data.oblasti as Oblast[];
 const EPS = data.epizody as Ep[];
 const ROKY = [...(data.roky as number[])].reverse();
-const STRANKY = new Set(Object.keys(data.detail));
+const STRANKY = new Set((data.hacky as { slug: string }[]).map((h) => h.slug));
+const S_POHLEDEM = new Set(Object.keys(data.detail));
 const LABEL: Record<string, string> = Object.fromEntries(OBLASTI.flatMap((o) => o.pojmy.map((p) => [p.slug, p.label])));
 /** Host je pod písmenem každého svého jména (Diana Vera pod D i V); malé částice jako „van“ se nepočítají. */
 const INICIALY = (jmeno: string) => Array.from(new Set(jmeno.split(/\s+/).filter((w) => /^\p{Lu}/u.test(w)).map((w) => w[0].toUpperCase())));
@@ -251,7 +252,7 @@ export function IntimitaPrototyp() {
           >
             <span className="flex flex-col gap-1">
               <span className="font-headline text-[22px] text-[var(--cream)]">Stránka pojmu #{LABEL[sel]}</span>
-              <span className="text-[14px] text-[var(--cream-60)]">Jak to vidí Markéta, kdo o tom v podcastu mluvil a doslovné citace z dílů.</span>
+              <span className="text-[14px] text-[var(--cream-60)]">{S_POHLEDEM.has(sel) ? "Jak to vidí Markéta, kdo o tom v podcastu mluvil a doslovné citace z dílů." : "Všechny díly k pojmu a kdo o něm v podcastu mluvil."}</span>
             </span>
             <span className="text-[var(--gold)] text-[14px] group-hover:translate-x-1 transition-transform">simrani.cz/intimita/{sel} →</span>
           </Link>

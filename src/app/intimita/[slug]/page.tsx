@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ArchivBar, HackyPanel, ForendorsBox } from "../ArchivChrome";
-import { HACKY, DETAIL, ROKY, hacek, dilyHacku, stitekDilu, vazby, hostPodleJmena } from "@/lib/archiv";
+import { HACKY, DETAIL, ROKY, HOSTE_LITE, hacek, dilyHacku, stitekDilu, vazby, hostPodleJmena } from "@/lib/archiv";
 import { HostOdkaz } from "@/components/HostAvatar";
 import { prolinkuj } from "@/lib/prolinkovani";
 import { WEB, ldJson, epizodaLd, seznamLd, drobeckyLd, pocetDilu } from "@/lib/strukturovana";
@@ -37,6 +37,7 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
   const max = Math.max(1, ...Object.values(h.roky));
   const prvni = ROKY.find((y) => h.roky[String(y)] > 0);
   const cesta = `/intimita/${slug}`;
+  const hosteK = HOSTE_LITE.filter((x) => x.pojmy.includes(slug));
   const ld = ldJson([
     {
       "@type": "CollectionPage",
@@ -117,6 +118,21 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
               )}
             </section>
           </AnimatedSection>
+
+          {(!d || d.lide.length === 0) && hosteK.length > 0 && (
+            <AnimatedSection>
+              <section className="flex flex-col gap-6">
+                <h2 className="text-[11px] tracking-[3px] uppercase text-[var(--cream-35)] font-normal m-0">Kdo o tom v podcastu mluvil</h2>
+                <ul className="flex flex-wrap gap-x-7 gap-y-4 list-none p-0 m-0">
+                  {hosteK.map((x) => (
+                    <li key={x.slug}>
+                      <HostOdkaz h={x} size={36} className="font-headline text-[19px]" />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </AnimatedSection>
+          )}
 
           {d && d.lide.length > 0 && (
             <AnimatedSection>

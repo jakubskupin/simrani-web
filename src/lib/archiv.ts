@@ -49,8 +49,8 @@ export function vazby(text: string) {
 }
 
 /* ---------- hosté: propojení citací a dílů s medailonky /host/<jmeno> ---------- */
-export type HostLite = { slug: string; jmeno: string; foto: string | null; dily: number[]; bezCisla: string[] };
-type HostData = Omit<HostLite, "bezCisla"> & { epizody?: { n: number | null; t: string }[] };
+export type HostLite = { slug: string; jmeno: string; foto: string | null; dily: number[]; bezCisla: string[]; pojmy: string[] };
+type HostData = Omit<HostLite, "bezCisla" | "pojmy"> & { epizody?: { n: number | null; t: string }[]; pojmy?: string[] };
 /** bezCisla = názvy bonusů a speciálů bez čísla, ve kterých host byl (BEZ_CISLA v export_web.py). */
 export const HOSTE_LITE: HostLite[] = ((data as unknown as { hoste?: HostData[] }).hoste || []).map((h) => ({
   slug: h.slug,
@@ -58,6 +58,7 @@ export const HOSTE_LITE: HostLite[] = ((data as unknown as { hoste?: HostData[] 
   foto: h.foto,
   dily: h.dily,
   bezCisla: (h.epizody || []).filter((e) => !e.n).map((e) => e.t),
+  pojmy: h.pojmy || [],
 }));
 const ALIAS: Record<string, string> = { "danny worm": "denny-worm" };
 const nm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();

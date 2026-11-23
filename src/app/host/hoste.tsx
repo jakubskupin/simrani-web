@@ -20,7 +20,7 @@ export const HOSTE = (data as unknown as { hoste: Host[] }).hoste;
 export const POJMY_LABEL: Record<string, string> = Object.fromEntries(
   (data.oblasti as { pojmy: { slug: string; label: string }[] }[]).flatMap((o) => o.pojmy.map((p) => [p.slug, p.label])),
 );
-export const STRANKY_POJMU = new Set(Object.keys(data.detail));
+export const STRANKY_POJMU = new Set((data.hacky as { slug: string }[]).map((h) => h.slug));
 
 export function HostBar({ slug }: { slug?: string }) {
   return (

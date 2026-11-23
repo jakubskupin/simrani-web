@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import data from "@/data/archiv.json";
 
-const STRANKY = new Set(Object.keys(data.detail));
+const STRANKY = new Set((data.hacky as { slug: string }[]).map((h) => h.slug));
 const L = "(?<![\\p{L}\\p{N}])";
 /** Pojem → jak ho poznat v českém textu (i skloňovaný). Odkazuje se jen první výskyt v bloku. */
 const PRAVIDLA: [string, RegExp][] = (
