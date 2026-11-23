@@ -87,7 +87,7 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
                   <Link
                     key={p}
                     href={STRANKY_POJMU.has(p) ? `/intimita/${p}` : `/intimita?pojem=${p}`}
-                    className="px-3 py-1 rounded-full bg-[var(--wine-bg)] text-[13px] text-[var(--cream)] hover:bg-[var(--wine)] hover:text-[var(--gold)] transition-colors"
+                    className="px-3.5 py-1.5 rounded-full border border-[var(--gold-25)] bg-[var(--wine-bg)] text-[14px] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] hover:border-[var(--gold)] transition-colors"
                   >
                     #{POJMY_LABEL[p]}
                   </Link>
@@ -107,7 +107,7 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
                   <figcaption className="flex flex-wrap gap-x-3 gap-y-1 text-[13px] text-[var(--cream-60)]">
                     {c.stitek &&
                       (c.pojem ? (
-                        <Link href={hrefPojmu(c.pojem)} className="px-2 py-0.5 rounded-full bg-[var(--gold-10)] hover:bg-[var(--gold-25)] hover:text-[var(--cream)] transition-colors">
+                        <Link href={hrefPojmu(c.pojem)} className="px-2 py-0.5 rounded-full border border-[var(--gold-25)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-colors">
                           {c.stitek} · #{POJMY_LABEL[c.pojem] ?? c.pojem}
                         </Link>
                       ) : (

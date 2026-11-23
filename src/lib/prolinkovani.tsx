@@ -46,7 +46,7 @@ export function prolinkuj(text: string, vynech?: string): ReactNode {
   for (const h of hits) {
     if (h.i > pos) out.push(text.slice(pos, h.i));
     out.push(
-      <Link key={h.slug + h.i} href={hrefPojmu(h.slug)} className="underline decoration-[var(--gold-25)] underline-offset-4 hover:text-[var(--gold)] hover:decoration-[var(--gold)]">
+      <Link key={h.slug + h.i} href={hrefPojmu(h.slug)} className="text-[var(--gold)] underline decoration-[var(--gold)] decoration-1 underline-offset-4 hover:text-[var(--cream)]">
         {text.slice(h.i, h.i + h.len)}
       </Link>,
     );
