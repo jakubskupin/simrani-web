@@ -1,3 +1,4 @@
+import { pocetDilu } from "@/lib/strukturovana";
 import data from "@/data/archiv.json";
 
 export const dynamic = "force-static";
@@ -16,7 +17,7 @@ export function GET() {
     "## Abeceda intimity",
     "",
     `- [Abeceda intimity: všechny díly a pojmy](${B}/intimita): seznam všech příspěvků od roku 2021 s pojmy a odkazem na celý díl`,
-    ...hacky.map((h) => `- [${h.nazev}](${B}/intimita/${h.slug}): ${h.pocet} dílů${detail[h.slug] ? `; jak to vidí Markéta: ${detail[h.slug].pohled.text.slice(0, 180)}…` : ""}`),
+    ...hacky.map((h) => `- [${h.nazev}](${B}/intimita/${h.slug}): ${pocetDilu(h.pocet)}${detail[h.slug] ? `; jak to vidí Markéta: ${detail[h.slug].pohled.text.slice(0, 180)}…` : ""}`),
     "",
     "## Hosté",
     "",

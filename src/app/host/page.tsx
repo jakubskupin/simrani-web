@@ -2,6 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { HOSTE, HostBar, Foto } from "./hoste";
+import { WEB, ldJson, seznamLd, drobeckyLd } from "@/lib/strukturovana";
+
+const LD = ldJson([
+  {
+    "@type": "CollectionPage",
+    "@id": WEB + "/host",
+    url: WEB + "/host",
+    name: "Hosté Šimrání",
+    inLanguage: "cs",
+    isPartOf: { "@type": "WebSite", name: "Šimrání", url: WEB },
+    mainEntity: seznamLd(HOSTE.map((h) => ({ "@type": "Person", name: h.jmeno, url: `${WEB}/host/${h.slug}`, description: h.kdo, ...(h.foto ? { image: WEB + h.foto } : {}) }))),
+  },
+  drobeckyLd([["Šimrání", "/"], ["Hosté", "/host"]]),
+]);
 
 export const metadata: Metadata = {
   title: "Hosté Šimrání",
@@ -12,6 +26,7 @@ export const metadata: Metadata = {
 export default function HostePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: LD }} />
       <HostBar />
       <main className="max-w-[1280px] mx-auto px-5 md:px-12 pt-10 md:pt-16 pb-20 flex flex-col gap-10 md:gap-14">
         <header className="flex flex-col gap-4 max-w-[760px]">

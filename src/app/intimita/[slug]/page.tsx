@@ -6,6 +6,7 @@ import { ArchivBar, HackyPanel, ForendorsBox } from "../ArchivChrome";
 import { HACKY, DETAIL, ROKY, hacek, dilyHacku, stitekDilu, vazby, hostPodleJmena } from "@/lib/archiv";
 import { HostOdkaz } from "@/components/HostAvatar";
 import { prolinkuj } from "@/lib/prolinkovani";
+import { WEB, ldJson, epizodaLd, seznamLd, drobeckyLd, pocetDilu } from "@/lib/strukturovana";
 
 const dilu = (n: number) => (n === 1 ? "díl" : n >= 2 && n <= 4 ? "díly" : "dílů");
 
@@ -18,7 +19,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const h = hacek(slug);
   return {
     title: h ? `${h.nazev}: co zaznělo v Šimrání` : "Abeceda intimity",
-    description: h ? `Jak ${h.nazev} vidí Markéta, kdo o tom v podcastu mluvil a doslovné citace z ${h.pocet} dílů.` : undefined,
+    description: h
+      ? DETAIL[slug]
+        ? `Jak ${h.nazev} vidí Markéta, kdo o tom v podcastu mluvil a doslovné citace. ${pocetDilu(h.pocet)} podcastu Šimrání.`
+        : `Díly podcastu Šimrání na téma ${h.nazev}: kdo o tom mluvil a kde si to poslechnout. ${pocetDilu(h.pocet)}.`
+      : undefined,
     alternates: { canonical: `/intimita/${slug}` },
   };
 }
@@ -31,9 +36,30 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
   const dily = dilyHacku(slug);
   const max = Math.max(1, ...Object.values(h.roky));
   const prvni = ROKY.find((y) => h.roky[String(y)] > 0);
+  const cesta = `/intimita/${slug}`;
+  const ld = ldJson([
+    {
+      "@type": "CollectionPage",
+      "@id": WEB + cesta,
+      url: WEB + cesta,
+      name: `${h.nazev}: co zaznělo v Šimrání`,
+      inLanguage: "cs",
+      isPartOf: { "@type": "WebSite", name: "Šimrání", url: WEB },
+      about: { "@type": "DefinedTerm", name: h.nazev, url: WEB + cesta, inDefinedTermSet: { "@type": "DefinedTermSet", name: "Abeceda intimity", url: WEB + "/intimita" } },
+      ...(d
+        ? {
+            abstract: d.pohled.text,
+            citation: d.citace.map((c) => ({ "@type": "Quotation", text: c.text, creator: { "@type": "Person", name: c.mluvci }, url: c.odkaz })),
+          }
+        : {}),
+      mainEntity: seznamLd(dily.map(epizodaLd)),
+    },
+    drobeckyLd([["Šimrání", "/"], ["Abeceda intimity", "/intimita"], [h.nazev, cesta]]),
+  ]);
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld }} />
       <ArchivBar aktivni={slug} />
       <main className="max-w-[1280px] mx-auto px-5 md:px-12 pt-8 md:pt-14 pb-20 grid grid-cols-[minmax(0,1fr)] md:grid-cols-[230px_minmax(0,1fr)] gap-8 md:gap-14">
         <aside className="min-w-0 md:sticky md:top-24 md:self-start md:max-h-[calc(100vh-120px)] md:overflow-y-auto scrollbar-hide">
