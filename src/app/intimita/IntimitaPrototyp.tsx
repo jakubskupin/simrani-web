@@ -33,27 +33,24 @@ const oznaceni = (e: Ep) => {
 export function IntimitaPrototyp() {
   const [sel, setSel] = useState<string | null>(null);
   const [rok, setRok] = useState<string>("");
-  const [oblast, setOblast] = useState<string>("");
   const [format, setFormat] = useState<string>("");
   const [jenYt, setJenYt] = useState(false);
   const [q, setQ] = useState("");
   const [pismeno, setPismeno] = useState<string | null>(null);
   const [limit, setLimit] = useState(40);
 
-  const filtr = sel !== null || rok !== "" || oblast !== "" || format !== "" || jenYt || q.trim() !== "";
+  const filtr = sel !== null || rok !== "" || format !== "" || jenYt || q.trim() !== "";
   const list = useMemo(() => {
     const nq = norm(q.trim());
-    const ob = OBLASTI.find((o) => o.nazev === oblast);
     return EPS.filter(
       (e) =>
         (!sel || e.p.includes(sel)) &&
         (!rok || e.r === Number(rok)) &&
-        (!ob || e.p.some((p) => ob.pojmy.some((x) => x.slug === p))) &&
         (!format || typ(e) === format) &&
         (!jenYt || !!e.yt) &&
         (!nq || norm(e.t).includes(nq)),
     );
-  }, [sel, rok, oblast, format, jenYt, q]);
+  }, [sel, rok, format, jenYt, q]);
 
   const vyber = (s: string | null) => {
     setSel((cur) => (cur === s ? null : s));
@@ -61,7 +58,7 @@ export function IntimitaPrototyp() {
     setLimit(40);
   };
   const zrusit = () => {
-    setSel(null); setRok(""); setOblast(""); setFormat(""); setJenYt(false); setQ(""); setLimit(40);
+    setSel(null); setRok(""); setFormat(""); setJenYt(false); setQ(""); setLimit(40);
   };
 
   const panel = (
@@ -154,7 +151,7 @@ export function IntimitaPrototyp() {
           <div className="md:hidden pt-2">{panel}</div>
         </header>
 
-        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-2.5">
+        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-2.5">
           <input
             id="hledat"
             value={q}
@@ -165,10 +162,6 @@ export function IntimitaPrototyp() {
           <select id="f-rok" value={rok} onChange={(e) => { setRok(e.target.value); setLimit(40); }} className={SEL}>
             <option value="">Všechny roky</option>
             {ROKY.map((y) => <option key={y} value={y}>{y}</option>)}
-          </select>
-          <select id="f-oblast" value={oblast} onChange={(e) => { setOblast(e.target.value); setLimit(40); }} className={SEL}>
-            <option value="">Všechny oblasti</option>
-            {OBLASTI.map((o) => <option key={o.nazev} value={o.nazev}>{o.nazev}</option>)}
           </select>
           <select id="f-pojem" value={sel ?? ""} onChange={(e) => { setSel(e.target.value || null); setLimit(40); }} className={SEL}>
             <option value="">Všechny pojmy</option>
