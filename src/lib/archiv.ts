@@ -11,10 +11,10 @@ export type Citace = {
   rok: number | null;
   fo: string | null;
 };
-export type Clovek = { jmeno: string; kdo: string; dily: (number | string)[] };
-export type Hacek = { slug: string; nazev: string; pocet: number; roky: Record<string, number> };
+export type Clovek = { jmeno: string; kdo: string; dily: (number | string)[]; odkazy?: { nazev: string; url: string }[] };
+export type Hacek = { slug: string; nazev: string; pocet: number; roky: Record<string, number>; jemny?: boolean };
 export type Detail = { pohled: { text: string; opora: string[] }; lide: Clovek[]; citace: Citace[] };
-export type Epizoda = { n: number | null; t: string; d: string; r: number; fo: string | null; yt: string | null; h: string[] };
+export type Epizoda = { n: number | null; t: string; d: string; r: number; fo: string | null; yt: string | null; h: string[]; p: string[] };
 
 export const ROKY: number[] = data.roky;
 export const HACKY: Hacek[] = data.hacky as Hacek[];
@@ -26,8 +26,10 @@ export function hacek(slug: string) {
   return HACKY.find((h) => h.slug === slug);
 }
 
+/** Díly pojmu: široké téma (h) nebo jemný pojem se stránkou (p), např. waxplay, spanking. */
 export function dilyHacku(slug: string) {
-  return EPIZODY.filter((e) => e.h.includes(slug));
+  const jemny = HACKY.find((h) => h.slug === slug)?.jemny;
+  return EPIZODY.filter((e) => (jemny ? e.p.includes(slug) : e.h.includes(slug)));
 }
 
 /** Citace na úvod archivu: Markéta, Infojeskyňka /01, o tom, co je v ložnicích běžné. */

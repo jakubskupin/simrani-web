@@ -114,7 +114,9 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
                         <span className="px-2 py-0.5 rounded-full bg-[var(--gold-10)]">{c.stitek}</span>
                       ))}
                     <span>{typeof c.dil === "number" ? `${c.dil}. díl` : c.dil}</span>
-                    <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:underline tabular-nums">poslechni od {c.kotva} ▸</a>
+                    <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:underline tabular-nums">
+                      {/youtu/.test(c.odkaz) ? `poslechni od ${c.kotva} ▸` : `celý díl, čas ${c.kotva} ▸`}
+                    </a>
                   </figcaption>
                 </figure>
               ))}

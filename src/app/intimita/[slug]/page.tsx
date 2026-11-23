@@ -105,7 +105,16 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                           <span className="font-headline text-[19px] text-[var(--cream)]">{l.jmeno}</span>
                         );
                       })()}
-                      {l.kdo && <span className="text-[13px] leading-[1.5] text-[var(--cream-60)]">{l.kdo}</span>}
+                      {l.kdo && <span className="text-[13px] leading-[1.5] text-[var(--cream-60)]">{prolinkuj(vazby(l.kdo), slug)}</span>}
+                      {l.odkazy && l.odkazy.length > 0 && (
+                        <span className="flex flex-wrap gap-x-3 gap-y-1 text-[12px]">
+                          {l.odkazy.map((o) => (
+                            <a key={o.url} href={o.url} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline decoration-[var(--gold-25)] underline-offset-4 hover:decoration-[var(--gold)]">
+                              {o.nazev} ↗
+                            </a>
+                          ))}
+                        </span>
+                      )}
                       <span className="text-[12px] text-[var(--cream-35)]">
                         {l.dily.map((x) => (typeof x === "number" ? `${x}. díl` : x)).join(", ")}
                       </span>
@@ -150,9 +159,15 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                                 })()}
                                 {c.odhad && <span title="Mluvčí odhadnutý z kontextu, ověřit poslechem" className="text-[var(--gold)]">?</span>}
                                 <span>{typeof c.dil === "number" ? `${c.dil}. díl` : c.dil}</span>
-                                <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:underline tabular-nums">
-                                  {c.kotva} ▸
-                                </a>
+                                {/youtu/.test(c.odkaz) ? (
+                                  <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:underline tabular-nums">
+                                    {c.kotva} ▸
+                                  </a>
+                                ) : (
+                                  <span className="text-[var(--gold)] tabular-nums" title="Čas v celém dílu">
+                                    {c.kotva}
+                                  </span>
+                                )}
                                 {c.fo && (
                                   <a href={c.fo} target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--gold-25)] underline-offset-4 hover:text-[var(--gold)]">
                                     celý díl

@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
         ["dennyworm", "denny-worm"], ["hanavackova", "hana-vackova"], ["lenkakralova", "lenka-kralova"],
         ["jitkamandalam", "jitka-mandalam"], ["eliskakodysova", "eliska-kodysova"], ["marketasetinova", "marketa-setinova"],
         ["dianavera", "diana-vera"], ["kristynapracharova", "kristyna-pracharova"],
+        // Joan pod celým jménem podle profilu lektorky na webu Subspace (Jakub 23. 11. 2026)
+        ["joan", "joan-von-brook"],
       ].map(([z, na]) => ({ source: `/host/${z}`, destination: `/host/${na}`, permanent: true })),
     ];
   },
