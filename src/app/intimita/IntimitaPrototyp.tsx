@@ -15,8 +15,10 @@ const EPS = data.epizody as Ep[];
 const ROKY = [...(data.roky as number[])].reverse();
 const STRANKY = new Set(Object.keys(data.detail));
 const LABEL: Record<string, string> = Object.fromEntries(OBLASTI.flatMap((o) => o.pojmy.map((p) => [p.slug, p.label])));
+/** Host je pod písmenem každého svého jména (Diana Vera pod D i V); malé částice jako „van“ se nepočítají. */
+const INICIALY = (jmeno: string) => Array.from(new Set(jmeno.split(/\s+/).filter((w) => /^\p{Lu}/u.test(w)).map((w) => w[0].toUpperCase())));
 const PISMENA = Array.from(
-  new Set(OBLASTI.flatMap((o) => o.pojmy.map((p) => p.label[0].toUpperCase())).concat(HOSTE_LITE.map((h) => h.jmeno[0].toUpperCase()), "Š")),
+  new Set(OBLASTI.flatMap((o) => o.pojmy.map((p) => p.label[0].toUpperCase())).concat(HOSTE_LITE.flatMap((h) => INICIALY(h.jmeno)), "Š")),
 ).sort((a, b) => a.localeCompare(b, "cs"));
 const HOSTE_ABC = [...HOSTE_LITE].sort((a, b) => a.jmeno.localeCompare(b.jmeno, "cs"));
 
@@ -138,16 +140,17 @@ export function IntimitaPrototyp() {
           </p>
           <div className="flex gap-1.5 overflow-x-auto scrollbar-hide -mx-5 px-5 md:mx-0 md:px-0 md:flex-wrap pt-1" aria-label="Abeceda">
             {PISMENA.map((l) => {
-              const s = l === "Š";
+              const s = l === "Š" && !HOSTE_LITE.some((h) => INICIALY(h.jmeno).includes("Š")) && !OBLASTI.some((o) => o.pojmy.some((p) => p.label[0].toUpperCase() === "Š"));
+              const sZnak = l === "Š";
               const on = pismeno === l;
               return (
                 <button
                   key={l}
                   type="button"
-                  title={s ? "Š jako Šimrání" : `Pojmy a hosté na ${l}`}
+                  title={sZnak ? "Š jako Šimrání" : `Pojmy a hosté na ${l}`}
                   onClick={() => (s ? undefined : setPismeno(on ? null : l))}
                   className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-[4px] font-headline text-[19px] md:text-[22px] transition-colors ${
-                    s ? "bg-[var(--gold)] text-[var(--deep)] cursor-default" : on ? "bg-[var(--cream)] text-[var(--deep)]" : "bg-[var(--wine-bg)] text-[var(--cream)] hover:bg-[var(--wine)]"
+                    s ? "bg-[var(--gold)] text-[var(--deep)] cursor-default" : on ? "bg-[var(--cream)] text-[var(--deep)]" : sZnak ? "bg-[var(--gold)] text-[var(--deep)] hover:opacity-85" : "bg-[var(--wine-bg)] text-[var(--cream)] hover:bg-[var(--wine)]"
                   }`}
                 >
                   {l}
@@ -169,10 +172,10 @@ export function IntimitaPrototyp() {
                     ))}
                 </div>
               )}
-              {HOSTE_ABC.some((h) => h.jmeno[0].toUpperCase() === pismeno) && (
+              {HOSTE_ABC.some((h) => INICIALY(h.jmeno).includes(pismeno)) && (
                 <div className="flex flex-wrap gap-x-5 gap-y-2 items-center text-[13px] text-[var(--cream-60)]">
                   <span className="w-16 shrink-0">Hosté</span>
-                  {HOSTE_ABC.filter((h) => h.jmeno[0].toUpperCase() === pismeno).map((h) => (
+                  {HOSTE_ABC.filter((h) => INICIALY(h.jmeno).includes(pismeno)).map((h) => (
                     <HostOdkaz key={h.slug} h={h} size={30} />
                   ))}
                 </div>
