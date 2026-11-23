@@ -21,6 +21,9 @@ const PISMENA = Array.from(
   new Set(OBLASTI.flatMap((o) => o.pojmy.map((p) => p.label[0].toUpperCase())).concat(HOSTE_LITE.flatMap((h) => INICIALY(h.jmeno)), "Š")),
 ).sort((a, b) => a.localeCompare(b, "cs"));
 const HOSTE_ABC = [...HOSTE_LITE].sort((a, b) => a.jmeno.localeCompare(b.jmeno, "cs"));
+const VSECHNY_POJMY = OBLASTI.flatMap((o) => o.pojmy);
+/** Pojmy na písmeno (M → místa, masáž); písmeno filtruje seznam dílů jejich sjednocením. */
+const pojmyNa = (l: string | null) => (l ? VSECHNY_POJMY.filter((p) => p.label[0].toUpperCase() === l) : []);
 
 const SEL = "w-full px-4 py-3 rounded-[4px] border border-[var(--gold-25)] bg-[var(--deep)] text-[15px] text-[var(--cream)] outline-none focus:border-[var(--gold)]";
 const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -60,26 +63,34 @@ export function IntimitaPrototyp() {
   }, [sel]);
 
   const rozsirenyFiltr = rok !== "" || format !== "" || jenYt || q.trim() !== "";
-  const filtr = sel !== null || rozsirenyFiltr;
+  const filtr = sel !== null || pismeno !== null || rozsirenyFiltr;
+  const naPismeno = useMemo(() => pojmyNa(pismeno).map((p) => p.slug), [pismeno]);
+  // zvýrazněné štítky u dílů: vybraný pojem, jinak všechny pojmy na zvolené písmeno
+  const aktivni = sel ? [sel] : naPismeno;
   const list = useMemo(() => {
     const nq = norm(q.trim());
     return EPS.filter(
       (e) =>
-        (!sel || e.p.includes(sel)) &&
+        (sel ? e.p.includes(sel) : !naPismeno.length || e.p.some((p) => naPismeno.includes(p))) &&
         (!rok || e.r === Number(rok)) &&
         (!format || typ(e) === format) &&
         (!jenYt || !!e.yt) &&
         (!nq || norm(e.t).includes(nq)),
     );
-  }, [sel, rok, format, jenYt, q]);
+  }, [sel, naPismeno, rok, format, jenYt, q]);
 
   const vyber = (s: string | null) => {
     setSel((cur) => (cur === s ? null : s));
     setPismeno(null);
     setLimit(40);
   };
+  const pismenoKlik = (l: string) => {
+    setPismeno((cur) => (cur === l ? null : l));
+    setSel(null);
+    setLimit(40);
+  };
   const zrusit = () => {
-    setSel(null); setRok(""); setFormat(""); setJenYt(false); setQ(""); setLimit(40);
+    setSel(null); setPismeno(null); setRok(""); setFormat(""); setJenYt(false); setQ(""); setLimit(40);
   };
 
   const panel = (
@@ -88,7 +99,7 @@ export function IntimitaPrototyp() {
             type="button"
             onClick={() => vyber(null)}
             className={`shrink-0 text-left px-3.5 md:px-3 py-1.5 md:py-2 rounded-full md:rounded-[4px] text-[14px] md:text-[15px] transition-colors ${
-              sel === null ? "bg-[var(--gold)] text-[var(--deep)]" : "border border-[var(--gold-10)] md:border-0 text-[var(--cream-60)] hover:bg-[var(--gold-06)]"
+              sel === null && !pismeno ? "bg-[var(--gold)] text-[var(--deep)]" : "border border-[var(--gold-10)] md:border-0 text-[var(--cream-60)] hover:bg-[var(--gold-06)]"
             }`}
           >
             Všechny díly <span className="text-[12px] opacity-70 tabular-nums">{EPS.length}</span>
@@ -148,7 +159,8 @@ export function IntimitaPrototyp() {
                   key={l}
                   type="button"
                   title={sZnak ? "Š jako Šimrání" : `Pojmy a hosté na ${l}`}
-                  onClick={() => (s ? undefined : setPismeno(on ? null : l))}
+                  onClick={() => (s ? undefined : pismenoKlik(l))}
+                  aria-pressed={on}
                   className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-[4px] font-headline text-[19px] md:text-[22px] transition-colors ${
                     s ? "bg-[var(--gold)] text-[var(--deep)] cursor-default" : on ? "bg-[var(--cream)] text-[var(--deep)]" : sZnak ? "bg-[var(--gold)] text-[var(--deep)] hover:opacity-85" : "bg-[var(--wine-bg)] text-[var(--cream)] hover:bg-[var(--wine)]"
                   }`}
@@ -163,13 +175,17 @@ export function IntimitaPrototyp() {
               {OBLASTI.some((o) => o.pojmy.some((p) => p.label[0].toUpperCase() === pismeno)) && (
                 <div className="flex flex-wrap gap-2 items-center text-[13px] text-[var(--cream-60)]">
                   <span className="w-16 shrink-0">Pojmy</span>
-                  {OBLASTI.flatMap((o) => o.pojmy)
-                    .filter((p) => p.label[0].toUpperCase() === pismeno)
-                    .map((p) => (
-                      <button key={p.slug} type="button" onClick={() => vyber(p.slug)} className="px-3 py-1 rounded-full border border-[var(--gold-25)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-colors">
-                        #{p.label} <span className="opacity-60">{p.pocet}</span>
-                      </button>
-                    ))}
+                  {pojmyNa(pismeno).map((p) => (
+                    <button
+                      key={p.slug}
+                      type="button"
+                      aria-pressed={sel === p.slug}
+                      onClick={() => { setSel((cur) => (cur === p.slug ? null : p.slug)); setLimit(40); }}
+                      className={`px-3 py-1 rounded-full border transition-colors ${sel === p.slug ? "bg-[var(--gold)] border-[var(--gold)] text-[var(--deep)]" : "border-[var(--gold-25)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)]"}`}
+                    >
+                      #{p.label} <span className="opacity-60">{p.pocet}</span>
+                    </button>
+                  ))}
                 </div>
               )}
               {HOSTE_ABC.some((h) => INICIALY(h.jmeno).includes(pismeno)) && (
@@ -241,6 +257,25 @@ export function IntimitaPrototyp() {
           </Link>
         )}
 
+        {pismeno && !sel && (
+          <p className="m-0 text-[15px] text-[var(--cream-60)]">
+            {naPismeno.length ? (
+              <>
+                Písmeno <strong className="font-medium text-[var(--cream)]">{pismeno}</strong>: díly s pojmem{" "}
+                {naPismeno.map((sl, i) => (
+                  <span key={sl}>
+                    {i > 0 && (i === naPismeno.length - 1 ? " nebo " : ", ")}
+                    <span className="text-[var(--gold)]">#{LABEL[sl]}</span>
+                  </span>
+                ))}
+                . Klik na pojem výše výběr zúží.
+              </>
+            ) : (
+              <>Na písmeno {pismeno} zatím nemáme pojem, jen hosty výše.</>
+            )}
+          </p>
+        )}
+
         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[14px]">
           <span className="text-[var(--cream)]">{list.length} z {EPS.length} příspěvků</span>
           <span className="text-[var(--cream-35)]">Klik na název otevře celý díl na Forendors.</span>
@@ -277,7 +312,7 @@ export function IntimitaPrototyp() {
                 {e.p.length > 0 && (
                   <span className="flex flex-wrap gap-1.5 pt-0.5">
                     {e.p.map((p) => (
-                      <button key={p} type="button" onClick={() => vyber(p)} className={`px-3 py-0.5 rounded-full text-[13px] transition-colors ${sel === p ? "bg-[var(--gold)] text-[var(--deep)]" : "bg-[var(--wine-bg)] text-[var(--cream-60)] hover:text-[var(--cream)] hover:bg-[var(--wine)]"}`}>
+                      <button key={p} type="button" onClick={() => vyber(p)} className={`px-3 py-0.5 rounded-full text-[13px] transition-colors ${aktivni.includes(p) ? "bg-[var(--gold)] text-[var(--deep)]" : "bg-[var(--wine-bg)] text-[var(--cream-60)] hover:text-[var(--cream)] hover:bg-[var(--wine)]"}`}>
                         #{LABEL[p]}
                       </button>
                     ))}

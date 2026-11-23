@@ -95,7 +95,7 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
           <AnimatedSection>
             <section className="flex flex-col gap-5">
               <h2 className="text-[11px] tracking-[3px] uppercase text-[var(--cream-35)] font-normal m-0">Jak to vidí Markéta</h2>
-              {d ? (
+              {d && d.pohled.text ? (
                 <>
                   <p className="m-0 font-headline text-[22px] md:text-[30px] leading-[1.4] text-[var(--cream)] max-w-[820px]" style={{ fontVariationSettings: "'SOFT' 50, 'opsz' 72" }}>
                     {prolinkuj(vazby(d.pohled.text), slug)}
