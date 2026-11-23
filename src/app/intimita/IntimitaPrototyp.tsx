@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import data from "@/data/archiv.json";
+import { hosteDilu } from "@/lib/archiv";
+import { HostOdkaz } from "@/components/HostAvatar";
 
 type Pojem = { slug: string; label: string; pocet: number };
 type Oblast = { nazev: string; pojmy: Pojem[] };
@@ -222,6 +224,11 @@ export function IntimitaPrototyp() {
                   )}
                   <span className="md:hidden"> · {datumPlne(e.d)} · {delka(e.m)}</span>
                 </span>
+                {hosteDilu(e.n).length > 0 && (
+                  <span className="flex flex-wrap gap-x-4 gap-y-1.5 pt-0.5 text-[13px]">
+                    {hosteDilu(e.n).map((h) => <HostOdkaz key={h.slug} h={h} size={24} />)}
+                  </span>
+                )}
                 {e.p.length > 0 && (
                   <span className="flex flex-wrap gap-1.5 pt-0.5">
                     {e.p.map((p) => (

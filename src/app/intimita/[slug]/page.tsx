@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ArchivBar, HackyPanel, ForendorsBox } from "../ArchivChrome";
-import { HACKY, DETAIL, ROKY, hacek, dilyHacku, stitekDilu, vazby } from "@/lib/archiv";
+import { HACKY, DETAIL, ROKY, hacek, dilyHacku, stitekDilu, vazby, hostPodleJmena } from "@/lib/archiv";
+import { HostOdkaz } from "@/components/HostAvatar";
 
 export function generateStaticParams() {
   return HACKY.map((h) => ({ slug: h.slug }));
@@ -95,7 +96,14 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                 <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5 list-none p-0 m-0">
                   {d.lide.map((l) => (
                     <li key={l.jmeno} className="flex flex-col gap-1 border-l border-[var(--gold-25)] pl-4">
-                      <span className="font-headline text-[19px] text-[var(--cream)]">{l.jmeno}</span>
+                      {(() => {
+                        const hh = hostPodleJmena(l.jmeno, l.dily);
+                        return hh ? (
+                          <HostOdkaz h={hh} jmeno={l.jmeno} size={32} className="font-headline text-[19px]" />
+                        ) : (
+                          <span className="font-headline text-[19px] text-[var(--cream)]">{l.jmeno}</span>
+                        );
+                      })()}
                       {l.kdo && <span className="text-[13px] leading-[1.5] text-[var(--cream-60)]">{l.kdo}</span>}
                       <span className="text-[12px] text-[var(--cream-35)]">
                         {l.dily.map((x) => (typeof x === "number" ? `${x}. díl` : x)).join(", ")}
@@ -131,10 +139,15 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                               <blockquote className="m-0 font-headline text-[17px] leading-[1.45] text-[var(--cream)]">„{vazby(c.text)}“</blockquote>
                               <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[12px] text-[var(--cream-60)]">
                                 {c.stitek && <span className="px-2 py-0.5 rounded-full bg-[var(--gold-06)] text-[var(--cream-60)]">{c.stitek}</span>}
-                                <span className="text-[var(--cream)] font-medium">
-                                  {c.mluvci}
-                                  {c.odhad && <span title="Mluvčí odhadnutý z kontextu, ověřit poslechem" className="text-[var(--gold)]"> ?</span>}
-                                </span>
+                                {(() => {
+                                  const hh = hostPodleJmena(c.mluvci, [c.dil]);
+                                  return hh ? (
+                                    <HostOdkaz h={hh} jmeno={c.mluvci} size={22} />
+                                  ) : (
+                                    <span className="text-[var(--cream)] font-medium">{c.mluvci}</span>
+                                  );
+                                })()}
+                                {c.odhad && <span title="Mluvčí odhadnutý z kontextu, ověřit poslechem" className="text-[var(--gold)]">?</span>}
                                 <span>{typeof c.dil === "number" ? `${c.dil}. díl` : c.dil}</span>
                                 <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:underline tabular-nums">
                                   {c.kotva} ▸
