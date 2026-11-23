@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: h ? `${h.nazev}: co zaznělo v Šimrání` : "Abeceda intimity",
     description: h ? `Jak ${h.nazev} vidí Markéta, kdo o tom v podcastu mluvil a doslovné citace z ${h.pocet} dílů.` : undefined,
-    robots: { index: false, follow: false },
+    alternates: { canonical: `/intimita/${slug}` },
   };
 }
 

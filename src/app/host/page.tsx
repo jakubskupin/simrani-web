@@ -6,7 +6,7 @@ import { HOSTE, HostBar, Foto } from "./hoste";
 export const metadata: Metadata = {
   title: "Hosté Šimrání",
   description: "Lidé, kteří si v podcastu Šimrání sedli k mikrofonu: kdo jsou, o čem mluvili a ve kterých dílech je najdeš.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/host" },
 };
 
 export default function HostePage() {

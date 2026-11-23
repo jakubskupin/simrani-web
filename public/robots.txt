@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /brand
 Disallow: /sol
+
+Sitemap: https://simrani.cz/sitemap.xml

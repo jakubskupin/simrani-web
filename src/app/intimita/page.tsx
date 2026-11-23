@@ -6,7 +6,7 @@ import { IntimitaPrototyp } from "./IntimitaPrototyp";
 export const metadata: Metadata = {
   title: "Abeceda intimity: pět let rozhovorů Šimrání po pojmech",
   description: "Všechny díly podcastu Šimrání od roku 2021, rozdělené do pojmů. Vyber pojem, nebo projdi všechno.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/intimita" },
 };
 
 export default function IntimitaPage() {

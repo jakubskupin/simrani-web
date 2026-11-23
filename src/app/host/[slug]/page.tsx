@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: h ? `${h.jmeno} v Šimrání` : "Hosté Šimrání",
     description: h?.kdo,
-    robots: { index: false, follow: false },
+    alternates: { canonical: `/host/${slug}` },
   };
 }
 
