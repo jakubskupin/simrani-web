@@ -198,10 +198,15 @@ function EventCard({
   );
 }
 
+/** Dočasně skryté nadpis a karty eventů: teď se nic nekoná (Jakub 23. 11. 2026). Vrátit = false. */
+export const SKRYT_EVENTY = true;
+
 export function Events() {
   return (
     <section id="eventy" className="bg-[var(--deep)] px-5 md:px-12 lg:px-[120px] pt-16 md:pt-20 pb-10 md:pb-12">
       <div className="flex flex-col gap-10">
+        {!SKRYT_EVENTY && (
+          <>
         {/* Header */}
         <div className="flex flex-col gap-4">
           <span className="text-[11px] font-medium tracking-[4px] uppercase text-[var(--gold)]">
@@ -265,6 +270,9 @@ export function Events() {
             image="/intimity-festival.jpg"
           />
         </div>
+
+          </>
+        )}
 
         {/* B2B strip — inline under events */}
         <B2BStrip />

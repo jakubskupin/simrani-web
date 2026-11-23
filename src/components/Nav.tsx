@@ -11,7 +11,8 @@ export function Nav() {
       <div className="hidden md:flex items-center gap-8">
         <ul className="flex gap-8 list-none text-[13px] font-normal tracking-[1px]">
           <li><a href="#podcast" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Podcast</a></li>
-          <li><a href="#eventy" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Eventy</a></li>
+          {/* Eventy dočasně skryté (SKRYT_EVENTY v Events.tsx) */}
+          {/* <li><a href="#eventy" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Eventy</a></li> */}
           <li><a href="#komunita" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">Komunita</a></li>
           <li><a href="#marketa" className="text-[var(--cream-60)] hover:text-[var(--gold)] transition-colors">O mně</a></li>
         </ul>
