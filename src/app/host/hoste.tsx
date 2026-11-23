@@ -11,7 +11,7 @@ export type Host = {
   dalsi?: { nazev: string; url: string }[];
   foto: string | null;
   dily: number[];
-  citace: { text: string; kotva: string; odkaz: string; dil: number | string; stitek?: string | null }[];
+  citace: { text: string; kotva: string; odkaz: string; dil: number | string; stitek?: string | null; pojem?: string | null }[];
   pojmy: string[];
   epizody: { n: number; t: string; d: string; r: number; fo: string | null; yt: string | null }[];
 };

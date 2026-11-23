@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { ArchivBar, HackyPanel, ForendorsBox } from "../ArchivChrome";
 import { HACKY, DETAIL, ROKY, hacek, dilyHacku, stitekDilu, vazby, hostPodleJmena } from "@/lib/archiv";
 import { HostOdkaz } from "@/components/HostAvatar";
+import { prolinkuj } from "@/lib/prolinkovani";
 
 export function generateStaticParams() {
   return HACKY.map((h) => ({ slug: h.slug }));
@@ -69,7 +70,7 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
               {d ? (
                 <>
                   <p className="m-0 font-headline text-[22px] md:text-[30px] leading-[1.4] text-[var(--cream)] max-w-[820px]" style={{ fontVariationSettings: "'SOFT' 50, 'opsz' 72" }}>
-                    {vazby(d.pohled.text)}
+                    {prolinkuj(vazby(d.pohled.text), slug)}
                   </p>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] text-[var(--cream-60)]">
                     <span className="font-headline italic text-[18px] text-[var(--gold)]">Markéta</span>

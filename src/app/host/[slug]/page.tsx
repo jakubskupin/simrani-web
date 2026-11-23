@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { ForendorsBox } from "../../intimita/ArchivChrome";
 import { HOSTE, HostBar, Foto, POJMY_LABEL, STRANKY_POJMU } from "../hoste";
+import { prolinkuj, hrefPojmu } from "@/lib/prolinkovani";
 
 export function generateStaticParams() {
   return HOSTE.map((h) => ({ slug: h.slug }));
@@ -58,8 +59,8 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
               Host Šimrání · {h.dily.map((n) => `${n}. díl`).join(", ")} · {roky.join(" a ")}
             </div>
             <h1 className="font-headline font-normal text-[48px] md:text-[88px] leading-[1] text-[var(--cream)]">{h.jmeno}</h1>
-            <p className="m-0 text-[17px] md:text-[19px] leading-[1.55] text-[var(--cream)] max-w-[640px]">{h.kdo}</p>
-            <p className="m-0 text-[15px] md:text-[16px] leading-[1.55] text-[var(--cream-60)] max-w-[640px]">{h.proc}</p>
+            <p className="m-0 text-[17px] md:text-[19px] leading-[1.55] text-[var(--cream)] max-w-[640px]">{prolinkuj(h.kdo)}</p>
+            <p className="m-0 text-[15px] md:text-[16px] leading-[1.55] text-[var(--cream-60)] max-w-[640px]">{prolinkuj(h.proc)}</p>
             {(h.web || h.instagram || (h.dalsi && h.dalsi.length > 0)) && (
               <div className="flex flex-wrap gap-2">
                 {h.web && (
@@ -104,7 +105,14 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
                 <figure key={c.odkaz + c.text.slice(0, 10)} className="m-0 p-6 bg-[var(--wine-bg)] rounded-[4px] flex flex-col gap-3">
                   <blockquote className="m-0 font-headline text-[18px] md:text-[20px] leading-[1.45] text-[var(--cream)]">„{c.text}“</blockquote>
                   <figcaption className="flex flex-wrap gap-x-3 gap-y-1 text-[13px] text-[var(--cream-60)]">
-                    {c.stitek && <span className="px-2 py-0.5 rounded-full bg-[var(--gold-10)]">{c.stitek}</span>}
+                    {c.stitek &&
+                      (c.pojem ? (
+                        <Link href={hrefPojmu(c.pojem)} className="px-2 py-0.5 rounded-full bg-[var(--gold-10)] hover:bg-[var(--gold-25)] hover:text-[var(--cream)] transition-colors">
+                          {c.stitek} · #{POJMY_LABEL[c.pojem] ?? c.pojem}
+                        </Link>
+                      ) : (
+                        <span className="px-2 py-0.5 rounded-full bg-[var(--gold-10)]">{c.stitek}</span>
+                      ))}
                     <span>{typeof c.dil === "number" ? `${c.dil}. díl` : c.dil}</span>
                     <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:underline tabular-nums">poslechni od {c.kotva} ▸</a>
                   </figcaption>
