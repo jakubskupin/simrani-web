@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import data from "@/data/archiv.json";
-import { hosteDilu, HOSTE_LITE } from "@/lib/archiv";
+import { hosteDilu, HOSTE_LITE, NOVE } from "@/lib/archiv";
 import { HostOdkaz } from "@/components/HostAvatar";
 
 type Pojem = { slug: string; label: string; pocet: number };
@@ -124,7 +124,10 @@ export function IntimitaPrototyp() {
                           : "border border-[var(--gold-10)] md:border-0 text-[var(--cream-60)] hover:text-[var(--cream)] hover:bg-[var(--gold-06)]"
                     }`}
                   >
-                    <span>#{p.label}</span>
+                    <span className="inline-flex items-center gap-1.5">
+                      #{p.label}
+                      {NOVE.has(p.slug) && <span className={`text-[9px] tracking-[1px] ${on ? "text-[var(--deep)]" : "text-[#E8B4D8]"}`}>NOVÉ</span>}
+                    </span>
                     <span className={`text-[11px] tabular-nums ${on ? "" : "text-[var(--cream-35)]"}`}>{p.pocet}</span>
                   </button>
                 );

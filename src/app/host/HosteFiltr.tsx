@@ -28,7 +28,7 @@ function Foto({ h, size }: { h: Host; size: number }) {
   );
 }
 
-export function HosteFiltr({ hoste, label }: { hoste: (Host & { role?: string[] })[]; label: Record<string, string> }) {
+export function HosteFiltr({ hoste, label }: { hoste: (Host & { role?: string[]; karta?: string[] })[]; label: Record<string, string> }) {
   const [role, setRole] = useState<string | null>(null);
   useEffect(() => {
     const r = new URLSearchParams(window.location.search).get("role");
@@ -88,7 +88,12 @@ export function HosteFiltr({ hoste, label }: { hoste: (Host & { role?: string[] 
               <span className="text-[14px] leading-[1.5] text-[var(--cream-60)] line-clamp-3">{h.kdo}</span>
             </Link>
             <span className="flex flex-wrap items-center gap-1.5 mt-auto">
-              {h.pojmy.slice(0, 2).map((p) => (
+              {h.karta?.map((k) => (
+                <span key={k} className="px-2.5 py-0.5 rounded-full bg-[var(--gold)] text-[11px] font-medium tracking-[1px] text-[var(--deep)]">
+                  {k}
+                </span>
+              ))}
+              {!h.karta && h.pojmy.slice(0, 2).map((p) => (
                 <Link key={p} href={`/intimita/${p}`} className="px-2.5 py-0.5 rounded-full border border-[var(--gold-25)] text-[11px] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-colors">
                   #{label[p] ?? p}
                 </Link>

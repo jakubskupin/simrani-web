@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HACKY, FORENDORS } from "@/lib/archiv";
+import { HACKY, FORENDORS, NOVE } from "@/lib/archiv";
 import archivData from "@/data/archiv.json";
 
 export function ArchivBar({ aktivni }: { aktivni?: string }) {
@@ -40,6 +40,7 @@ const POCET_HOSTU = ((archivData as unknown as { hoste?: unknown[] }).hoste || [
 /** aktivni = slug pojmu, nebo „vse“ (katalog) a „hoste“ (/host). */
 export function AbecedaPanel({ aktivni }: { aktivni?: string }) {
   const polozka = (href: string, label: string, n: number, on: boolean, key: string) => (
+    /* NOVÉ jen u pojmů z NOVE */
     <li key={key} className="shrink-0">
       <Link
         href={href}
@@ -48,7 +49,10 @@ export function AbecedaPanel({ aktivni }: { aktivni?: string }) {
           on ? "bg-[var(--gold)] text-[var(--deep)]" : "border border-[var(--gold-10)] md:border-0 text-[var(--cream-60)] hover:text-[var(--cream)] hover:bg-[var(--gold-06)]"
         }`}
       >
-        <span>{label}</span>
+        <span className="inline-flex items-center gap-1.5">
+          {label}
+          {NOVE.has(key) && <span className={`text-[9px] tracking-[1px] ${on ? "text-[var(--deep)]" : "text-[#E8B4D8]"}`}>NOVÉ</span>}
+        </span>
         <span className={`text-[11px] tabular-nums ${on ? "" : "text-[var(--cream-35)]"}`}>{n}</span>
       </Link>
     </li>

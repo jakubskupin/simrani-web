@@ -109,6 +109,19 @@ function sOdkazy(t: string, slug: string) {
     if (i % 3 === 0) return x ? <span key={i}>{prolinkuj(vazby(x), slug)}</span> : null;
     if (i % 3 === 2) return null;
     const url = casti[i + 1];
+    const host = url.startsWith("/host/") ? HOSTE_LITE.find((h) => `/host/${h.slug}` === url) : undefined;
+    if (host)
+      return (
+        <Link key={i} href={url} title={`Medailonek: ${host.jmeno}`} className="inline-flex items-center gap-1.5 align-[0.1em] mx-0.5 pl-[3px] pr-2 py-[3px] rounded-full bg-[var(--wine-bg)] border border-[var(--gold-10)] font-sans text-[13px] leading-none text-[var(--cream)] whitespace-nowrap hover:border-[var(--gold)] transition-colors">
+          {host.foto ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={host.foto} alt="" width={18} height={18} className="rounded-full object-cover" style={{ width: 18, height: 18 }} />
+          ) : (
+            <Monogram jmeno={host.jmeno} size={18} />
+          )}
+          {vazby(x)}
+        </Link>
+      );
     const cls = "text-[var(--gold)] underline decoration-[var(--gold-25)] underline-offset-4 hover:decoration-[var(--gold)]";
     return url.startsWith("/") ? (
       <Link key={i} href={url} className={cls}>{vazby(x)}</Link>

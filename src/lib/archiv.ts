@@ -24,7 +24,10 @@ export type ClanekBlok =
 export type Obrazek = { soubor: string; sirka: number; vyska: number; popisek: string; zdroj: string; url: string; pozn?: string; svoleni: boolean };
 export type Graf = { titulek: string; pojmy: [string, string][]; popisek: string };
 /** Graf z cizího výzkumu, překreslený: řádky [popisek, procenta, zvýraznit 0/1]. */
-export type Vyzkum = { titulek: string; n: string; rady: [string, number, number][]; zvyrazneni: string; zdroj: string; url: string; vzorek: string };
+export type Vyzkum = { titulek: string; otazka?: string; osoba?: string; n: string; rady: [string, number, number][]; zvyrazneni: string; zdroj: string; url: string; vzorek: string };
+
+/** Pojmy se štítkem NOVÉ v levém panelu (Jakub 25. 11. 2026: ENM má nový článek). */
+export const NOVE = new Set(["enm"]);
 export type Clanek = {
   stav: string;
   aktualizovano: string;
