@@ -154,12 +154,12 @@ function CitaceVKontextu({ c }: { c: Citace & { kontext: string } }) {
   );
 }
 
-function GrafPodoby({ g, cislo }: { g: Clanek["grafy"][string]; cislo: number }) {
+function GrafPodoby({ g }: { g: Clanek["grafy"][string] }) {
   const sl = g.pojmy.map(([slug, pozn]) => ({ slug, pozn, n: hacek(slug)?.pocet ?? 0 }));
   const max = Math.max(1, ...sl.map((s) => s.n));
   return (
     <figure className="m-0 flex flex-col gap-5 p-6 md:p-7 bg-[var(--wine-bg)] rounded-[4px]">
-      <figcaption className="font-headline text-[18px] md:text-[20px] text-[var(--cream)]">Obr. {cislo} · {g.titulek}</figcaption>
+      <figcaption className="font-headline text-[18px] md:text-[20px] text-[var(--cream)]">{g.titulek}</figcaption>
       <div className="grid gap-2 md:gap-3.5 items-end h-[230px]" style={{ gridTemplateColumns: `repeat(${sl.length}, minmax(0, 1fr))` }}>
         {sl.map((s, i) => {
           const bezDohody = i === sl.length - 1 && s.pozn === "bez dohody";
@@ -179,7 +179,7 @@ function GrafPodoby({ g, cislo }: { g: Clanek["grafy"][string]; cislo: number })
   );
 }
 
-function ObrazekFig({ o, cislo }: { o: Clanek["obrazky"][string]; cislo: number }) {
+function ObrazekFig({ o }: { o: Clanek["obrazky"][string] }) {
   if (!o.svoleni && !NAHLED) return null;
   return (
     <figure className="m-0 flex flex-col gap-3">
@@ -188,7 +188,7 @@ function ObrazekFig({ o, cislo }: { o: Clanek["obrazky"][string]; cislo: number 
         <img src={o.soubor} alt={o.popisek} width={o.sirka} height={o.vyska} loading="lazy" className="w-full h-auto rounded-[4px]" />
       </a>
       <figcaption className="flex flex-col gap-1.5 text-[13px] leading-[1.5] text-[var(--cream-60)]">
-        <span>Obr. {cislo} · {vazby(o.popisek)}</span>
+        <span>{vazby(o.popisek)}</span>
         <span className="text-[12px] text-[var(--gold)]">
           Zdroj:{" "}
           <a href={o.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-[var(--gold-25)]">
@@ -202,7 +202,6 @@ function ObrazekFig({ o, cislo }: { o: Clanek["obrazky"][string]; cislo: number 
 }
 
 export function ClanekTelo({ cl, slug }: { cl: Clanek; slug: string }) {
-  let obr = 0;
   return (
     <>
       {cl.sekce.map((s, i) => (
@@ -212,9 +211,9 @@ export function ClanekTelo({ cl, slug }: { cl: Clanek; slug: string }) {
             {s.bloky.map((b, j) => {
               if (b.typ === "p") return <Odstavec key={j} casti={b.casti} opory={cl.opory} slug={slug} />;
               if (b.typ === "citace") return <CitaceVKontextu key={j} c={b} />;
-              if (b.typ === "graf" && cl.grafy[b.id]) return <GrafPodoby key={j} g={cl.grafy[b.id]} cislo={++obr} />;
-              if (b.typ === "vyzkum" && cl.vyzkumy?.[b.id]) return <GrafVyzkum key={j} v={cl.vyzkumy[b.id]} cislo={++obr} />;
-              if (b.typ === "obrazek" && cl.obrazky[b.id] && (cl.obrazky[b.id].svoleni || NAHLED)) return <ObrazekFig key={j} o={cl.obrazky[b.id]} cislo={++obr} />;
+              if (b.typ === "graf" && cl.grafy[b.id]) return <GrafPodoby key={j} g={cl.grafy[b.id]} />;
+              if (b.typ === "vyzkum" && cl.vyzkumy?.[b.id]) return <GrafVyzkum key={j} v={cl.vyzkumy[b.id]} />;
+              if (b.typ === "obrazek" && cl.obrazky[b.id] && (cl.obrazky[b.id].svoleni || NAHLED)) return <ObrazekFig key={j} o={cl.obrazky[b.id]} />;
               return null;
             })}
           </section>

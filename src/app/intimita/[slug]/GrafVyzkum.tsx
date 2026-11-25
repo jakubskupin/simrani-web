@@ -4,14 +4,14 @@ import { HOSTE_LITE, type Vyzkum } from "@/lib/archiv";
 /* Překreslený graf z cizího výzkumu: nadpis a čísla ze zdroje, zvýrazněné řádky pudrovou. */
 const cz = (n: number) => n.toLocaleString("cs-CZ", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
-export function GrafVyzkum({ v, cislo }: { v: Vyzkum; cislo: number }) {
+export function GrafVyzkum({ v }: { v: Vyzkum }) {
   const max = 50;
   const osoba = v.osoba ? HOSTE_LITE.find((h) => h.slug === v.osoba) : undefined;
   return (
     <figure className="m-0 flex flex-col gap-5 p-6 md:p-7 bg-[var(--wine-bg)] rounded-[4px]">
       <figcaption className="flex flex-col gap-1.5">
         <span className="font-headline text-[20px] md:text-[24px] leading-[1.25] text-[var(--cream)]">
-          Obr. {cislo} · {v.titulek}
+          {v.titulek}
         </span>
         {v.otazka && <span className="text-[13px] text-[var(--cream-60)]">Otázka: {v.otazka}</span>}
         <span className="text-[12px] text-[var(--cream-35)]">{v.n}</span>
