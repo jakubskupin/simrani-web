@@ -118,24 +118,34 @@ export function HackyPanel({ aktivni }: { aktivni?: string }) {
   );
 }
 
-export function ForendorsBox() {
+const dilu = (n: number) => (n === 1 ? "díl" : n >= 2 && n <= 4 ? "díly" : "dílů");
+
+/** Spodní výzva na Forendors podle tématu stránky: nadpis s pojmem, počet dílů, jeden díl, kterým začít.
+ *  Bez naléhání, jedna cena, vykání (Markétin hlas). Bez pojmu obecná verze (katalog, medailonky). */
+export function ForendorsBox({ pojem, pocet, hlavne, zacni }: { pojem?: string; pocet?: number; hlavne?: boolean; zacni?: { popisek: string; url: string } }) {
+  const tlacitko = "self-start md:self-auto shrink-0 px-6 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[14px] font-medium hover:shadow-[0_8px_30px_rgba(197,155,104,0.3)] transition-all";
   return (
-    <aside className="flex flex-col md:flex-row md:items-center justify-between gap-5 p-7 md:p-9 bg-[var(--wine-bg)] border border-[var(--gold-10)] rounded-[4px]">
-      <div className="flex flex-col gap-2 max-w-[560px]">
-        <div className="font-headline text-[22px] md:text-[26px] text-[var(--cream)]">Celé díly jsou na Forendors</div>
-        <p className="m-0 text-[14px] leading-[1.6] text-[var(--cream-60)]">
-          Na YouTube a Spotify je u novějších dílů jen první část. Předplatné za 248 Kč měsíčně ti otevře celý archiv, většinu dílů
-          koupíš i jednotlivě za 249 Kč.
+    <aside className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-7 md:p-9 bg-[var(--wine-bg)] border border-[var(--gold-10)] rounded-[4px]">
+      <div className="flex flex-col gap-2.5 max-w-[580px]">
+        <div className="font-headline text-[22px] md:text-[26px] leading-[1.25] text-[var(--cream)]">
+          {pojem ? `Celé rozhovory na téma ${pojem} najdete na Forendors` : "Celé rozhovory najdete na Forendors"}
+        </div>
+        <p className="m-0 text-[15px] leading-[1.6] text-[var(--cream-60)]">
+          {pojem && pocet ? `${pocet} ${dilu(pocet)}, ${hlavne ? "kde je to hlavní téma" : "kde to zazní"}. ` : ""}
+          Rychle se dostanete k jádru a rozšíříte si mapu znalostí.
         </p>
+        <p className="m-0 text-[13px] text-[var(--cream-35)]">Předplatné 248 Kč měsíčně, díly jdou koupit i jednotlivě.</p>
       </div>
-      <a
-        href={FORENDORS}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="self-start md:self-auto shrink-0 px-6 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] text-[14px] font-medium hover:shadow-[0_8px_30px_rgba(197,155,104,0.3)] transition-all"
-      >
-        Poslouchat na Forendors
-      </a>
+      <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
+        <a href={zacni?.url ?? FORENDORS} target="_blank" rel="noopener noreferrer" className={tlacitko}>
+          {zacni ? `Začněte ${zacni.popisek}` : "Poslouchat na Forendors"}
+        </a>
+        {zacni && (
+          <a href={FORENDORS} target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--gold)] underline decoration-[var(--gold-25)] underline-offset-4 hover:decoration-[var(--gold)]">
+            Celý archiv na Forendors
+          </a>
+        )}
+      </div>
     </aside>
   );
 }

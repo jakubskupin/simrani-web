@@ -78,6 +78,9 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
     drobeckyLd([["Šimrání", "/"], ["Abeceda intimity", "/intimita"], [h.nazev, cesta]]),
   ]);
 
+  /* díl, kterým začít (clanek.cta.zacni = číslo dílu), vede přímo na Forendors */
+  const zacniDil = cl?.cta?.zacni ? dily.find((e) => e.n === cl.cta!.zacni) : undefined;
+  const zacni = zacniDil?.fo && cl?.cta ? { popisek: cl.cta.popisek, url: zacniDil.fo } : undefined;
   const kicker = `Pojem · ${h.pocet} ${dilu(h.pocet)}${prvni ? ` od roku ${prvni}` : ""}`;
   const rokyGraf = (
     <div className={`grid grid-cols-6 gap-1.5 ${cl ? "max-w-[440px] pt-2" : "max-w-[520px]"}`} aria-label="Počet dílů po letech">
@@ -211,7 +214,7 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
               />
               <ClanekTelo cl={cl} slug={slug} />
               <ClanekDily cl={cl} dily={dily} slug={slug} nazev={kratkyNazev(slug, h.nazev)} />
-              <ForendorsBox />
+              <ForendorsBox pojem={kratkyNazev(slug, h.nazev)} pocet={dily.filter((e) => (cl.dily_hlavne || []).includes(e.t)).length || dily.length} hlavne={!!cl.dily_hlavne?.length} zacni={zacni} />
             </article>
             <ClanekPravySloupec cl={cl} lide={d?.lide || []} dily={dily} slug={slug} url={WEB + cesta} />
           </div>
@@ -296,7 +299,7 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
 
             {rokPoRoku}
 
-            <ForendorsBox />
+            <ForendorsBox pojem={kratkyNazev(slug, h.nazev)} pocet={dily.length} />
           </article>
         )}
       </main>

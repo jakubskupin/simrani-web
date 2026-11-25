@@ -38,6 +38,7 @@ export type Clanek = {
   obrazky: Record<string, Obrazek>;
   grafy: Record<string, Graf>;
   vyzkumy?: Record<string, Vyzkum>;
+  cta?: { zacni: number; popisek: string };
   dily_hlavne?: string[];
   dily_hlavne_pozn?: string;
 };
