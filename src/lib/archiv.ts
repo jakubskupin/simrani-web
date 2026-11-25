@@ -13,12 +13,40 @@ export type Citace = {
 };
 export type Clovek = { jmeno: string; kdo: string; dily: (number | string)[]; odkazy?: { nazev: string; url: string }[] };
 export type Hacek = { slug: string; nazev: string; pocet: number; roky: Record<string, number>; jemny?: boolean };
-export type Detail = { pohled: { text: string; opora: string[] }; lide: Clovek[]; citace: Citace[] };
-export type Epizoda = { n: number | null; t: string; d: string; r: number; fo: string | null; yt: string | null; h: string[]; p: string[] };
+/** Stránka pojmu jako zdrojovaný článek (podcast-korpus/POJEM-CLANEK.md). */
+export type Opora = Citace & { n: number; kdo: string; tvare?: string[] };
+export type ClanekBlok =
+  | { typ: "p"; casti: (string | { r: number })[] }
+  | ({ typ: "citace"; kontext: string } & Citace)
+  | { typ: "obrazek"; id: string }
+  | { typ: "graf"; id: string }
+  | { typ: "vyzkum"; id: string };
+export type Obrazek = { soubor: string; sirka: number; vyska: number; popisek: string; zdroj: string; url: string; pozn?: string; svoleni: boolean };
+export type Graf = { titulek: string; pojmy: [string, string][]; popisek: string };
+/** Graf z cizího výzkumu, překreslený: řádky [popisek, procenta, zvýraznit 0/1]. */
+export type Vyzkum = { titulek: string; n: string; rady: [string, number, number][]; zvyrazneni: string; zdroj: string; url: string; vzorek: string };
+export type Clanek = {
+  stav: string;
+  aktualizovano: string;
+  perex: string;
+  sekce: { h2: string; bloky: ClanekBlok[] }[];
+  zaver: string;
+  opory: Opora[];
+  obrazky: Record<string, Obrazek>;
+  grafy: Record<string, Graf>;
+  vyzkumy?: Record<string, Vyzkum>;
+  dily_hlavne?: string[];
+  dily_hlavne_pozn?: string;
+};
+export type Detail = { pohled: { text: string; opora: string[] }; lide: Clovek[]; citace: Citace[]; clanek?: Clanek };
+
+/** Návrhy textů (stav „návrh…“) a obrázky bez svolení autora jen v lokálním náhledu nebo s NEXT_PUBLIC_NAHLED=1. */
+export const NAHLED = process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_NAHLED === "1";
+export type Epizoda = { n: number | null; t: string; d: string; r: number; fo: string | null; yt: string | null; m?: number | null; h: string[]; p: string[] };
 
 export const ROKY: number[] = data.roky;
 export const HACKY: Hacek[] = data.hacky as Hacek[];
-export const DETAIL: Record<string, Detail> = data.detail as Record<string, Detail>;
+export const DETAIL: Record<string, Detail> = data.detail as unknown as Record<string, Detail>;
 export const EPIZODY: Epizoda[] = data.epizody as Epizoda[];
 export const FORENDORS = "https://www.forendors.cz/simrani.cz";
 

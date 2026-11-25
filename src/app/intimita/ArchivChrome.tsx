@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HACKY, FORENDORS } from "@/lib/archiv";
+import archivData from "@/data/archiv.json";
 
 export function ArchivBar({ aktivni }: { aktivni?: string }) {
   return (
@@ -26,6 +27,57 @@ export function ArchivBar({ aktivni }: { aktivni?: string }) {
         </a>
       </div>
     </header>
+  );
+}
+
+/* Jeden levý panel pro celou Abecedu (stejný jako na /intimita): Všechny díly, Hosté, pojmy po oblastech.
+   Klik vždy vede na stránku, nikdy nefiltruje. Na mobilu vodorovný pás. */
+type PanelPojem = { slug: string; label: string; pocet: number };
+const OBLASTI_PANEL = archivData.oblasti as { nazev: string; pojmy: PanelPojem[] }[];
+const POCET_DILU = (archivData.epizody as unknown[]).length;
+const POCET_HOSTU = ((archivData as unknown as { hoste?: unknown[] }).hoste || []).length;
+
+/** aktivni = slug pojmu, nebo „vse“ (katalog) a „hoste“ (/host). */
+export function AbecedaPanel({ aktivni }: { aktivni?: string }) {
+  const polozka = (href: string, label: string, n: number, on: boolean, key: string) => (
+    <li key={key} className="shrink-0">
+      <Link
+        href={href}
+        aria-current={on ? "page" : undefined}
+        className={`flex items-baseline justify-between gap-3 whitespace-nowrap px-3.5 md:px-2.5 py-1.5 md:py-[5px] rounded-full md:rounded-[4px] text-[13px] md:text-[14px] transition-colors ${
+          on ? "bg-[var(--gold)] text-[var(--deep)]" : "border border-[var(--gold-10)] md:border-0 text-[var(--cream-60)] hover:text-[var(--cream)] hover:bg-[var(--gold-06)]"
+        }`}
+      >
+        <span>{label}</span>
+        <span className={`text-[11px] tabular-nums ${on ? "" : "text-[var(--cream-35)]"}`}>{n}</span>
+      </Link>
+    </li>
+  );
+  const pojmy = OBLASTI_PANEL.flatMap((o) => o.pojmy);
+  return (
+    <nav aria-label="Abeceda intimity" className="min-w-0">
+      <ul className="md:hidden flex gap-2 overflow-x-auto scrollbar-hide list-none p-0 m-0 -mx-5 px-5">
+        {polozka("/intimita", "Všechny díly", POCET_DILU, aktivni === "vse", "vse")}
+        {polozka("/host", "Hosté", POCET_HOSTU, aktivni === "hoste", "hoste")}
+        {[...pojmy.filter((p) => p.slug === aktivni), ...pojmy.filter((p) => p.slug !== aktivni)].map((p) =>
+          polozka(`/intimita/${p.slug}`, `#${p.label}`, p.pocet, p.slug === aktivni, p.slug),
+        )}
+      </ul>
+      <div className="hidden md:flex flex-col gap-5">
+        <ul className="flex flex-col gap-0.5 list-none p-0 m-0">
+          {polozka("/intimita", "Všechny díly", POCET_DILU, aktivni === "vse", "vse")}
+          {polozka("/host", "Hosté", POCET_HOSTU, aktivni === "hoste", "hoste")}
+        </ul>
+        {OBLASTI_PANEL.map((o) => (
+          <div key={o.nazev} className="flex flex-col gap-1">
+            <div className="text-[10px] tracking-[3px] uppercase text-[var(--cream-35)] mb-1 px-2.5">{o.nazev}</div>
+            <ul className="flex flex-col gap-0.5 list-none p-0 m-0">
+              {o.pojmy.map((p) => polozka(`/intimita/${p.slug}`, `#${p.label}`, p.pocet, p.slug === aktivni, p.slug))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </nav>
   );
 }
 

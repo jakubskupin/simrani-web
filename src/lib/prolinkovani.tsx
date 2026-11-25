@@ -25,6 +25,7 @@ const PRAVIDLA: [string, RegExp][] = (
     ["clawdering", "clawdering\\p{L}*"],
     ["playparty", "play ?part(?:y|ies)"],
     ["hypnoza", "hypnó\\p{L}*"],
+    ["dirtytalk", "dirty ?talk\\p{L}*"],
     ["feminismus", "feminis\\p{L}*"],
     ["dresscode", "dress ?cod\\p{L}*|dress kód\\p{L}*"],
     ["pomucky", "pomůc(?:k|ek)\\p{L}*"],
