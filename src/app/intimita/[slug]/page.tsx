@@ -7,7 +7,7 @@ import { HACKY, DETAIL, ROKY, HOSTE_LITE, NAHLED, hacek, dilyHacku, stitekDilu, 
 import { HostOdkaz } from "@/components/HostAvatar";
 import { prolinkuj } from "@/lib/prolinkovani";
 import { WEB, ldJson, epizodaLd, seznamLd, drobeckyLd, pocetDilu } from "@/lib/strukturovana";
-import { ClanekHlavicka, ClanekTelo, ClanekPravySloupec, ClanekDily, mluvci, kratkyNazev } from "./Clanek";
+import { ClanekHlavicka, ClanekTelo, ClanekLideASouvisi, ClanekDily, mluvci, kratkyNazev } from "./Clanek";
 
 const dilu = (n: number) => (n === 1 ? "díl" : n >= 2 && n <= 4 ? "díly" : "dílů");
 
@@ -202,8 +202,8 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
         </aside>
 
         {cl ? (
-          <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,720px)_minmax(0,1fr)] gap-14 lg:gap-12 min-w-0">
-            <article className="flex flex-col gap-12 md:gap-14 min-w-0">
+          <div className="min-w-0">
+            <article className="flex flex-col gap-12 md:gap-14 min-w-0 max-w-[760px]">
               <ClanekHlavicka
                 nazev={kratkyNazev(slug, h.nazev)}
                 kicker={kicker}
@@ -213,10 +213,10 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                 lidi={new Set(cl.opory.map((o) => mluvci(o).jmeno)).size}
               />
               <ClanekTelo cl={cl} slug={slug} />
+              <ClanekLideASouvisi lide={d?.lide || []} dily={dily} slug={slug} />
               <ClanekDily cl={cl} dily={dily} slug={slug} nazev={kratkyNazev(slug, h.nazev)} />
               <ForendorsBox pojem={kratkyNazev(slug, h.nazev)} pocet={dily.filter((e) => (cl.dily_hlavne || []).includes(e.t)).length || dily.length} hlavne={!!cl.dily_hlavne?.length} zacni={zacni} />
             </article>
-            <ClanekPravySloupec cl={cl} lide={d?.lide || []} dily={dily} slug={slug} url={WEB + cesta} />
           </div>
         ) : (
           <article className="flex flex-col gap-14 md:gap-20 min-w-0">
