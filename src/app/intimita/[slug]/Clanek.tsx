@@ -64,6 +64,9 @@ export function ClanekHlavicka({ nazev, kicker, cl, roky, lidi, dilu }: { nazev:
   );
 }
 
+/** Kam vede odkaz opory: minuta na YouTube, nebo díl na Forendors (citace z placené části a ze starých dílů). */
+const kam = (url: string) => (url.includes("forendors") ? "Forendors" : "YouTube");
+
 /** Čip za citovanou větou (pen.dev 11b): tvář, jméno a čas, vede na minutu na YouTube. U Markéty jen čas, článek píše ona. */
 function Cip({ o }: { o: Opora }) {
   const k = mluvci(o);
@@ -77,7 +80,7 @@ function Cip({ o }: { o: Opora }) {
       href={o.odkaz}
       target="_blank"
       rel="noopener noreferrer"
-      title={`${k.jmeno} · ${dilText(o.dil)} · ${o.kotva} · pustit na YouTube`}
+      title={`${k.jmeno} · ${dilText(o.dil)} · ${o.kotva} · pustit na ${kam(o.odkaz)}`}
       className={`inline-flex items-center gap-1.5 align-[0.1em] mx-1 ${k.marketa ? "px-2" : "pl-[3px] pr-2"} py-[3px] rounded-full bg-[var(--wine-bg)] border border-[var(--gold-10)] font-sans not-italic text-[12px] leading-none text-[var(--cream-60)] whitespace-nowrap hover:border-[var(--gold)] hover:text-[var(--cream)] transition-colors`}
     >
       {!k.marketa &&
@@ -147,7 +150,7 @@ function CitaceVKontextu({ c }: { c: Citace & { kontext: string } }) {
       <figcaption className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[13px] text-[var(--cream-60)]">
         {k.host ? <HostOdkaz h={k.host} size={26} /> : (<span className="inline-flex items-center gap-2"><Monogram jmeno={k.jmeno} size={26} /><span className="text-[var(--cream)]">{k.jmeno}</span></span>)}
         <span>{dilText(c.dil)}</span>
-        <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className={`${odkazCls} tabular-nums`}>{c.kotva} ▸ YouTube</a>
+        <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className={`${odkazCls} tabular-nums`}>{c.kotva} ▸ {kam(c.odkaz)}</a>
         {c.fo && (<a href={c.fo} target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--gold-25)] underline-offset-4 hover:text-[var(--gold)]">celý díl na Forendors</a>)}
       </figcaption>
     </figure>
