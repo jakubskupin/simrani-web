@@ -332,10 +332,10 @@ export function ClanekDily({ cl, dily, slug, nazev }: { cl: Clanek; dily: Epizod
 
 
 /** Kam se obrátit (Jakub 26. 11. 2026): lidé z podcastu, u kterých jde pojem zkusit. Díl vede vždy na Forendors. */
-type HostWeb = { slug: string; web?: string | null };
+type HostWeb = { slug: string; web?: string | null; instagram?: string | null };
 export function ClanekKam({ kam }: { kam: NonNullable<Clanek["kam"]>; nazev?: string }) {
   if (!kam.length) return null;
-  const weby = Object.fromEntries(((archivData as unknown as { hoste?: HostWeb[] }).hoste || []).map((h) => [h.slug, h.web || null]));
+  const weby = Object.fromEntries(((archivData as unknown as { hoste?: HostWeb[] }).hoste || []).map((h) => [h.slug, h.web || h.instagram || null]));  // bez webu Instagram
   const epizody = (archivData as unknown as { epizody: Epizoda[] }).epizody;
   return (
     <section className="flex flex-col gap-4 pt-8 border-t border-[var(--gold-10)]">
@@ -363,7 +363,7 @@ export function ClanekKam({ kam }: { kam: NonNullable<Clanek["kam"]>; nazev?: st
                 <Link href={`/host/${h.slug}`} className="font-headline text-[20px] leading-[1.2] text-[var(--cream)] hover:text-[var(--gold)]">{h.jmeno}</Link>
                 <p className="m-0 text-[14px] leading-[1.5] text-[var(--cream-60)]">{k.co}</p>
                 <div className="flex flex-wrap gap-x-5 gap-y-1 text-[13px]">
-                  {web && (<a href={web} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline decoration-[var(--gold-25)] underline-offset-4 hover:decoration-[var(--gold)]">{web.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} ↗</a>)}
+                  {web && (<a href={web} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline decoration-[var(--gold-25)] underline-offset-4 hover:decoration-[var(--gold)]">{/instagram\.com/.test(web) ? `Instagram @${web.replace(/\/$/, "").split("/").pop()}` : web.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} ↗</a>)}
                   {dil?.fo && (<a href={dil.fo} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline decoration-[var(--gold-25)] underline-offset-4 hover:decoration-[var(--gold)]">{k.dil}. díl na Forendors ▸</a>)}
                 </div>
               </div>
