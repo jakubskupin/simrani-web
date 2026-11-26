@@ -35,6 +35,7 @@ const PRAVIDLA: [string, RegExp][] = (
     ["nahota", "nahot\\p{L}*"],
     ["terapie", "psychoterapeut\\p{L}*|terapeut(?!ick)\\p{L}*|terapi\\p{L}*"],
     ["konsent", "konsent\\p{L}*"],
+    ["stopka", "stopk\\p{L}*|safe ?word\\p{L}*|stop(?!\\p{L})"],  // Jakub 26. 11. 2026: slovo stop prolinkovat na pojem stopka
     ["lgbtq", "LGBT\\p{L}*\\+?"],
     ["asexualita", "asexuál\\p{L}*"],
   ] as [string, string][]

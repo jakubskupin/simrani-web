@@ -141,10 +141,7 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
                     <span className="font-headline text-[18px] md:text-[21px] text-[var(--cream)]">{e.t}</span>
                   )}
                   <span className="text-[13px] text-[var(--cream-35)]">
-                    {e.yt && (
-                      <a href={`https://youtu.be/${e.yt}`} target="_blank" rel="noopener noreferrer" className="text-[var(--cream-60)] underline decoration-[var(--gold-25)] underline-offset-4 hover:text-[var(--gold)]">část zdarma na YouTube</a>
-                    )}
-                    <span className="md:hidden">{e.yt ? " · " : ""}{datum(e.d)}</span>
+                    <span className="md:hidden">{datum(e.d)}</span>
                   </span>
                 </span>
                 <span className="hidden md:block text-right text-[14px] text-[var(--cream-60)] tabular-nums">{datum(e.d)}</span>

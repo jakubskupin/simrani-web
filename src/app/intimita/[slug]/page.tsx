@@ -168,18 +168,6 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                         ) : (
                           e.t
                         )}
-                        {e.yt && (
-                          <a
-                            href={`https://youtu.be/${e.yt}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Část zdarma na YouTube"
-                            title="Část zdarma na YouTube"
-                            className="ml-2 text-[11px] text-[var(--gold)]"
-                          >
-                            ▶
-                          </a>
-                        )}
                       </span>
                     </li>
                   ))}

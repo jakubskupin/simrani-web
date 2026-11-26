@@ -291,7 +291,7 @@ export function ClanekDily({ cl, dily, slug, nazev }: { cl: Clanek; dily: Epizod
           Díly, které jsou hlavně o #{nazev}
         </h2>
         <p className="m-0 text-[13px] text-[var(--cream-35)]">
-          {hl.length} {dilu(hl.length)} od nejnovějšího · celé díly na Forendors, ▶ část zdarma na YouTube
+          {hl.length} {dilu(hl.length)} od nejnovějšího · celé díly na Forendors
         </p>
       </div>
       <div className="flex flex-col">
@@ -310,11 +310,6 @@ export function ClanekDily({ cl, dily, slug, nazev }: { cl: Clanek; dily: Epizod
                         </a>
                       ) : (
                         e.t
-                      )}
-                      {e.yt && (
-                        <a href={`https://youtu.be/${e.yt}`} target="_blank" rel="noopener noreferrer" aria-label="Část zdarma na YouTube" title="Část zdarma na YouTube" className="ml-2 text-[11px] text-[var(--gold)]">
-                          ▶
-                        </a>
                       )}
                     </span>
                     {e.m ? <span className="text-[12px] text-[var(--cream-35)]">{delka(e.m)}</span> : null}
