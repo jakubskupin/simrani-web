@@ -237,7 +237,8 @@ export function ClanekTelo({ cl, slug }: { cl: Clanek; slug: string }) {
 }
 
 /** Pod článkem: kdo o tom v podcastu mluvil (cesta na medailonky) a související pojmy (zpětné odkazy jako v Roamu). */
-export function ClanekLideASouvisi({ lide, dily, slug }: { lide: Clovek[]; dily: Epizoda[]; slug: string }) {
+export function ClanekLideASouvisi({ lide: vsichni, dily, slug, vynech = [] }: { lide: Clovek[]; dily: Epizoda[]; slug: string; vynech?: string[] }) {
+  const lide = vsichni.filter((l) => !vynech.includes(hostPodleJmena(l.jmeno, l.dily)?.slug || ""));  // kdo je v Kam se obrátit, tady se neopakuje
   const spolu = new Map<string, number>();
   for (const e of dily) for (const p of e.p) if (p !== slug) spolu.set(p, (spolu.get(p) || 0) + 1);
   const souvisi = [...spolu.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
@@ -325,6 +326,51 @@ export function ClanekDily({ cl, dily, slug, nazev }: { cl: Clanek; dily: Epizod
           #{nazev} zazní i v {zbytek === 1 ? "dalším 1 dílu" : `dalších ${zbytek} dílech`} → katalog
         </Link>
       )}
+    </section>
+  );
+}
+
+
+/** Kam se obrátit (Jakub 26. 11. 2026): lidé z podcastu, u kterých jde pojem zkusit. Díl vede vždy na Forendors. */
+type HostWeb = { slug: string; web?: string | null };
+export function ClanekKam({ kam }: { kam: NonNullable<Clanek["kam"]>; nazev?: string }) {
+  if (!kam.length) return null;
+  const weby = Object.fromEntries(((archivData as unknown as { hoste?: HostWeb[] }).hoste || []).map((h) => [h.slug, h.web || null]));
+  const epizody = (archivData as unknown as { epizody: Epizoda[] }).epizody;
+  return (
+    <section className="flex flex-col gap-4 pt-8 border-t border-[var(--gold-10)]">
+      <div className="flex flex-col gap-2">
+        <h2 className="m-0 font-headline font-normal text-[28px] md:text-[36px] leading-[1.15] text-[var(--cream)]">Kam se obrátit</h2>
+        <p className="m-0 text-[15px] leading-[1.55] text-[var(--cream-60)]">Lidé z podcastu, u kterých si to můžete zkusit. Mluvila jsem s nimi v Šimrání, celý rozhovor najdete na Forendors.</p>
+      </div>
+      <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
+        {kam.map((k) => {
+          const h = HOSTE_LITE.find((x) => x.slug === k.slug);
+          if (!h) return null;
+          const web = weby[k.slug];
+          const dil = epizody.find((e) => e.n === k.dil);
+          return (
+            <li key={k.slug} className="flex gap-4 items-start px-4 md:px-5 py-4 bg-[var(--wine-bg)] rounded-[4px]">
+              <Link href={`/host/${h.slug}`} className="shrink-0" aria-label={`Medailonek: ${h.jmeno}`}>
+                {h.foto ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={h.foto} alt="" width={56} height={56} className="rounded-full object-cover" style={{ width: 56, height: 56 }} />
+                ) : (
+                  <Monogram jmeno={h.jmeno} size={56} />
+                )}
+              </Link>
+              <div className="flex flex-col gap-1.5 min-w-0">
+                <Link href={`/host/${h.slug}`} className="font-headline text-[20px] leading-[1.2] text-[var(--cream)] hover:text-[var(--gold)]">{h.jmeno}</Link>
+                <p className="m-0 text-[14px] leading-[1.5] text-[var(--cream-60)]">{k.co}</p>
+                <div className="flex flex-wrap gap-x-5 gap-y-1 text-[13px]">
+                  {web && (<a href={web} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline decoration-[var(--gold-25)] underline-offset-4 hover:decoration-[var(--gold)]">{web.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} ↗</a>)}
+                  {dil?.fo && (<a href={dil.fo} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] underline decoration-[var(--gold-25)] underline-offset-4 hover:decoration-[var(--gold)]">{k.dil}. díl na Forendors ▸</a>)}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }

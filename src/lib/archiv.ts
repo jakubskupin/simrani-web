@@ -39,6 +39,8 @@ export type Clanek = {
   grafy: Record<string, Graf>;
   vyzkumy?: Record<string, Vyzkum>;
   cta?: { zacni: number; popisek: string };
+  /** Kam se obrátit: lidé z podcastu, u kterých jde pojem zkusit (Jakub 26. 11. 2026, schvaluje Markéta). */
+  kam?: { slug: string; co: string; dil: number }[];
   dily_hlavne?: string[];
   dily_hlavne_pozn?: string;
 };

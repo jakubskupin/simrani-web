@@ -7,7 +7,7 @@ import { HACKY, DETAIL, ROKY, HOSTE_LITE, NAHLED, hacek, dilyHacku, stitekDilu, 
 import { HostOdkaz } from "@/components/HostAvatar";
 import { prolinkuj } from "@/lib/prolinkovani";
 import { WEB, ldJson, epizodaLd, seznamLd, drobeckyLd, pocetDilu } from "@/lib/strukturovana";
-import { ClanekHlavicka, ClanekTelo, ClanekLideASouvisi, ClanekDily, mluvci, kratkyNazev } from "./Clanek";
+import { ClanekHlavicka, ClanekTelo, ClanekLideASouvisi, ClanekDily, ClanekKam, mluvci, kratkyNazev } from "./Clanek";
 
 const dilu = (n: number) => (n === 1 ? "díl" : n >= 2 && n <= 4 ? "díly" : "dílů");
 
@@ -201,7 +201,8 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                 lidi={new Set(cl.opory.map((o) => mluvci(o).jmeno)).size}
               />
               <ClanekTelo cl={cl} slug={slug} />
-              <ClanekLideASouvisi lide={d?.lide || []} dily={dily} slug={slug} />
+              <ClanekKam kam={cl.kam || []} nazev={kratkyNazev(slug, h.nazev)} />
+              <ClanekLideASouvisi lide={d?.lide || []} dily={dily} slug={slug} vynech={(cl.kam || []).map((k) => k.slug)} />
               <ClanekDily cl={cl} dily={dily} slug={slug} nazev={kratkyNazev(slug, h.nazev)} />
               <ForendorsBox pojem={kratkyNazev(slug, h.nazev)} pocet={dily.filter((e) => (cl.dily_hlavne || []).includes(e.t)).length || dily.length} hlavne={!!cl.dily_hlavne?.length} zacni={zacni} />
             </article>
