@@ -137,7 +137,7 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
                             </span>
                           )}
                           <span>{typeof c.dil === "number" ? `${c.dil}. díl` : c.dil}</span>
-                          {/youtu/.test(c.odkaz) ? (
+                          {/youtu|spotify/.test(c.odkaz) ? (
                             <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:underline tabular-nums">
                               {c.kotva} ▸
                             </a>

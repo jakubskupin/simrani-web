@@ -115,7 +115,7 @@ export default async function HostPage({ params }: { params: Promise<{ slug: str
                       ))}
                     <span>{typeof c.dil === "number" ? `${c.dil}. díl` : c.dil}</span>
                     <a href={c.odkaz} target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:underline tabular-nums">
-                      {/youtu/.test(c.odkaz) ? `poslechni od ${c.kotva} ▸` : `celý díl, čas ${c.kotva} ▸`}
+                      {/youtu|spotify/.test(c.odkaz) ? `poslechni od ${c.kotva} ▸` : `celý díl, čas ${c.kotva} ▸`}
                     </a>
                   </figcaption>
                 </figure>

@@ -14,7 +14,7 @@ const PRAVIDLA: [string, RegExp][] = (
     ["swingers", "swing\\p{L}*"],
     ["trojka", "troj[kc]\\p{L}*"],
     ["zarlivost", "žárliv\\p{L}*"],
-    ["nevera", "nevě[rř]\\p{L}*"],
+    ["nevera", "nevěr\\p{L}*|nevěře(?!\\p{L})"],  // ne „nevěřte“ (Jakub 26. 11. 2026)
     ["komunikace", "komunikac\\p{L}*"],
     ["rozvod", "rozv(?:od|ed)\\p{L}*|rozchod\\p{L}*"],
     ["randeni", "randě\\p{L}*|seznamov\\p{L}*"],

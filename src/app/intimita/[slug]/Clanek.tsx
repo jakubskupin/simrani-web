@@ -65,7 +65,7 @@ export function ClanekHlavicka({ nazev, kicker, cl, roky, lidi, dilu }: { nazev:
 }
 
 /** Kam vede odkaz opory: minuta na YouTube, nebo díl na Forendors (citace z placené části a ze starých dílů). */
-const kam = (url: string) => (url.includes("forendors") ? "Forendors" : "YouTube");
+const kam = (url: string) => (url.includes("forendors") ? "Forendors" : url.includes("spotify") ? "Spotify" : "YouTube");
 
 /** Čip za citovanou větou (pen.dev 11b): tvář, jméno a čas, vede na minutu na YouTube. U Markéty jen čas, článek píše ona. */
 function Cip({ o }: { o: Opora }) {
