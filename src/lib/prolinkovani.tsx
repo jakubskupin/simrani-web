@@ -41,15 +41,32 @@ const PRAVIDLA: [string, RegExp][] = (
   ] as [string, string][]
 ).map(([s, r]) => [s, new RegExp(L + r, "iu")]);
 
+/** Místa z průvodce /intimita/mista: název → kotva (Jakub 27. 11. 2026). Velká písmena povinná, ať se nechytá „alternativa“ nebo subspace jako stav. */
+const MISTA: [string, RegExp][] = (
+  [
+    ["intimity-festival", "Intimity (?:Festival|Stage)\\p{L}*"],
+    ["festival-transformace", "Festival\\p{L}* [Tt]ransformac\\p{L}*"],
+    ["alterno", "Altern(?:o|a|u|em|ě)(?!\\p{L})"],
+    ["prague-fetish-weekend", "(?:Prague )?Fetish Weekend\\p{L}*|PFW(?!\\p{L})"],
+    ["tartaros", "Tartaros\\p{L}*"],
+    ["subspace", "Subspace(?: studi\\p{L}*)?(?!\\p{L})"],
+    ["le-velour", "Le Velour"],
+    ["klubovna-ostrava", "Klubovn\\p{L}* Ostrav\\p{L}*"],
+  ] as [string, string][]
+).map(([s, r]) => [s, new RegExp(L + r, "u")]);
+
 export const hrefPojmu = (slug: string) => (STRANKY.has(slug) ? `/intimita/${slug}` : `/intimita?pojem=${slug}`);
 
 /** Vrátí text s odkazy z prvního výskytu každého pojmu; `vynech` = pojem stránky, na které text stojí. */
 export function prolinkuj(text: string, vynech?: string): ReactNode {
-  const hits: { i: number; len: number; slug: string }[] = [];
+  const hits: { i: number; len: number; slug: string; href: string }[] = [];
+  const pridej = (m: RegExpExecArray | null, slug: string, href: string) => {
+    if (m && !hits.some((h) => m.index < h.i + h.len && h.i < m.index + m[0].length)) hits.push({ i: m.index, len: m[0].length, slug, href });
+  };
+  if (vynech !== "mista") for (const [id, rx] of MISTA) pridej(rx.exec(text), "misto-" + id, `/intimita/mista#${id}`);  // místa mají přednost
   for (const [slug, rx] of PRAVIDLA) {
     if (slug === vynech) continue;
-    const m = rx.exec(text);
-    if (m && !hits.some((h) => m.index < h.i + h.len && h.i < m.index + m[0].length)) hits.push({ i: m.index, len: m[0].length, slug });
+    pridej(rx.exec(text), slug, hrefPojmu(slug));
   }
   if (!hits.length) return text;
   hits.sort((a, b) => a.i - b.i);
@@ -58,7 +75,7 @@ export function prolinkuj(text: string, vynech?: string): ReactNode {
   for (const h of hits) {
     if (h.i > pos) out.push(text.slice(pos, h.i));
     out.push(
-      <Link key={h.slug + h.i} href={hrefPojmu(h.slug)} className="text-[var(--gold)] underline decoration-[var(--gold)] decoration-1 underline-offset-4 hover:text-[var(--cream)]">
+      <Link key={h.slug + h.i} href={h.href} className="text-[var(--gold)] underline decoration-[var(--gold)] decoration-1 underline-offset-4 hover:text-[var(--cream)]">
         {text.slice(h.i, h.i + h.len)}
       </Link>,
     );

@@ -44,7 +44,11 @@ export type Clanek = {
   dily_hlavne?: string[];
   dily_hlavne_pozn?: string;
 };
-export type Detail = { pohled: { text: string; opora: string[] }; lide: Clovek[]; citace: Citace[]; clanek?: Clanek };
+export type MistoDil = { n: number | null; t: string; fo: string | null };
+export type Misto = { id: string; nazev: string; typ?: string; mesto?: string; co?: string; lide?: string[]; web?: string; dily: MistoDil[] };
+/** Průvodce místy na /intimita/mista (Jakub 27. 11. 2026). */
+export type Pruvodce = { perex: string; mista: Misto[]; dalsi: Misto[] };
+export type Detail = { pohled: { text: string; opora: string[] }; lide: Clovek[]; citace: Citace[]; clanek?: Clanek; pruvodce?: Pruvodce };
 
 /** Návrhy textů (stav „návrh…“) a obrázky bez svolení autora jen v lokálním náhledu nebo s NEXT_PUBLIC_NAHLED=1. */
 export const NAHLED = process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_NAHLED === "1";

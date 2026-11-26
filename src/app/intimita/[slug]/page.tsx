@@ -8,6 +8,7 @@ import { HostOdkaz } from "@/components/HostAvatar";
 import { prolinkuj } from "@/lib/prolinkovani";
 import { WEB, ldJson, epizodaLd, seznamLd, drobeckyLd, pocetDilu } from "@/lib/strukturovana";
 import { ClanekHlavicka, ClanekTelo, ClanekLideASouvisi, ClanekDily, ClanekKam, mluvci, kratkyNazev } from "./Clanek";
+import { MistaPruvodce, type MistoView } from "./MistaPruvodce";
 
 const dilu = (n: number) => (n === 1 ? "díl" : n >= 2 && n <= 4 ? "díly" : "dílů");
 
@@ -37,6 +38,9 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
   /* článek (POJEM-CLANEK.md): návrh textu jen v lokálním náhledu, schválený i na webu */
   const cl = d?.clanek && (!d.clanek.stav.startsWith("návrh") || NAHLED) ? d.clanek : undefined;
   const dily = dilyHacku(slug);
+  const pr = d?.pruvodce;
+  const mistaView = (lst: NonNullable<typeof pr>["mista"]): MistoView[] =>
+    lst.map((m) => ({ ...m, lide: (m.lide || []).flatMap((s) => { const x = HOSTE_LITE.find((y) => y.slug === s); return x ? [{ slug: x.slug, jmeno: x.jmeno, foto: x.foto }] : []; }) }));
   const max = Math.max(1, ...Object.values(h.roky));
   const prvni = ROKY.find((y) => h.roky[String(y)] > 0);
   const cesta = `/intimita/${slug}`;
@@ -189,7 +193,23 @@ export default async function HacekPage({ params }: { params: Promise<{ slug: st
           <AbecedaPanel aktivni={slug} />
         </aside>
 
-        {cl ? (
+        {pr ? (
+          <div className="min-w-0">
+            <article className="flex flex-col gap-10 md:gap-12 min-w-0 max-w-[920px]">
+              <header className="flex flex-col gap-5">
+                <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--gold)]">{kicker}</div>
+                <h1 className="font-headline font-normal text-[40px] md:text-[76px] leading-[1] text-[var(--cream)]">
+                  <span className="text-[var(--gold)] font-light">#</span>
+                  {h.nazev}
+                </h1>
+                <p className="m-0 font-headline text-[20px] md:text-[24px] leading-[1.4] text-[var(--cream)] max-w-[760px]">{pr.perex}</p>
+              </header>
+              <MistaPruvodce mista={mistaView(pr.mista)} dalsi={mistaView(pr.dalsi)} />
+              {rokPoRoku}
+              <ForendorsBox pojem={kratkyNazev(slug, h.nazev)} pocet={dily.length} />
+            </article>
+          </div>
+        ) : cl ? (
           <div className="min-w-0">
             <article className="flex flex-col gap-12 md:gap-14 min-w-0 max-w-[760px]">
               <ClanekHlavicka
