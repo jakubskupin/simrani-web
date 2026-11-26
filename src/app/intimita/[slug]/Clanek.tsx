@@ -237,41 +237,25 @@ export function ClanekTelo({ cl, slug }: { cl: Clanek; slug: string }) {
 }
 
 /** Pod článkem: kdo o tom v podcastu mluvil (cesta na medailonky) a související pojmy (zpětné odkazy jako v Roamu). */
-export function ClanekLideASouvisi({ lide: vsichni, dily, slug, vynech = [] }: { lide: Clovek[]; dily: Epizoda[]; slug: string; vynech?: string[] }) {
-  const lide = vsichni.filter((l) => !vynech.includes(hostPodleJmena(l.jmeno, l.dily)?.slug || ""));  // kdo je v Kam se obrátit, tady se neopakuje
+/** Pod článkem jen Souvisí. Řada „Kdo o tom v podcastu mluvil“ na stránkách s článkem není (Jakub 27. 11. 2026): lidi citujeme v textu a výběr je v Kam se obrátit. */
+export function ClanekLideASouvisi({ dily, slug }: { lide?: Clovek[]; dily: Epizoda[]; slug: string; vynech?: string[] }) {
   const spolu = new Map<string, number>();
   for (const e of dily) for (const p of e.p) if (p !== slug) spolu.set(p, (spolu.get(p) || 0) + 1);
   const souvisi = [...spolu.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
   const nadpis = "text-[10px] tracking-[3px] uppercase text-[var(--cream-35)] m-0 font-normal";
+  if (!souvisi.length) return null;
   return (
     <div className="flex flex-col gap-8 pt-8 border-t border-[var(--gold-10)]">
-      {lide.length > 0 && (
-        <section className="flex flex-col gap-3.5">
-          <h2 className={nadpis}>Kdo o tom v podcastu mluvil · {lide.length}</h2>
-          <ul className="list-none p-0 m-0 flex flex-wrap gap-x-5 gap-y-3">
-            {lide.map((l) => {
-              const h = hostPodleJmena(l.jmeno, l.dily);
-              return (
-                <li key={l.jmeno} className="text-[14px]">
-                  {h ? <HostOdkaz h={h} jmeno={l.jmeno} size={30} /> : (<span className="inline-flex items-center gap-2 text-[var(--cream-60)]"><Monogram jmeno={l.jmeno} size={30} />{l.jmeno}</span>)}
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      )}
-      {souvisi.length > 0 && (
-        <section className="flex flex-col gap-3.5">
-          <h2 className={nadpis}>Souvisí</h2>
-          <div className="flex flex-wrap gap-2">
-            {souvisi.map(([p, n]) => (
-              <Link key={p} href={`/intimita/${p}`} title={`${n} společných dílů`} className="px-3 py-1 rounded-full border border-[var(--gold-25)] text-[13px] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-colors">
-                #{LABEL[p] ?? p} <span className="opacity-60 tabular-nums">{n}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
+      <section className="flex flex-col gap-3.5">
+        <h2 className={nadpis}>Souvisí</h2>
+        <div className="flex flex-wrap gap-2">
+          {souvisi.map(([p, n]) => (
+            <Link key={p} href={`/intimita/${p}`} title={`${n} společných dílů`} className="px-3 py-1 rounded-full border border-[var(--gold-25)] text-[13px] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--deep)] transition-colors">
+              #{LABEL[p] ?? p} <span className="opacity-60 tabular-nums">{n}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
