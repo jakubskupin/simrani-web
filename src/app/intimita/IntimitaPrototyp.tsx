@@ -105,6 +105,13 @@ export function IntimitaPrototyp() {
           >
             Všechny díly <span className="text-[12px] opacity-70 tabular-nums">{EPS.length}</span>
           </button>
+          {/* Hosté i tady, ať panel katalogu odpovídá panelu na stránkách pojmů (Jakub 26. 11. 2026) */}
+          <Link
+            href="/host"
+            className="shrink-0 flex items-baseline justify-between gap-3 text-left px-3.5 md:px-3 py-1.5 md:py-2 md:-mt-5 rounded-full md:rounded-[4px] text-[14px] md:text-[15px] whitespace-nowrap border border-[var(--gold-10)] md:border-0 text-[var(--cream-60)] hover:text-[var(--cream)] hover:bg-[var(--gold-06)] transition-colors"
+          >
+            Hosté <span className="text-[12px] opacity-70 tabular-nums">{HOSTE_LITE.length}</span>
+          </Link>
           {OBLASTI.map((o) => (
             <div key={o.nazev} className="flex md:flex-col items-center md:items-stretch gap-2 md:gap-0.5 shrink-0">
               <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-[var(--cream-35)] md:mb-1.5 whitespace-nowrap">{o.nazev}</div>
